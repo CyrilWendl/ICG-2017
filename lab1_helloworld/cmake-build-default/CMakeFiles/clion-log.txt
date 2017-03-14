@@ -1,0 +1,17 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE= -G "CodeBlocks - Unix Makefiles" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld"
+CMake Error at CMakeLists.txt:11 (deploy_shaders_to_build_dir):
+  Unknown CMake command "deploy_shaders_to_build_dir".
+
+
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.6)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeOutput.log".
