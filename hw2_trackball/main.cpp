@@ -103,7 +103,7 @@ mat4 LookAt(vec3 eye, vec3 center, vec3 up) {
 void Init() {
     // sets background color
     glClearColor(0.937, 0.937, 0.937 /*gray*/, 1.0 /*solid*/);
-    
+
     cube.Init();
     grid.Init();
 
@@ -117,7 +117,7 @@ void Init() {
     view_matrix = LookAt(vec3(2.0f, 2.0f, 4.0f),
                          vec3(0.0f, 0.0f, 0.0f),
                          vec3(0.0f, 1.0f, 0.0f));
-    // view_matrix = translate(mat4(1.0f), vec3(0.0f, 0.0f, -4.0f));
+    view_matrix = translate(mat4(1.0f), vec3(0.0f, 0.0f, -4.0f));
 
     trackball_matrix = IDENTITY_MATRIX;
 
@@ -175,7 +175,8 @@ void MousePos(GLFWwindow* window, double x, double y) {
         // TODO 3: Calculate 'trackball_matrix' given the return value of
         // trackball.Drag(...) and the value stored in 'old_trackball_matrix'.
         // See also the mouse_button(...) function.
-        // trackball_matrix = ...
+        //trackball_matrix =  trackball.Drag(p.x, p.y) *  old_trackball_matrix;
+        trackball_matrix =  old_trackball_matrix * trackball.Drag(p.x, p.y);
     }
 
     // zoom
@@ -184,7 +185,10 @@ void MousePos(GLFWwindow* window, double x, double y) {
         // moving the mouse cursor up and down (along the screen's y axis)
         // should zoom out and it. For that you have to update the current
         // 'view_matrix' with a translation along the z axis.
-        // view_matrix = ...
+        vec2 p = TransformScreenCoords(window, x, y);
+        /**float distance_squared = (p.x - trackball.anchor_pos_.x) * (p.x - trackball.anchor_pos_.x)  + (p.y - trackball.anchor_pos_.y) * (p.y - trackball.anchor_pos_.y) ;
+        float distance = sqrt(distance_squared);*/
+        //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, 0.25 * p.y));
     }
 }
 
