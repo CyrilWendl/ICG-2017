@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="icg17"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\common\;CMake Files\hw2p3_planets\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="common_headers">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 common_headers"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hw2p3_planets">
+				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets/hw2p3_planets" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DGLEW_STATIC"/>
+					<Add option="-DGLM_FORCE_RADIANS"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/external"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 hw2p3_planets"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hw2p3_planets/fast">
+				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets/hw2p3_planets" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DGLEW_STATIC"/>
+					<Add option="-DGLM_FORCE_RADIANS"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/external"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 hw2p3_planets/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="copy_shaders_hw2p3_planets">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 copy_shaders_hw2p3_planets"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/check_error_gl.h">
+			<Option target="common_headers"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/icg_helper.h">
+			<Option target="common_headers"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/stb_image.h">
+			<Option target="common_headers"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/tiny_obj_loader.h">
+			<Option target="common_headers"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/main.cpp">
+			<Option target="hw2p3_planets"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/quad/quad.h">
+			<Option target="hw2p3_planets"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/quad/quad_fshader.glsl">
+			<Option target="hw2p3_planets"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/quad/quad_vshader.glsl">
+			<Option target="hw2p3_planets"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/icg_settings.cmake">
+			<Option virtualFolder="CMake Files\common\"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLFW3.cmake">
+			<Option virtualFolder="CMake Files\common\"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLEW.cmake">
+			<Option virtualFolder="CMake Files\common\"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLM.cmake">
+			<Option virtualFolder="CMake Files\common\"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\hw2p3_planets\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
