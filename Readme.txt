@@ -58,6 +58,8 @@ A new projection mat4 PerspectiveProjection was created to implement the OpenGL 
 The projection was then created via projection_matrix = PerspectiveProjection(-right, right, -top, top, 3.0f, -3.0f), similar to the orthographic projection created in class. Notice the change in the near and far coordinates, which have inverted signs compared to the initialization of the orthogonal projection matrix. This is due to the fact that we map each point to a cube, using a left-handed coordinate system.
 
 *Ex 2: Trackball *
+First we implement the function ProjectOntoSurface to be able to project points onto the sphere surface, by correctly calculating the corresponding z coordinate in terms of x, y and the sphere radius. Then to calculate the rotation matrix in function of the dragged mouse cursor in the Drag function, we take the cross product and the arcos of the dot product of the anchor position and the current position to get the rotation axis and the magnitude of rotation respectively. Finally we get to apply all this in the main program and get the trackball. 
+
 
 *Ex 3: Waves *
 Triangle meshing:
