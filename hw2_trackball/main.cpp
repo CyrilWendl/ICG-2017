@@ -186,9 +186,17 @@ void MousePos(GLFWwindow* window, double x, double y) {
         // should zoom out and it. For that you have to update the current
         // 'view_matrix' with a translation along the z axis.
         vec2 p = TransformScreenCoords(window, x, y);
-        /**float distance_squared = (p.x - trackball.anchor_pos_.x) * (p.x - trackball.anchor_pos_.x)  + (p.y - trackball.anchor_pos_.y) * (p.y - trackball.anchor_pos_.y) ;
-        float distance = sqrt(distance_squared);*/
-        //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, 0.25 * p.y));
+        float prev_y = 0.0f;
+        float z_factor = 0.0f;
+        if(p.y > prev_y) {
+            z_factor = 0.1f;
+        } else if(p.y < prev_y) {
+            z_factor = -0.1f;
+        } else {
+            z_factor = 0.0f;
+        }
+        prev_y = p.y;
+        view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, z_factor));
     }
 }
 
