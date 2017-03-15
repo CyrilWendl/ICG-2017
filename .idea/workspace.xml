@@ -8,15 +8,15 @@
       <config projectName="icg17" targetName="hw2p1_spiral" />
       <config projectName="icg17" targetName="copy_shaders_hw2p2_checkerboard" />
       <config projectName="icg17" targetName="hw2p2_checkerboard" />
-      <config projectName="icg17" targetName="copy_shaders_lab1_helloworld" />
-      <config projectName="icg17" targetName="lab1_helloworld" />
-      <config projectName="icg17-private" targetName="copy_shaders_lab3_opengl3d" />
-      <config projectName="icg17-private" targetName="hw2_trackball" />
       <config projectName="icg17" targetName="copy_shaders_hw2p3_planets" />
+      <config projectName="icg17" targetName="lab1_helloworld" />
+      <config projectName="icg17-private" targetName="hw2_trackball" />
+      <config projectName="icg17-private" targetName="hw2p3_planets" />
+      <config projectName="icg17-private" targetName="copy_shaders_lab3_opengl3d" />
       <config projectName="icg17" targetName="common_headers" />
+      <config projectName="icg17" targetName="copy_shaders_lab1_helloworld" />
       <config projectName="icg17" targetName="hw2p3_planets" />
       <config projectName="icg17" targetName="copy_shaders_lab2_intro_to_glsl" />
-      <config projectName="icg17-private" targetName="hw2p3_planets" />
       <config projectName="icg17" targetName="lab2_intro_to_glsl" />
     </generated>
   </component>
@@ -26,8 +26,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="Readme added">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw2_trackball/CMakeFiles/hw2_trackball.dir/main.cpp.o" afterPath="$PROJECT_DIR$/build/hw2_trackball/CMakeFiles/hw2_trackball.dir/main.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw2_trackball/hw2_trackball" afterPath="$PROJECT_DIR$/build/hw2_trackball/hw2_trackball" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -57,11 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2_trackball/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="165" column="23" lean-forward="false" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="23" />
+            <state relative-caret-position="2490">
+              <caret line="211" column="4" lean-forward="false" selection-start-line="211" selection-start-column="4" selection-end-line="211" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hw2p1_spiral/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="68" column="63" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -70,8 +82,8 @@
       <file leaf-file-name="trackball.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2_trackball/trackball.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="658">
-              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="1020">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,6 +107,7 @@
       <find>new</find>
       <find>colormap</find>
       <find>g</find>
+      <find>zoom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,11 +122,11 @@
         <option value="$PROJECT_DIR$/lab2_intro_to_glsl/triangle/triangle.h" />
         <option value="$PROJECT_DIR$/hw2p2_checkerboard/quad/quad_fshader.glsl" />
         <option value="$PROJECT_DIR$/hw2p3_planets/main.cpp" />
-        <option value="$PROJECT_DIR$/hw2_trackball/main.cpp" />
         <option value="$PROJECT_DIR$/lab1_helloworld/main.cpp" />
-        <option value="$PROJECT_DIR$/hw2p1_spiral/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/hw2_trackball/trackball.h" />
+        <option value="$PROJECT_DIR$/hw2_trackball/main.cpp" />
+        <option value="$PROJECT_DIR$/hw2p1_spiral/main.cpp" />
       </list>
     </option>
   </component>
@@ -126,7 +139,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="834" />
+    <option name="height" value="837" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -529,12 +542,21 @@
       <workItem from="1489321385404" duration="2217000" />
       <workItem from="1489324618836" duration="228000" />
       <workItem from="1489397140907" duration="74000" />
-      <workItem from="1489531067423" duration="647000" />
+      <workItem from="1489531067423" duration="1163000" />
+      <workItem from="1489580986771" duration="872000" />
     </task>
+    <task id="LOCAL-00001" summary="Trackball added, zoom not working">
+      <created>1489532261676</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1489532261676</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27928000" />
+    <option name="totallyTimeSpent" value="29316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,21 +568,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="834" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1440" height="837" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22410148" sideWeight="0.49439776" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33659217" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282123" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23603351" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32823366" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23603351" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26466382" sideWeight="0.50560224" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33519554" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -574,6 +596,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Trackball added, zoom not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trackball added, zoom not working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -906,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p1_spiral/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="74" column="45" lean-forward="true" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab1_helloworld/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -922,8 +941,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw2_trackball/trackball.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state relative-caret-position="1020">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -938,8 +957,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw2_trackball/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="165" column="23" lean-forward="false" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="23" />
+        <state relative-caret-position="2490">
+          <caret line="211" column="4" lean-forward="false" selection-start-line="211" selection-start-column="4" selection-end-line="211" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2p1_spiral/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="68" column="63" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="63" />
           <folding />
         </state>
       </provider>
