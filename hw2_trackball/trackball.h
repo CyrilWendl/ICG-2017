@@ -52,7 +52,8 @@ private:
     // The trackball radius is given by 'radius_'.
     void ProjectOntoSurface(vec3& p) const {
         // TODO 2: Implement this function. Read above link for details.
-        float distance_squared = (p.x - anchor_pos_.x) * (p.x - anchor_pos_.x)  + (p.y - anchor_pos_.y) * (p.y - anchor_pos_.y) ;
+        //float distance_squared = (p.x - anchor_pos_.x) * (p.x - anchor_pos_.x)  + (p.y - anchor_pos_.y) * (p.y - anchor_pos_.y) ;
+        float distance_squared = p.x * p.x + p.y * p.y;
         float distance = sqrt(distance_squared);
         if(distance <= radius_) {
             p.z = sqrt(radius_ * radius_ - distance_squared);
