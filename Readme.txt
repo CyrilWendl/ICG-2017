@@ -28,6 +28,7 @@ The location of rotation of spirals was then implemented in parametric form as a
 [1] http://www.mathematische-basteleien.de/spiral.htm
 
 *Ex 2: checkerboard *
+As suggested by the exercise handout, we use a sine wave to interpolate the colours and form the colored checkerboard. We see that the quad we're manipulating has a range of values 0 to 1. So we're remapping the [0,1] to [0, 2Pi] to effectively use the sine wave interpolation, while truncating negative values from the sine so we get valid colors from the color map provided. The checkerboard is 10x10 squares, with the interpolation acting over two consecutive squares. So basically we need to set the frequency of the sine wave to 5 so we cant get the right pattern to 10 squares. We do this twice, one for the X axis of the checkerboard and the other for the Y axis and we combine.
 
 *Ex 3: planets *
 
