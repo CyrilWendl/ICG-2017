@@ -26,7 +26,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="Readme added">
+    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw2_trackball/CMakeFiles/hw2_trackball.dir/main.cpp.o" afterPath="$PROJECT_DIR$/build/hw2_trackball/CMakeFiles/hw2_trackball.dir/main.cpp.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw2_trackball/hw2_trackball" afterPath="$PROJECT_DIR$/build/hw2_trackball/hw2_trackball" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -546,7 +546,7 @@
       <workItem from="1489580986771" duration="872000" />
       <workItem from="1489612576906" duration="75000" />
       <workItem from="1489652038680" duration="231000" />
-      <workItem from="1489652546842" duration="96000" />
+      <workItem from="1489652546842" duration="126000" />
     </task>
     <task id="LOCAL-00001" summary="Trackball added, zoom not working">
       <created>1489532261676</created>
@@ -555,11 +555,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489532261676</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Zip file of week 2 added and readme containing only the part of week 2">
+      <created>1489652667557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1489652667557</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29718000" />
+    <option name="totallyTimeSpent" value="29748000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -620,7 +627,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Trackball added, zoom not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trackball added, zoom not working" />
+    <MESSAGE value="Zip file of week 2 added and readme containing only the part of week 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zip file of week 2 added and readme containing only the part of week 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
