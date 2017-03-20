@@ -110,6 +110,8 @@ class Mesh : public Material, public Light {
             // textures
             // TODO
             // TODO 2.1 bind texture_1d_id_ for toon shading
+            GLint texture_id = glGetUniformLocation(program_id, "tex1D");
+            glUniform1i(texture_id, texture_1d_id_);
             // TODO 3.1 bind texture_2d_id_ for artistic shading
         }
 
