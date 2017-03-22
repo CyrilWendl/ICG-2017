@@ -2,7 +2,10 @@
 -- Intro to Graphics - Loading Common Configuration
 -- Found GLFW3: /usr/local/lib/libglfw.dylib
 -- Found GLEW: /usr/local/lib/libGLEW.dylib
--- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2_trackball/grid/grid_texture.tga to build folder
+-- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw3_shading/quad/quad_texture.tga to build folder
+-- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw3_shading/mesh/cube.obj to build folder
+-- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw3_shading/mesh/sphere.obj to build folder
+-- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw3_shading/mesh/tangle_cube.obj to build folder
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build

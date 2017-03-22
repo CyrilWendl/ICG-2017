@@ -41,7 +41,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../common/FindGLFW3.cmake"
   "../common/FindGLM.cmake"
   "../common/icg_settings.cmake"
-  "../hw2_trackball/CMakeLists.txt"
+  "../hw3_shading/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -53,12 +53,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "hw2_trackball/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw3_shading/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/common_headers.dir/DependInfo.cmake"
-  "hw2_trackball/CMakeFiles/hw2_trackball.dir/DependInfo.cmake"
-  "hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/DependInfo.cmake"
+  "hw3_shading/CMakeFiles/hw3_shading.dir/DependInfo.cmake"
+  "hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/DependInfo.cmake"
   )

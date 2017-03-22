@@ -92,96 +92,96 @@ clean: CMakeFiles/common_headers.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory hw2_trackball
+# Directory level rules for directory hw3_shading
 
 # Convenience name for "all" pass in the directory.
-hw2_trackball/all: hw2_trackball/CMakeFiles/hw2_trackball.dir/all
-hw2_trackball/all: hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/all
+hw3_shading/all: hw3_shading/CMakeFiles/hw3_shading.dir/all
+hw3_shading/all: hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/all
 
-.PHONY : hw2_trackball/all
+.PHONY : hw3_shading/all
 
 # Convenience name for "clean" pass in the directory.
-hw2_trackball/clean: hw2_trackball/CMakeFiles/hw2_trackball.dir/clean
-hw2_trackball/clean: hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/clean
+hw3_shading/clean: hw3_shading/CMakeFiles/hw3_shading.dir/clean
+hw3_shading/clean: hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/clean
 
-.PHONY : hw2_trackball/clean
+.PHONY : hw3_shading/clean
 
 # Convenience name for "preinstall" pass in the directory.
-hw2_trackball/preinstall:
+hw3_shading/preinstall:
 
-.PHONY : hw2_trackball/preinstall
+.PHONY : hw3_shading/preinstall
 
 #=============================================================================
-# Target rules for target hw2_trackball/CMakeFiles/hw2_trackball.dir
+# Target rules for target hw3_shading/CMakeFiles/hw3_shading.dir
 
 # All Build rule for target.
-hw2_trackball/CMakeFiles/hw2_trackball.dir/all:
-	$(MAKE) -f hw2_trackball/CMakeFiles/hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/hw2_trackball.dir/depend
-	$(MAKE) -f hw2_trackball/CMakeFiles/hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/hw2_trackball.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num=1,2 "Built target hw2_trackball"
-.PHONY : hw2_trackball/CMakeFiles/hw2_trackball.dir/all
+hw3_shading/CMakeFiles/hw3_shading.dir/all:
+	$(MAKE) -f hw3_shading/CMakeFiles/hw3_shading.dir/build.make hw3_shading/CMakeFiles/hw3_shading.dir/depend
+	$(MAKE) -f hw3_shading/CMakeFiles/hw3_shading.dir/build.make hw3_shading/CMakeFiles/hw3_shading.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num=1,2 "Built target hw3_shading"
+.PHONY : hw3_shading/CMakeFiles/hw3_shading.dir/all
 
 # Include target in all.
-all: hw2_trackball/CMakeFiles/hw2_trackball.dir/all
+all: hw3_shading/CMakeFiles/hw3_shading.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-hw2_trackball/CMakeFiles/hw2_trackball.dir/rule: cmake_check_build_system
+hw3_shading/CMakeFiles/hw3_shading.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 hw2_trackball/CMakeFiles/hw2_trackball.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 hw3_shading/CMakeFiles/hw3_shading.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 0
-.PHONY : hw2_trackball/CMakeFiles/hw2_trackball.dir/rule
+.PHONY : hw3_shading/CMakeFiles/hw3_shading.dir/rule
 
 # Convenience name for target.
-hw2_trackball: hw2_trackball/CMakeFiles/hw2_trackball.dir/rule
+hw3_shading: hw3_shading/CMakeFiles/hw3_shading.dir/rule
 
-.PHONY : hw2_trackball
-
-# clean rule for target.
-hw2_trackball/CMakeFiles/hw2_trackball.dir/clean:
-	$(MAKE) -f hw2_trackball/CMakeFiles/hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/hw2_trackball.dir/clean
-.PHONY : hw2_trackball/CMakeFiles/hw2_trackball.dir/clean
+.PHONY : hw3_shading
 
 # clean rule for target.
-clean: hw2_trackball/CMakeFiles/hw2_trackball.dir/clean
+hw3_shading/CMakeFiles/hw3_shading.dir/clean:
+	$(MAKE) -f hw3_shading/CMakeFiles/hw3_shading.dir/build.make hw3_shading/CMakeFiles/hw3_shading.dir/clean
+.PHONY : hw3_shading/CMakeFiles/hw3_shading.dir/clean
+
+# clean rule for target.
+clean: hw3_shading/CMakeFiles/hw3_shading.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir
+# Target rules for target hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir
 
 # All Build rule for target.
-hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/all:
-	$(MAKE) -f hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/depend
-	$(MAKE) -f hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num= "Built target copy_shaders_hw2_trackball"
-.PHONY : hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/all
+hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/all:
+	$(MAKE) -f hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build.make hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/depend
+	$(MAKE) -f hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build.make hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num= "Built target copy_shaders_hw3_shading"
+.PHONY : hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/all
 
 # Include target in all.
-all: hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/all
+all: hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/rule: cmake_check_build_system
+hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 0
-	$(MAKE) -f CMakeFiles/Makefile2 hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 0
-.PHONY : hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/rule
+.PHONY : hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/rule
 
 # Convenience name for target.
-copy_shaders_hw2_trackball: hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/rule
+copy_shaders_hw3_shading: hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/rule
 
-.PHONY : copy_shaders_hw2_trackball
-
-# clean rule for target.
-hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/clean:
-	$(MAKE) -f hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/clean
-.PHONY : hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/clean
+.PHONY : copy_shaders_hw3_shading
 
 # clean rule for target.
-clean: hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/clean
+hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/clean:
+	$(MAKE) -f hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build.make hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/clean
+.PHONY : hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/clean
+
+# clean rule for target.
+clean: hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/clean
 
 .PHONY : clean
 

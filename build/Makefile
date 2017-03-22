@@ -124,30 +124,30 @@ common_headers/fast:
 .PHONY : common_headers/fast
 
 #=============================================================================
-# Target rules for targets named hw2_trackball
+# Target rules for targets named hw3_shading
 
 # Build rule for target.
-hw2_trackball: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hw2_trackball
-.PHONY : hw2_trackball
+hw3_shading: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hw3_shading
+.PHONY : hw3_shading
 
 # fast build rule for target.
-hw2_trackball/fast:
-	$(MAKE) -f hw2_trackball/CMakeFiles/hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/hw2_trackball.dir/build
-.PHONY : hw2_trackball/fast
+hw3_shading/fast:
+	$(MAKE) -f hw3_shading/CMakeFiles/hw3_shading.dir/build.make hw3_shading/CMakeFiles/hw3_shading.dir/build
+.PHONY : hw3_shading/fast
 
 #=============================================================================
-# Target rules for targets named copy_shaders_hw2_trackball
+# Target rules for targets named copy_shaders_hw3_shading
 
 # Build rule for target.
-copy_shaders_hw2_trackball: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_hw2_trackball
-.PHONY : copy_shaders_hw2_trackball
+copy_shaders_hw3_shading: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_hw3_shading
+.PHONY : copy_shaders_hw3_shading
 
 # fast build rule for target.
-copy_shaders_hw2_trackball/fast:
-	$(MAKE) -f hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/build.make hw2_trackball/CMakeFiles/copy_shaders_hw2_trackball.dir/build
-.PHONY : copy_shaders_hw2_trackball/fast
+copy_shaders_hw3_shading/fast:
+	$(MAKE) -f hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build.make hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build
+.PHONY : copy_shaders_hw3_shading/fast
 
 # Help Target
 help:
@@ -158,8 +158,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... common_headers"
-	@echo "... hw2_trackball"
-	@echo "... copy_shaders_hw2_trackball"
+	@echo "... hw3_shading"
+	@echo "... copy_shaders_hw3_shading"
 .PHONY : help
 
 
