@@ -73,7 +73,7 @@ void Display() {
 
             // nice feature: add *(float)i/N_TRIANGLES for gradient
             S[0][0] = s*(float)i/N_TRIANGLES;
-            S[1][1] = s*(float)i/N_TRIANGLESx;
+            S[1][1] = s*(float)i/N_TRIANGLES;
             model[i] =  S * T * R;
             triangle.Draw(model[i]);
 

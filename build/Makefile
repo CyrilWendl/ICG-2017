@@ -124,30 +124,30 @@ common_headers/fast:
 .PHONY : common_headers/fast
 
 #=============================================================================
-# Target rules for targets named hw3_shading
+# Target rules for targets named lab5_framebuffer
 
 # Build rule for target.
-hw3_shading: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hw3_shading
-.PHONY : hw3_shading
+lab5_framebuffer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lab5_framebuffer
+.PHONY : lab5_framebuffer
 
 # fast build rule for target.
-hw3_shading/fast:
-	$(MAKE) -f hw3_shading/CMakeFiles/hw3_shading.dir/build.make hw3_shading/CMakeFiles/hw3_shading.dir/build
-.PHONY : hw3_shading/fast
+lab5_framebuffer/fast:
+	$(MAKE) -f lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build
+.PHONY : lab5_framebuffer/fast
 
 #=============================================================================
-# Target rules for targets named copy_shaders_hw3_shading
+# Target rules for targets named copy_shaders_lab5_framebuffer
 
 # Build rule for target.
-copy_shaders_hw3_shading: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_hw3_shading
-.PHONY : copy_shaders_hw3_shading
+copy_shaders_lab5_framebuffer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_lab5_framebuffer
+.PHONY : copy_shaders_lab5_framebuffer
 
 # fast build rule for target.
-copy_shaders_hw3_shading/fast:
-	$(MAKE) -f hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build.make hw3_shading/CMakeFiles/copy_shaders_hw3_shading.dir/build
-.PHONY : copy_shaders_hw3_shading/fast
+copy_shaders_lab5_framebuffer/fast:
+	$(MAKE) -f lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build
+.PHONY : copy_shaders_lab5_framebuffer/fast
 
 # Help Target
 help:
@@ -158,8 +158,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... common_headers"
-	@echo "... hw3_shading"
-	@echo "... copy_shaders_hw3_shading"
+	@echo "... lab5_framebuffer"
+	@echo "... copy_shaders_lab5_framebuffer"
 .PHONY : help
 
 

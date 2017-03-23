@@ -5,7 +5,7 @@
 		<Option title="icg17"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="clang"/>
-		<Option virtualFolders="CMake Files\;CMake Files\common\;CMake Files\hw2p3_planets\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\common\;CMake Files\lab5_framebuffer\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
@@ -47,9 +47,9 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hw2p3_planets">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets/hw2p3_planets" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets"/>
+			<Target title="lab5_framebuffer">
+				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/lab5_framebuffer/lab5_framebuffer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/lab5_framebuffer"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
@@ -66,15 +66,15 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 hw2p3_planets"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 lab5_framebuffer"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hw2p3_planets/fast">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets/hw2p3_planets" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets"/>
+			<Target title="lab5_framebuffer/fast">
+				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/lab5_framebuffer/lab5_framebuffer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/lab5_framebuffer"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
@@ -91,20 +91,20 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 hw2p3_planets/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 lab5_framebuffer/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="copy_shaders_hw2p3_planets">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw2p3_planets"/>
+			<Target title="copy_shaders_lab5_framebuffer">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/lab5_framebuffer"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 copy_shaders_hw2p3_planets"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw2p3_planets/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 copy_shaders_lab5_framebuffer"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/lab5_framebuffer/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -120,17 +120,38 @@
 		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/tiny_obj_loader.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/main.cpp">
-			<Option target="hw2p3_planets"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/cube/cube.h">
+			<Option target="lab5_framebuffer"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/quad/quad.h">
-			<Option target="hw2p3_planets"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/cube/cube_fshader.glsl">
+			<Option target="lab5_framebuffer"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/quad/quad_fshader.glsl">
-			<Option target="hw2p3_planets"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/cube/cube_vshader.glsl">
+			<Option target="lab5_framebuffer"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/quad/quad_vshader.glsl">
-			<Option target="hw2p3_planets"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/framebuffer.h">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/main.cpp">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/quad/quad.h">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/quad/quad_fshader.glsl">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/quad/quad_vshader.glsl">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/screenquad/screenquad.h">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/screenquad/screenquad_fshader.glsl">
+			<Option target="lab5_framebuffer"/>
+		</Unit>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/screenquad/screenquad_vshader.glsl">
+			<Option target="lab5_framebuffer"/>
 		</Unit>
 		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
@@ -147,8 +168,8 @@
 		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLM.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw2p3_planets/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\hw2p3_planets\"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lab5_framebuffer\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
