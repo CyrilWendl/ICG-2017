@@ -67,3 +67,14 @@ Triangle meshing:
 We created the vertices starting from bottom left, upwards. Then the indices were assigned in the same order: for each vertex found, we make two triangles from it, on its right. Then we have to exclude the top and right borders vertices.
 
 For the animation we created a stationnary wave along x and y, varying in time. To make it look like water, we added another stationnary wave, plus an excitation wave (propagating wave). The result is quite resembling, if you think about a water pond that you excite throwing in some pebbles for example.
+
+
+**WEEk 3**
+*Ex 1: Phong shading*
+We compute the normal, the light and view direction and pass them to the fragment shader, where we compute the ambient, the diffuse and the specular terms to get the intensity. This allows us to get the intensity per vertex normal.
+
+*Ex 2: Toon shading*
+We use the same vertex shader as in phong vertex shader. In the toon fragment shader, we evaluate the ambient term as usual, but for the diffuse and the specular, we use the values of the dot products of our original formula to be used as coordinates to get the corresponding discrete value from the provided 1dTexture and plug it in the original formula for each of the diffuse and the specular parts. (After binding the textures of course in mesh.h)
+
+*Ex3: Artistic shading*
+The idea is as before. But in this case we bind a 2dTexture to artistic shader, and both the dot products will have to be used (as a vec2) as coordinates to access the value in the 2D texture provided.
