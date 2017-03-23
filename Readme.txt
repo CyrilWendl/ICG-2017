@@ -78,3 +78,7 @@ We use the same vertex shader as in phong vertex shader. In the toon fragment sh
 
 *Ex3: Artistic shading*
 The idea is as before. But in this case we bind a 2dTexture to artistic shader, and both the dot products will have to be used (as a vec2) as coordinates to access the value in the 2D texture provided.
+
+*Ex5: Spotlight shading*
+Here we use the same idea as for the Phong shading, but multiplying the color by a spot effect, which is calculated as the dot product between the normalized light direction and the normalized viewing direction, to the power of some exponent.
+
