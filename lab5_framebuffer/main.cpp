@@ -18,7 +18,8 @@ Quad quad;
 int window_width = 800;
 int window_height = 600;
 
-// TODO: declare Framebuffer + ScreenQuad (see slides)
+FrameBuffer framebuffer;
+ScreenQuad screenquad;
 
 using namespace glm;
 
@@ -46,18 +47,28 @@ void Init(GLFWwindow* window) {
     cube_model_matrix = scale(IDENTITY_MATRIX, vec3(0.5));
     cube_model_matrix = translate(cube_model_matrix, vec3(0.0, 0.0, 0.6));
 
-    // TODO: initialize framebuffer (see slides)
-    // TODO: initialize fullscreen quad (see slides)
+    // on retina/hidpi displays, pixels != screen coordinates
+    // this unsures that the framebuffer has the same size as the window
+    // (see http://www.glfw.org/docs/latest/window.html#window_fbsize)
+    glfwGetFramebufferSize(window, &window_width, &window_height);
+    GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
+    screenquad.Init(window_width, window_height, framebuffer_texture_id);
 }
 
 void Display() {
-    // TODO: wrap these calls so they render to a texture (see slides)
+    // render to framebuffer
+    framebuffer.Bind();
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
+        quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
+    }
+    framebuffer.Unbind();
+
+    // render to Window
+    glViewport(0, 0, window_width, window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
-    quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
-    
-    // TODO: use the fullscreen quad to draw the framebuffer texture to screen
-    //       (see slides)
+    screenquad.Draw();
 }
 
 // gets called when the windows/framebuffer is resized.
@@ -70,8 +81,11 @@ void ResizeCallback(GLFWwindow* window, int width, int height) {
 
     glViewport(0, 0, window_width, window_height);
 
-    // TODO : when the window is resized, the framebuffer and the fullscreen quad
-    //        sizes should be updated accordingly
+    // when the window is resized, the framebuffer and the screenquad
+    // should also be resized
+    framebuffer.Cleanup();
+    framebuffer.Init(window_width, window_height);
+    screenquad.UpdateSize(window_width, window_height);
 }
 
 void ErrorCallback(int error, const char* description) {
@@ -142,7 +156,8 @@ int main(int argc, char *argv[]) {
     // cleanup
     quad.Cleanup();
     cube.Cleanup();
-    // TODO: clean framebuffer and screenquad
+    framebuffer.Cleanup();
+    screenquad.Cleanup();
 
     // close OpenGL window and terminate GLFW
     glfwDestroyWindow(window);
