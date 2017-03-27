@@ -55,38 +55,7 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GL_TRUE);
     }
-    // only act on release
-    if(action != GLFW_RELEASE) {
-        return;
-    }
-    switch(key) {
-        case '0':
-            cout << "gouraud shading" << endl;
-            mesh.UseGouraudShader();
-            break;
-        case '1':
-            cout << "phong shading" << endl;
-            mesh.UsePhongShader();
-            break;
-        case '2':
-            cout << "flat shading" << endl;
-            mesh.UseFlatShader();
-            break;
-        case '3':
-            cout << "toon shading" << endl;
-            mesh.UseToonShader();
-            break;
-        case '4':
-            cout << "artistic shading" << endl;
-            mesh.UseArtisticShader();
-            break;
-        case '5':
-            cout << "spot light phong shading" << endl;
-            mesh.UseSpotLightPhongShader();
-            break;
-        default:
-            break;
-    }
+     e
 }
 
 // transforms glfw screen coordinates into normalized OpenGL coordinates.

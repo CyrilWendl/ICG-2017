@@ -14,7 +14,7 @@ class ScreenQuad {
 
     public:
         void Init(float screenquad_width, float screenquad_height,
-                  GLuint texture) {
+                  GLuint texture,float G[3]) {
 
             // set screenquad size
             this->screenquad_width_ = screenquad_width;

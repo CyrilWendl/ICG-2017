@@ -2,25 +2,26 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="icg17-private" targetName="copy_shaders_hw3_shading" />
+      <config projectName="icg17" targetName="hw2p3_planets" />
+      <config projectName="icg17" targetName="copy_shaders_hw2p1_spiral" />
       <config projectName="icg17" targetName="copy_shaders_lab5_framebuffer" />
       <config projectName="icg17-private" targetName="lab3_opengl3d" />
       <config projectName="icg17-private" targetName="copy_shaders_hw2_trackball" />
       <config projectName="icg17" targetName="hw2p1_spiral" />
-      <config projectName="icg17" targetName="copy_shaders_hw2p1_spiral" />
       <config projectName="icg17" targetName="copy_shaders_hw2p2_checkerboard" />
-      <config projectName="icg17" targetName="hw2p2_checkerboard" />
+      <config projectName="icg17" targetName="hw2_trackball" />
       <config projectName="icg17" targetName="copy_shaders_lab1_helloworld" />
       <config projectName="icg17" targetName="lab1_helloworld" />
       <config projectName="icg17-private" targetName="copy_shaders_lab3_opengl3d" />
       <config projectName="icg17-private" targetName="hw2_trackball" />
-      <config projectName="icg17-private" targetName="hw2p3_planets" />
       <config projectName="icg17" targetName="copy_shaders_hw2p3_planets" />
-      <config projectName="icg17" targetName="common_headers" />
       <config projectName="icg17-private" targetName="hw3_shading" />
-      <config projectName="icg17" targetName="hw2p3_planets" />
-      <config projectName="icg17" targetName="copy_shaders_lab2_intro_to_glsl" />
       <config projectName="icg17" targetName="lab5_framebuffer" />
+      <config projectName="icg17" targetName="hw2p2_checkerboard" />
+      <config projectName="icg17" targetName="common_headers" />
+      <config projectName="icg17" targetName="copy_shaders_lab2_intro_to_glsl" />
+      <config projectName="icg17-private" targetName="copy_shaders_hw3_shading" />
+      <config projectName="icg17-private" targetName="hw2p3_planets" />
       <config projectName="icg17" targetName="lab2_intro_to_glsl" />
     </generated>
   </component>
@@ -30,7 +31,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="" />
+    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/main.cpp.o" afterPath="$PROJECT_DIR$/build/lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/main.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lab5_framebuffer/lab5_framebuffer" afterPath="$PROJECT_DIR$/build/lab5_framebuffer/lab5_framebuffer" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/lab5_framebuffer/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/build/lab5_framebuffer/screenquad_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw3_shading/main.cpp" afterPath="$PROJECT_DIR$/hw3_shading/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/framebuffer.h" afterPath="$PROJECT_DIR$/lab5_framebuffer/framebuffer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/main.cpp" afterPath="$PROJECT_DIR$/lab5_framebuffer/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h" afterPath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +60,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <file leaf-file-name="framebuffer.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab5_framebuffer/framebuffer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab5_framebuffer/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="75" column="64" lean-forward="false" selection-start-line="75" selection-start-column="64" selection-end-line="75" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1815">
+              <caret line="121" column="9" lean-forward="false" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screenquad_fshader.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screenquad_vshader.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_vshader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -63,26 +114,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>intro</find>
-      <find>sizeof</find>
-      <find>shader</find>
-      <find>vpoint</find>
-      <find>unif</find>
-      <find>M_id</find>
-      <find>clear</find>
-      <find>color</find>
-      <find>triangle.draw</find>
-      <find>f</find>
-      <find>/*&lt;NEW&gt;*/for</find>
-      <find>new</find>
-      <find>colormap</find>
-      <find>g</find>
-      <find>zoom</find>
       <find>SpotEffe</find>
       <find>dist</find>
       <find>textu</find>
       <find>texture(</find>
       <find>trianglesx</find>
+      <find>texture</find>
+      <find>conv</find>
+      <find>convolution</find>
+      <find>luma</find>
+      <find>blur</find>
+      <find>screenqua</find>
+      <find>quad</find>
+      <find>gauss</find>
+      <find>screen</find>
+      <find>ext</find>
+      <find>buffer</find>
+      <find>UsePhong</find>
+      <find>active_program_id</find>
+      <find>key</find>
+      <find>float</find>
+      <find>BindShader</find>
+      <find>glGenRenderbuffers</find>
+      <find>attach</find>
+      <find>screenquad</find>
+      <find>1 2 1</find>
+      <find>color</find>
+      <find>sample</find>
+      <find>vtexcoord</find>
+      <find>uv</find>
+      <find>cubevertices</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,7 +166,15 @@
         <option value="$PROJECT_DIR$/hw3_shading/mesh/spot_fshader.glsl" />
         <option value="$PROJECT_DIR$/hw3_shading/mesh/art_fshader.glsl" />
         <option value="$PROJECT_DIR$/hw2p1_spiral/main.cpp" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/cube/cube.h" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/cube/cube_vshader.glsl" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/cube/cube_fshader.glsl" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/framebuffer.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h" />
+        <option value="$PROJECT_DIR$/hw3_shading/main.cpp" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" />
+        <option value="$PROJECT_DIR$/lab5_framebuffer/main.cpp" />
       </list>
     </option>
   </component>
@@ -115,6 +184,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
@@ -161,6 +231,74 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lab5_framebuffer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lab5_framebuffer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screenquad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lab5_framebuffer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cube" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hw3_shading" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hw3_shading" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mesh" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -364,10 +502,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="copy_shaders_hw2p3_planets" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17" TARGET_NAME="copy_shaders_hw2p3_planets" CONFIG_NAME="Debug">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="copy_shaders_hw2p2_checkerboard" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17" TARGET_NAME="copy_shaders_hw2p2_checkerboard" CONFIG_NAME="Debug">
       <envs />
       <method />
@@ -392,10 +526,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="hw2_trackball" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17-private" TARGET_NAME="hw2_trackball" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17-private" RUN_TARGET_NAME="hw2_trackball">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="hw2p3_planets" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17-private" RUN_TARGET_NAME="hw2_trackball" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
       <method />
@@ -404,15 +534,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="hw2p1_spiral" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17-private" RUN_TARGET_NAME="hw2p1_spiral" EXPLICIT_BUILD_TARGET_NAME="all">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="copy_shaders_hw3_shading" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17-private" TARGET_NAME="copy_shaders_hw3_shading" CONFIG_NAME="Release">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="hw3_shading" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17-private" RUN_TARGET_NAME="hw3_shading" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
       <method />
     </configuration>
@@ -424,27 +546,43 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="false" name="hw3_shading" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17" RUN_TARGET_NAME="hw3_shading" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="hw2p1_spiral" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17" RUN_TARGET_NAME="hw2p1_spiral" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="copy_shaders_hw2p3_planets" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17" TARGET_NAME="copy_shaders_hw2p3_planets" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17" RUN_TARGET_NAME="hw2p3_planets">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="hw2_trackball" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17" TARGET_NAME="hw2_trackball" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17" RUN_TARGET_NAME="hw2_trackball">
+      <envs />
+      <method />
+    </configuration>
     <list size="20">
       <item index="0" class="java.lang.String" itemvalue="Application.common_headers" />
       <item index="1" class="java.lang.String" itemvalue="Application.copy_shaders_lab1_helloworld" />
       <item index="2" class="java.lang.String" itemvalue="Application.copy_shaders_lab2_intro_to_glsl" />
       <item index="3" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="4" class="java.lang.String" itemvalue="Application.copy_shaders_hw2p1_spiral" />
-      <item index="5" class="java.lang.String" itemvalue="Application.copy_shaders_hw2p3_planets" />
-      <item index="6" class="java.lang.String" itemvalue="Application.copy_shaders_hw2p2_checkerboard" />
-      <item index="7" class="java.lang.String" itemvalue="Application.hw2p2_checkerboard" />
-      <item index="8" class="java.lang.String" itemvalue="Application.lab2_intro_to_glsl" />
-      <item index="9" class="java.lang.String" itemvalue="Application.copy_shaders_lab3_opengl3d" />
-      <item index="10" class="java.lang.String" itemvalue="Application.lab3_opengl3d" />
-      <item index="11" class="java.lang.String" itemvalue="Application.copy_shaders_hw2_trackball" />
-      <item index="12" class="java.lang.String" itemvalue="Application.hw2_trackball" />
-      <item index="13" class="java.lang.String" itemvalue="Application.hw2p3_planets" />
-      <item index="14" class="java.lang.String" itemvalue="Application.lab1_helloworld" />
-      <item index="15" class="java.lang.String" itemvalue="Application.hw2p1_spiral" />
-      <item index="16" class="java.lang.String" itemvalue="Application.copy_shaders_hw3_shading" />
-      <item index="17" class="java.lang.String" itemvalue="Application.hw3_shading" />
-      <item index="18" class="java.lang.String" itemvalue="Application.copy_shaders_lab5_framebuffer" />
-      <item index="19" class="java.lang.String" itemvalue="Application.lab5_framebuffer" />
+      <item index="5" class="java.lang.String" itemvalue="Application.copy_shaders_hw2p2_checkerboard" />
+      <item index="6" class="java.lang.String" itemvalue="Application.hw2p2_checkerboard" />
+      <item index="7" class="java.lang.String" itemvalue="Application.lab2_intro_to_glsl" />
+      <item index="8" class="java.lang.String" itemvalue="Application.copy_shaders_lab3_opengl3d" />
+      <item index="9" class="java.lang.String" itemvalue="Application.lab3_opengl3d" />
+      <item index="10" class="java.lang.String" itemvalue="Application.copy_shaders_hw2_trackball" />
+      <item index="11" class="java.lang.String" itemvalue="Application.hw2p3_planets" />
+      <item index="12" class="java.lang.String" itemvalue="Application.lab1_helloworld" />
+      <item index="13" class="java.lang.String" itemvalue="Application.copy_shaders_hw3_shading" />
+      <item index="14" class="java.lang.String" itemvalue="Application.copy_shaders_lab5_framebuffer" />
+      <item index="15" class="java.lang.String" itemvalue="Application.lab5_framebuffer" />
+      <item index="16" class="java.lang.String" itemvalue="Application.hw3_shading" />
+      <item index="17" class="java.lang.String" itemvalue="Application.hw2p1_spiral" />
+      <item index="18" class="java.lang.String" itemvalue="Application.copy_shaders_hw2p3_planets" />
+      <item index="19" class="java.lang.String" itemvalue="Application.hw2_trackball" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -498,7 +636,14 @@
       <workItem from="1490269175904" duration="45000" />
       <workItem from="1490269242566" duration="153000" />
       <workItem from="1490271265376" duration="586000" />
-      <workItem from="1490340350306" duration="114000" />
+      <workItem from="1490340350306" duration="285000" />
+      <workItem from="1490355538396" duration="572000" />
+      <workItem from="1490607855657" duration="1051000" />
+      <workItem from="1490613468670" duration="4162000" />
+      <workItem from="1490619566158" duration="683000" />
+      <workItem from="1490620594077" duration="1823000" />
+      <workItem from="1490643341725" duration="579000" />
+      <workItem from="1490648812923" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="Trackball added, zoom not working">
       <created>1489532261676</created>
@@ -525,7 +670,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38907000" />
+    <option name="totallyTimeSpent" value="47978000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,24 +685,24 @@
     <frame x="0" y="22" width="1440" height="839" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17336152" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26638478" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33287102" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259362" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36061028" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36477116" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22410148" sideWeight="0.5152838" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33287102" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24133149" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,125 +742,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/triangle/triangle_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/triangle/triangle_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/triangle/triangle_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/triangle/triangle_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" column="57" lean-forward="false" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/helloworld_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/helloworld_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/helloworld_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/helloworld_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-731">
-          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p1_spiral/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab2_intro_to_glsl/triangle/triangle.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -769,13 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p3_planets/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -842,13 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="72" column="30" lean-forward="false" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/spot_vshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -867,13 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/mesh.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="114" column="26" lean-forward="false" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -923,15 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1850">
-          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,7 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,14 +942,164 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_shading/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2p3_planets/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/quad/quad_texture.tga">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/quad/quad_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/quad/quad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="73" column="51" lean-forward="false" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/cube/cube.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3_opengl3d/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2860">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3_opengl3d/quad/quad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1698">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/gouraud_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/gouraud_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-158">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_shading/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/mesh.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/toon_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="75" column="64" lean-forward="false" selection-start-line="75" selection-start-column="64" selection-end-line="75" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="121" column="9" lean-forward="false" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/cube/cube_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/cube/cube_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/framebuffer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding />
         </state>
       </provider>

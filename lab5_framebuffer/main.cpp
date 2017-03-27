@@ -52,7 +52,8 @@ void Init(GLFWwindow* window) {
     // (see http://www.glfw.org/docs/latest/window.html#window_fbsize)
     glfwGetFramebufferSize(window, &window_width, &window_height);
     GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
-    screenquad.Init(window_width, window_height, framebuffer_texture_id);
+    float G[3] = {2*1/4,1*1/4,2*1/4};
+    screenquad.Init(window_width, window_height, framebuffer_texture_id,G);
 }
 
 void Display() {
@@ -95,6 +96,25 @@ void ErrorCallback(int error, const char* description) {
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GL_TRUE);
+    }
+    // only act on release
+    if(action != GLFW_RELEASE) {
+        return;
+    }
+    float std = 2;
+    switch(key) {
+        case 'Q':
+            cout << "Variance +0.25" << endl;
+            std=std+0.25;
+            cout << std << endl;
+            break;
+        case 'W':
+            cout << "Variance -0.25" << endl;
+            std=std-0.25;
+            cout << std << endl;
+            break;
+        default:
+            break;
     }
 }
 
