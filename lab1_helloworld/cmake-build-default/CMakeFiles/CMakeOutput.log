@@ -106,13 +106,13 @@ Parsed C implicit link information from above output:
 
 
 
-Detecting C [-std=c11] compiler features compiled with the following output:
+Detecting C [-std_=c11] compiler features compiled with the following output:
 Change Dir: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_3f80b/fast"
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_3f80b.dir/build.make CMakeFiles/cmTC_3f80b.dir/build
 Building C object CMakeFiles/cmTC_3f80b.dir/feature_tests.c.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=c11 -o CMakeFiles/cmTC_3f80b.dir/feature_tests.c.o   -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.c"
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std_=c11 -o CMakeFiles/cmTC_3f80b.dir/feature_tests.c.o   -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.c"
 Linking C executable cmTC_3f80b
 /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3f80b.dir/link.txt --verbose=1
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_3f80b.dir/feature_tests.c.o  -o cmTC_3f80b  
@@ -124,13 +124,13 @@ Linking C executable cmTC_3f80b
     Feature record: C_FEATURE:1c_variadic_macros
 
 
-Detecting C [-std=c99] compiler features compiled with the following output:
+Detecting C [-std_=c99] compiler features compiled with the following output:
 Change Dir: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_c90be/fast"
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_c90be.dir/build.make CMakeFiles/cmTC_c90be.dir/build
 Building C object CMakeFiles/cmTC_c90be.dir/feature_tests.c.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=c99 -o CMakeFiles/cmTC_c90be.dir/feature_tests.c.o   -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.c"
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std_=c99 -o CMakeFiles/cmTC_c90be.dir/feature_tests.c.o   -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.c"
 Linking C executable cmTC_c90be
 /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c90be.dir/link.txt --verbose=1
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_c90be.dir/feature_tests.c.o  -o cmTC_c90be  
@@ -142,13 +142,13 @@ Linking C executable cmTC_c90be
     Feature record: C_FEATURE:1c_variadic_macros
 
 
-Detecting C [-std=c90] compiler features compiled with the following output:
+Detecting C [-std_=c90] compiler features compiled with the following output:
 Change Dir: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_5e1ef/fast"
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_5e1ef.dir/build.make CMakeFiles/cmTC_5e1ef.dir/build
 Building C object CMakeFiles/cmTC_5e1ef.dir/feature_tests.c.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=c90 -o CMakeFiles/cmTC_5e1ef.dir/feature_tests.c.o   -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.c"
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std_=c90 -o CMakeFiles/cmTC_5e1ef.dir/feature_tests.c.o   -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.c"
 Linking C executable cmTC_5e1ef
 /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e1ef.dir/link.txt --verbose=1
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_5e1ef.dir/feature_tests.c.o  -o cmTC_5e1ef  
@@ -240,13 +240,13 @@ Parsed CXX implicit link information from above output:
 
 
 
-Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Detecting CXX [-std_=c++14] compiler features compiled with the following output:
 Change Dir: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_43111/fast"
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_43111.dir/build.make CMakeFiles/cmTC_43111.dir/build
 Building CXX object CMakeFiles/cmTC_43111.dir/feature_tests.cxx.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=c++14 -o CMakeFiles/cmTC_43111.dir/feature_tests.cxx.o -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.cxx"
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std_=c++14 -o CMakeFiles/cmTC_43111.dir/feature_tests.cxx.o -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.cxx"
 Linking CXX executable cmTC_43111
 /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43111.dir/link.txt --verbose=1
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_43111.dir/feature_tests.cxx.o  -o cmTC_43111  
@@ -311,13 +311,13 @@ Linking CXX executable cmTC_43111
     Feature record: CXX_FEATURE:1cxx_variadic_templates
 
 
-Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Detecting CXX [-std_=c++11] compiler features compiled with the following output:
 Change Dir: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_c834a/fast"
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_c834a.dir/build.make CMakeFiles/cmTC_c834a.dir/build
 Building CXX object CMakeFiles/cmTC_c834a.dir/feature_tests.cxx.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=c++11 -o CMakeFiles/cmTC_c834a.dir/feature_tests.cxx.o -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.cxx"
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std_=c++11 -o CMakeFiles/cmTC_c834a.dir/feature_tests.cxx.o -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.cxx"
 Linking CXX executable cmTC_c834a
 /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c834a.dir/link.txt --verbose=1
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_c834a.dir/feature_tests.cxx.o  -o cmTC_c834a  
@@ -382,13 +382,13 @@ Linking CXX executable cmTC_c834a
     Feature record: CXX_FEATURE:1cxx_variadic_templates
 
 
-Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Detecting CXX [-std_=c++98] compiler features compiled with the following output:
 Change Dir: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_b0f75/fast"
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_b0f75.dir/build.make CMakeFiles/cmTC_b0f75.dir/build
 Building CXX object CMakeFiles/cmTC_b0f75.dir/feature_tests.cxx.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=c++98 -o CMakeFiles/cmTC_b0f75.dir/feature_tests.cxx.o -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.cxx"
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std_=c++98 -o CMakeFiles/cmTC_b0f75.dir/feature_tests.cxx.o -c "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab1_helloworld/cmake-build-default/CMakeFiles/feature_tests.cxx"
 Linking CXX executable cmTC_b0f75
 /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0f75.dir/link.txt --verbose=1
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_b0f75.dir/feature_tests.cxx.o  -o cmTC_b0f75  

@@ -11,14 +11,18 @@ class ScreenQuad {
 
         float screenquad_width_;
         float screenquad_height_;
+        float std_;
 
     public:
         void Init(float screenquad_width, float screenquad_height,
-                  GLuint texture,float G[3]) {
+                  GLuint texture, float stdev) {
 
             // set screenquad size
             this->screenquad_width_ = screenquad_width;
             this->screenquad_height_ = screenquad_height;
+
+            // set standard deviation
+            this->std_ = 1.0;
 
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl",
@@ -100,22 +104,29 @@ class ScreenQuad {
             this->screenquad_height_ = screenquad_height;
         }
 
+        float UpdateStd(float stdev){
+            this->std_=stdev;
+            return this->std_;
+        }
         void Draw() {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
             // window size uniforms
-            glUniform1f(glGetUniformLocation(program_id_, "tex_width"),
+            glUniform1f(glGetUniformLocation(program_id_ , "tex_width") ,
                         this->screenquad_width_);
-            glUniform1f(glGetUniformLocation(program_id_, "tex_height"),
+            glUniform1f(glGetUniformLocation(program_id_ , "tex_height") ,
                         this->screenquad_height_);
+
+            glUniform1f(glGetUniformLocation(program_id_ , "std") ,
+                        this->std_);
 
             // bind texture
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, texture_id_);
+            glBindTexture(GL_TEXTURE_2D , texture_id_);
 
             // draw
-            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+            glDrawArrays(GL_TRIANGLE_STRIP , 0 , 4);
 
             glBindVertexArray(0);
             glUseProgram(0);

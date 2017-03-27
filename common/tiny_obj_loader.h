@@ -187,7 +187,7 @@ struct tag_sizes {
   int num_strings;
 };
 
-// for std::map
+// for std_::map
 static inline bool operator<(const vertex_index &a, const vertex_index &b) {
   if (a.v_idx != b.v_idx)
     return (a.v_idx < b.v_idx);
