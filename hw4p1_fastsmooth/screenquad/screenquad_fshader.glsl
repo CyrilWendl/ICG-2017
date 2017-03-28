@@ -1,5 +1,5 @@
 #version 330
-#define MODE 2
+#define MODE 1
 
 in vec2 uv;
 

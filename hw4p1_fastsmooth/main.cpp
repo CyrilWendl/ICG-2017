@@ -20,7 +20,7 @@ int window_height = 600;
 
 float stdev = 1.0f;
 
-FrameBuffer framebuffer[2];// create two framebuffers
+FrameBuffer framebuffer;// create two framebuffers
 ScreenQuad screenquad;
 
 using namespace glm;
@@ -53,29 +53,20 @@ void Init(GLFWwindow* window) {
     // this unsures that the framebuffer has the same size as the window
     // (see http://www.glfw.org/docs/latest/window.html#window_fbsize)
     glfwGetFramebufferSize(window, &window_width, &window_height);
-    GLuint framebuffer_texture_id_1 = framebuffer[0].Init(window_width, window_height);
-    GLuint framebuffer_texture_id_2 = framebuffer[0].Init(window_width, window_height);
-    screenquad.Init(window_width, window_height, framebuffer_texture_id_1,stdev);
-    screenquad.Init(window_width, window_height, framebuffer_texture_id_2,stdev);
+    GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
+    screenquad.Init(window_width, window_height, framebuffer_texture_id,stdev);
 }
 
 void Display() {
     // render to framebuffer
-    framebuffer[0].Bind();
+    framebuffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
         quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
     }
-    framebuffer[0].Unbind();
+    framebuffer.Unbind();
 
-    framebuffer[1].Bind();
-    {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
-        quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
-    }
-    framebuffer[1].Unbind();
 
     // render to Window
     glViewport(0, 0, window_width, window_height);
@@ -95,8 +86,8 @@ void ResizeCallback(GLFWwindow* window, int width, int height) {
 
     // when the window is resized, the framebuffer and the screenquad
     // should also be resized
-    framebuffer[0].Cleanup();
-    framebuffer[0].Init(window_width, window_height);
+    framebuffer.Cleanup();
+    framebuffer.Init(window_width, window_height);
     screenquad.UpdateSize(window_width, window_height);
 }
 
@@ -238,8 +229,7 @@ int main(int argc, char *argv[]) {
     // cleanup
     quad.Cleanup();
     cube.Cleanup();
-    framebuffer[0].Cleanup();
-    framebuffer[1].Cleanup();
+    framebuffer.Cleanup();
     screenquad.Cleanup();
 
     // close OpenGL window and terminate GLFW
