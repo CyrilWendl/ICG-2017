@@ -124,30 +124,30 @@ common_headers/fast:
 .PHONY : common_headers/fast
 
 #=============================================================================
-# Target rules for targets named lab5_framebuffer
+# Target rules for targets named hw4p1_fastsmooth
 
 # Build rule for target.
-lab5_framebuffer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lab5_framebuffer
-.PHONY : lab5_framebuffer
+hw4p1_fastsmooth: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth
+.PHONY : hw4p1_fastsmooth
 
 # fast build rule for target.
-lab5_framebuffer/fast:
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build
-.PHONY : lab5_framebuffer/fast
+hw4p1_fastsmooth/fast:
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build
+.PHONY : hw4p1_fastsmooth/fast
 
 #=============================================================================
-# Target rules for targets named copy_shaders_lab5_framebuffer
+# Target rules for targets named copy_shaders_hw4p1_fastsmooth
 
 # Build rule for target.
-copy_shaders_lab5_framebuffer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_lab5_framebuffer
-.PHONY : copy_shaders_lab5_framebuffer
+copy_shaders_hw4p1_fastsmooth: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_hw4p1_fastsmooth
+.PHONY : copy_shaders_hw4p1_fastsmooth
 
 # fast build rule for target.
-copy_shaders_lab5_framebuffer/fast:
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build
-.PHONY : copy_shaders_lab5_framebuffer/fast
+copy_shaders_hw4p1_fastsmooth/fast:
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build
+.PHONY : copy_shaders_hw4p1_fastsmooth/fast
 
 # Help Target
 help:
@@ -158,8 +158,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... common_headers"
-	@echo "... lab5_framebuffer"
-	@echo "... copy_shaders_lab5_framebuffer"
+	@echo "... hw4p1_fastsmooth"
+	@echo "... copy_shaders_hw4p1_fastsmooth"
 .PHONY : help
 
 

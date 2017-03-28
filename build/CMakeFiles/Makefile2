@@ -92,96 +92,96 @@ clean: CMakeFiles/common_headers.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory lab5_framebuffer
+# Directory level rules for directory hw4p1_fastsmooth
 
 # Convenience name for "all" pass in the directory.
-lab5_framebuffer/all: lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/all
-lab5_framebuffer/all: lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/all
+hw4p1_fastsmooth/all: hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/all
+hw4p1_fastsmooth/all: hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/all
 
-.PHONY : lab5_framebuffer/all
+.PHONY : hw4p1_fastsmooth/all
 
 # Convenience name for "clean" pass in the directory.
-lab5_framebuffer/clean: lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/clean
-lab5_framebuffer/clean: lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/clean
+hw4p1_fastsmooth/clean: hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/clean
+hw4p1_fastsmooth/clean: hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/clean
 
-.PHONY : lab5_framebuffer/clean
+.PHONY : hw4p1_fastsmooth/clean
 
 # Convenience name for "preinstall" pass in the directory.
-lab5_framebuffer/preinstall:
+hw4p1_fastsmooth/preinstall:
 
-.PHONY : lab5_framebuffer/preinstall
+.PHONY : hw4p1_fastsmooth/preinstall
 
 #=============================================================================
-# Target rules for target lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir
+# Target rules for target hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir
 
 # All Build rule for target.
-lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/all:
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/depend
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num=1,2 "Built target lab5_framebuffer"
-.PHONY : lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/all
+hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/all:
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/depend
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num=1,2 "Built target hw4p1_fastsmooth"
+.PHONY : hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/all
 
 # Include target in all.
-all: lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/all
+all: hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/rule: cmake_check_build_system
+hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 0
-.PHONY : lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/rule
+.PHONY : hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule
 
 # Convenience name for target.
-lab5_framebuffer: lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/rule
+hw4p1_fastsmooth: hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule
 
-.PHONY : lab5_framebuffer
-
-# clean rule for target.
-lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/clean:
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/clean
-.PHONY : lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/clean
+.PHONY : hw4p1_fastsmooth
 
 # clean rule for target.
-clean: lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/clean
+hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/clean:
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/clean
+.PHONY : hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/clean
+
+# clean rule for target.
+clean: hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir
+# Target rules for target hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir
 
 # All Build rule for target.
-lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/all:
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/depend
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num= "Built target copy_shaders_lab5_framebuffer"
-.PHONY : lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/all
+hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/all:
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/depend
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" --progress-num= "Built target copy_shaders_hw4p1_fastsmooth"
+.PHONY : hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/all
 
 # Include target in all.
-all: lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/all
+all: hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/rule: cmake_check_build_system
+hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 0
-	$(MAKE) -f CMakeFiles/Makefile2 lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/CMakeFiles" 0
-.PHONY : lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/rule
+.PHONY : hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule
 
 # Convenience name for target.
-copy_shaders_lab5_framebuffer: lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/rule
+copy_shaders_hw4p1_fastsmooth: hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule
 
-.PHONY : copy_shaders_lab5_framebuffer
-
-# clean rule for target.
-lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/clean:
-	$(MAKE) -f lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/build.make lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/clean
-.PHONY : lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/clean
+.PHONY : copy_shaders_hw4p1_fastsmooth
 
 # clean rule for target.
-clean: lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/clean
+hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/clean:
+	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/clean
+.PHONY : hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/clean
+
+# clean rule for target.
+clean: hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/clean
 
 .PHONY : clean
 

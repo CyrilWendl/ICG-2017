@@ -2,8 +2,8 @@
 -- Intro to Graphics - Loading Common Configuration
 -- Found GLFW3: /usr/local/lib/libglfw.dylib
 -- Found GLEW: /usr/local/lib/libGLEW.dylib
--- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/cube/cube_texture.tga to build folder
--- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/lab5_framebuffer/quad/quad_texture.tga to build folder
+-- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/cube/cube_texture.tga to build folder
+-- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/quad/quad_texture.tga to build folder
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build

@@ -18,10 +18,7 @@ Quad quad;
 int window_width = 800;
 int window_height = 600;
 
-float stdev = 1.0f;
-
-FrameBuffer framebuffer1;
-FrameBuffer framebuffer2;
+FrameBuffer framebuffer;
 ScreenQuad screenquad;
 
 using namespace glm;
@@ -54,30 +51,19 @@ void Init(GLFWwindow* window) {
     // this unsures that the framebuffer has the same size as the window
     // (see http://www.glfw.org/docs/latest/window.html#window_fbsize)
     glfwGetFramebufferSize(window, &window_width, &window_height);
-    GLuint framebuffer_texture_id_1 = framebuffer1.Init(window_width, window_height);
-    GLuint framebuffer_texture_id_2 = framebuffer1.Init(window_width, window_height);
-    float stdev=2.0f;
-    screenquad.Init(window_width, window_height, framebuffer_texture_id_1,stdev);
-    screenquad.Init(window_width, window_height, framebuffer_texture_id_2,stdev);
+    GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
+    screenquad.Init(window_width, window_height, framebuffer_texture_id);
 }
 
 void Display() {
     // render to framebuffer
-    framebuffer1.Bind();
+    framebuffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
         quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
     }
-    framebuffer1.Unbind();
-
-    framebuffer2.Bind();
-    {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
-        quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
-    }
-    framebuffer2.Unbind();
+    framebuffer.Unbind();
 
     // render to Window
     glViewport(0, 0, window_width, window_height);
@@ -97,8 +83,8 @@ void ResizeCallback(GLFWwindow* window, int width, int height) {
 
     // when the window is resized, the framebuffer and the screenquad
     // should also be resized
-    framebuffer1.Cleanup();
-    framebuffer1.Init(window_width, window_height);
+    framebuffer.Cleanup();
+    framebuffer.Init(window_width, window_height);
     screenquad.UpdateSize(window_width, window_height);
 }
 
@@ -110,66 +96,7 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GL_TRUE);
     }
-    // only act on release
-    if(action != GLFW_RELEASE) {
-        return;
-    }
-
-    switch(key) {
-        case 'Q':
-        {
-            stdev=stdev+0.25;
-            cout << "Variance +0.25: " << screenquad.UpdateStd(stdev) << endl;
-
-            float kernel[9]= {0.00481007202f,
-                               0.0286864862f,
-                               0.102712765f,
-                               0.220796734f,
-                               0.284958780f,
-                               0.220796734f,
-                               0.102712765f,
-                               0.0286864862f,
-                               0.00481007202f
-            };
-
-            screenquad.UpdateKernel(kernel);
-            cout << "kernel: ";
-
-            for (int i = 0 ; i <= 8; i++)
-                cout << kernel[i] <<", " ;
-            cout << endl;
-            break;
-        }
-        case 'W':
-        {
-            stdev=stdev-0.25;
-            cout << "Variance -0.25: " << screenquad.UpdateStd(stdev) << endl;
-
-            float kernel[9]= {0.0f,
-                              0.0f,
-                              0.102712765f,
-                              0.220796734f,
-                              0.0f,
-                              0.220796734f,
-                              0.102712765f,
-                              0.0f,
-                              0.0f
-            };
-
-            screenquad.UpdateKernel(kernel);
-            cout << "kernel: ";
-
-            for (int i = 0 ; i <= 8; i++)
-                cout << kernel[i] <<", " ;
-            cout << endl;
-            break;
-
-        }
-        default:
-            break;
-    }
 }
-
 
 int main(int argc, char *argv[]) {
     // GLFW Initialization
@@ -229,8 +156,7 @@ int main(int argc, char *argv[]) {
     // cleanup
     quad.Cleanup();
     cube.Cleanup();
-    framebuffer1.Cleanup();
-    framebuffer2.Cleanup();
+    framebuffer.Cleanup();
     screenquad.Cleanup();
 
     // close OpenGL window and terminate GLFW

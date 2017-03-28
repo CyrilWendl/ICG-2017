@@ -41,7 +41,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../common/FindGLFW3.cmake"
   "../common/FindGLM.cmake"
   "../common/icg_settings.cmake"
-  "../lab5_framebuffer/CMakeLists.txt"
+  "../hw4p1_fastsmooth/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -53,12 +53,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "lab5_framebuffer/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw4p1_fastsmooth/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/common_headers.dir/DependInfo.cmake"
-  "lab5_framebuffer/CMakeFiles/lab5_framebuffer.dir/DependInfo.cmake"
-  "lab5_framebuffer/CMakeFiles/copy_shaders_lab5_framebuffer.dir/DependInfo.cmake"
+  "hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/DependInfo.cmake"
+  "hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/DependInfo.cmake"
   )

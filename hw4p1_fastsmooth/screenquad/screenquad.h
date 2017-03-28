@@ -11,14 +11,32 @@ class ScreenQuad {
 
         float screenquad_width_;
         float screenquad_height_;
+        float std_;
+        int mode_;
+        float kernel_[9]= {0.00481007202f,
+                          0.0286864862f,
+                          0.102712765f,
+                          0.220796734f,
+                          0.284958780f,
+                          0.220796734f,
+                          0.102712765f,
+                          0.0286864862f,
+                          0.00481007202f
+            };
 
     public:
         void Init(float screenquad_width, float screenquad_height,
-                  GLuint texture) {
+                  GLuint texture, float stdev) {
 
             // set screenquad size
             this->screenquad_width_ = screenquad_width;
             this->screenquad_height_ = screenquad_height;
+
+            // set standard deviation
+            this->std_ = 1.0;
+
+            // set mode
+            this->mode_ = 1;
 
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl",
@@ -100,22 +118,44 @@ class ScreenQuad {
             this->screenquad_height_ = screenquad_height;
         }
 
+        float UpdateStd(float stdev){
+            this->std_=stdev;
+            return this->std_;
+        }
+
+        float* UpdateKernel(float kernel[]){
+            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, kernel);
+            return this->kernel_;
+        }
+
+        int SetMode(int mode){
+            this->mode_=mode;
+            glUniform1f(glGetUniformLocation(program_id_, "mode"), this->mode_);
+            return this->mode_;
+        }
+
+
         void Draw() {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
             // window size uniforms
-            glUniform1f(glGetUniformLocation(program_id_, "tex_width"),
+            glUniform1f(glGetUniformLocation(program_id_ , "tex_width") ,
                         this->screenquad_width_);
-            glUniform1f(glGetUniformLocation(program_id_, "tex_height"),
+            glUniform1f(glGetUniformLocation(program_id_ , "tex_height") ,
                         this->screenquad_height_);
+
+            glUniform1f(glGetUniformLocation(program_id_ , "std") ,
+                        this->std_);
+
+            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, this->kernel_);
 
             // bind texture
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, texture_id_);
+            glBindTexture(GL_TEXTURE_2D , texture_id_);
 
             // draw
-            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+            glDrawArrays(GL_TRIANGLE_STRIP , 0 , 4);
 
             glBindVertexArray(0);
             glUseProgram(0);
