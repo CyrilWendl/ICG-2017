@@ -23,6 +23,6 @@ include(common/icg_settings.cmake)
 # week 5
 add_subdirectory(hw4p1_fastsmooth)
 #add_subdirectory(hw4p2_mirrorfloor)
-#add_subdirectory(hw4p3_motionblur)
+add_subdirectory(hw4p3_motionblur)
 #add_subdirectory(lab5_framebuffer)
 
