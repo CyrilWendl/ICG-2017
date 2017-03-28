@@ -14,5 +14,8 @@ void main() {
     // TODO: compute the screen space motion vector (in pixels!)
     // HINT: use straightforward finite differences and assume unit time-step
     // HINT: how do you compute pixels positions given homogeneous coordinate? (x,y,z,w)
-    motionVector = vec2(0);
+    vec2 currentPos = currentPosition.xy / currentPosition.w;
+    vec2 previousPos = previousPosition.xy / previousPosition.w;
+    motionVector = currentPos - previousPos;
+    //motionVector = vec2(0);
 }
