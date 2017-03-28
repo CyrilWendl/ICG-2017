@@ -10,12 +10,13 @@ void main() {
     /// HINT: you can scale the velocity vector to make the motion blur effect more prominent
     /// HINT: to debug integration don't use the velocityTex, simply assume velocity is constant, e.g. vec2(1,0)
     //color = texture(colorTex, uv);
+    float v_scale = 3.0;
     vec2 velocity = texture(velocityTex, uv).xy;
     int N = 30;
     vec4 color_total = vec4(0.0, 0.0, 0.0, 0.0);
     for(int i = 0; i < N; i++) {
         //proper indexing i/N since we need values from 0 to 1
-        color_total += texture(colorTex, ((uv + velocity*(float(i)/float(N)))));
+        color_total += texture(colorTex, ((uv + v_scale * velocity*(float(i)/float(N)))));
     }
     color = color_total / float(N);
 }
