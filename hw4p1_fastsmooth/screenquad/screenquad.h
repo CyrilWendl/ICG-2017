@@ -7,7 +7,8 @@ class ScreenQuad {
         GLuint vertex_array_id_;        // vertex array object
         GLuint program_id_;             // GLSL shader program ID
         GLuint vertex_buffer_object_;   // memory buffer
-        GLuint texture_id_;             // texture ID
+        GLuint texture_id_1_;             // texture ID (x)
+        GLuint texture_id_2_;             // texture ID (y)
 
         float screenquad_width_;
         float screenquad_height_;
@@ -28,7 +29,7 @@ class ScreenQuad {
 
     public:
         void Init(float screenquad_width, float screenquad_height,
-                  GLuint texture, float stdev) {
+                  GLuint texture_1, GLuint texture_2, float stdev) {
 
             // set screenquad size
             this->screenquad_width_ = screenquad_width;
@@ -96,11 +97,22 @@ class ScreenQuad {
 
             }
 
-            // load/Assign texture
-            this->texture_id_ = texture;
-            glBindTexture(GL_TEXTURE_2D, texture_id_);
-            GLuint tex_id = glGetUniformLocation(program_id_, "tex");
+            // load/Assign textures
+            this->texture_id_1_ = texture_1;
+            glBindTexture(GL_TEXTURE_2D, texture_id_1_);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            GLuint tex_id = glGetUniformLocation(program_id_, "tex_1");
             glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+            glBindTexture(GL_TEXTURE_2D, 0);
+
+            this->texture_id_2_ = texture_2;
+            glBindTexture(GL_TEXTURE_2D, texture_id_2_);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            GLuint tex_id_2 = glGetUniformLocation(program_id_, "tex");
+            glUniform1i(tex_id_2, 1 /*GL_TEXTURE1*/);
+
             glBindTexture(GL_TEXTURE_2D, 0);
 
             // to avoid the current object being polluted
@@ -114,7 +126,7 @@ class ScreenQuad {
             glDeleteBuffers(1, &vertex_buffer_object_);
             glDeleteProgram(program_id_);
             glDeleteVertexArrays(1, &vertex_array_id_);
-            glDeleteTextures(1, &texture_id_);
+            glDeleteTextures(1, &texture_id_1_);
         }
 
         void UpdateSize(int screenquad_width, int screenquad_height) {
@@ -161,7 +173,10 @@ class ScreenQuad {
 
             // bind texture
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D , texture_id_);
+            glBindTexture(GL_TEXTURE_2D , texture_id_1_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D , texture_id_2_);
 
             // draw
             glDrawArrays(GL_TRIANGLE_STRIP , 0 , 4);

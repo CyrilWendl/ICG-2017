@@ -53,8 +53,11 @@ void Init(GLFWwindow* window) {
     // this unsures that the framebuffer has the same size as the window
     // (see http://www.glfw.org/docs/latest/window.html#window_fbsize)
     glfwGetFramebufferSize(window, &window_width, &window_height);
-    GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
-    screenquad.Init(window_width, window_height, framebuffer_texture_id,stdev);
+    GLuint framebuffer_texture_id_1;
+    GLuint framebuffer_texture_id_2;
+    std::tie(framebuffer_texture_id_1, framebuffer_texture_id_2) =
+            framebuffer.Init(window_width, window_height, false /*interpolate*/); //TODO consider setting to false
+    screenquad.Init(window_width, window_height, framebuffer_texture_id_1,framebuffer_texture_id_2,stdev);
 }
 
 void Display() {
