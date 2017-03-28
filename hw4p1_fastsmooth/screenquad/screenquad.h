@@ -12,16 +12,18 @@ class ScreenQuad {
         float screenquad_width_;
         float screenquad_height_;
         float std_;
-        int mode_;
-        float kernel_[9]= {0.00481007202f,
-                          0.0286864862f,
-                          0.102712765f,
-                          0.220796734f,
-                          0.284958780f,
-                          0.220796734f,
-                          0.102712765f,
-                          0.0286864862f,
-                          0.00481007202f
+        float offsetx_;
+        float offsety_;
+        GLfloat kernel_[9]= { // MatLab: fspecial('Gaussian',[9 1],1.75) (sigma=1.75)
+                0.0169,
+                0.0529,
+                0.1197,
+                0.1954,
+                0.2301,
+                0.1954,
+                0.1197,
+                0.0529,
+                0.0169
             };
 
     public:
@@ -35,8 +37,9 @@ class ScreenQuad {
             // set standard deviation
             this->std_ = 1.0;
 
-            // set mode
-            this->mode_ = 1;
+            // set (x,y) offset
+            this->offsetx_=1.0f/300.0f;
+            this->offsety_=0.0f;
 
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl",
@@ -90,6 +93,7 @@ class ScreenQuad {
                 glVertexAttribPointer(vertex_texture_coord_id, 2, GL_FLOAT,
                                       DONT_NORMALIZE, ZERO_STRIDE,
                                       ZERO_BUFFER_OFFSET);
+
             }
 
             // load/Assign texture
@@ -124,14 +128,13 @@ class ScreenQuad {
         }
 
         float* UpdateKernel(float kernel[]){
-            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, kernel);
+            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9 , kernel);
             return this->kernel_;
         }
 
-        int SetMode(int mode){
-            this->mode_=mode;
-            glUniform1f(glGetUniformLocation(program_id_, "mode"), this->mode_);
-            return this->mode_;
+        void SetTexOffset(float offsetx, float offsety){
+            this->offsetx_=offsetx;
+            this->offsety_=offsetx;
         }
 
 
@@ -147,6 +150,12 @@ class ScreenQuad {
 
             glUniform1f(glGetUniformLocation(program_id_ , "std") ,
                         this->std_);
+
+            glUniform2f(glGetUniformLocation(program_id_, "texOffset"),
+                        this->offsetx_, this->offsety_);
+
+            glUniform1i(glGetUniformLocation(program_id_, "mode"),
+                        1);
 
             glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, this->kernel_);
 

@@ -1,5 +1,5 @@
 #version 330
-#define FUNCTION 2
+#define MODE 2
 
 in vec2 uv;
 
@@ -9,8 +9,7 @@ uniform sampler2D tex;
 uniform float tex_width;
 uniform float tex_height;
 uniform float std;
-
-
+uniform vec2 texOffset;
 uniform float kernel[9];
 
 float rgb_2_luma(vec3 c) {
@@ -18,7 +17,7 @@ float rgb_2_luma(vec3 c) {
 }
 
 void main() {
-#if FUNCTION==0
+#if MODE==0
     // x=-1
     float t_00 = rgb_2_luma( textureOffset(tex, uv, ivec2(-1, -1)).rgb );
     float t_01 = rgb_2_luma( textureOffset(tex, uv, ivec2(-1,  0)).rgb );
@@ -40,7 +39,7 @@ void main() {
     // color = abs( vec3(sx, sx, sx) ); ///< derivatives x
     // color = abs( vec3(sy, sy, sy) ); ///< derivatives y
     color = vec3(g, g, g);
-#elif FUNCTION==1
+#elif MODE==1
     // gaussian convolution
     // float std_ = .1; // standard deviation (<.3 disable)
     vec3 color_tot = vec3(0,0,0);
@@ -61,7 +60,6 @@ void main() {
 
     for (int i = -4; i <= 4; i++){
             color_tot += texture(tex,uv+vec2(i/tex_width,i/tex_height)).rgb*kernel[i + 4];
-
     }
     color = color_tot;
 #endif

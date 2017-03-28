@@ -2,33 +2,33 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
+      <config projectName="icg17" targetName="hw4p1_fastsmooth" />
+      <config projectName="icg17" targetName="copy_shaders_hw4p2_mirrorfloor" />
+      <config projectName="icg17" targetName="copy_shaders_lab5_framebuffer" />
+      <config projectName="icg17-private" targetName="copy_shaders_hw3_shading" />
+      <config projectName="icg17" targetName="hw2p3_planets" />
+      <config projectName="icg17-private" targetName="lab3_opengl3d" />
       <config projectName="icg17-private" targetName="copy_shaders_hw2_trackball" />
-      <config projectName="icg17" targetName="common_headers" />
-      <config projectName="icg17" targetName="hw4p2_mirrorfloor" />
       <config projectName="icg17" targetName="hw2p1_spiral" />
-      <config projectName="icg17-private" targetName="hw2_trackball" />
-      <config projectName="icg17" targetName="copy_shaders_hw4p1_fastsmooth" />
-      <config projectName="icg17" targetName="lab1_helloworld" />
-      <config projectName="icg17-private" targetName="hw3_shading" />
-      <config projectName="icg17" targetName="copy_shaders_lab2_intro_to_glsl" />
+      <config projectName="icg17" targetName="copy_shaders_hw2p1_spiral" />
+      <config projectName="icg17" targetName="copy_shaders_hw2p2_checkerboard" />
+      <config projectName="icg17" targetName="hw2_trackball" />
       <config projectName="icg17" targetName="copy_shaders_lab1_helloworld" />
+      <config projectName="icg17" targetName="lab1_helloworld" />
+      <config projectName="icg17-private" targetName="copy_shaders_lab3_opengl3d" />
+      <config projectName="icg17-private" targetName="hw2_trackball" />
+      <config projectName="icg17-private" targetName="hw2p3_planets" />
+      <config projectName="icg17" targetName="hw4p3_motionblur" />
+      <config projectName="icg17" targetName="copy_shaders_hw2p3_planets" />
+      <config projectName="icg17" targetName="copy_shaders_hw4p1_fastsmooth" />
+      <config projectName="icg17-private" targetName="hw3_shading" />
+      <config projectName="icg17" targetName="hw2p2_checkerboard" />
+      <config projectName="icg17" targetName="common_headers" />
+      <config projectName="icg17" targetName="copy_shaders_lab2_intro_to_glsl" />
+      <config projectName="icg17" targetName="hw4p2_mirrorfloor" />
+      <config projectName="icg17" targetName="copy_shaders_hw4p3_motionblur" />
       <config projectName="icg17" targetName="lab5_framebuffer" />
       <config projectName="icg17" targetName="lab2_intro_to_glsl" />
-      <config projectName="icg17" targetName="hw4p3_motionblur" />
-      <config projectName="icg17-private" targetName="lab3_opengl3d" />
-      <config projectName="icg17" targetName="hw2p3_planets" />
-      <config projectName="icg17" targetName="copy_shaders_hw2p2_checkerboard" />
-      <config projectName="icg17" targetName="copy_shaders_lab5_framebuffer" />
-      <config projectName="icg17-private" targetName="hw2p3_planets" />
-      <config projectName="icg17" targetName="copy_shaders_hw4p3_motionblur" />
-      <config projectName="icg17" targetName="hw2_trackball" />
-      <config projectName="icg17" targetName="hw2p2_checkerboard" />
-      <config projectName="icg17-private" targetName="copy_shaders_hw3_shading" />
-      <config projectName="icg17" targetName="copy_shaders_hw2p3_planets" />
-      <config projectName="icg17" targetName="copy_shaders_hw4p2_mirrorfloor" />
-      <config projectName="icg17" targetName="hw4p1_fastsmooth" />
-      <config projectName="icg17-private" targetName="copy_shaders_lab3_opengl3d" />
-      <config projectName="icg17" targetName="copy_shaders_hw2p1_spiral" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -38,24 +38,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.o" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/hw4p1_fastsmooth" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/hw4p1_fastsmooth" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/clion-log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Makefile" afterPath="$PROJECT_DIR$/build/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg17.cbp" afterPath="$PROJECT_DIR$/build/icg17.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_vshader.glsl" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_vshader.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/screenquad_fshader.glsl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/framebuffer.h" afterPath="$PROJECT_DIR$/lab5_framebuffer/framebuffer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/main.cpp" afterPath="$PROJECT_DIR$/lab5_framebuffer/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h" afterPath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -75,21 +64,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="124" column="63" lean-forward="false" selection-start-line="124" selection-start-column="63" selection-end-line="124" selection-end-column="63" />
+            <state relative-caret-position="1965">
+              <caret line="131" column="14" lean-forward="false" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screenquad_fshader.glsl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="framebuffer.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screenquad_fshader.glsl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -98,8 +97,8 @@
       <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+            <state relative-caret-position="332">
+              <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,12 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>float</find>
-      <find>BindShader</find>
-      <find>glGenRenderbuffers</find>
-      <find>attach</find>
-      <find>screenquad</find>
-      <find>1 2 1</find>
       <find>color</find>
       <find>sample</find>
       <find>vtexcoord</find>
@@ -130,16 +123,26 @@
       <find>glbindarray</find>
       <find>uv</find>
       <find>variance</find>
-      <find>uniform</find>
       <find>calculate</find>
-      <find>kernel</find>
       <find>tex</find>
       <find>mode</find>
-      <find>std</find>
       <find>buffer</find>
       <find>glfloat</find>
       <find>setmode</find>
+      <find>kernel</find>
+      <find>framebuffer</find>
+      <find>drawarr</find>
+      <find>framebuffer[0]</find>
+      <find>gluint</find>
+      <find>uniform</find>
+      <find>std</find>
+      <find>texoffset</find>
+      <find>bind</find>
     </findStrings>
+    <replaceStrings>
+      <replace>framebuffer[0]</replace>
+      <replace>framebuffer[1]</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -171,9 +174,9 @@
         <option value="$PROJECT_DIR$/lab5_framebuffer/main.cpp" />
         <option value="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
-        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" />
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" />
+        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" />
+        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
       </list>
     </option>
   </component>
@@ -185,9 +188,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
     <option name="y" value="22" />
-    <option name="width" value="1420" />
+    <option name="width" value="1440" />
     <option name="height" value="839" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -544,7 +546,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="hw4p1_fastsmooth" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="icg17" TARGET_NAME="hw4p1_fastsmooth" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17" RUN_TARGET_NAME="hw4p1_fastsmooth">
+    <configuration default="false" name="hw4p1_fastsmooth" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="icg17" RUN_TARGET_NAME="hw4p1_fastsmooth" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
       <method />
     </configuration>
@@ -657,7 +659,8 @@
       <workItem from="1490643341725" duration="579000" />
       <workItem from="1490648812923" duration="5742000" />
       <workItem from="1490688477388" duration="5573000" />
-      <workItem from="1490694402497" duration="540000" />
+      <workItem from="1490694402497" duration="3572000" />
+      <workItem from="1490698197531" duration="183000" />
     </task>
     <task id="LOCAL-00001" summary="Trackball added, zoom not working">
       <created>1489532261676</created>
@@ -684,7 +687,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59803000" />
+    <option name="totallyTimeSpent" value="63018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -696,16 +699,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="22" width="1420" height="839" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="839" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22158685" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4434907" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33287102" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259362" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36061028" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37586686" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37586686" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22410148" sideWeight="0.5152838" order="2" side_tool="true" content_ui="tabs" />
@@ -776,13 +779,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw2p2_checkerboard/quad/quad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw2p2_checkerboard/quad/quad_fshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1100,7 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="118" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,30 +1103,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1965">
+          <caret line="131" column="14" lean-forward="false" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+        <state relative-caret-position="332">
+          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="124" column="63" lean-forward="false" selection-start-line="124" selection-start-column="63" selection-end-line="124" selection-end-column="63" />
+        <state relative-caret-position="180">
+          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding />
         </state>
       </provider>

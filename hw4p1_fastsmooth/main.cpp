@@ -20,8 +20,7 @@ int window_height = 600;
 
 float stdev = 1.0f;
 
-FrameBuffer framebuffer1;
-FrameBuffer framebuffer2;
+FrameBuffer framebuffer[2];// create two framebuffers
 ScreenQuad screenquad;
 
 using namespace glm;
@@ -54,30 +53,29 @@ void Init(GLFWwindow* window) {
     // this unsures that the framebuffer has the same size as the window
     // (see http://www.glfw.org/docs/latest/window.html#window_fbsize)
     glfwGetFramebufferSize(window, &window_width, &window_height);
-    GLuint framebuffer_texture_id_1 = framebuffer1.Init(window_width, window_height);
-    GLuint framebuffer_texture_id_2 = framebuffer1.Init(window_width, window_height);
-    float stdev=2.0f;
+    GLuint framebuffer_texture_id_1 = framebuffer[0].Init(window_width, window_height);
+    GLuint framebuffer_texture_id_2 = framebuffer[0].Init(window_width, window_height);
     screenquad.Init(window_width, window_height, framebuffer_texture_id_1,stdev);
     screenquad.Init(window_width, window_height, framebuffer_texture_id_2,stdev);
 }
 
 void Display() {
     // render to framebuffer
-    framebuffer1.Bind();
+    framebuffer[0].Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
         quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
     }
-    framebuffer1.Unbind();
+    framebuffer[0].Unbind();
 
-    framebuffer2.Bind();
+    framebuffer[1].Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         cube.Draw(cube_model_matrix, view_matrix, projection_matrix);
         quad.Draw(IDENTITY_MATRIX, view_matrix, projection_matrix);
     }
-    framebuffer2.Unbind();
+    framebuffer[1].Unbind();
 
     // render to Window
     glViewport(0, 0, window_width, window_height);
@@ -97,8 +95,8 @@ void ResizeCallback(GLFWwindow* window, int width, int height) {
 
     // when the window is resized, the framebuffer and the screenquad
     // should also be resized
-    framebuffer1.Cleanup();
-    framebuffer1.Init(window_width, window_height);
+    framebuffer[0].Cleanup();
+    framebuffer[0].Init(window_width, window_height);
     screenquad.UpdateSize(window_width, window_height);
 }
 
@@ -116,37 +114,39 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     }
 
     switch(key) {
-        case '1':// set to gradient mode
-            cout <<"Mode: " << screenquad.SetMode(1)<<endl;
-            return;
-        case '2':// set to Gaussian mode
-            cout <<"Mode: " << screenquad.SetMode(2)<<endl;
-            return;
-        case '3':// set to fast Gaussian mode (not yet working)
-            cout <<"Mode: " << screenquad.SetMode(3)<<endl;
-            return;
         case 'Q':
         {
             stdev=stdev+0.25;
             cout << "Variance +0.25: " << screenquad.UpdateStd(stdev) << endl;
 
-            float kernel[9]= {0.00481007202f,
-                              0.0286864862f,
-                              0.102712765f,
-                              0.220796734f,
-                              0.284958780f,
-                              0.220796734f,
-                              0.102712765f,
-                              0.0286864862f,
-                              0.00481007202f
+            float kernel[9]={ // MatLab: fspecial('Gaussian',[9 1],1.75) (sigma=1.75)
+                    0.0169,
+                    0.0529,
+                    0.1197,
+                    0.1954,
+                    0.2301,
+                    0.1954,
+                    0.1197,
+                    0.0529,
+                    0.0169
             };
-
-            screenquad.UpdateKernel(kernel);
+            /*float kernel[9]={0,0,0,0,0,0,0,0,0};
+            int SIZE=9;
+            int j=0;
+            int temp;
+            for(int i=-SIZE; i<=SIZE; i++){ // calculate 1D kernel based on stdev
+                temp= exp(-(i*i+i*i)/(2.0*stdev*stdev*stdev*stdev));
+                cout << temp <<endl;
+                kernel[j]=temp;
+                j++;
+            }*/
             cout << "kernel: ";
 
             for (int i = 0 ; i <= 8; i++)
                 cout << kernel[i] <<", " ;
             cout << endl;
+
+            screenquad.UpdateKernel(kernel);
             break;
         }
         case 'W':
@@ -238,8 +238,8 @@ int main(int argc, char *argv[]) {
     // cleanup
     quad.Cleanup();
     cube.Cleanup();
-    framebuffer1.Cleanup();
-    framebuffer2.Cleanup();
+    framebuffer[0].Cleanup();
+    framebuffer[1].Cleanup();
     screenquad.Cleanup();
 
     // close OpenGL window and terminate GLFW
