@@ -117,21 +117,59 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 
     switch(key) {
         case 'Q':
-            cout << "Variance +0.25" << endl;
+        {
             stdev=stdev+0.25;
-            screenquad.UpdateStd(stdev);
-            cout << screenquad.UpdateStd(stdev)<< endl;
+            cout << "Variance +0.25: " << screenquad.UpdateStd(stdev) << endl;
+
+            float kernel[9]= {0.00481007202f,
+                               0.0286864862f,
+                               0.102712765f,
+                               0.220796734f,
+                               0.284958780f,
+                               0.220796734f,
+                               0.102712765f,
+                               0.0286864862f,
+                               0.00481007202f
+            };
+
+            screenquad.UpdateKernel(kernel);
+            cout << "kernel: ";
+
+            for (int i = 0 ; i <= 8; i++)
+                cout << kernel[i] <<", " ;
+            cout << endl;
             break;
+        }
         case 'W':
-            cout << "Variance -0.25" << endl;
+        {
             stdev=stdev-0.25;
-            screenquad.UpdateStd(stdev);
-            cout << screenquad.UpdateStd(stdev) << endl;
+            cout << "Variance -0.25: " << screenquad.UpdateStd(stdev) << endl;
+
+            float kernel[9]= {0.0f,
+                              0.0f,
+                              0.102712765f,
+                              0.220796734f,
+                              0.0f,
+                              0.220796734f,
+                              0.102712765f,
+                              0.0f,
+                              0.0f
+            };
+
+            screenquad.UpdateKernel(kernel);
+            cout << "kernel: ";
+
+            for (int i = 0 ; i <= 8; i++)
+                cout << kernel[i] <<", " ;
+            cout << endl;
             break;
+
+        }
         default:
             break;
     }
 }
+
 
 int main(int argc, char *argv[]) {
     // GLFW Initialization

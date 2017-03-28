@@ -1,5 +1,5 @@
 #version 330
-#define FUNCTION 1
+#define FUNCTION 2
 
 in vec2 uv;
 
@@ -11,17 +11,7 @@ uniform float tex_height;
 uniform float std;
 
 
-const float kernel[9] = float[](
-        0.00481007202f,
-        0.0286864862f,
-        0.102712765f,
-        0.220796734f,
-        0.284958780f,
-        0.220796734f,
-        0.102712765f,
-        0.0286864862f,
-        0.00481007202f
-    );
+uniform float kernel[9];
 
 float rgb_2_luma(vec3 c) {
     return 0.3*c[0] + 0.59*c[1] + 0.11*c[2];
@@ -68,6 +58,7 @@ void main() {
 #else
     // efficient gaussian filtering
     vec3 color_tot= vec3(0.0);
+
     for (int i = -4; i <= 4; i++){
             color_tot += texture(tex,uv+vec2(i/tex_width,i/tex_height)).rgb*kernel[i + 4];
 

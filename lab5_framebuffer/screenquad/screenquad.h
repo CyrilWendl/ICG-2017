@@ -12,6 +12,16 @@ class ScreenQuad {
         float screenquad_width_;
         float screenquad_height_;
         float std_;
+        float kernel_[9]= {0.00481007202f,
+                          0.0286864862f,
+                          0.102712765f,
+                          0.220796734f,
+                          0.284958780f,
+                          0.220796734f,
+                          0.102712765f,
+                          0.0286864862f,
+                          0.00481007202f
+            };
 
     public:
         void Init(float screenquad_width, float screenquad_height,
@@ -108,6 +118,13 @@ class ScreenQuad {
             this->std_=stdev;
             return this->std_;
         }
+
+        float* UpdateKernel(float kernel[]){
+            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, kernel);
+            return this->kernel_;
+        }
+
+
         void Draw() {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
@@ -120,6 +137,8 @@ class ScreenQuad {
 
             glUniform1f(glGetUniformLocation(program_id_ , "std") ,
                         this->std_);
+
+            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, this->kernel_);
 
             // bind texture
             glActiveTexture(GL_TEXTURE0);
