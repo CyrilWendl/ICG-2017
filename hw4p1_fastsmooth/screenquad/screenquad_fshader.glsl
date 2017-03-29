@@ -21,14 +21,14 @@ void main() {
      float tot_weight = 0.0f;
      if (pass == 0) {
          for(int i=-size; i <= size; i++) {
-             gauss_color += texture(tex, uv+vec2(i/tex_width,0)).rgb * kernel[i];
-             tot_weight += kernel[i];
+             gauss_color += texture(tex, uv+vec2(i/tex_width,0)).rgb * kernel[i+size];
+             tot_weight += kernel[i+size];
          }
          temp = gauss_color / tot_weight;
       } else {
           for (int i = -size; i <= size; i++) {
-             gauss_color += texture(temp_tex, uv+vec2(0,i/tex_height)).rgb * kernel[i];
-             tot_weight += kernel[i];
+             gauss_color += texture(temp_tex, uv+vec2(0,i/tex_height)).rgb * kernel[i+size];
+             tot_weight += kernel[i+size];
            }
           color = gauss_color / tot_weight;
       }

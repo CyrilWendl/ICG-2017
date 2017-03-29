@@ -123,18 +123,19 @@ public:
                     this->screenquad_height_);
 
         glUniform1i(glGetUniformLocation(program_id_ , "pass") , pass);
-        cout << pass << endl;
 
-        int size = 1 + 2 * 3 * (int) ceil(std);
-        float kernel[size];
-        int circumference = 1 + 2 * size;
-
+        // kernel
+        int size = 1 + 3 * 2 * int(ceil(std));
+        float kernel[2 * size + 1];
         for (int i = -size; i <= size; i++) {
             kernel[i] = exp(-(i * i) / (2.0 * std * std * std * std));
         }
 
-        glUniform1i(glGetUniformLocation(program_id_ , "size") , size);
-        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") , circumference , kernel);
+        glUniform1i(glGetUniformLocation(program_id_ , "size") ,
+                    size);
+
+        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") ,
+                     2 * size + 1 , kernel);
 
         if (pass == 0) {
             glActiveTexture(GL_TEXTURE0);
