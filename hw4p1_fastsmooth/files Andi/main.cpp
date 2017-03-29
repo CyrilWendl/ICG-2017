@@ -27,7 +27,7 @@ mat4 projection_matrix;
 mat4 view_matrix;
 mat4 cube_model_matrix;
 
-float stdev;
+float variance;
 
 void Init(GLFWwindow *window) {
     glClearColor(1.0 , 1.0 , 1.0 /*white*/, 1.0 /*solid*/);
@@ -61,7 +61,7 @@ void Init(GLFWwindow *window) {
     screenquad.Init(window_width , window_height , framebuffer_texture_id_1 ,
                     framebuffer_texture_id_2);
 
-    stdev = 4.0;
+    variance = 0.25f;
 }
 
 void Display() {
@@ -74,17 +74,16 @@ void Display() {
     }
     framebuffer.Unbind();
 
-    // render to framebuffer (second attachment)
     framebuffer.Bind2();
     {
-        screenquad.Draw(0 , stdev);
+        screenquad.Draw(0 , variance);
     }
     framebuffer.Unbind();
 
     // render to Window
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    screenquad.Draw(1 , stdev);
+    screenquad.Draw(1 , variance);
 }
 
 // gets called when the windows/framebuffer is resized.
@@ -112,23 +111,22 @@ void KeyCallback(GLFWwindow *window , int key , int scancode , int action , int 
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window , GL_TRUE);
     }
-    // only act on release
+
     if (action == GLFW_RELEASE) {
         switch (key) {
-            case 'Q': {
-                stdev += 0.25;
+            case 'Q':
+                variance += 0.25;
                 break;
-            }
-            case 'W': {
-                stdev -= 0.25;
+            case 'W':
+                variance -= 0.25;
+                if (variance < 0.5f)
+                    variance = 0.5f;
                 break;
-            }
             default:
                 break;
         }
     }
 }
-
 
 int main(int argc , char *argv[]) {
     // GLFW Initialization

@@ -8,11 +8,13 @@ private:
     GLuint vertex_array_id_;        // vertex array object
     GLuint program_id_;             // GLSL shader program ID
     GLuint vertex_buffer_object_;   // memory buffer
-    GLuint texture_id_1_;             // texture ID (x)
-    GLuint texture_id_2_;             // texture ID (y)
+    GLuint texture_id_1;            // texture ID
+    GLuint texture_id_2;
 
     float screenquad_width_;
     float screenquad_height_;
+
+    int max_kernel;
 
 public:
     void Init(float screenquad_width , float screenquad_height ,
@@ -21,6 +23,9 @@ public:
         // set screenquad size
         this->screenquad_width_ = screenquad_width;
         this->screenquad_height_ = screenquad_height;
+
+        int minimum = min(screenquad_width , screenquad_height);
+        this->max_kernel = minimum % 2 == 1 ? minimum : minimum - 1;
 
         // compile the shaders
         program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl" ,
@@ -74,23 +79,22 @@ public:
             glVertexAttribPointer(vertex_texture_coord_id , 2 , GL_FLOAT ,
                                   DONT_NORMALIZE , ZERO_STRIDE ,
                                   ZERO_BUFFER_OFFSET);
-
         }
 
-        // load/Assign textures
-        this->texture_id_1_ = texture_1;
-        glBindTexture(GL_TEXTURE_2D , texture_id_1_);
+        // load/Assign texture
+        this->texture_id_1 = texture_1;
+        glBindTexture(GL_TEXTURE_2D , texture_id_1);
         glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_S , GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_T , GL_CLAMP_TO_EDGE);
-        glUniform1i(glGetUniformLocation(program_id_ , "tex") , 0 /*GL_TEXTURE0*/);
+        GLuint tex_id = glGetUniformLocation(program_id_ , "tex");
+        glUniform1i(tex_id , 0 /*GL_TEXTURE0*/);
 
-        this->texture_id_2_ = texture_2;
-        glBindTexture(GL_TEXTURE_2D , texture_id_2_);
-        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_S , GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_T , GL_CLAMP_TO_EDGE);
-        glUniform1i(glGetUniformLocation(program_id_ , "tex1") , 1 /*GL_TEXTURE1*/);
-
-        glBindTexture(GL_TEXTURE_2D , 0);
+        this->texture_id_2 = texture_2;
+        glBindTexture(GL_TEXTURE_2D , texture_id_2);
+        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_S , GL_CLAMP_TO_BORDER);
+        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_T , GL_CLAMP_TO_BORDER);
+        GLuint velTex_id = glGetUniformLocation(program_id_ , "tmp_tex");
+        glUniform1i(velTex_id , 1 /*GL_TEXTURE1*/);
 
         // to avoid the current object being polluted
         glBindVertexArray(0);
@@ -103,16 +107,19 @@ public:
         glDeleteBuffers(1 , &vertex_buffer_object_);
         glDeleteProgram(program_id_);
         glDeleteVertexArrays(1 , &vertex_array_id_);
-        glDeleteTextures(1 , &texture_id_1_);
-        glDeleteTextures(2 , &texture_id_2_);
+        glDeleteTextures(1 , &texture_id_1);
+        glDeleteTextures(2 , &texture_id_2);
     }
 
     void UpdateSize(int screenquad_width , int screenquad_height) {
         this->screenquad_width_ = screenquad_width;
         this->screenquad_height_ = screenquad_height;
+
+        int minimum = min(screenquad_width , screenquad_height);
+        this->max_kernel = minimum % 2 == 1 ? minimum : minimum - 1;
     }
 
-    void Draw(int pass , float std) {
+    void Draw(int pass , float variance) {
         glUseProgram(program_id_);
         glBindVertexArray(vertex_array_id_);
 
@@ -124,27 +131,32 @@ public:
 
         glUniform1i(glGetUniformLocation(program_id_ , "pass") , pass);
 
-        // kernel
-        int size = 1 + 3 * 2 * int(ceil(std));
-        float kernel[2 * size + 1];
-        for (int i = -size; i <= size; i++) {
-            kernel[i] = exp(-(i * i) / (2.0 * std * std * std * std));
+        float kernel[max_kernel];
+
+        int radius = 6 * (int) ceil(variance);
+        int circumference = 1 + 2 * radius;
+
+        if (circumference > max_kernel) {
+            circumference = max_kernel;
+            radius = (max_kernel + 1) / 2;
         }
 
-        glUniform1i(glGetUniformLocation(program_id_ , "size") ,
-                    size);
+        for (int i = -radius; i <= radius; i++) {
+            kernel[i + radius] = exp(-(i * i) / (2.0 * variance * variance * variance));
+        }
 
-        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") ,
-                     2 * size + 1 , kernel);
+        glUniform1i(glGetUniformLocation(program_id_ , "radius") , radius);
+        glUniform1i(glGetUniformLocation(program_id_ , "circumference") , circumference);
+        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") , circumference , kernel);
 
         if (pass == 0) {
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D , texture_id_1_);
+            glBindTexture(GL_TEXTURE_2D , texture_id_1);
         }
 
         if (pass == 1) {
             glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_2D , texture_id_2_);
+            glBindTexture(GL_TEXTURE_2D , texture_id_2);
         }
 
         // draw
