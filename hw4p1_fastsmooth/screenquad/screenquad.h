@@ -14,6 +14,8 @@ private:
     float screenquad_width_;
     float screenquad_height_;
 
+    int max_kernel;
+
 public:
     void Init(float screenquad_width , float screenquad_height ,
               GLuint texture_1 , GLuint texture_2) {
@@ -21,6 +23,9 @@ public:
         // set screenquad size
         this->screenquad_width_ = screenquad_width;
         this->screenquad_height_ = screenquad_height;
+
+        int minimum = min(screenquad_width , screenquad_height);
+        this->max_kernel = minimum % 2 == 1 ? minimum : minimum - 1;
 
         // compile the shaders
         program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl" ,
@@ -110,6 +115,9 @@ public:
     void UpdateSize(int screenquad_width , int screenquad_height) {
         this->screenquad_width_ = screenquad_width;
         this->screenquad_height_ = screenquad_height;
+
+        int minimum = min(screenquad_width , screenquad_height);
+        this->max_kernel = minimum % 2 == 1 ? minimum : minimum - 1;
     }
 
     void Draw(int pass , float std) {
@@ -124,18 +132,17 @@ public:
 
         glUniform1i(glGetUniformLocation(program_id_ , "pass") , pass);
 
-        // kernel
-        int size = 1 + 3 * 2 * int(ceil(std));
-        float kernel[2 * size + 1];
-        for (int i = -size; i <= size; i++) {
+
+        int radius = 1 + 2 * 3 * (int) ceil(std);
+        float kernel[radius];
+        int circumference = 2 * radius;
+
+        for (int i = -radius; i <= radius; i++) {
             kernel[i] = exp(-(i * i) / (2.0 * std * std * std * std));
         }
 
-        glUniform1i(glGetUniformLocation(program_id_ , "size") ,
-                    size);
-
-        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") ,
-                     2 * size + 1 , kernel);
+        glUniform1i(glGetUniformLocation(program_id_ , "radius") , radius);
+        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") , circumference , kernel);
 
         if (pass == 0) {
             glActiveTexture(GL_TEXTURE0);

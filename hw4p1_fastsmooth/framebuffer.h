@@ -25,18 +25,6 @@ public:
         glBindFramebuffer(GL_FRAMEBUFFER , 0);
     }
 
-    void Bind1() {
-        glViewport(0 , 0 , width_ , height_);
-        glBindFramebuffer(GL_FRAMEBUFFER , framebuffer_object_id_);
-        const GLenum buffers[] = {GL_COLOR_ATTACHMENT0};
-        glDrawBuffers(1 /*length of buffers[]*/, buffers);
-    }
-
-    void Bind2() {
-        const GLenum buffers[] = {GL_COLOR_ATTACHMENT1};
-        glDrawBuffers(1 /*length of buffers[]*/, buffers);
-    }
-
     std::tuple<int , int> Init(int image_width , int image_height , bool use_interpolation = false) {
         this->width_ = image_width;
         this->height_ = image_height;

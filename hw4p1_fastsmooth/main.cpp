@@ -61,13 +61,13 @@ void Init(GLFWwindow *window) {
     screenquad.Init(window_width , window_height , framebuffer_texture_id_1 ,
                     framebuffer_texture_id_2);
 
-    stdev = 4.0;
+    stdev = 2.0f;
 }
 
 void Display() {
     // render to framebuffer
     framebuffer.ClearContent();
-    framebuffer.Bind1();
+    framebuffer.Bind();
     {
         cube.Draw(cube_model_matrix , view_matrix , projection_matrix);
         quad.Draw(IDENTITY_MATRIX , view_matrix , projection_matrix);
@@ -75,7 +75,7 @@ void Display() {
     framebuffer.Unbind();
 
     // render to framebuffer (second attachment)
-    framebuffer.Bind2();
+    framebuffer.Bind();
     {
         screenquad.Draw(0 , stdev);
     }
