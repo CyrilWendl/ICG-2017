@@ -6,7 +6,8 @@ In main.c, the framebuffer bind function is called a second time and the screenq
 
 e^{-x^2/(2*std^4)} [1]
 
-In the fshader of the screenquad, the uniform pass is used to decide on whether to render the first color texture or the second one, blurring either horizontally or vertically the image.
+In the fshader of the screenquad, the uniform pass is used to decide on whether to render the first color texture or the second one, blurring either horizontally or vertically the image. Unfortunately, it seems not possible to render to the second attachment of the framebuffer, despite investing numerous hours in testing all possible variants and meeting several assistants who couldn’t help further. Therefore, the code needed to render the second (vertical) blur is commented. It seems that in general layout (location=1) can not be rendered to, so there might be a problem in the implementation of the framebuffer.
+
 
 [1] Slightly changed from this source: http://www.stat.wisc.edu/~mchung/teaching/MIA/reading/diffusion.gaussian.kernel.pdf.pdf
 
