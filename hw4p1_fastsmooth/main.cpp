@@ -18,7 +18,7 @@ Quad quad;
 int window_width = 800;
 int window_height = 600;
 
-float stdev = 2.0f;
+float stdev=4.0;
 
 FrameBuffer framebuffer;// create two framebuffers
 ScreenQuad screenquad;
@@ -56,7 +56,7 @@ void Init(GLFWwindow* window) {
     GLuint framebuffer_texture_id_1;
     GLuint framebuffer_texture_id_2;
     std::tie(framebuffer_texture_id_1, framebuffer_texture_id_2) =
-            framebuffer.Init(window_width, window_height, false /*interpolate*/); //TODO consider setting to false
+            framebuffer.Init(window_width, window_height, true /*interpolate*/); //TODO consider setting to false
     screenquad.Init(window_width, window_height, framebuffer_texture_id_1,framebuffer_texture_id_2,stdev);
 }
 
@@ -112,61 +112,13 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
         {
             stdev=stdev+0.25;
             cout << "Variance +0.25: " << screenquad.UpdateStd(stdev) << endl;
-
-            float kernel[9]={ // MatLab: fspecial('Gaussian',[9 1],1.75) (sigma=1.75)
-                    0.0169,
-                    0.0529,
-                    0.1197,
-                    0.1954,
-                    0.2301,
-                    0.1954,
-                    0.1197,
-                    0.0529,
-                    0.0169
-            };
-            /*float kernel[9]={0,0,0,0,0,0,0,0,0};
-            int SIZE=9;
-            int j=0;
-            int temp;
-            for(int i=-SIZE; i<=SIZE; i++){ // calculate 1D kernel based on stdev
-                temp= exp(-(i*i+i*i)/(2.0*stdev*stdev*stdev*stdev));
-                cout << temp <<endl;
-                kernel[j]=temp;
-                j++;
-            }*/
-            cout << "kernel: ";
-
-            for (int i = 0 ; i <= 8; i++)
-                cout << kernel[i] <<", " ;
-            cout << endl;
-
-            screenquad.UpdateKernel(kernel);
             break;
         }
         case 'W':
         {
             stdev=stdev-0.25;
             cout << "Variance -0.25: " << screenquad.UpdateStd(stdev) << endl;
-
-            float kernel[9]= {0.0f,
-                              0.0f,
-                              0.102712765f,
-                              0.220796734f,
-                              0.0f,
-                              0.220796734f,
-                              0.102712765f,
-                              0.0f,
-                              0.0f
-            };
-
-            screenquad.UpdateKernel(kernel);
-            cout << "kernel: ";
-
-            for (int i = 0 ; i <= 8; i++)
-                cout << kernel[i] <<", " ;
-            cout << endl;
             break;
-
         }
         default:
             break;

@@ -15,28 +15,17 @@ class ScreenQuad {
         float std_;
         float offsetx_;
         float offsety_;
-        GLfloat kernel_[9]= { // MatLab: fspecial('Gaussian',[9 1],1.75) (sigma=1.75)
-                0.0169,
-                0.0529,
-                0.1197,
-                0.1954,
-                0.2301,
-                0.1954,
-                0.1197,
-                0.0529,
-                0.0169
-            };
 
     public:
         void Init(float screenquad_width, float screenquad_height,
-                  GLuint texture_1, GLuint texture_2, float stdev) {
+                  GLuint texture_1, GLuint texture_2, float std) {
 
             // set screenquad size
             this->screenquad_width_ = screenquad_width;
             this->screenquad_height_ = screenquad_height;
 
             // set standard deviation
-            this->std_ = 2.0;
+            this->std_ = std;
 
             // set (x,y) offset
             this->offsetx_=1.0f/300.0f;
@@ -139,11 +128,6 @@ class ScreenQuad {
             return this->std_;
         }
 
-        float* UpdateKernel(float kernel[]){
-            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9 , kernel);
-            return this->kernel_;
-        }
-
         void SetTexOffset(float offsetx, float offsety){
             this->offsetx_=offsetx;
             this->offsety_=offsetx;
@@ -168,8 +152,6 @@ class ScreenQuad {
 
             glUniform1i(glGetUniformLocation(program_id_, "mode"),
                         1);
-
-            glUniform1fv(glGetUniformLocation(program_id_, "kernel"), 9, this->kernel_);
 
             // bind texture
             glActiveTexture(GL_TEXTURE0);

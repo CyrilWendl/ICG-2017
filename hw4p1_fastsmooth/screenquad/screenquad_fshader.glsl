@@ -3,7 +3,7 @@
 
 in vec2 uv;
 
-out vec3 color1;
+layout (location = 0) out vec3 color1;
 layout (location = 1) out vec3 color2;
 
 uniform sampler2D tex_1;
@@ -38,9 +38,8 @@ void main() {
     int SIZE = 1 + 3 * int(ceil(std));
     for (int i = -SIZE; i <= SIZE; i++){
         float w = exp(-(i*i)/(2.0*std*std));
-        vec3 neigh_color = texture(tex_1, uv+vec2(i/tex_width,0)).rgb;
-        color_tot_1 += texture(tex_1,uv+vec2(i/tex_width,0)).rgb*w;
-        color1 = color_tot_1;
+        vec3 neigh_color = texture(tex_1, uv-vec2(i/tex_width,0)).rgb;
+        color_tot_1 += neigh_color*w;
         weight_tot_1 += w;
     }
     color1 =  color_tot_1 / weight_tot_1; // ensure \int w = 1
@@ -50,8 +49,7 @@ void main() {
     for (int i = -SIZE; i <= SIZE; i++){
         float w = exp(-(i*i)/(2.0*std*std));
         vec3 neigh_color = texture(tex_1, uv+vec2(0,i/tex_width)).rgb;
-        color_tot_2 += texture(tex_1,uv+vec2(0,i/tex_height)).rgb*w;
-        color2 = color_tot_1;
+        color_tot_2 += neigh_color*w;
         weight_tot_2 += w;
     }
     color2 = color_tot_2 / weight_tot_2; // ensure \int w = 1
