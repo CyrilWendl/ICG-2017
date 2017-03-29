@@ -6,10 +6,12 @@ In main.c, the framebuffer bind function is called a second time and the screenq
 
 e^{-x^2/(2*std^4)} [1]
 
-In the fshader of the screenquad, the uniform pass is used to decide on whether to render the first color texture or the second one, blurring either horizontally or vertically the image. Unfortunately, it seems not possible to render to the second attachment of the framebuffer, despite investing numerous hours in testing all possible variants and meeting several assistants who couldn’t help further. Therefore, the code needed to render the second (vertical) blur is commented. It seems that in general layout (location=1) can not be rendered to, so there might be a problem in the implementation of the framebuffer.
-
+In the fshader of the screenquad, the uniform pass is used to decide on whether to render the first color texture or the second one, blurring either horizontally or vertically the image.
 
 [1] Slightly changed from this source: http://www.stat.wisc.edu/~mchung/teaching/MIA/reading/diffusion.gaussian.kernel.pdf.pdf
+
+*Ex 2: Screen space reflections
+In this exercise, we had to make believe the user that the cube is reflected on the floor. To do so, we started by rendering the cube "upside down" by displacing the camera, and passing this cube to the framebuffer (bind/unbind). Then in the framebuffer, it was needed to get the Fragcoord of the current pixel, and normalize it by the window dimensions, to have the coordinates in the [0,1] frame. Then we mix the texture of the floor with the one of the inverted cube, with a certain level of transparency. Before that, the floor has been initialized with the framebuffer_texture_id. Tadaam!
 
 *EX 3: Motion Blur*
 We have our projected current and previous positions in homogeneous coordinates. To be able to compute the veloctiy vector we need to switch back from homogeneous coordinates so we divide by the w coordinate the vectors and take the xy coordinates(since we don't really need z for this motion). Finally we get the velocity by substraction of those two. We save it to the velocity texture. Finally, we use this veloctiy texture in screenquad and do a directional convolution on it. The bigger the N we use for the convolution, the more the points we get, the better the blur.
