@@ -1,4 +1,4 @@
-**WEEk 3**
+**WEEk 4**
 *Ex 1: Efficiant Gaussian Blurring*
 For this exercise, several attachments were added to the framebuffer. First, the file framebuffer.h was modified to accept several texture attachments, which could be added by the corresponding attributes „layout (location=0) out color“(=default case) or „layout (location=1) out color“ (see fshaders of the cube, quad and screenquad). 
 
@@ -9,3 +9,6 @@ e^{-x^2/(2*std^4)} [1]
 In the fshader of the screenquad, the uniform pass is used to decide on whether to render the first color texture or the second one, blurring either horizontally or vertically the image.
 
 [1] Slightly changed from this source: http://www.stat.wisc.edu/~mchung/teaching/MIA/reading/diffusion.gaussian.kernel.pdf.pdf
+
+*EX 3: Motion Blur*
+We have our projected current and previous positions in homogeneous coordinates. To be able to compute the veloctiy vector we need to switch back from homogeneous coordinates so we divide by the w coordinate the vectors and take the xy coordinates(since we don't really need z for this motion). Finally we get the velocity by substraction of those two. We save it to the velocity texture. Finally, we use this veloctiy texture in screenquad and do a directional convolution on it. The bigger the N we use for the convolution, the more the points we get, the better the blur.
