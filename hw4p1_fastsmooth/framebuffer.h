@@ -17,7 +17,8 @@ public:
     void Bind() {
         glViewport(0 , 0 , width_ , height_);
         glBindFramebufferEXT(GL_FRAMEBUFFER_EXT , framebuffer_object_id_);
-        const GLenum buffers[] = {GL_COLOR_ATTACHMENT0};
+        const GLenum buffers[] = {GL_COLOR_ATTACHMENT0,
+                            GL_COLOR_ATTACHMENT1};
         glDrawBuffers(2 /*length of buffers[]*/, buffers);
     }
 
@@ -77,7 +78,7 @@ public:
 
             // On some intel OpenGL drivers, GL_RGB32F isn't supported inside
             // a framebuffer, but using GL_RGB16F is
-            glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB16F , width_ , height_ , 0 ,
+            glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB8 , width_ , height_ , 0 ,
                          GL_RGB , GL_FLOAT , NULL);
         }
 

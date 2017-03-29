@@ -27,6 +27,7 @@ class ScreenQuad {
             // set standard deviation
             this->std_ = std;
 
+
             // set (x,y) offset
             this->offsetx_=1.0f/300.0f;
             this->offsety_=0.0f;
@@ -91,16 +92,13 @@ class ScreenQuad {
             glBindTexture(GL_TEXTURE_2D, texture_id_1_);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            GLuint tex_id = glGetUniformLocation(program_id_, "tex_1");
-            glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
-            glBindTexture(GL_TEXTURE_2D, 0);
+            glUniform1i(glGetUniformLocation(program_id_, "tex"), 0 /*GL_TEXTURE0*/);
 
             this->texture_id_2_ = texture_2;
             glBindTexture(GL_TEXTURE_2D, texture_id_2_);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            GLuint tex_id_2 = glGetUniformLocation(program_id_, "tex");
-            glUniform1i(tex_id_2, 1 /*GL_TEXTURE1*/);
+            glUniform1i(glGetUniformLocation(program_id_, "tex1"), 1 /*GL_TEXTURE1*/);
 
             glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -134,7 +132,7 @@ class ScreenQuad {
         }
 
 
-        void Draw() {
+        void Draw(int pass) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -153,12 +151,28 @@ class ScreenQuad {
             glUniform1i(glGetUniformLocation(program_id_, "mode"),
                         1);
 
-            // bind texture
+            glUniform1i(glGetUniformLocation(program_id_, "pass"),
+                        pass);
+
+            // kernel
+            int size = 1 + 3 * 2 * int(ceil(this->std_));
+            float kernel[2*size+1];
+            for (int i = -size; i <= size; i++){
+                kernel[i] = exp(-(i*i)/(2.0*this->std_*this->std_*this->std_*this->std_));
+            }
+
+            glUniform1i(glGetUniformLocation(program_id_, "size"),
+                        size);
+
+            glUniform1fv(glGetUniformLocation(program_id_, "kernel"),
+                         2*size+1,kernel);
+
+            // bind textures
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D , texture_id_1_);
-
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_2D , texture_id_2_);
+
 
             // draw
             glDrawArrays(GL_TRIANGLE_STRIP , 0 , 4);

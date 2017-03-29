@@ -70,11 +70,17 @@ void Display() {
     }
     framebuffer.Unbind();
 
+    // render to framebuffer (second attachment)
+    framebuffer.Bind();
+    {
+        screenquad.Draw(0);
+    }
+    framebuffer.Unbind();
 
     // render to Window
     glViewport(0, 0, window_width, window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    screenquad.Draw();
+    screenquad.Draw(1);
 }
 
 // gets called when the windows/framebuffer is resized.
