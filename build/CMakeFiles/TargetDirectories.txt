@@ -5,3 +5,7 @@
 /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth/CMakeFiles/rebuild_cache.dir
 /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir
 /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir
+/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/CMakeFiles/hw4p3_motionblur.dir
+/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/CMakeFiles/edit_cache.dir
+/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/CMakeFiles/rebuild_cache.dir
+/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/CMakeFiles/copy_shaders_hw4p3_motionblur.dir

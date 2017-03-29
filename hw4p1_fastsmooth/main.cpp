@@ -18,7 +18,7 @@ Quad quad;
 int window_width = 800;
 int window_height = 600;
 
-float stdev = 1.0f;
+float stdev = 2.0f;
 
 FrameBuffer framebuffer;// create two framebuffers
 ScreenQuad screenquad;

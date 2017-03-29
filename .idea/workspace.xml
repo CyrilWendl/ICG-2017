@@ -6,6 +6,7 @@
       <config projectName="icg17" targetName="hw4p1_fastsmooth" />
       <config projectName="icg17" targetName="copy_shaders_hw4p2_mirrorfloor" />
       <config projectName="icg17" targetName="common_headers" />
+      <config projectName="icg17" targetName="hw4p3_motionblur" />
       <config projectName="icg17" targetName="copy_shaders_hw2p1_spiral" />
       <config projectName="icg17" targetName="copy_shaders_lab5_framebuffer" />
       <config projectName="icg17-private" targetName="lab3_opengl3d" />
@@ -16,17 +17,16 @@
       <config projectName="icg17" targetName="copy_shaders_lab1_helloworld" />
       <config projectName="icg17" targetName="lab1_helloworld" />
       <config projectName="icg17-private" targetName="hw2_trackball" />
-      <config projectName="icg17" targetName="hw4p3_motionblur" />
+      <config projectName="icg17" targetName="copy_shaders_hw4p3_motionblur" />
       <config projectName="icg17-private" targetName="copy_shaders_lab3_opengl3d" />
-      <config projectName="icg17" targetName="copy_shaders_hw4p1_fastsmooth" />
-      <config projectName="icg17-private" targetName="copy_shaders_hw3_shading" />
-      <config projectName="icg17" targetName="lab5_framebuffer" />
       <config projectName="icg17" targetName="hw2p2_checkerboard" />
+      <config projectName="icg17" targetName="copy_shaders_hw4p1_fastsmooth" />
+      <config projectName="icg17-private" targetName="hw3_shading" />
+      <config projectName="icg17" targetName="lab5_framebuffer" />
+      <config projectName="icg17-private" targetName="copy_shaders_hw3_shading" />
       <config projectName="icg17" targetName="hw2p3_planets" />
       <config projectName="icg17" targetName="copy_shaders_lab2_intro_to_glsl" />
       <config projectName="icg17" targetName="hw4p2_mirrorfloor" />
-      <config projectName="icg17-private" targetName="hw3_shading" />
-      <config projectName="icg17" targetName="copy_shaders_hw4p3_motionblur" />
       <config projectName="icg17-private" targetName="hw2p3_planets" />
       <config projectName="icg17" targetName="lab2_intro_to_glsl" />
     </generated>
@@ -38,7 +38,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.o" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/hw4p1_fastsmooth" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/hw4p1_fastsmooth" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeCache.txt" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Makefile" afterPath="$PROJECT_DIR$/build/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/cube_fshader.glsl" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/cube_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/quad_fshader.glsl" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/quad_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/screenquad_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p3_motionblur/CMakeFiles/hw4p3_motionblur.dir/depend.make" afterPath="$PROJECT_DIR$/build/hw4p3_motionblur/CMakeFiles/hw4p3_motionblur.dir/depend.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg17.cbp" afterPath="$PROJECT_DIR$/build/icg17.cbp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" afterPath="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -58,73 +75,119 @@
     <favorites_list name="icg17" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="231" column="26" lean-forward="false" selection-start-line="231" selection-start-column="26" selection-end-line="231" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screenquad_fshader.glsl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-658">
-              <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="framebuffer.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="65" column="66" lean-forward="false" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cube_fshader.glsl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_fshader.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.24250214">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="screenquad_fshader.glsl" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="131">
+                  <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quad.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cube_fshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_fshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="screenquad_vshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad_vshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quad_vshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_vshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/main.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_fshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shader</find>
-      <find>cubevertices</find>
       <find>frameb</find>
       <find>active</find>
       <find>active_pro</find>
@@ -147,12 +210,14 @@
       <find>framebuffer[0]</find>
       <find>gluint</find>
       <find>uniform</find>
-      <find>std</find>
       <find>texoffset</find>
       <find>bind</find>
       <find>loc</find>
       <find>loca</find>
       <find>framebuffer\[[0-9]\]</find>
+      <find>std</find>
+      <find>stdev</find>
+      <find>std_</find>
     </findStrings>
     <replaceStrings>
       <replace>framebuffer[0]</replace>
@@ -190,9 +255,10 @@
         <option value="$PROJECT_DIR$/lab5_framebuffer/main.cpp" />
         <option value="$PROJECT_DIR$/lab5_framebuffer/screenquad/screenquad_fshader.glsl" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" />
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h" />
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
-        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp" />
+        <option value="$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl" />
       </list>
     </option>
   </component>
@@ -248,7 +314,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab5_framebuffer" />
+              <option name="myItemId" value="hw4p3_motionblur" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,11 +328,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab5_framebuffer" />
+              <option name="myItemId" value="hw4p3_motionblur" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="screenquad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hw4p3_motionblur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quad" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -714,6 +798,8 @@
       <workItem from="1490694402497" duration="3572000" />
       <workItem from="1490698197531" duration="183000" />
       <workItem from="1490707172596" duration="1022000" />
+      <workItem from="1490732690290" duration="2000" />
+      <workItem from="1490770655397" duration="1727000" />
     </task>
     <task id="LOCAL-00001" summary="Trackball added, zoom not working">
       <created>1489532261676</created>
@@ -740,7 +826,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64040000" />
+    <option name="totallyTimeSpent" value="65769000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,7 +841,7 @@
     <frame x="0" y="22" width="1440" height="839" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21705426" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17758985" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33287102" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259362" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
@@ -832,62 +918,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw2p2_checkerboard/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p3_planets/quad/quad_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p3_planets/quad/quad_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2_trackball/grid/grid_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2_trackball/grid/grid_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1_helloworld/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2_trackball/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="219" column="4" lean-forward="false" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2_trackball/trackball.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/flat_vshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1004,13 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/cube/cube.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1145,23 +1168,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-658">
-          <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        <state relative-caret-position="975">
+          <caret line="65" column="52" lean-forward="false" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_fshader.glsl">
+    <entry file="file://$PROJECT_DIR$/lab5_framebuffer/cube/cube.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <state relative-caret-position="134">
+          <caret line="141" column="8" lean-forward="false" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl">
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_vshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1169,26 +1192,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/framebuffer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="65" column="66" lean-forward="false" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="231" column="26" lean-forward="false" selection-start-line="231" selection-start-column="26" selection-end-line="231" selection-end-column="26" />
+        <state relative-caret-position="131">
+          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="21" />
           <folding />
         </state>
       </provider>

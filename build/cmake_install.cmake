@@ -30,6 +30,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth/cmake_install.cmake")
+  include("/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/cmake_install.cmake")
 
 endif()
 

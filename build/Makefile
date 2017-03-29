@@ -149,6 +149,32 @@ copy_shaders_hw4p1_fastsmooth/fast:
 	$(MAKE) -f hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build
 .PHONY : copy_shaders_hw4p1_fastsmooth/fast
 
+#=============================================================================
+# Target rules for targets named hw4p3_motionblur
+
+# Build rule for target.
+hw4p3_motionblur: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hw4p3_motionblur
+.PHONY : hw4p3_motionblur
+
+# fast build rule for target.
+hw4p3_motionblur/fast:
+	$(MAKE) -f hw4p3_motionblur/CMakeFiles/hw4p3_motionblur.dir/build.make hw4p3_motionblur/CMakeFiles/hw4p3_motionblur.dir/build
+.PHONY : hw4p3_motionblur/fast
+
+#=============================================================================
+# Target rules for targets named copy_shaders_hw4p3_motionblur
+
+# Build rule for target.
+copy_shaders_hw4p3_motionblur: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 copy_shaders_hw4p3_motionblur
+.PHONY : copy_shaders_hw4p3_motionblur
+
+# fast build rule for target.
+copy_shaders_hw4p3_motionblur/fast:
+	$(MAKE) -f hw4p3_motionblur/CMakeFiles/copy_shaders_hw4p3_motionblur.dir/build.make hw4p3_motionblur/CMakeFiles/copy_shaders_hw4p3_motionblur.dir/build
+.PHONY : copy_shaders_hw4p3_motionblur/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -160,6 +186,8 @@ help:
 	@echo "... common_headers"
 	@echo "... hw4p1_fastsmooth"
 	@echo "... copy_shaders_hw4p1_fastsmooth"
+	@echo "... hw4p3_motionblur"
+	@echo "... copy_shaders_hw4p3_motionblur"
 .PHONY : help
 
 

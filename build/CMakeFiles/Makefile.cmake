@@ -42,6 +42,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../common/FindGLM.cmake"
   "../common/icg_settings.cmake"
   "../hw4p1_fastsmooth/CMakeLists.txt"
+  "../hw4p3_motionblur/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -54,6 +55,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "hw4p1_fastsmooth/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw4p3_motionblur/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -61,4 +63,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/common_headers.dir/DependInfo.cmake"
   "hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/DependInfo.cmake"
   "hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/DependInfo.cmake"
+  "hw4p3_motionblur/CMakeFiles/hw4p3_motionblur.dir/DependInfo.cmake"
+  "hw4p3_motionblur/CMakeFiles/copy_shaders_hw4p3_motionblur.dir/DependInfo.cmake"
   )

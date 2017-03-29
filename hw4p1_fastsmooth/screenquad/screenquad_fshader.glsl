@@ -3,7 +3,7 @@
 
 in vec2 uv;
 
-layout (location = 0) out vec3 color1;
+out vec3 color1;
 layout (location = 1) out vec3 color2;
 
 uniform sampler2D tex_1;
@@ -29,23 +29,32 @@ void main() {
             weight_tot += w;
         }
     }
-    color = color_tot / weight_tot; // ensure \int w = 1
+    color1 = color_tot / weight_tot; // ensure \int w = 1
 #else
     // efficient gaussian filtering
+    // inspiration source: http://www.stat.wisc.edu/~mchung/teaching/MIA/reading/diffusion.gaussian.kernel.pdf.pdf
     vec3 color_tot_1= vec3(0.0);
-
-    for (int i = -4; i <= 4; i++){
-            color_tot_1 += texture(tex_1,uv+vec2(i/tex_width,i/tex_height)).rgb*kernel[i + 4];
-
-            color1 = color_tot_1;
+    float weight_tot_1 = 0;
+    int SIZE = 1 + 3 * int(ceil(std));
+    for (int i = -SIZE; i <= SIZE; i++){
+        float w = exp(-(i*i)/(2.0*std*std));
+        vec3 neigh_color = texture(tex_1, uv+vec2(i/tex_width,0)).rgb;
+        color_tot_1 += texture(tex_1,uv+vec2(i/tex_width,0)).rgb*w;
+        color1 = color_tot_1;
+        weight_tot_1 += w;
     }
+    color1 =  color_tot_1 / weight_tot_1; // ensure \int w = 1
 
     vec3 color_tot_2= vec3(0.0);
-    for (int i = -4; i <= 4; i++){
-        color_tot_2 += texture(tex_1,uv+vec2(i/tex_width,i/tex_height)).rgb*kernel[i + 4];
-        color2 = color_tot_2;
+    float weight_tot_2 = 0;
+    for (int i = -SIZE; i <= SIZE; i++){
+        float w = exp(-(i*i)/(2.0*std*std));
+        vec3 neigh_color = texture(tex_1, uv+vec2(0,i/tex_width)).rgb;
+        color_tot_2 += texture(tex_1,uv+vec2(0,i/tex_height)).rgb*w;
+        color2 = color_tot_1;
+        weight_tot_2 += w;
     }
-
+    color2 = color_tot_2 / weight_tot_2; // ensure \int w = 1
 #endif
 }
 

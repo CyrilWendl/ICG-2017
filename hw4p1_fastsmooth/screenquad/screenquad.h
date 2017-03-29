@@ -36,7 +36,7 @@ class ScreenQuad {
             this->screenquad_height_ = screenquad_height;
 
             // set standard deviation
-            this->std_ = 1.0;
+            this->std_ = 2.0;
 
             // set (x,y) offset
             this->offsetx_=1.0f/300.0f;
