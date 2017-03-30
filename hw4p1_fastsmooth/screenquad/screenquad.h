@@ -1,156 +1,140 @@
 #pragma once
-
 #include "icg_helper.h"
 
 class ScreenQuad {
 
-private:
-    GLuint vertex_array_id_;        // vertex array object
-    GLuint program_id_;             // GLSL shader program ID
-    GLuint vertex_buffer_object_;   // memory buffer
-    GLuint texture_id_1_;             // texture ID (x)
-    GLuint texture_id_2_;             // texture ID (y)
+    private:
+        GLuint vertex_array_id_;        // vertex array object
+        GLuint program_id_;             // GLSL shader program ID
+        GLuint vertex_buffer_object_;   // memory buffer
+        GLuint texture_id_1_;             // texture ID
+        GLuint texture_id_2_;             // texture ID
 
-    float screenquad_width_;
-    float screenquad_height_;
+        float screenquad_width_;
+        float screenquad_height_;
 
-public:
-    void Init(float screenquad_width , float screenquad_height ,
-              GLuint texture_1 , GLuint texture_2) {
+    public:
+        void Init(float screenquad_width, float screenquad_height,
+                  GLuint texture_1, GLuint texture_2) {
 
-        // set screenquad size
-        this->screenquad_width_ = screenquad_width;
-        this->screenquad_height_ = screenquad_height;
+            // set screenquad size
+            this->screenquad_width_ = screenquad_width;
+            this->screenquad_height_ = screenquad_height;
 
-        // compile the shaders
-        program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl" ,
-                                              "screenquad_fshader.glsl");
-        if (!program_id_) {
-            exit(EXIT_FAILURE);
+            // compile the shaders
+            program_id_ = icg_helper::LoadShaders("screenquad_vshader.glsl",
+                                                  "screenquad_fshader.glsl");
+            if(!program_id_) {
+                exit(EXIT_FAILURE);
+            }
+
+            glUseProgram(program_id_);
+
+            // vertex one vertex Array
+            glGenVertexArrays(1, &vertex_array_id_);
+            glBindVertexArray(vertex_array_id_);
+
+            // vertex coordinates
+            {
+                const GLfloat vertex_point[] = { /*V1*/ -1.0f, -1.0f, 0.0f,
+                                                 /*V2*/ +1.0f, -1.0f, 0.0f,
+                                                 /*V3*/ -1.0f, +1.0f, 0.0f,
+                                                 /*V4*/ +1.0f, +1.0f, 0.0f};
+                // buffer
+                glGenBuffers(1, &vertex_buffer_object_);
+                glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object_);
+                glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_point),
+                             vertex_point, GL_STATIC_DRAW);
+
+                // attribute
+                GLuint vertex_point_id = glGetAttribLocation(program_id_, "vpoint");
+                glEnableVertexAttribArray(vertex_point_id);
+                glVertexAttribPointer(vertex_point_id, 3, GL_FLOAT, DONT_NORMALIZE,
+                                      ZERO_STRIDE, ZERO_BUFFER_OFFSET);
+            }
+
+            // texture coordinates
+            {
+                const GLfloat vertex_texture_coordinates[] = { /*V1*/ 0.0f, 0.0f,
+                                                               /*V2*/ 1.0f, 0.0f,
+                                                               /*V3*/ 0.0f, 1.0f,
+                                                               /*V4*/ 1.0f, 1.0f};
+
+                // buffer
+                glGenBuffers(1, &vertex_buffer_object_);
+                glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object_);
+                glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_texture_coordinates),
+                             vertex_texture_coordinates, GL_STATIC_DRAW);
+
+                // attribute
+                GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_,
+                                                                     "vtexcoord");
+                glEnableVertexAttribArray(vertex_texture_coord_id);
+                glVertexAttribPointer(vertex_texture_coord_id, 2, GL_FLOAT,
+                                      DONT_NORMALIZE, ZERO_STRIDE,
+                                      ZERO_BUFFER_OFFSET);
+            }
+
+            // load/Assign texture
+            this->texture_id_1_ = texture_1;
+            glBindTexture(GL_TEXTURE_2D, texture_id_1_);
+            GLuint tex_id = glGetUniformLocation(program_id_, "tex");
+            glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+            glBindTexture(GL_TEXTURE_2D, 0);
+
+            this->texture_id_2_ = texture_2;
+            glBindTexture(GL_TEXTURE_2D, texture_id_2_);
+            GLuint tex_id_1 = glGetUniformLocation(program_id_, "tex_1");
+            glUniform1i(tex_id_1, 1 /*GL_TEXTURE1*/);
+            glBindTexture(GL_TEXTURE_2D, 0);
+
+            // to avoid the current object being polluted
+            glBindVertexArray(0);
+            glUseProgram(0);
         }
 
-        glUseProgram(program_id_);
-
-        // vertex one vertex Array
-        glGenVertexArrays(1 , &vertex_array_id_);
-        glBindVertexArray(vertex_array_id_);
-
-        // vertex coordinates
-        {
-            const GLfloat vertex_point[] = { /*V1*/ -1.0f , -1.0f , 0.0f ,
-                    /*V2*/ +1.0f , -1.0f , 0.0f ,
-                    /*V3*/ -1.0f , +1.0f , 0.0f ,
-                    /*V4*/ +1.0f , +1.0f , 0.0f};
-            // buffer
-            glGenBuffers(1 , &vertex_buffer_object_);
-            glBindBuffer(GL_ARRAY_BUFFER , vertex_buffer_object_);
-            glBufferData(GL_ARRAY_BUFFER , sizeof(vertex_point) ,
-                         vertex_point , GL_STATIC_DRAW);
-
-            // attribute
-            GLuint vertex_point_id = glGetAttribLocation(program_id_ , "vpoint");
-            glEnableVertexAttribArray(vertex_point_id);
-            glVertexAttribPointer(vertex_point_id , 3 , GL_FLOAT , DONT_NORMALIZE ,
-                                  ZERO_STRIDE , ZERO_BUFFER_OFFSET);
+        void Cleanup() {
+            glBindVertexArray(0);
+            glUseProgram(0);
+            glDeleteBuffers(1, &vertex_buffer_object_);
+            glDeleteProgram(program_id_);
+            glDeleteVertexArrays(1, &vertex_array_id_);
+            glDeleteTextures(1, &texture_id_1_);
+            glDeleteTextures(1, &texture_id_2_);
         }
 
-        // texture coordinates
-        {
-            const GLfloat vertex_texture_coordinates[] = { /*V1*/ 0.0f , 0.0f ,
-                    /*V2*/ 1.0f , 0.0f ,
-                    /*V3*/ 0.0f , 1.0f ,
-                    /*V4*/ 1.0f , 1.0f};
-
-            // buffer
-            glGenBuffers(1 , &vertex_buffer_object_);
-            glBindBuffer(GL_ARRAY_BUFFER , vertex_buffer_object_);
-            glBufferData(GL_ARRAY_BUFFER , sizeof(vertex_texture_coordinates) ,
-                         vertex_texture_coordinates , GL_STATIC_DRAW);
-
-            // attribute
-            GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_ ,
-                                                                 "vtexcoord");
-            glEnableVertexAttribArray(vertex_texture_coord_id);
-            glVertexAttribPointer(vertex_texture_coord_id , 2 , GL_FLOAT ,
-                                  DONT_NORMALIZE , ZERO_STRIDE ,
-                                  ZERO_BUFFER_OFFSET);
-
+        void UpdateSize(int screenquad_width, int screenquad_height) {
+            this->screenquad_width_ = screenquad_width;
+            this->screenquad_height_ = screenquad_height;
         }
 
-        // load/Assign textures
-        this->texture_id_1_ = texture_1;
-        glBindTexture(GL_TEXTURE_2D , texture_id_1_);
-        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_S , GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_T , GL_CLAMP_TO_EDGE);
-        glUniform1i(glGetUniformLocation(program_id_ , "tex") , 0 /*GL_TEXTURE0*/);
+        void Draw(int pass, float std) {
+            glUseProgram(program_id_);
+            glBindVertexArray(vertex_array_id_);
 
-        this->texture_id_2_ = texture_2;
-        glBindTexture(GL_TEXTURE_2D , texture_id_2_);
-        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_S , GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_WRAP_T , GL_CLAMP_TO_EDGE);
-        glUniform1i(glGetUniformLocation(program_id_ , "tex1") , 1 /*GL_TEXTURE1*/);
+            // window size uniforms
+            glUniform1f(glGetUniformLocation(program_id_, "tex_width"),
+                        this->screenquad_width_);
+            glUniform1f(glGetUniformLocation(program_id_, "tex_height"),
+                        this->screenquad_height_);
+            glUniform1f(glGetUniformLocation(program_id_, "std"),
+                        std);
 
-        glBindTexture(GL_TEXTURE_2D , 0);
+            glUniform1i(glGetUniformLocation(program_id_, "pass"),
+                        pass);
 
-        // to avoid the current object being polluted
-        glBindVertexArray(0);
-        glUseProgram(0);
-    }
-
-    void Cleanup() {
-        glBindVertexArray(0);
-        glUseProgram(0);
-        glDeleteBuffers(1 , &vertex_buffer_object_);
-        glDeleteProgram(program_id_);
-        glDeleteVertexArrays(1 , &vertex_array_id_);
-        glDeleteTextures(1 , &texture_id_1_);
-        glDeleteTextures(2 , &texture_id_2_);
-    }
-
-    void UpdateSize(int screenquad_width , int screenquad_height) {
-        this->screenquad_width_ = screenquad_width;
-        this->screenquad_height_ = screenquad_height;
-    }
-
-    void Draw(int pass , float std) {
-        glUseProgram(program_id_);
-        glBindVertexArray(vertex_array_id_);
-
-        // window size uniforms
-        glUniform1f(glGetUniformLocation(program_id_ , "tex_width") ,
-                    this->screenquad_width_);
-        glUniform1f(glGetUniformLocation(program_id_ , "tex_height") ,
-                    this->screenquad_height_);
-
-        glUniform1i(glGetUniformLocation(program_id_ , "pass") , pass);
-
-        // kernel
-        int size = 1 + 3 * 2 * int(ceil(std));
-        float kernel[2 * size + 1];
-        for (int i = -size; i <= size; i++) {
-            kernel[i] = exp(-(i * i) / (2.0 * std * std * std * std));
-        }
-
-        glUniform1i(glGetUniformLocation(program_id_ , "size") ,
-                    size);
-
-        glUniform1fv(glGetUniformLocation(program_id_ , "kernel") ,
-                     2 * size + 1 , kernel);
-
-        if (pass == 0) {
+            // bind texture
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D , texture_id_1_);
-        }
+            glBindTexture(GL_TEXTURE_2D, texture_id_1_);
 
-        if (pass == 1) {
+            // bind texture
             glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_2D , texture_id_2_);
+            glBindTexture(GL_TEXTURE_2D, texture_id_2_);
+
+            // draw
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+            glBindVertexArray(0);
+            glUseProgram(0);
         }
-
-        // draw
-        glDrawArrays(GL_TRIANGLE_STRIP , 0 , 4);
-
-        glBindVertexArray(0);
-        glUseProgram(0);
-    }
 };
