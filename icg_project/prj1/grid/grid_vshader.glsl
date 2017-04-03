@@ -9,6 +9,8 @@ out vec2 uv;
 uniform mat4 MVP;
 uniform float time;
 
+uniform sampler2D tex;      // pass the texture also in the vertex shader to compute the height
+
 in vec3 color;
 
 void main() {
@@ -16,9 +18,8 @@ void main() {
 
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
-    // Animate the height of the grid points as a sine function of the
-    // 'time' and the position ('uv') within the grid.
-    float height = color.x * 100;//0.05*cos(20*uv.x)*sin(10*(uv.x))*cos(10*uv.y)*sin(5*(uv.y))*sin(3.1415*time) + 0.05*sin(20*(uv.x*uv.x+uv.y*uv.y) - 2*3.14*time);
+    float scaling_height_factor = 10;
+    float height = float(texture(tex,uv).x) / scaling_height_factor;        // divide by a scaling factor
     vec3 pos_3d = vec3(position.x, height, -position.y);
 
     gl_Position = MVP * vec4(pos_3d, 1.0);

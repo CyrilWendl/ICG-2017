@@ -43,11 +43,11 @@ float perlin(vec2 p) {      // perlin noise function
 }
 
 float fbm(vec2 x) {         // fractional Brownian motion function
-    float v = 0.0;
-    float a = 0.5;
-    vec2 shift = vec2(100);
+    float v = 0.5;      // parameters to vary
+    float a = 0.25;     // parameters to vary
+    vec2 shift = vec2(100);     // parameters to vary
     // Rotate to reduce axial bias
-    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
+    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));      // parameters to vary
     for (int i = 0; i < NUM_OCTAVES; ++i) {
             v += a * perlin(x);
             x = rot * x * 2.0 + shift;
