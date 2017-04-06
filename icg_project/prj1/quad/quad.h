@@ -134,10 +134,56 @@ class Quad {
             GLuint MVP_id = glGetUniformLocation(program_id_, "MVP");
             glUniformMatrix4fv(MVP_id, 1, GL_FALSE, value_ptr(MVP));
 
+//            GLint loc = glGetUniformLocation(program_id_, "HUni");
+//            if (loc != -1)
+//            {
+//               glUniform1f(loc, H);
+//            }
+
+//            loc = glGetUniformLocation(program_id_, "lacunarityUni");
+//            if (loc != -1)
+//            {
+//               glUniform1f(loc, lacunarity);
+//            }
+
+//            loc = glGetUniformLocation(program_id_, "octavesUni");
+//            if (loc != -1)
+//            {
+//               glUniform1f(loc, octaves);
+//            }
+
             // draw
             glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
             glBindVertexArray(0);
             glUseProgram(0);
+
+        }
+
+        void changeH(float H)
+        {
+            GLint loc = glGetUniformLocation(program_id_, "HUni");
+            if (loc != -1)
+            {
+               glUniform1f(loc, H);
+            }
+        }
+
+        void changeLac(float lacunarity)
+        {
+            GLint loc = glGetUniformLocation(program_id_, "lacunarityUni");
+            if (loc != -1)
+            {
+               glUniform1f(loc, lacunarity);
+            }
+        }
+
+        void changeOct(int octaves)
+        {
+            GLint loc = glGetUniformLocation(program_id_, "octavesUni");
+            if (loc != -1)
+            {
+               glUniform1f(loc, octaves);
+            }
         }
 };
