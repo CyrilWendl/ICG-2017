@@ -1,29 +1,19 @@
-cmake_minimum_required(VERSION 2.8)
-project(icg17)
+get_filename_component(EXERCISENAME ${CMAKE_CURRENT_LIST_DIR} NAME)
+file(GLOB_RECURSE SOURCES "*.cpp")
+file(GLOB_RECURSE HEADERS "*.h")
 
-# load the common ICG configuration
-include(common/icg_settings.cmake)
+# these files are copied only once
+file(GLOB TEXTURES
+    grid/grid_texture.tga
+    quad/quad_texture.tga)
+copy_files_once(${TEXTURES})
 
-# week 1
-#add_subdirectory(lab1_helloworld)
+# list all the files you want to copy everytime
+# you build (ie, you want the shaders there)
+file(GLOB SHADERS
+  grid/*.glsl
+  quad/*.glsl)
+deploy_shaders_to_build_dir(${SHADERS})
 
-# week 2
-#add_subdirectory(lab2_intro_to_glsl)
-#add_subdirectory(hw2p1_spiral)
-#add_subdirectory(hw2p2_checkerboard)
-#add_subdirectory(hw2p3_planets)
-
-# week 3
-#add_subdirectory(lab3_opengl3d)
-#add_subdirectory(hw3_trackball)
-
-# week 4
-#add_subdirectory(hw4_shading)
-
-# week 5
-#add_subdirectory(lab5_framebuffer)
-# TODO : copy the lab folder and call it hw4p1_fastsmooth, then uncomment line below
-#add_subdirectory(hw4p1_fastsmooth)
-add_subdirectory(prj1)
-#add_subdirectory(hw4p3_motionblur)
-
+add_executable(${EXERCISENAME} ${SOURCES} ${HEADERS} ${SHADERS})
+target_link_libraries(${EXERCISENAME} ${COMMON_LIBS})

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/hw4p1_fastsmooth/main.cpp" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.o"
+  "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/main.cpp" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/icg_project.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

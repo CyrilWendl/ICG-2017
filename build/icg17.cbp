@@ -5,51 +5,51 @@
 		<Option title="icg17"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="clang"/>
-		<Option virtualFolders="CMake Files\;CMake Files\common\;CMake Files\hw4p1_fastsmooth\;CMake Files\hw4p3_motionblur\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\common\;CMake Files\icg_project\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="common_headers">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 common_headers"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 common_headers"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hw4p1_fastsmooth">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth/hw4p1_fastsmooth" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth"/>
+			<Target title="icg_project">
+				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/icg_project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
@@ -57,24 +57,24 @@
 					<Add option="-DGLEW_STATIC"/>
 					<Add option="-DGLM_FORCE_RADIANS"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/external"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/external"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
 					<Add directory="/Library/Frameworks"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 hw4p1_fastsmooth"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 icg_project"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hw4p1_fastsmooth/fast">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth/hw4p1_fastsmooth" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth"/>
+			<Target title="icg_project/fast">
+				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/icg_project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="clang"/>
@@ -82,181 +82,88 @@
 					<Add option="-DGLEW_STATIC"/>
 					<Add option="-DGLM_FORCE_RADIANS"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/external"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/external"/>
+					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
 					<Add directory="/Library/Frameworks"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 hw4p1_fastsmooth/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 icg_project/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="copy_shaders_hw4p1_fastsmooth">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p1_fastsmooth"/>
+			<Target title="copy_shaders_icg_project">
+				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 copy_shaders_hw4p1_fastsmooth"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p1_fastsmooth/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="hw4p3_motionblur">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/hw4p3_motionblur" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="clang"/>
-				<Compiler>
-					<Add option="-DGLEW_STATIC"/>
-					<Add option="-DGLM_FORCE_RADIANS"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/external"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 hw4p3_motionblur"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="hw4p3_motionblur/fast">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur/hw4p3_motionblur" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="clang"/>
-				<Compiler>
-					<Add option="-DGLEW_STATIC"/>
-					<Add option="-DGLM_FORCE_RADIANS"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/external"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 hw4p3_motionblur/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="copy_shaders_hw4p3_motionblur">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/build/hw4p3_motionblur"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 copy_shaders_hw4p3_motionblur"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17/build/hw4p3_motionblur/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 copy_shaders_icg_project"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/check_error_gl.h">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/check_error_gl.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/icg_helper.h">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/icg_helper.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/stb_image.h">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/stb_image.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/tiny_obj_loader.h">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/tiny_obj_loader.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/cube/cube.h">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/framebuffer.h">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/cube/cube_fshader.glsl">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid.h">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/cube/cube_vshader.glsl">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid_fshader.glsl">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/framebuffer.h">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid_vshader.glsl">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/main.cpp">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/main.cpp">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/quad/quad.h">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad.h">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/quad/quad_fshader.glsl">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad_fshader.glsl">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/quad/quad_vshader.glsl">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad_vshader.glsl">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/screenquad/screenquad.h">
-			<Option target="hw4p1_fastsmooth"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/trackball.h">
+			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
-			<Option target="hw4p1_fastsmooth"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/screenquad/screenquad_vshader.glsl">
-			<Option target="hw4p1_fastsmooth"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/framebuffer.h">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/main.cpp">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/quad/quad.h">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/quad/quad_fshader.glsl">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/quad/quad_vshader.glsl">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/screenquad/screenquad.h">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/screenquad/screenquad_fshader.glsl">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/screenquad/screenquad_vshader.glsl">
-			<Option target="hw4p3_motionblur"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/CMakeLists.txt">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/icg_settings.cmake">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/icg_settings.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLFW3.cmake">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/FindGLFW3.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLEW.cmake">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/FindGLEW.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/common/FindGLM.cmake">
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/FindGLM.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p1_fastsmooth/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\hw4p1_fastsmooth\"/>
-		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17/hw4p3_motionblur/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\hw4p3_motionblur\"/>
+		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\icg_project\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

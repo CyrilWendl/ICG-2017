@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/CMakeFiles" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/hw4p1_fastsmooth/CMakeFiles/progress.marks"
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/all
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/CMakeFiles" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/progress.marks"
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 icg_project/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/clean
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 icg_project/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,12 +97,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/preinstall
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 icg_project/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/preinstall
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 icg_project/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -111,34 +111,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule
-.PHONY : hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule
+icg_project/CMakeFiles/icg_project.dir/rule:
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 icg_project/CMakeFiles/icg_project.dir/rule
+.PHONY : icg_project/CMakeFiles/icg_project.dir/rule
 
 # Convenience name for target.
-hw4p1_fastsmooth: hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/rule
+icg_project: icg_project/CMakeFiles/icg_project.dir/rule
 
-.PHONY : hw4p1_fastsmooth
+.PHONY : icg_project
 
 # fast build rule for target.
-hw4p1_fastsmooth/fast:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build
-.PHONY : hw4p1_fastsmooth/fast
+icg_project/fast:
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f icg_project/CMakeFiles/icg_project.dir/build.make icg_project/CMakeFiles/icg_project.dir/build
+.PHONY : icg_project/fast
 
 # Convenience name for target.
-hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule
-.PHONY : hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule
+icg_project/CMakeFiles/copy_shaders_icg_project.dir/rule:
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f CMakeFiles/Makefile2 icg_project/CMakeFiles/copy_shaders_icg_project.dir/rule
+.PHONY : icg_project/CMakeFiles/copy_shaders_icg_project.dir/rule
 
 # Convenience name for target.
-copy_shaders_hw4p1_fastsmooth: hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/rule
+copy_shaders_icg_project: icg_project/CMakeFiles/copy_shaders_icg_project.dir/rule
 
-.PHONY : copy_shaders_hw4p1_fastsmooth
+.PHONY : copy_shaders_icg_project
 
 # fast build rule for target.
-copy_shaders_hw4p1_fastsmooth/fast:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build
-.PHONY : copy_shaders_hw4p1_fastsmooth/fast
+copy_shaders_icg_project/fast:
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f icg_project/CMakeFiles/copy_shaders_icg_project.dir/build.make icg_project/CMakeFiles/copy_shaders_icg_project.dir/build
+.PHONY : copy_shaders_icg_project/fast
 
 main.o: main.cpp.o
 
@@ -146,7 +146,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.o
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f icg_project/CMakeFiles/icg_project.dir/build.make icg_project/CMakeFiles/icg_project.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -155,7 +155,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.i
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f icg_project/CMakeFiles/icg_project.dir/build.make icg_project/CMakeFiles/icg_project.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -164,7 +164,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/main.cpp.s
+	cd "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build" && $(MAKE) -f icg_project/CMakeFiles/icg_project.dir/build.make icg_project/CMakeFiles/icg_project.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -175,8 +175,8 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... hw4p1_fastsmooth"
-	@echo "... copy_shaders_hw4p1_fastsmooth"
+	@echo "... icg_project"
+	@echo "... copy_shaders_icg_project"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/hw4p1_fastsmooth
+# Install script for directory: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
