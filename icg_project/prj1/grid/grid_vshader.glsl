@@ -18,7 +18,7 @@ void main() {
 
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
-    float scaling_height_factor = 10;
+    float scaling_height_factor = 1.0;
     float height = float(texture(tex,uv).x) / scaling_height_factor;        // divide by a scaling factor
     vec3 pos_3d = vec3(position.x, height, -position.y);
 
