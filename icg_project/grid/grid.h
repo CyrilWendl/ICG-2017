@@ -10,6 +10,7 @@ class Grid {
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint texture_id_;                     // texture ID
+        GLuint texture_2_;
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -90,6 +91,16 @@ class Grid {
 
             // load texture
             {
+                texture_id_ = tex_noise;
+                // texture uniforms
+                GLuint tex_id = glGetUniformLocation(program_id_, "tex");
+                glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+
+                // cleanup
+                glBindTexture(GL_TEXTURE_2D, 0);
+            }
+            // load texture 2
+            {
                 int width;
                 int height;
                 int nb_component;
@@ -103,8 +114,8 @@ class Grid {
                     throw(string("Failed to load texture"));
                 }
 
-                glGenTextures(1, &texture_id_);
-                glBindTexture(GL_TEXTURE_2D, texture_id_);
+                glGenTextures(1, &texture_2_);
+                glBindTexture(GL_TEXTURE_2D, texture_2_);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -116,11 +127,9 @@ class Grid {
                                  GL_RGBA, GL_UNSIGNED_BYTE, image);
                 }
 
-                texture_id_ = (tex_noise==-1)? texture_id_ : tex_noise;
-
                 // texture uniforms
-                GLuint tex_id = glGetUniformLocation(program_id_, "tex");
-                glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+                GLuint tex_id = glGetUniformLocation(program_id_, "tex2");
+                glUniform1i(tex_id, 1 /*GL_TEXTURE1*/);
 
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -154,6 +163,9 @@ class Grid {
             // bind textures
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, texture_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, texture_2_);
 
             // setup MVP
             glm::mat4 MVP = projection*view*model;

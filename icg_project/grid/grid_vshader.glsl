@@ -2,6 +2,7 @@
 
 in vec2 position;
 
+out float height;
 out vec2 uv;
 
 //in vec3 vpoint;
@@ -19,7 +20,7 @@ void main() {
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
     float scaling_height_factor = 1.0;
-    float height = float(texture(tex,uv).x) / scaling_height_factor;        // divide by a scaling factor
+    height = float(texture(tex,uv).x) / scaling_height_factor;        // divide by a scaling factor
     vec3 pos_3d = vec3(position.x, height, -position.y);
 
     gl_Position = MVP * vec4(pos_3d, 1.0);

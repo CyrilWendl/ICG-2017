@@ -21,342 +21,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CMakeCCompiler.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CMakeCXXCompiler.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CMakeDetermineCompilerABI_C.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CMakeSystem.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CompilerIdC/CMakeCCompilerId.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CompilerIdC/a.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/CMakeFiles/3.6.3/CompilerIdCXX/a.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files Andi/framebuffer.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files Andi/main.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files Andi/screenquad.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files Andi/screenquad_fshader.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/FindGLEW.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/FindGLFW3.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/FindGLM.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/check_error_gl.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/icg_helper.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/icg_settings.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/stb_image.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/common/tiny_obj_loader.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/include/GL/glew.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/include/GL/glxew.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/include/GL/wglew.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/lib/win32/glew32.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/lib/win32/glew32s.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/lib/x64/glew64.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glew/version.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/include/GLFW/glfw3.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/include/GLFW/glfw3native.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2010/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2010/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2012/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2012/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2013/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2013/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2015/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x32/lib-vc2015/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/include/GLFW/glfw3.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/include/GLFW/glfw3native.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/lib-vc2012/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/lib-vc2012/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/lib-vc2013/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/lib-vc2013/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/lib-vc2015/glfw3.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glfw3/x64/lib-vc2015/glfw3dll.lib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/CMakeLists.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/common.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/_features.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/_fixes.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/_noise.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/_swizzle.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/_swizzle_func.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/_vectorize.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/dummy.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_common.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_common.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_exponential.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_exponential.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_geometric.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_geometric.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_integer.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_integer.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_matrix.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_matrix.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_packing.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_packing.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_trigonometric.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_trigonometric.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_vector_relational.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/func_vector_relational.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/glm.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_common.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_common.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_exponential.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_exponential.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_geometric.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_geometric.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_integer.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_integer.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_matrix.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_matrix.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_trigonometric.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_trigonometric.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_vector_relational.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/intrinsic_vector_relational.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/precision.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/setup.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_float.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_gentype.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_gentype.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_half.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_half.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_int.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat2x2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat2x2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat2x3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat2x3.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat2x4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat2x4.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat3x2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat3x2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat3x3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat3x3.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat3x4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat3x4.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat4x2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat4x2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat4x3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat4x3.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat4x4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_mat4x4.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec1.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec1.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec3.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec4.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec4_avx.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec4_avx2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/detail/type_vec4_sse2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/exponential.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/ext.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/fwd.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/geometric.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/glm.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/bitfield.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/bitfield.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/color_space.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/color_space.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/constants.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/constants.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/epsilon.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/epsilon.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/integer.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/integer.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_access.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_access.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_integer.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_inverse.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_inverse.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_transform.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/matrix_transform.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/noise.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/noise.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/packing.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/packing.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/quaternion.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/quaternion.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/random.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/random.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/reciprocal.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/reciprocal.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/round.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/round.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/type_precision.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/type_precision.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/type_ptr.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/type_ptr.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/ulp.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/ulp.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/vec1.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtc/vec1.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/associated_min_max.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/associated_min_max.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/bit.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/bit.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/closest_point.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/closest_point.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/color_space.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/color_space.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/color_space_YCoCg.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/color_space_YCoCg.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/common.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/common.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/compatibility.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/compatibility.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/component_wise.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/component_wise.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/dual_quaternion.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/dual_quaternion.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/euler_angles.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/euler_angles.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/extend.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/extend.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/extented_min_max.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/extented_min_max.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/fast_exponential.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/fast_exponential.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/fast_square_root.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/fast_square_root.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/fast_trigonometry.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/fast_trigonometry.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/gradient_paint.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/gradient_paint.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/handed_coordinate_space.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/handed_coordinate_space.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/hash.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/hash.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/integer.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/integer.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/intersect.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/intersect.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/io.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/io.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/log_base.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/log_base.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_cross_product.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_cross_product.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_decompose.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_decompose.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_interpolation.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_interpolation.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_major_storage.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_major_storage.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_operation.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_operation.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_query.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_query.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_transform_2d.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/matrix_transform_2d.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/mixed_product.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/mixed_product.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/norm.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/norm.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/normal.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/normal.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/normalize_dot.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/normalize_dot.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/number_precision.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/number_precision.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/optimum_pow.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/optimum_pow.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/orthonormalize.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/orthonormalize.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/perpendicular.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/perpendicular.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/polar_coordinates.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/polar_coordinates.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/projection.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/projection.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/quaternion.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/quaternion.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/range.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/raw_data.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/raw_data.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/rotate_normalized_axis.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/rotate_normalized_axis.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/rotate_vector.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/rotate_vector.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/scalar_multiplication.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/scalar_relational.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/scalar_relational.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/simd_mat4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/simd_mat4.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/simd_quat.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/simd_quat.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/simd_vec4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/simd_vec4.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/spline.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/spline.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/std_based_type.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/std_based_type.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/string_cast.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/string_cast.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/transform.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/transform.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/transform2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/transform2.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/type_aligned.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/type_aligned.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/vector_angle.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/vector_angle.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/vector_query.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/vector_query.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/wrap.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/gtx/wrap.inl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/integer.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat2x2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat2x3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat2x4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat3x2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat3x3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat3x4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat4x2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat4x3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/mat4x4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/matrix.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/packing.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/trigonometric.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/vec2.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/vec3.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/vec4.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/external/glm/vector_relational.hpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/CMakeLists.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/framebuffer.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/grid/grid.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/grid/grid_fshader.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/grid/grid_texture.tga" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/grid/grid_vshader.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/main.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/quad/quad.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/quad/quad_fshader.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/quad/quad_texture.tga" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/quad/quad_vshader.glsl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/icg_project/prj1/trackball.h" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg_project/CMakeFiles/icg_project.dir/main.cpp.o" afterPath="$PROJECT_DIR$/build/icg_project/CMakeFiles/icg_project.dir/main.cpp.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg_project/icg_project" afterPath="$PROJECT_DIR$/build/icg_project/icg_project" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeCache.txt" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/clion-environment.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/build/CMakeFiles/clion-log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/common_headers.dir/build.make" afterPath="$PROJECT_DIR$/build/CMakeFiles/common_headers.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/Makefile" afterPath="$PROJECT_DIR$/build/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/copy_shaders_hw4p1_fastsmooth.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/flags.make" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/CMakeFiles/hw4p1_fastsmooth.dir/flags.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/Makefile" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/hw4p1_fastsmooth/cmake_install.cmake" afterPath="$PROJECT_DIR$/build/hw4p1_fastsmooth/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg17.cbp" afterPath="$PROJECT_DIR$/build/icg17.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/CMakeLists.txt" afterPath="$PROJECT_DIR$/icg_project/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg_project/grid_fshader.glsl" afterPath="$PROJECT_DIR$/build/icg_project/grid_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/icg_project/grid_vshader.glsl" afterPath="$PROJECT_DIR$/build/icg_project/grid_vshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/grid/grid.h" afterPath="$PROJECT_DIR$/icg_project/grid/grid.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl" afterPath="$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl" afterPath="$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -375,140 +47,41 @@
     <favorites_list name="icg17" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5034904">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="screenquad_fshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quad.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="cube_fshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/cube/cube_fshader.glsl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="screenquad_vshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad_vshader.glsl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quad_vshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_vshader.glsl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/main.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="screenquad.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_fshader.glsl">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="grid_fshader.glsl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grid_vshader.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grid.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icg_project/grid/grid.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="167" column="51" lean-forward="false" selection-start-line="167" selection-start-column="51" selection-end-line="167" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>frameb</find>
       <find>active</find>
       <find>active_pro</find>
       <find>glgetuni</find>
@@ -538,6 +111,7 @@
       <find>std</find>
       <find>stdev</find>
       <find>std_</find>
+      <find>void</find>
     </findStrings>
     <replaceStrings>
       <replace>framebuffer[0]</replace>
@@ -579,6 +153,9 @@
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl" />
+        <option value="$PROJECT_DIR$/icg_project/grid/grid.h" />
+        <option value="$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl" />
       </list>
     </option>
   </component>
@@ -635,6 +212,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="icg_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17-private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg17-private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icg_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -985,7 +598,7 @@
       <workItem from="1490707172596" duration="1022000" />
       <workItem from="1490732690290" duration="2000" />
       <workItem from="1490770655397" duration="1727000" />
-      <workItem from="1491494499019" duration="178000" />
+      <workItem from="1491494499019" duration="1556000" />
     </task>
     <task id="LOCAL-00001" summary="Trackball added, zoom not working">
       <created>1489532261676</created>
@@ -1012,7 +625,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65947000" />
+    <option name="totallyTimeSpent" value="67325000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1027,15 +640,16 @@
     <frame x="0" y="22" width="1440" height="839" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18025751" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33287102" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259362" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36061028" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37586686" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3231623" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18025751" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22410148" sideWeight="0.5152838" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1044,7 +658,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1105,41 +718,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/phong_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/spot_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/phong_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/texture.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/spot_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/art_fshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1370,23 +948,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="131">
           <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_vshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1402,41 +995,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1449,26 +1011,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl">
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_vshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/screenquad/screenquad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="59" lean-forward="false" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4p3_motionblur/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="690">
+          <caret line="53" column="8" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_texture.tga">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/grid/grid.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="167" column="51" lean-forward="false" selection-start-line="167" selection-start-column="51" selection-end-line="167" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding />
         </state>
       </provider>
