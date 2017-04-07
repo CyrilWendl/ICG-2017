@@ -122,7 +122,7 @@ void SetupProjection(GLFWwindow* window, int width, int height) {
 
     glViewport(0, 0, window_width, window_height);
 
-    GLfloat top = 0.25f;
+    GLfloat top = 0.2f;
     GLfloat right = (GLfloat)window_width / window_height * top;
     projection_matrix = PerspectiveProjection(-right, right, -top, top, 0.5f, -0.5f);
 }
