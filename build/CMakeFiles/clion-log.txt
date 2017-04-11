@@ -1,9 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private"
--- Intro to Graphics - Loading Common Configuration
--- Found GLFW3: /usr/local/lib/libglfw.dylib
--- Found GLEW: /usr/local/lib/libGLEW.dylib
--- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid_texture.tga to build folder
--- Copying /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad_texture.tga to build folder
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build

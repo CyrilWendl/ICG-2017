@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -91,6 +91,56 @@ sstream
 -
 tiny_obj_loader.h
 ../common/tiny_obj_loader.h
+
+../external/glew/include/GL/glew.h
+stddef.h
+-
+inttypes.h
+-
+stdint.h
+-
+inttypes.h
+-
+OpenGL/glu.h
+-
+GL/glu.h
+-
+
+../external/glfw3/x32/include/GLFW/glfw3.h
+stddef.h
+-
+OpenGL/gl3.h
+-
+OpenGL/gl3ext.h
+-
+OpenGL/gl.h
+-
+OpenGL/glu.h
+-
+GL/glcorearb.h
+-
+GLES/gl.h
+-
+GLES/glext.h
+-
+GLES2/gl2.h
+-
+GLES2/gl2ext.h
+-
+GLES3/gl3.h
+-
+GLES3/gl2ext.h
+-
+GLES3/gl31.h
+-
+GLES3/gl2ext.h
+-
+GL/gl.h
+-
+GL/glext.h
+-
+GL/glu.h
+-
 
 ../external/glm/common.hpp
 detail/func_common.hpp
@@ -812,97 +862,41 @@ detail/type_vec4.hpp
 detail/func_vector_relational.hpp
 ../external/glm/detail/func_vector_relational.hpp
 
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/framebuffer.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/framebuffer.h
 icg_helper.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/icg_helper.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/icg_helper.h
 
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid.h
 icg_helper.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/icg_helper.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/icg_helper.h
 glm/gtc/type_ptr.hpp
 -
 
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/main.cpp
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/main.cpp
 GL/glew.h
 -
 GLFW/glfw3.h
 -
 icg_helper.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/icg_helper.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/icg_helper.h
 glm/gtc/matrix_transform.hpp
 -
 grid/grid.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid.h
 quad/quad.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad.h
 trackball.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/trackball.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/trackball.h
 framebuffer.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/framebuffer.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/framebuffer.h
 
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad.h
 icg_helper.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/icg_helper.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/icg_helper.h
 glm/gtc/type_ptr.hpp
 -
 
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/trackball.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/trackball.h
 icg_helper.h
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/icg_helper.h
-
-/usr/local/include/GL/glew.h
-stddef.h
--
-inttypes.h
--
-stdint.h
--
-inttypes.h
--
-Availability.h
--
-OpenGL/glu.h
--
-GL/glu.h
--
-
-/usr/local/include/GLFW/glfw3.h
-stddef.h
--
-stdint.h
--
-OpenGL/gl3.h
--
-OpenGL/gl3ext.h
--
-OpenGL/gl.h
--
-OpenGL/glu.h
--
-GL/glcorearb.h
--
-GLES/gl.h
--
-GLES/glext.h
--
-GLES2/gl2.h
--
-GLES2/gl2ext.h
--
-GLES3/gl3.h
--
-GLES2/gl2ext.h
--
-GLES3/gl31.h
--
-GLES2/gl2ext.h
--
-vulkan/vulkan.h
--
-GL/gl.h
--
-GL/glext.h
--
-GL/glu.h
--
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/icg_helper.h
 

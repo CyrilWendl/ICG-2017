@@ -4,165 +4,171 @@
 	<Project>
 		<Option title="icg17"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="clang"/>
+		<Option compiler="msvc8"/>
 		<Option virtualFolders="CMake Files\;CMake Files\common\;CMake Files\icg_project\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="common_headers">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build"/>
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 common_headers"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 common_headers"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="icg_project">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/icg_project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="clang"/>
-				<Compiler>
-					<Add option="-DGLEW_STATIC"/>
-					<Add option="-DGLM_FORCE_RADIANS"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/external"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build"/>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 icg_project"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="icg_project/fast">
-				<Option output="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/icg_project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="clang"/>
-				<Compiler>
-					<Add option="-DGLEW_STATIC"/>
-					<Add option="-DGLM_FORCE_RADIANS"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/external"/>
-					<Add directory="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build"/>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 icg_project/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="copy_shaders_icg_project">
-				<Option working_dir="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project"/>
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 copy_shaders_icg_project"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cyrilwendl/Documents/EPFL/Introduction\ to\ Computer\ Graphics/icg17-private/build/icg_project/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 copy_shaders_icg_project"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="icg_project">
+				<Option output="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/icg_project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DGLEW_STATIC"/>
+					<Add option="-DGLM_FORCE_RADIANS"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/external/glfw3/x32/include"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/external/glew/include"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/external"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\winrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 icg_project"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="icg_project/fast">
+				<Option output="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/icg_project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DGLEW_STATIC"/>
+					<Add option="-DGLM_FORCE_RADIANS"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/external/glfw3/x32/include"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/external/glew/include"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/external"/>
+					<Add directory="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\winrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 icg_project/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/check_error_gl.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/check_error_gl.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/icg_helper.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/icg_helper.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/stb_image.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/stb_image.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/tiny_obj_loader.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/tiny_obj_loader.h">
 			<Option target="common_headers"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/framebuffer.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/framebuffer.h">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid.h">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid_fshader.glsl">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid_fshader.glsl">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/grid/grid_vshader.glsl">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid_vshader.glsl">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/main.cpp">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/main.cpp">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad.h">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad_fshader.glsl">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_fshader.glsl">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/quad/quad_vshader.glsl">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_vshader.glsl">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/trackball.h">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/trackball.h">
 			<Option target="icg_project"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/CMakeLists.txt">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/icg_settings.cmake">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/icg_settings.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/FindGLFW3.cmake">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/FindGLFW3.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/FindGLEW.cmake">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/FindGLEW.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/common/FindGLM.cmake">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/common/FindGLM.cmake">
 			<Option virtualFolder="CMake Files\common\"/>
 		</Unit>
-		<Unit filename="/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/CMakeLists.txt">
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\icg_project\"/>
 		</Unit>
 	</Project>

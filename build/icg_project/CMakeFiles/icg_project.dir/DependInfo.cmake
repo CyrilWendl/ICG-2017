@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/icg_project/main.cpp" "/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/icg_project.dir/main.cpp.o"
+  "C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/main.cpp" "C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/CMakeFiles/icg_project.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
@@ -16,7 +16,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/include"
+  "../external/glfw3/x32/include"
+  "../external/glew/include"
   "../external"
   "../common"
   )

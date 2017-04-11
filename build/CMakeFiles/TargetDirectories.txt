@@ -1,7 +1,7 @@
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/CMakeFiles/rebuild_cache.dir
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/CMakeFiles/edit_cache.dir
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/CMakeFiles/common_headers.dir
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/rebuild_cache.dir
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/edit_cache.dir
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/icg_project.dir
-/Users/cyrilwendl/Documents/EPFL/Introduction to Computer Graphics/icg17-private/build/icg_project/CMakeFiles/copy_shaders_icg_project.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/CMakeFiles/common_headers.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/CMakeFiles/edit_cache.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/CMakeFiles/copy_shaders_icg_project.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/CMakeFiles/icg_project.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/CMakeFiles/edit_cache.dir
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project/CMakeFiles/rebuild_cache.dir

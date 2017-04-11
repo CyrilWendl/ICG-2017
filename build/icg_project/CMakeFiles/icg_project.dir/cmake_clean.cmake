@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/icg_project.dir/main.cpp.o"
+  "CMakeFiles/icg_project.dir/main.cpp.obj"
   "icg_project.pdb"
-  "icg_project"
+  "icg_project.exe"
+  "icg_project.exe.manifest"
+  "icg_project.lib"
 )
 
 # Per-language clean rules from dependency scanning.
