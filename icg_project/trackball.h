@@ -55,7 +55,7 @@ private:
         //float distance_squared = (p.x - anchor_pos_.x) * (p.x - anchor_pos_.x)  + (p.y - anchor_pos_.y) * (p.y - anchor_pos_.y) ;
         float distance_squared = p.x * p.x + p.y * p.y;
         float distance = sqrt(distance_squared);
-        if(distance <= radius_) {
+        if(distance_squared <= (radius_ * radius_)/ 2.0) {
             p.z = sqrt(radius_ * radius_ - distance_squared);
         }else{
             p.z = ((radius_ * radius_)/2.0f) / distance;
