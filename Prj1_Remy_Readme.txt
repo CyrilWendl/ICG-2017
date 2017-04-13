@@ -16,3 +16,6 @@ For this part, it was only needed to use the Perlin noise in a fBm algorithm. We
 
 Diffuse shading - Stephane
 For the diffuse shading, we introduced a light structure with the diffuse component in the grid header. And then we caluclate said diffuse shading in the grid fshader, by calculating the normal to the surface as per the flat shader in the homework (the cross product of the gradients). We also introduce a custom material component coefficient kd that should depend on the surface and thus on the height of our terrain.
+
+Trees(Work in progress) - Stephane
+Started looking into L-systems and recursive functions for generating trees, and how to populate our terrain with them. 
