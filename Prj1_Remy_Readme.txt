@@ -19,3 +19,9 @@ For the diffuse shading, we introduced a light structure with the diffuse compon
 
 Trees(Work in progress) - Stephane
 Started looking into L-systems and recursive functions for generating trees, and how to populate our terrain with them. 
+
+Color textures - Cyril
+I have blended together several colors based on the height by adding or substracting vec3s to the texture based on the uniform height variable we receive from the vshader, using several if clauses on the height in the fshader.
+
+External textures - Cyril
+I have added several textures to the scene by importing and adding them from the .h file, then loading them in several uniform vec3 textures in the fshader and blending them together based on the height, which is also a uniform variable.
