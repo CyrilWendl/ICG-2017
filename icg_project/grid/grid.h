@@ -29,7 +29,8 @@ class Grid : public Light{
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint texture_id_;                     // texture ID
-        GLuint texture_2_;
+        //GLuint texture_2_;
+        GLuint texture_cube_ID;
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -56,9 +57,9 @@ class Grid : public Light{
                 int grid_dim = 513;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
 
                 // vertex position of the triangles.
-                for (float i = -(grid_dim/2) ; i <= (grid_dim/2) ; ++i)
+                for (float i = -(grid_dim/2.0f) ; i <= (grid_dim/2.0f) ; ++i)
                 {
-                    for (float j = -(grid_dim/2) ; j <= (grid_dim/2) ; ++j)
+                    for (float j = -(grid_dim/2.0f) ; j <= (grid_dim/2.0f) ; ++j)
                     {
                         vertices.push_back(float(i)/float(grid_dim/2)); vertices.push_back(float(j)/float(grid_dim/2));
                     }
@@ -80,6 +81,51 @@ class Grid : public Light{
                 }
 
                 num_indices_ = indices.size();
+
+                GLfloat skyboxVertices[] = {
+                    // Positions
+                    -1.0f,  1.0f, -1.0f,
+                    -1.0f, -1.0f, -1.0f,
+                     1.0f, -1.0f, -1.0f,
+                     1.0f, -1.0f, -1.0f,
+                     1.0f,  1.0f, -1.0f,
+                    -1.0f,  1.0f, -1.0f,
+
+                    -1.0f, -1.0f,  1.0f,
+                    -1.0f, -1.0f, -1.0f,
+                    -1.0f,  1.0f, -1.0f,
+                    -1.0f,  1.0f, -1.0f,
+                    -1.0f,  1.0f,  1.0f,
+                    -1.0f, -1.0f,  1.0f,
+
+                     1.0f, -1.0f, -1.0f,
+                     1.0f, -1.0f,  1.0f,
+                     1.0f,  1.0f,  1.0f,
+                     1.0f,  1.0f,  1.0f,
+                     1.0f,  1.0f, -1.0f,
+                     1.0f, -1.0f, -1.0f,
+
+                    -1.0f, -1.0f,  1.0f,
+                    -1.0f,  1.0f,  1.0f,
+                     1.0f,  1.0f,  1.0f,
+                     1.0f,  1.0f,  1.0f,
+                     1.0f, -1.0f,  1.0f,
+                    -1.0f, -1.0f,  1.0f,
+
+                    -1.0f,  1.0f, -1.0f,
+                     1.0f,  1.0f, -1.0f,
+                     1.0f,  1.0f,  1.0f,
+                     1.0f,  1.0f,  1.0f,
+                    -1.0f,  1.0f,  1.0f,
+                    -1.0f,  1.0f, -1.0f,
+
+                    -1.0f, -1.0f, -1.0f,
+                    -1.0f, -1.0f,  1.0f,
+                     1.0f, -1.0f, -1.0f,
+                     1.0f, -1.0f, -1.0f,
+                    -1.0f, -1.0f,  1.0f,
+                     1.0f, -1.0f,  1.0f
+                };
 
                 // position buffer
                 glGenBuffers(1, &vertex_buffer_object_position_);
@@ -118,8 +164,19 @@ class Grid : public Light{
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
             }
+
+            //load cubemap texture
+            vector<const GLchar*> faces;
+            faces.push_back("right.jpg");
+            faces.push_back("left.jpg");
+            faces.push_back("top.jpg");
+            faces.push_back("bottom.jpg");
+            faces.push_back("back.jpg");
+            faces.push_back("front.jpg");
+            texture_cube_ID = loadCubemap(faces);
+
             // load texture 2
-            {
+            /**{
                 int width;
                 int height;
                 int nb_component;
@@ -148,12 +205,12 @@ class Grid : public Light{
 
                 // texture uniforms
                 GLuint tex_id = glGetUniformLocation(program_id_, "tex2");
-                glUniform1i(tex_id, 1 /*GL_TEXTURE1*/);
+                glUniform1i(tex_id, 1 /*GL_TEXTURE1*//*);
 
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
                 stbi_image_free(image);
-            }
+            }*/
 
             // other uniforms
             MVP_id_ = glGetUniformLocation(program_id_, "MVP");
@@ -190,8 +247,8 @@ class Grid : public Light{
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, texture_id_);
 
-            glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_2D, texture_2_);
+            //glActiveTexture(GL_TEXTURE1);
+            //glBindTexture(GL_TEXTURE_2D, texture_2_);
 
             // setup MVP
             glm::mat4 MVP = projection*view*model;
@@ -202,12 +259,12 @@ class Grid : public Light{
 
             Light::Setup(program_id_);
 
-            // set up spot light if needed
+            /*// set up spot light if needed
             GLint spot_dir_id = glGetUniformLocation(program_id_, "spot_dir");
             if (spot_dir_id >=0) {
                 glm::vec3 spot_dir = light_pos;
                 glUniform3fv(spot_dir_id, ONE, glm::value_ptr(spot_dir));
-            }
+            }*/
             // setup matrix stack
             GLint model_id = glGetUniformLocation(program_id_,
                                                   "model");
@@ -230,5 +287,82 @@ class Grid : public Light{
 
             glBindVertexArray(0);
             glUseProgram(0);
+        }
+
+        GLuint loadCubemap(vector<const GLchar*> faces)
+        {
+            GLuint textureID;
+            glGenTextures(1, &textureID);
+            glActiveTexture(GL_TEXTURE0);
+
+            int width,height;
+            unsigned char* image;
+            int nb_component;
+
+            glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+            /**for(GLuint i = 0; i < faces.size(); i++)
+            {
+                image = SOIL_load_image(faces[i], &width, &height, 0, SOIL_LOAD_RGB);
+                glTexImage2D(
+                    GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0,
+                    GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image
+                );
+            }*/
+
+            for(GLuint i = 0; i < faces.size(); i++)
+            {
+                stbi_set_flip_vertically_on_load(1);
+                image = stbi_load(faces[i], &width,
+                                                 &height, &nb_component, 0);
+
+                if(image == nullptr) {
+                    throw(string("Failed to load texture"));
+                }
+
+                glTexImage2D(
+                    GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0,
+                    GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image
+                );
+
+                stbi_image_free(image);
+            }
+
+            /**int nb_component;
+            //string filename = "grid_texture.tga";
+            // set stb_image to have the same coordinates as OpenGL
+            stbi_set_flip_vertically_on_load(1);
+            image = stbi_load(filename.c_str(), &width,
+                                             &height, &nb_component, 0);
+
+            if(image == nullptr) {
+                throw(string("Failed to load texture"));
+            }*/
+
+            /**glGenTextures(1, &texture_2_);
+            glBindTexture(GL_TEXTURE_2D, texture_2_);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+            if(nb_component == 3) {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0,
+                             GL_RGB, GL_UNSIGNED_BYTE, image);
+            } else if(nb_component == 4) {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
+                             GL_RGBA, GL_UNSIGNED_BYTE, image);
+            }*/
+
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+            // texture uniforms
+            GLuint tex_id = glGetUniformLocation(program_id_, "texcube");
+            glUniform1i(tex_id, 1 /*GL_TEXTURECUBE*/);
+
+            glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+            return textureID;
         }
 };

@@ -30,7 +30,7 @@ void main() {
     // plane.
     float scaling_height_factor = 1.0;
     height = float(texture(tex,uv).x) / scaling_height_factor;        // divide by a scaling factor
-    vec3 pos_3d = vec3(position.x, height, -position.y);
+    vec3 pos_3d = vec3(position.x, -height, -position.y);
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);
