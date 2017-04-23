@@ -93,7 +93,6 @@ void MousePos(GLFWwindow* window, double x, double y) {
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
         vec2 p = TransformScreenCoords(window, x, y);
         trackball_matrix =  old_trackball_matrix * trackball.Drag(p.x, p.y);
-        grid.light_pos = vec3(-p.x, -p.y, 2.0f);
     }
 
     // zoom
@@ -136,39 +135,6 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GL_TRUE);
     }
-
-    if(action == GLFW_RELEASE) {
-        switch (key) {
-            case '1':
-                H += 0.1;
-                //quad.changeH(H);
-                break;
-            case '2':
-                H -= 0.1;
-                //quad.changeH(H);
-                break;
-            case '3':
-                lacunarity += 0.1;
-                //quad.changeLac(lacunarity);
-                break;
-            case '4':
-                lacunarity -= 0.1;
-                //quad.changeLac(lacunarity);
-                break;
-            case '5':
-                octaves += 1;
-                //quad.changeOct(octaves);
-                break;
-            case '6':
-                octaves -= 1;
-                //quad.changeOct(octaves);
-                break;
-            default:
-                break;
-        }
-        cout << "H = " << H << "; lacunarity = " << lacunarity << "; octaves = " << octaves << endl;
-
-    }
 }
 
 void Init(GLFWwindow* window) {
@@ -194,9 +160,6 @@ void Init(GLFWwindow* window) {
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
 
-//    quad.changeH(H);
-//    quad.changeLac(lacunarity);
-//    quad.changeOct(octaves);
     quad.Init();
 }
 
@@ -210,15 +173,11 @@ void Display() {
     framebuffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//        quad.changeH(H);
-//        quad.changeLac(lacunarity);
-//        quad.changeOct(octaves);
         quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix);
     }
     framebuffer.Unbind();
     glViewport(0,0,window_width,window_height);
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    // draw the grid on the ground.
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     grid.Draw(time, trackball_matrix * quad_model_matrix, view_matrix, projection_matrix);
 
 }
