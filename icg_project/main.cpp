@@ -145,9 +145,9 @@ void Init(GLFWwindow* window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
-    view_matrix = LookAt(vec3(0.0f, -3.0f, -2.0f), // center in -z since we look along negative z axis
-                         vec3(0.0f, 0.0f, 0.0f),
-                         vec3(0.0f, 1.0f, 0.0f));
+    view_matrix = LookAt(vec3(0.0f, -3.0f, -2.0f), // eye in -z since we look along negative z axis
+                         vec3(0.0f, 0.0f, 0.0f), // center
+                         vec3(0.0f, 1.0f, 0.0f)); //up
     //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, -4.0f));
 
     trackball_matrix = IDENTITY_MATRIX;
