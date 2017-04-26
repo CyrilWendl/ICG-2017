@@ -4,7 +4,12 @@ in vec2 uv;
 in float height;
 in float scaling_height_factor;
 
+in vec4 vpoint_mv;
+in vec3 light_dir, view_dir;
+
 out vec3 color;
+
+uniform vec3 Ld;
 
 uniform sampler2D texNoise;
 uniform sampler2D tex2;
@@ -25,6 +30,17 @@ void main() {
      if(z>snow){
         snow_z=pow((z-snow),2)/pow((1-snow),2); // exponential function
         color = vec3(snow_z,snow_z,snow_z);
+     }
+
+     //custom material diffuse parameter
+     vec3 kd = vec3(0.6);
+     vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
+
+     float cosDiffuse = dot(n,light_dir);
+
+     if (cosDiffuse > 0.0)
+     {
+        color += kd*Ld*cosDiffuse;
      }
      
      color=color+color2;

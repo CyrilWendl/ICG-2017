@@ -93,6 +93,7 @@ void MousePos(GLFWwindow* window, double x, double y) {
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
         vec2 p = TransformScreenCoords(window, x, y);
         trackball_matrix =  old_trackball_matrix * trackball.Drag(p.x, p.y);
+        grid.light_pos = vec3(-p.x, -p.y, 2.0f);
     }
 
     // zoom
