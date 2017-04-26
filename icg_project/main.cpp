@@ -146,14 +146,14 @@ void Init(GLFWwindow* window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
-    view_matrix = LookAt(vec3(2.0f, 2.0f, 4.0f),
-                         vec3(0.0f, 0.0f, 0.0f),
-                         vec3(0.0f, 1.0f, 0.0f));
-    view_matrix = translate(mat4(1.0f), vec3(0.0f, 0.0f, -4.0f));
+    view_matrix = LookAt(vec3(0.0f, -3.0f, -2.0f), // eye in -z since we look along negative z axis
+                         vec3(0.0f, 0.0f, 0.0f), // center
+                         vec3(0.0f, 1.0f, 0.0f)); //up
+    //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, -4.0f));
 
     trackball_matrix = IDENTITY_MATRIX;
 
-    quad_model_matrix = translate(mat4(1.0f), vec3(0.0f, -0.25f, 0.0f));
+    quad_model_matrix = translate(mat4(1.0f), vec3(0.0f, 0.0f, 0.0f));
 
     // initialize framebuffer
     glfwGetFramebufferSize(window, &window_width, &window_height);
@@ -205,7 +205,7 @@ int main(int argc, char *argv[]) {
     // note some Intel GPUs do not support OpenGL 3.2
     // note update the driver of your graphic card
     GLFWwindow* window = glfwCreateWindow(window_width, window_height,
-                                          "Trackball", NULL, NULL);
+                                          "ICG project 1.0", NULL, NULL);
     if(!window) {
         glfwTerminate();
         return EXIT_FAILURE;
