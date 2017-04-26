@@ -104,9 +104,9 @@ class Grid {
                 int width;
                 int height;
                 int nb_component;
-                string filename = "grid_texture.tga";
+                string filename = "ground.tga";
                 // set stb_image to have the same coordinates as OpenGL
-                stbi_set_flip_vertically_on_load(1);
+                // stbi_set_flip_vertically_on_load(1);
                 unsigned char* image = stbi_load(filename.c_str(), &width,
                                                  &height, &nb_component, 0);
 

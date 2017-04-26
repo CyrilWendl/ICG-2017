@@ -25,3 +25,4 @@ I have blended together several colors based on the height by adding or substrac
 
 External textures - Cyril
 I have added several textures to the scene by importing and adding them from the .h file, then loading them in several uniform vec3 textures in the fshader and blending them together based on the height, which is also a uniform variable.
+Sources: https://www.katsbits.com/download/textures/stoney-ground.php
