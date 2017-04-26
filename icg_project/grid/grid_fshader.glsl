@@ -27,9 +27,10 @@ void main() {
      float z=scaling_height_factor*height; // current height taking into account scaling factor
      float snow = .4; // minimum height where snow begins
      float snow_z;
+     float exp=.8;
      if(z>snow){
-        snow_z=pow((z-snow),2)/pow((1-snow),2); // exponential function
-        color = vec3(snow_z,snow_z,snow_z);
+        snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
+        color += vec3(snow_z,snow_z,snow_z);
      }
 
      //custom material diffuse parameter
