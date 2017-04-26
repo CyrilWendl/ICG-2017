@@ -2,30 +2,36 @@
 
 in vec2 uv;
 in float height;
+in float scaling_height_factor;
 
 in vec4 vpoint_mv;
 in vec3 light_dir, view_dir;
 
-uniform vec3 Ld;
-
 out vec3 color;
 
-uniform sampler2D tex;
+uniform vec3 Ld;
+
+uniform sampler2D texNoise;
 uniform sampler2D tex2;
 
 void main() {
-    float window_width = textureSize(tex,0).x;
-    float window_height = textureSize(tex,0).y;
+    float window_width = textureSize(texNoise,0).x;
+    float window_height = textureSize(texNoise,0).y;
      /// TODO: use gl_FragCoord to build a new [_u,_v] coordinate to query the framebuffer
      float _u = gl_FragCoord.x/window_width;
-     float _v = gl_FragCoord.y/window_height;
+     float _v = gl_FragCoord.y/window_height;       // _u,_v give direction always normal to the camera
 
      color = vec3(0.0);
      vec3 color2 = texture(tex2,uv).rgb;
 
-     if(height<.8){
-        color += vec3(0,1-(height+.2),0);
+     float z=scaling_height_factor*height; // current height taking into account scaling factor
+     float snow = .4; // minimum height where snow begins
+     float snow_z;
+     if(z>snow){
+        snow_z=pow((z-snow),2)/pow((1-snow),2); // exponential function
+        color = vec3(snow_z,snow_z,snow_z);
      }
+
      //custom material diffuse parameter
      vec3 kd = vec3(0.6);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
@@ -34,9 +40,9 @@ void main() {
 
      if (cosDiffuse > 0.0)
      {
-         color += kd*Ld*cosDiffuse;
+        color += kd*Ld*cosDiffuse;
      }
-
-     color =(color+color2)/2;
+     
+     color=color+color2;
 
 }

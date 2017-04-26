@@ -2,7 +2,26 @@
 #include "icg_helper.h"
 #include <glm/gtc/type_ptr.hpp>
 
-class Grid {
+struct Light {
+        glm::vec3 Ld = glm::vec3(1.0f, 1.0f, 1.0f);
+
+        glm::vec3 light_pos = glm::vec3(0.0f, 0.0f, 2.0f);
+
+        // pass light properties to the shader
+        void Setup(GLuint program_id) {
+            glUseProgram(program_id);
+
+            // given in camera space
+            GLuint light_pos_id = glGetUniformLocation(program_id, "light_pos");
+
+            GLuint Ld_id = glGetUniformLocation(program_id, "Ld");
+
+            glUniform3fv(light_pos_id, ONE, glm::value_ptr(light_pos));
+            glUniform3fv(Ld_id, ONE, glm::value_ptr(Ld));
+        }
+};
+
+class Grid : public Light{
 
     private:
         GLuint vertex_array_id_;                // vertex array object
@@ -157,6 +176,14 @@ class Grid {
         void Draw(float time, const glm::mat4 &model = IDENTITY_MATRIX,
                   const glm::mat4 &view = IDENTITY_MATRIX,
                   const glm::mat4 &projection = IDENTITY_MATRIX) {
+
+            //Setup model Matrix(for light position)
+            float scale = 1.0;
+            glm::mat4 M = model;
+            M = glm::translate(M, glm::vec3(0.0f, 0.0f, 0.5f));
+            M = glm::rotate(M, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+            M = glm::scale(M, glm::vec3(scale));
+
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -173,6 +200,20 @@ class Grid {
 
             // pass the current time stamp to the shader.
             glUniform1f(glGetUniformLocation(program_id_, "time"), time);
+
+            Light::Setup(program_id_);
+
+            // setup matrix stack
+            GLint model_id = glGetUniformLocation(program_id_,
+                                                              "model");
+            glUniformMatrix4fv(model_id, ONE, DONT_TRANSPOSE, glm::value_ptr(M));
+            GLint view_id = glGetUniformLocation(program_id_,
+                                                             "view");
+            glUniformMatrix4fv(view_id, ONE, DONT_TRANSPOSE, glm::value_ptr(view));
+            GLint projection_id = glGetUniformLocation(program_id_,
+                                                                   "projection");
+            glUniformMatrix4fv(projection_id, ONE, DONT_TRANSPOSE,
+                                           glm::value_ptr(projection));
 
             // draw
             // For debugging it can be helpful to draw only the wireframe.

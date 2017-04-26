@@ -1,12 +1,15 @@
 #version 330
 
 in vec2 position;
-
-out float height;
-out vec2 uv;
+in vec3 color;
+in vec2 vtexcoord;
 
 out vec4 vpoint_mv;
 out vec3 light_dir, view_dir;
+
+out float height;
+out float scaling_height_factor;
+out vec2 uv;
 
 //in vec3 vpoint;
 //in vec2 vtexcoord;
@@ -18,19 +21,19 @@ uniform mat4 model;
 uniform mat4 view;
 uniform vec3 light_pos;
 
-uniform sampler2D tex;      // pass the texture also in the vertex shader to compute the height
+uniform sampler2D texNoise;      // pass the texture also in the vertex shader to compute the height
 
-in vec3 color;
+
 
 void main() {
+    uv = vtexcoord;     //(position + vec2(1.0, 1.0)) * 0.5;    // don't know why we're keeping that
     mat4 MV = view * model;
-    uv = (position + vec2(1.0, 1.0)) * 0.5;
 
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
-    float scaling_height_factor = 1.0;
-    height = float(texture(tex,uv).x) / scaling_height_factor;        // divide by a scaling factor
-    vec3 pos_3d = vec3(position.x, height, -position.y);
+    scaling_height_factor = 2.0;
+    height = float(texture(texNoise,uv).x) / scaling_height_factor;        // divide by a scaling factor
+    vec3 pos_3d = vec3(uv.x, uv.y, -height);        // or position instead of uv
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);

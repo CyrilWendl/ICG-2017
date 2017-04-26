@@ -9,6 +9,6 @@ uniform mat4 MVP;
 
 
 void main() {
-    gl_Position = MVP * vec4(vpoint, 1.0);
+    gl_Position = vec4(vpoint, 1.0);        // MVP * was making the mountain change size with the zoom
     uv = vtexcoord;
 }
