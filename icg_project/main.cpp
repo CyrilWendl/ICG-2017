@@ -22,8 +22,22 @@ mat4 trackball_matrix;
 mat4 old_trackball_matrix;
 mat4 quad_model_matrix;
 float prev_y = 0.0f;
-
 Trackball trackball;
+
+// Camera
+glm::vec3 cameraEye    = vec3(0.0f, -2.0f, 3.0f);
+glm::vec3 cameraCenter = vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp     = vec3(0.0f, 1.0f, 0.0f);
+GLfloat cam_yaw   = -90.0f;	// Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
+GLfloat cam_pitch =   0.0f;
+GLfloat lastX =  window_width  / 2.0;
+GLfloat lastY =  window_height / 2.0;
+bool keys[1024];
+
+// Deltatime
+GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
+GLfloat lastFrame = 0.0f;  	// Time of last frame
+
 FrameBuffer framebuffer;
 Grid grid;
 Quad quad;
@@ -49,21 +63,6 @@ mat4 PerspectiveProjection(float left, float right, float bottom,
     projection[3][2] = -(2.0f*far*near) / (far - near);
     projection[3][3] = 0.0f;
     return projection;
-}
-
-mat4 LookAt(vec3 eye, vec3 center, vec3 up) {
-    vec3 z_cam = normalize(eye - center);
-    vec3 x_cam = normalize(cross(up, z_cam));
-    vec3 y_cam = cross(z_cam, x_cam);
-
-    mat3 R(x_cam, y_cam, z_cam);
-    R = transpose(R);
-
-    mat4 look_at(vec4(R[0], 0.0f),
-                 vec4(R[1], 0.0f),
-                 vec4(R[2], 0.0f),
-                 vec4(-R * (eye), 1.0f));
-    return look_at;
 }
 
 // transforms glfw screen coordinates into normalized OpenGL coordinates.
@@ -108,7 +107,7 @@ void MousePos(GLFWwindow* window, double x, double y) {
         }
 
         prev_y = p.y;
-        view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, z_factor));
+        view_matrix = translate(view_matrix, vec3(0, 0, z_factor));
     }
 }
 
@@ -131,12 +130,6 @@ void ErrorCallback(int error, const char* description) {
     fputs(description, stderr);
 }
 
-void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window, GL_TRUE);
-    }
-}
-
 void Init(GLFWwindow* window) {
     // sets background color
     glClearColor(0.937, 0.937, 0.937 /*gray*/, 1.0 /*solid*/);
@@ -145,9 +138,9 @@ void Init(GLFWwindow* window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
-    view_matrix = LookAt(vec3(0.0f, -3.0f, -2.0f), // eye in -z since we look along negative z axis
-                         vec3(0.0f, 0.0f, 0.0f), // center
-                         vec3(0.0f, 1.0f, 0.0f)); //up
+    view_matrix = lookAt(cameraEye, // eye in -z since we look along negative z axis
+                         cameraCenter, // center
+                         cameraUp); //up
     //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, -4.0f));
 
     trackball_matrix = IDENTITY_MATRIX;
@@ -182,7 +175,68 @@ void Display() {
 
 }
 
+// Is called whenever a key is pressed/released via GLFW
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window , GL_TRUE);
+    }
+    if (key >= 0 && key < 1024)
+    {
+        if (action == GLFW_PRESS)
+            keys[key] = true;
+        else if (action == GLFW_RELEASE)
+            keys[key] = false;
+    }
+}
 
+void do_movement() //update the camera values based on the keys that were pressed (https://learnopengl.com/#!Getting-started/Camera)
+{
+    // Camera controls
+    GLfloat cameraSpeed = 0.1f;
+    if (keys[GLFW_KEY_W])
+        cameraEye += cameraSpeed * cameraCenter;
+    if (keys[GLFW_KEY_S])
+        cameraEye -= cameraSpeed * cameraCenter;
+    if (keys[GLFW_KEY_A])
+        cameraEye -= glm::normalize(glm::cross(cameraCenter, cameraUp)) * cameraSpeed;
+    if (keys[GLFW_KEY_D])
+        cameraEye += glm::normalize(glm::cross(cameraCenter, cameraUp)) * cameraSpeed;
+}
+
+bool firstMouse = true;
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if (firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    GLfloat xoffset = xpos - lastX;
+    GLfloat yoffset = lastY - ypos; // Reversed since y-coordinates go from bottom to left
+    lastX = xpos;
+    lastY = ypos;
+
+    GLfloat sensitivity = 0.05;	// Change this value to your liking
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+
+    cam_yaw   += xoffset;
+    cam_pitch += yoffset;
+
+    // Make sure that when pitch is out of bounds, screen doesn't get flipped
+    if (cam_pitch > 89.0f)
+        cam_pitch = 89.0f;
+    if (cam_pitch < -89.0f)
+        cam_pitch = -89.0f;
+
+    glm::vec3 front;
+    front.x = cos(glm::radians(cam_yaw)) * cos(glm::radians(cam_pitch));
+    front.y = sin(glm::radians(cam_pitch));
+    front.z = sin(glm::radians(cam_yaw)) * cos(glm::radians(cam_pitch));
+    cameraCenter = glm::normalize(front);
+}
 
 int main(int argc, char *argv[]) {
     // GLFW Initialization
@@ -221,7 +275,12 @@ int main(int argc, char *argv[]) {
 
     // set the mouse press and position callback
     glfwSetMouseButtonCallback(window, MouseButton);
-    glfwSetCursorPosCallback(window, MousePos);
+    //glfwSetCursorPosCallback(window, MousePos);
+
+    // Set the required callback functions
+    glfwSetCursorPosCallback(window, mouse_callback);
+
+    // GLFW Options
 
     // GLEW Initialization (must have a context)
     // https://www.opengl.org/wiki/OpenGL_Loading_Library
@@ -243,6 +302,18 @@ int main(int argc, char *argv[]) {
 
     // render loop
     while(!glfwWindowShouldClose(window)){
+        // Calculate deltatime of current frame
+        GLfloat currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
+        // Check and call events
+        glfwPollEvents();
+        do_movement();
+
+        // Render things
+        view_matrix = lookAt(cameraEye, cameraCenter, cameraUp);
+        // Projection
         Display();
         glfwSwapBuffers(window);
         glfwPollEvents();
