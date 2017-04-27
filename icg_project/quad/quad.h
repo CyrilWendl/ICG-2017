@@ -45,27 +45,6 @@ class Quad {
                                       ZERO_STRIDE, ZERO_BUFFER_OFFSET);
             }
 
-            // texture coordinates
-            {
-                const GLfloat vertex_texture_coordinates[] = { /*V1*/ 0.0f, 0.0f,
-                                                               /*V2*/ 1.0f, 0.0f,
-                                                               /*V3*/ 0.0f, 1.0f,
-                                                               /*V4*/ 1.0f, 1.0f};
-
-                // buffer
-                glGenBuffers(1, &vertex_buffer_object_);
-                glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object_);
-                glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_texture_coordinates),
-                             vertex_texture_coordinates, GL_STATIC_DRAW);
-
-                // attribute
-                GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_,
-                                                                     "vtexcoord");
-                glEnableVertexAttribArray(vertex_texture_coord_id);
-                glVertexAttribPointer(vertex_texture_coord_id, 2, GL_FLOAT,
-                                      DONT_NORMALIZE, ZERO_STRIDE,
-                                      ZERO_BUFFER_OFFSET);
-            }
             // load texture
             {
                 int width;
@@ -139,6 +118,5 @@ class Quad {
 
             glBindVertexArray(0);
             glUseProgram(0);
-
         }
 };

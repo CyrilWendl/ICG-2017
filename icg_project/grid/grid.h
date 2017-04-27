@@ -99,13 +99,13 @@ class Grid : public Light{
                 glVertexAttribPointer(loc_position, 2, GL_FLOAT, DONT_NORMALIZE,
                                       ZERO_STRIDE, ZERO_BUFFER_OFFSET);
 
-                // texture shader
-                GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_,
-                                                                     "vtexcoord");
-                glEnableVertexAttribArray(vertex_texture_coord_id);
-                glVertexAttribPointer(vertex_texture_coord_id, 2, GL_FLOAT,
-                                      DONT_NORMALIZE, ZERO_STRIDE,
-                                      ZERO_BUFFER_OFFSET);
+//                // texture shader
+//                GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_,
+//                                                                     "vtexcoord");
+//                glEnableVertexAttribArray(vertex_texture_coord_id);
+//                glVertexAttribPointer(vertex_texture_coord_id, 2, GL_FLOAT,
+//                                      DONT_NORMALIZE, ZERO_STRIDE,
+//                                      ZERO_BUFFER_OFFSET);
             }
 
             // load texture

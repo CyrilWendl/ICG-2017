@@ -52,7 +52,6 @@ mat4 PerspectiveProjection(float left, float right, float bottom,
 }
 
 mat4 LookAt(vec3 eye, vec3 center, vec3 up) {
-
     vec3 z_cam = normalize(eye - center);
     vec3 x_cam = normalize(cross(up, z_cam));
     vec3 y_cam = cross(z_cam, x_cam);
@@ -104,9 +103,9 @@ void MousePos(GLFWwindow* window, double x, double y) {
             z_factor = 0.1f;
         } else if(p.y < prev_y) {
             z_factor = -0.1f;
-        } /*else {
+        } else {
             z_factor = 0.0f;
-        }*/
+        }
 
         prev_y = p.y;
         view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, z_factor));

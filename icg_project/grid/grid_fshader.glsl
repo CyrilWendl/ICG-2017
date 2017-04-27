@@ -33,8 +33,15 @@ void main() {
         color += vec3(snow_z,snow_z,snow_z);
      }
 
+     if(z<.3){
+        color=vec3(0,0,1);
+     }
+     if(z>.3&&z<.35){
+         snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
+         color=vec3(0,0,1);
+     }
      //custom material diffuse parameter
-     vec3 kd = vec3(0.6);
+     vec3 kd = vec3(0.3);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
@@ -43,7 +50,9 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-     
+
+
      color=color+color2;
+
 
 }
