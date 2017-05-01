@@ -6,6 +6,7 @@ file(GLOB_RECURSE HEADERS "*.h")
 file(GLOB TEXTURES
     grid/grid_texture.tga
     grid/ground.tga
+    water/water_texture.tga
     quad/quad_texture.tga)
 copy_files_once(${TEXTURES})
 
@@ -13,6 +14,7 @@ copy_files_once(${TEXTURES})
 # you build (ie, you want the shaders there)
 file(GLOB SHADERS
   grid/*.glsl
+  water/*.glsl
   quad/*.glsl)
 deploy_shaders_to_build_dir(${SHADERS})
 
