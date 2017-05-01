@@ -98,5 +98,7 @@ icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\framebuffer.
 icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\grid\grid.h
 icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\main.cpp
 icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\quad\quad.h
+icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\skybox\skybox.h
 icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\trackball.h
+icg_project\CMakeFiles\icg_project.dir\main.cpp.obj: ..\icg_project\water\water.h
 

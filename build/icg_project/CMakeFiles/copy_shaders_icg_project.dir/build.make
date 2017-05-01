@@ -63,6 +63,14 @@ copy_shaders_icg_project: icg_project\CMakeFiles\copy_shaders_icg_project.dir\bu
 	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
 	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid_vshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
 	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water_fshader.glsl to build folder"
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
+	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water_fshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water_vshader.glsl to build folder"
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
+	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water_vshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_fshader.glsl to build folder"
 	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
 	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_fshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
@@ -70,6 +78,14 @@ copy_shaders_icg_project: icg_project\CMakeFiles\copy_shaders_icg_project.dir\bu
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_vshader.glsl to build folder"
 	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
 	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_vshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox_fshader.glsl to build folder"
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
+	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox_fshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox_vshader.glsl to build folder"
+	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build\icg_project
+	echo >nul && "C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox_vshader.glsl C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/build/icg_project
 	cd C:\Users\Stephane\Documents\EPFL\Bachelor6\GraphicsGit\icg17-private\build
 .PHONY : copy_shaders_icg_project
 

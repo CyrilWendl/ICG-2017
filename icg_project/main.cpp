@@ -10,6 +10,7 @@
 #include "quad/quad.h"
 #include "water/water.h"
 #include "trackball.h"
+#include "skybox/skybox.h"
 #include "framebuffer.h"
 
 int window_width = 800;
@@ -43,6 +44,7 @@ FrameBuffer framebuffer;
 Grid grid;
 Quad quad;
 Water water;
+Skybox skybox;
 
 float H = 0.1;
 float lacunarity = 0.1;
@@ -154,6 +156,7 @@ void Init(GLFWwindow* window) {
     GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
+    skybox.Init();
     water.Init();
     quad.Init();
 
@@ -174,6 +177,7 @@ void Display() {
     framebuffer.Unbind();
     glViewport(0,0,window_width,window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    skybox.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix);
     grid.Draw(time, trackball_matrix * quad_model_matrix, view_matrix, projection_matrix);
     water.Draw(time, trackball_matrix * quad_model_matrix, view_matrix, projection_matrix);
 
@@ -323,7 +327,11 @@ int main(int argc, char *argv[]) {
         glfwPollEvents();
     }
 
+    quad.Cleanup();
     grid.Cleanup();
+    skybox.Cleanup();
+    water.Cleanup();
+
 
     // close OpenGL window and terminate GLFW
     glfwDestroyWindow(window);

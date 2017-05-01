@@ -5,7 +5,7 @@
 
 in vec2 uv;
 
-out vec3 color;
+out vec3 terrain;
 
 uniform sampler2D tex;
 uniform float HUni;
@@ -51,7 +51,7 @@ float perlin(vec2 p) {      // perlin noise function
     return center * 2.0 - 1.0;
 }
 
-float noise (in vec2 st) {
+float noise (in vec2 st) { // Perlin noise
     vec2 i = floor(st);
     vec2 f = fract(st);
 
@@ -74,7 +74,7 @@ float fbmB (in vec2 st) {
     float amplitude = 0.6;
     float frequency = 3;
     int octaves = 8;
-    //
+
     // Loop of octaves
     for (int i = 0; i < octaves; i++) {
         value += amplitude * noise(st);
@@ -100,9 +100,9 @@ float fbm(vec2 x) {         // fractional Brownian motion function
 
 float fbmClass(vec2 point)
 {
-    float H= 0.9;
-    float lacunarity=10;
-    int octaves=4;
+    float H = 0.9;
+    float lacunarity = 10;
+    int octaves=5;
     float value = 0.0;
     /* inner loop of fractal construction */
     for (int i = 0; i < octaves; i++) {
@@ -110,16 +110,14 @@ float fbmClass(vec2 point)
         point *= lacunarity;
     }
     return value;
-
 }
 
 
 void main() {
-   //color = vec3(fbmClass(uv),fbmClass(uv),fbmClass(uv));
-   // color = vec3(fbm(uv),fbm(uv),fbm(uv));
-    color = vec3(fbmB(uv),fbmB(uv),fbmB(uv));
-
-
+   //terrain = vec3(fbmClass(uv),fbmClass(uv),fbmClass(uv));
+   // terrain = vec3(fbm(uv),fbm(uv),fbm(uv));
+   //terrain=vec3(uv.x+1.0)/2.0;
+   terrain = vec3(fbmB(uv));
 }
 
 
