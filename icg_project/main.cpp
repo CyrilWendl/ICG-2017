@@ -8,6 +8,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "grid/grid.h"
 #include "quad/quad.h"
+#include "water/water.h"
 #include "trackball.h"
 #include "framebuffer.h"
 
@@ -27,6 +28,7 @@ Trackball trackball;
 FrameBuffer framebuffer;
 Grid grid;
 Quad quad;
+Water water;
 
 float H = 0.1;
 float lacunarity = 0.1;
@@ -159,8 +161,9 @@ void Init(GLFWwindow* window) {
     GLuint framebuffer_texture_id = framebuffer.Init(window_width, window_height);
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
-
+    water.Init();
     quad.Init();
+
 }
 
 // gets called for every frame.
@@ -179,6 +182,7 @@ void Display() {
     glViewport(0,0,window_width,window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     grid.Draw(time, trackball_matrix * quad_model_matrix, view_matrix, projection_matrix);
+    water.Draw(time, trackball_matrix * quad_model_matrix, view_matrix, projection_matrix);
 
 }
 
