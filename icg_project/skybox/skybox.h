@@ -91,12 +91,18 @@ public:
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id_);
 
             vector<const GLchar*> faces;
-            faces.push_back("cottoncandy_rt.tga");
+            /**faces.push_back("cottoncandy_rt.tga");
             faces.push_back("cottoncandy_lf.tga");
             faces.push_back("cottoncandy_up.tga");
             faces.push_back("cottoncandy_dn.tga");
             faces.push_back("cottoncandy_bk.tga");
-            faces.push_back("cottoncandy_ft.tga");
+            faces.push_back("cottoncandy_ft.tga");*/
+            faces.push_back("right.jpg");
+            faces.push_back("left.jpg");
+            faces.push_back("bottom.jpg");
+            faces.push_back("top.jpg");
+            faces.push_back("back.jpg");
+            faces.push_back("front.jpg");
 
             int width;
             int height;

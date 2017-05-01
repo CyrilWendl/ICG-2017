@@ -13,7 +13,13 @@ file(GLOB TEXTURES
     skybox/cottoncandy_up.tga
     skybox/cottoncandy_dn.tga
     skybox/cottoncandy_bk.tga
-    skybox/cottoncandy_ft.tga)
+    skybox/cottoncandy_ft.tga
+    skybox/right.jpg
+    skybox/left.jpg
+    skybox/top.jpg
+    skybox/bottom.jpg
+    skybox/back.jpg
+    skybox/front.jpg)
 copy_files_once(${TEXTURES})
 
 # list all the files you want to copy everytime
