@@ -27,13 +27,21 @@ void main() {
      float z=scaling_height_factor*height; // current height taking into account scaling factor
      float snow = .4; // minimum height where snow begins
      float snow_z;
+     float exp=.8;
      if(z>snow){
-        snow_z=pow((z-snow),2)/pow((1-snow),2); // exponential function
-        color = vec3(snow_z,snow_z,snow_z);
+        snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
+        color += vec3(snow_z,snow_z,snow_z);
      }
 
+     if(z<.3){
+        color=vec3(0,0,1);
+     }
+     if(z>.3&&z<.35){
+         snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
+         color=vec3(0,0,1);
+     }
      //custom material diffuse parameter
-     vec3 kd = vec3(0.6);
+     vec3 kd = vec3(0.3);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
@@ -42,7 +50,9 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-     
+
+
      color=color+color2;
+
 
 }

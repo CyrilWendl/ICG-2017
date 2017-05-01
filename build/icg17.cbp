@@ -150,7 +150,25 @@
 		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad_vshader.glsl">
 			<Option target="icg_project"/>
 		</Unit>
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox.h">
+			<Option target="icg_project"/>
+		</Unit>
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox_fshader.glsl">
+			<Option target="icg_project"/>
+		</Unit>
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox_vshader.glsl">
+			<Option target="icg_project"/>
+		</Unit>
 		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/trackball.h">
+			<Option target="icg_project"/>
+		</Unit>
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water.h">
+			<Option target="icg_project"/>
+		</Unit>
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water_fshader.glsl">
+			<Option target="icg_project"/>
+		</Unit>
+		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water_vshader.glsl">
 			<Option target="icg_project"/>
 		</Unit>
 		<Unit filename="C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/CMakeLists.txt">

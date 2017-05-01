@@ -885,8 +885,12 @@ grid/grid.h
 C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid.h
 quad/quad.h
 C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/quad/quad.h
+water/water.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water.h
 trackball.h
 C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/trackball.h
+skybox/skybox.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox.h
 framebuffer.h
 C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/framebuffer.h
 
@@ -896,7 +900,21 @@ C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project
 glm/gtc/type_ptr.hpp
 -
 
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/skybox.h
+icg_helper.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/skybox/icg_helper.h
+glm/gtc/type_ptr.hpp
+-
+
 C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/trackball.h
 icg_helper.h
 C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/icg_helper.h
+
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/water.h
+icg_helper.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/water/icg_helper.h
+glm/gtc/type_ptr.hpp
+-
+../grid/grid.h
+C:/Users/Stephane/Documents/EPFL/Bachelor6/GraphicsGit/icg17-private/icg_project/grid/grid.h
 

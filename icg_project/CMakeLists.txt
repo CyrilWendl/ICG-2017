@@ -7,7 +7,13 @@ file(GLOB TEXTURES
     grid/grid_texture.tga
     grid/ground.tga
     water/water_texture.tga
-    quad/quad_texture.tga)
+    quad/quad_texture.tga
+    skybox/cottoncandy_rt.tga
+    skybox/cottoncandy_lf.tga
+    skybox/cottoncandy_up.tga
+    skybox/cottoncandy_dn.tga
+    skybox/cottoncandy_bk.tga
+    skybox/cottoncandy_ft.tga)
 copy_files_once(${TEXTURES})
 
 # list all the files you want to copy everytime
@@ -15,7 +21,8 @@ copy_files_once(${TEXTURES})
 file(GLOB SHADERS
   grid/*.glsl
   water/*.glsl
-  quad/*.glsl)
+  quad/*.glsl
+  skybox/*.glsl)
 deploy_shaders_to_build_dir(${SHADERS})
 
 add_executable(${EXERCISENAME} ${SOURCES} ${HEADERS} ${SHADERS})
