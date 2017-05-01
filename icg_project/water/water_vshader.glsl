@@ -25,13 +25,13 @@ void main() {
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
     float fStat = 3.1415/4.0;      // frequency of the stationnary waves
-    float fPert = 2.0*3.1415;       // frequency of the perturbations (waves)
+    float fPert = 3.1415;       // frequency of the perturbations (real waves)
     float kStat = 10;           // wave vector for the stationnary waves
     float kPert = 10;            // wave vector for the perturbative waves
     float AStat = 0.0025;        // amplitude for the stationnary waves
-    float APert = 0.01;         // amplitude for the perturbative waves
+    float APert = 0.005;         // amplitude for the perturbative waves
     height = AStat * cos(kStat*position.x)*sin(kStat*position.x) * cos(kStat*position.y)*sin(kStat*position.y) * sin(fStat*time) + APert * sin(kPert*sqrt(position.x*position.x+position.y*position.y) - fPert*time);
-    height -= 0.18;
+    height += 0.18;
     vec3 pos_3d = vec3(position.x, position.y, height);
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
