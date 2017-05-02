@@ -27,8 +27,8 @@ float prev_y = 0.0f;
 Trackball trackball;
 
 // Camera
-glm::vec3 cameraEye    = vec3(0.0f, 1.0f, 3.0f);
-glm::vec3 cameraCenter = vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraPos    = vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp     = vec3(0.0f, 1.0f, 0.0f);
 GLfloat cam_yaw   = -90.0f;	// Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat cam_pitch =   0.0f;
@@ -142,8 +142,8 @@ void Init(GLFWwindow* window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
-    view_matrix = lookAt(cameraEye, // eye in -z since we look along negative z axis
-                         cameraCenter, // center
+    view_matrix = lookAt(cameraPos, // eye in -z since we look along negative z axis
+                         cameraFront, // center
                          cameraUp); //up
     //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, -4.0f));
 
@@ -185,10 +185,11 @@ void Display() {
 }
 
 // Is called whenever a key is pressed/released via GLFW
-void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window , GL_TRUE);
-    }
+// Is called whenever a key is pressed/released via GLFW
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GL_TRUE);
     if (key >= 0 && key < 1024)
     {
         if (action == GLFW_PRESS)
@@ -198,18 +199,18 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     }
 }
 
-void do_movement() //update the camera values based on the keys that were pressed (https://learnopengl.com/#!Getting-started/Camera)
+void do_movement()
 {
     // Camera controls
-    GLfloat cameraSpeed = 0.1f;
+    GLfloat cameraSpeed = 0.01f;
     if (keys[GLFW_KEY_W])
-        cameraEye += cameraSpeed * cameraCenter;
+        cameraPos += cameraSpeed * cameraFront;
     if (keys[GLFW_KEY_S])
-        cameraEye -= cameraSpeed * cameraCenter;
+        cameraPos -= cameraSpeed * cameraFront;
     if (keys[GLFW_KEY_A])
-        cameraEye -= glm::normalize(glm::cross(cameraCenter, cameraUp)) * cameraSpeed;
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
     if (keys[GLFW_KEY_D])
-        cameraEye += glm::normalize(glm::cross(cameraCenter, cameraUp)) * cameraSpeed;
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
 bool firstMouse = true;
@@ -244,7 +245,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     front.x = cos(glm::radians(cam_yaw)) * cos(glm::radians(cam_pitch));
     front.y = sin(glm::radians(cam_pitch));
     front.z = sin(glm::radians(cam_yaw)) * cos(glm::radians(cam_pitch));
-    cameraCenter = glm::normalize(front);
+    cameraFront = glm::normalize(front);
 }
 
 int main(int argc, char *argv[]) {
@@ -277,7 +278,7 @@ int main(int argc, char *argv[]) {
     glfwMakeContextCurrent(window);
 
     // set the callback for escape key
-    glfwSetKeyCallback(window, KeyCallback);
+    glfwSetKeyCallback(window, key_callback);
 
     // set the framebuffer resize callback
     glfwSetFramebufferSizeCallback(window, SetupProjection);
@@ -320,8 +321,10 @@ int main(int argc, char *argv[]) {
         glfwPollEvents();
         do_movement();
 
-        // Render things
-        view_matrix = lookAt(cameraEye, cameraCenter, cameraUp);
+        // Camera/View transformation
+        glm::mat4 view;
+        view_matrix = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+
         // Projection
         Display();
         glfwSwapBuffers(window);
