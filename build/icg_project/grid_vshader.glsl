@@ -33,7 +33,7 @@ void main() {
     // plane.
     scaling_height_factor = 2.0; // is this still necessary?
     height = float(texture(texNoise,uv).x) / scaling_height_factor;        // divide by a scaling factor
-    vec3 pos_3d = vec3(position.x, position.y, height);        // or position instead of uv
+    vec3 pos_3d = vec3(position.x, height, position.y);        // or position instead of uv
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);

@@ -14,6 +14,18 @@ file(GLOB TEXTURES
     skybox/cottoncandy_dn.tga
     skybox/cottoncandy_bk.tga
     skybox/cottoncandy_ft.tga
+    skybox/violentdays_rt.tga
+    skybox/violentdays_lf.tga
+    skybox/violentdays_up.tga
+    skybox/violentdays_dn.tga
+    skybox/violentdays_bk.tga
+    skybox/violentdays_ft.tga
+    skybox/cloudtop_rt.tga
+    skybox/cloudtop_lf.tga
+    skybox/cloudtop_up.tga
+    skybox/cloudtop_dn.tga
+    skybox/cloudtop_bk.tga
+    skybox/cloudtop_ft.tga
     skybox/right.jpg
     skybox/left.jpg
     skybox/top.jpg

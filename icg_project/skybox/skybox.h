@@ -91,25 +91,37 @@ public:
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id_);
 
             vector<const GLchar*> faces;
-            /**faces.push_back("cottoncandy_rt.tga");
-            faces.push_back("cottoncandy_lf.tga");
-            faces.push_back("cottoncandy_up.tga");
-            faces.push_back("cottoncandy_dn.tga");
-            faces.push_back("cottoncandy_bk.tga");
-            faces.push_back("cottoncandy_ft.tga");*/
+//            faces.push_back("cottoncandy_rt.tga");
+//            faces.push_back("cottoncandy_lf.tga");
+//            faces.push_back("cottoncandy_dn.tga");
+//            faces.push_back("cottoncandy_up.tga");
+//            faces.push_back("cottoncandy_bk.tga");
+//            faces.push_back("cottoncandy_ft.tga");
             faces.push_back("right.jpg");
             faces.push_back("left.jpg");
-            faces.push_back("bottom.jpg");
             faces.push_back("top.jpg");
+            faces.push_back("bottom.jpg");
             faces.push_back("back.jpg");
             faces.push_back("front.jpg");
+//            faces.push_back("violentdays_rt.tga");
+//            faces.push_back("violentdays_lf.tga");
+//            faces.push_back("violentdays_up.tga");
+//            faces.push_back("violentdays_dn.tga");
+//            faces.push_back("violentdays_bk.tga");
+//            faces.push_back("violentdays_ft.tga");
+//            faces.push_back("cloudtop_rt.tga");
+//            faces.push_back("cloudtop_lf.tga");
+//            faces.push_back("cloudtop_up.tga");
+//            faces.push_back("cloudtop_dn.tga");
+//            faces.push_back("cloudtop_bk.tga");
+//            faces.push_back("cloudtop_ft.tga");
 
             int width;
             int height;
             int nb_component;
             string filename;
             // set stb_image to have the same coordinates as OpenGL
-            stbi_set_flip_vertically_on_load(1);
+            //stbi_set_flip_vertically_on_load(1);
             unsigned char* image;
 
             for(GLuint i = 0; i < faces.size(); i++)

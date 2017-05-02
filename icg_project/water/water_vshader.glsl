@@ -32,7 +32,7 @@ void main() {
     float APert = 0.005;         // amplitude for the perturbative waves
     height = AStat * cos(kStat*position.x)*sin(kStat*position.x) * cos(kStat*position.y)*sin(kStat*position.y) * sin(fStat*time) + APert * sin(kPert*sqrt(position.x*position.x+position.y*position.y) - fPert*time);
     height += 0.18;
-    vec3 pos_3d = vec3(position.x, position.y, height);
+    vec3 pos_3d = vec3(position.x, height, position.y);
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);
