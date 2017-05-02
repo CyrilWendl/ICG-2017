@@ -27,7 +27,7 @@ float prev_y = 0.0f;
 Trackball trackball;
 
 // Camera
-glm::vec3 cameraEye    = vec3(0.0f, -2.0f, 3.0f);
+glm::vec3 cameraEye    = vec3(0.0f, 1.0f, 3.0f);
 glm::vec3 cameraCenter = vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp     = vec3(0.0f, 1.0f, 0.0f);
 GLfloat cam_yaw   = -90.0f;	// Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
