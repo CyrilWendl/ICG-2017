@@ -30,10 +30,11 @@ Trackball trackball;
 glm::vec3 cameraPos    = vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp     = vec3(0.0f, 1.0f, 0.0f);
-GLfloat cam_yaw   = -90.0f;	// Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
-GLfloat cam_pitch =   0.0f;
+GLfloat yaw_cam   = -90.0f;	// Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
+GLfloat pitch_cam =   0.0f;
 GLfloat lastX =  window_width  / 2.0;
 GLfloat lastY =  window_height / 2.0;
+GLfloat fov =  45.0f;
 bool keys[1024];
 
 // Deltatime
@@ -142,14 +143,6 @@ void Init(GLFWwindow* window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
-    view_matrix = lookAt(cameraPos, // eye in -z since we look along negative z axis
-                         cameraFront, // center
-                         cameraUp); //up
-    //view_matrix = translate(view_matrix, vec3(0.0f, 0.0f, -4.0f));
-
-    trackball_matrix = IDENTITY_MATRIX;
-
-    quad_model_matrix = translate(mat4(1.0f), vec3(0.0f, 0.0f, 0.0f));
 
     // initialize framebuffer
     glfwGetFramebufferSize(window, &window_width, &window_height);
@@ -202,7 +195,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void do_movement()
 {
     // Camera controls
-    GLfloat cameraSpeed = 0.01f;
+    GLfloat cameraSpeed = 5.0f * deltaTime;
     if (keys[GLFW_KEY_W])
         cameraPos += cameraSpeed * cameraFront;
     if (keys[GLFW_KEY_S])
@@ -232,21 +225,33 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     xoffset *= sensitivity;
     yoffset *= sensitivity;
 
-    cam_yaw   += xoffset;
-    cam_pitch += yoffset;
+    yaw_cam += xoffset;
+    pitch_cam += yoffset;
 
     // Make sure that when pitch is out of bounds, screen doesn't get flipped
-    if (cam_pitch > 89.0f)
-        cam_pitch = 89.0f;
-    if (cam_pitch < -89.0f)
-        cam_pitch = -89.0f;
+    if (pitch_cam > 89.0f)
+        pitch_cam = 89.0f;
+    if (pitch_cam < -89.0f)
+        pitch_cam = -89.0f;
 
     glm::vec3 front;
-    front.x = cos(glm::radians(cam_yaw)) * cos(glm::radians(cam_pitch));
-    front.y = sin(glm::radians(cam_pitch));
-    front.z = sin(glm::radians(cam_yaw)) * cos(glm::radians(cam_pitch));
+    front.x = cos(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
+    front.y = sin(glm::radians(pitch_cam));
+    front.z = sin(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
     cameraFront = glm::normalize(front);
 }
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    if (fov >= 1.0f && fov <= 45.0f)
+        fov -= yoffset;
+    if (fov <= 1.0f)
+        fov = 1.0f;
+    if (fov >= 45.0f)
+        fov = 45.0f;
+}
+
+
 
 int main(int argc, char *argv[]) {
     // GLFW Initialization
@@ -286,6 +291,10 @@ int main(int argc, char *argv[]) {
     // set the mouse press and position callback
     glfwSetMouseButtonCallback(window, MouseButton);
     //glfwSetCursorPosCallback(window, MousePos);
+    glfwSetScrollCallback(window, scroll_callback);
+
+    // GLFW Options
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // Set the required callback functions
     glfwSetCursorPosCallback(window, mouse_callback);
@@ -326,6 +335,11 @@ int main(int argc, char *argv[]) {
         view_matrix = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
         // Projection
+        //glm::mat4 projection = glm::perspective(fov, (GLfloat)window_width/(GLfloat)window_height, 0.1f, 100.0f);
+        // Get the uniform locations
+        //GLint projLoc = glGetUniformLocation(grid., "projection");
+        //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
         Display();
         glfwSwapBuffers(window);
         glfwPollEvents();
