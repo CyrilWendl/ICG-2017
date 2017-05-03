@@ -29,7 +29,7 @@ class Grid : public Light{
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint texture_id_;                     // texture ID
-        GLuint texture_2_;
+        GLuint texture_ground_;
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -133,8 +133,8 @@ class Grid : public Light{
                     throw(string("Failed to load texture"));
                 }
 
-                glGenTextures(1, &texture_2_);
-                glBindTexture(GL_TEXTURE_2D, texture_2_);
+                glGenTextures(1, &texture_ground_);
+                glBindTexture(GL_TEXTURE_2D, texture_ground_);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -192,7 +192,7 @@ class Grid : public Light{
             glBindTexture(GL_TEXTURE_2D, texture_id_);
 
             glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_2D, texture_2_);
+            glBindTexture(GL_TEXTURE_2D, texture_ground_);
 
             // setup MVP
             glm::mat4 MVP = projection*view*model;

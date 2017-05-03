@@ -32,7 +32,7 @@ void main() {
         snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
         color += vec3(snow_z,snow_z,snow_z);
      }
-
+    
      if(z<.3){
         color=vec3(0,0,1);
      }
@@ -50,9 +50,5 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-
-
      color=color+color2;
-
-
 }
