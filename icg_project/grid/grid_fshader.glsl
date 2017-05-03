@@ -12,7 +12,8 @@ out vec3 color;
 uniform vec3 Ld;
 
 uniform sampler2D texNoise;
-uniform sampler2D tex2;
+uniform sampler2D tex_grass;
+uniform sampler2D tex_rock;
 
 void main() {
     float window_width = textureSize(texNoise,0).x;
@@ -22,26 +23,29 @@ void main() {
      float _v = gl_FragCoord.y/window_height;       // _u,_v give direction always normal to the camera
 
      color = vec3(0.0);
-     vec3 color2 = texture(tex2,uv).rgb;
+     vec3 color_rock = texture(tex_rock,uv * 5).rgb;
+     vec3 color_grass = texture(tex_grass,uv * 5).rgb;
 
      float z=scaling_height_factor*height; // current height taking into account scaling factor
-     float snow = .4; // minimum height where snow begins
+     float snow = .8; // minimum height where snow begins
      float snow_z;
-     float exp=.8;
+     float exp=.6;
+     float aRock=clamp((1 - 15 * (z- 0.75) * (z - 0.75)),0,1);
+     float aGrass=clamp((1 - 30 * (z- 0.4) * (z - 0.4)),0,1);
+     float sum=aRock+aGrass;
+
+     //blend textures
+
+     vec3 color_blended = (aRock*color_rock+aGrass*color_grass)/sum;
+
+     // add snow
      if(z>snow){
         snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
-        color += vec3(snow_z,snow_z,snow_z);
+        color_blended += vec3(snow_z,snow_z,snow_z);
      }
-    
-     if(z<.3){
-        color=vec3(0,0,1);
-     }
-     if(z>.3&&z<.35){
-         snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
-         color=vec3(0,0,1);
-     }
+
      //custom material diffuse parameter
-     vec3 kd = vec3(0.3);
+     vec3 kd = vec3(0.0);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
@@ -50,5 +54,5 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-     color=color+color2;
+     color=color+color_blended;
 }
