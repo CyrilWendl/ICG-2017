@@ -26,4 +26,5 @@ include(common/icg_settings.cmake)
 #add_subdirectory(hw4p3_motionblur)
 #add_subdirectory(lab5_framebuffer)
 add_subdirectory(icg_project)
+#add_subdirectory(Infinite-terrain-master)
 

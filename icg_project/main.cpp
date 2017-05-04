@@ -47,9 +47,12 @@ Quad quad;
 Water water;
 Skybox skybox;
 
-float H = 0.1;
+float H = 0.1;// we never use these two variables
 float lacunarity = 0.1;
-int octaves = 1;
+
+int octaves = 5;
+float amplitude = .7f;
+float frequency = 2.7f;
 
 
 mat4 PerspectiveProjection(float left, float right, float bottom,
@@ -167,7 +170,7 @@ void Display() {
     framebuffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix);
+        quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix,octaves,amplitude,frequency);
     }
     framebuffer.Unbind();
     glViewport(0,0,window_width,window_height);
@@ -180,7 +183,6 @@ void Display() {
 }
 
 // Is called whenever a key is pressed/released via GLFW
-// Is called whenever a key is pressed/released via GLFW
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -192,6 +194,23 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         else if (action == GLFW_RELEASE)
             keys[key] = false;
     }
+
+    // Terrain
+    if (keys[GLFW_KEY_P])
+        octaves+=1;
+    if (keys[GLFW_KEY_O])
+        octaves-=1;
+    if (keys[GLFW_KEY_UP])
+        amplitude+=.1;
+    if (keys[GLFW_KEY_DOWN])
+        amplitude-=.1;
+    if (keys[GLFW_KEY_RIGHT])
+        frequency+=.1;
+    if (keys[GLFW_KEY_LEFT])
+        frequency-=.1;
+        cout << "Frequency :" << frequency << endl;
+        cout << "Amplitude: " << amplitude << endl;
+        cout << "Octaves: " << octaves << endl;
 }
 
 void do_movement()
@@ -206,6 +225,7 @@ void do_movement()
         cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
     if (keys[GLFW_KEY_D])
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+
 }
 
 bool firstMouse = true;

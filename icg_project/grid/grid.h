@@ -218,7 +218,8 @@ public:
         float scale = 1.0;
         glm::mat4 M = model;
         M = glm::translate(M, glm::vec3(0.0f, 0.0f, 0.5f));
-        M = glm::rotate(M, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        // movement
+        //M = glm::rotate(M, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
         M = glm::scale(M, glm::vec3(scale));
 
         glUseProgram(program_id_);
