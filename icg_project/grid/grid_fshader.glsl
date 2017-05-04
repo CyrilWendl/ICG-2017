@@ -31,7 +31,7 @@ void main() {
      float snow_z;
      float exp=.6;
      float aRock=clamp((1 - 15 * (z- 0.75) * (z - 0.75)),0,1);
-     float aGrass=clamp((1 - 30 * (z- 0.4) * (z - 0.4)),0,1);
+     float aGrass=clamp((1 - 10 * (z- 0.4) * (z - 0.4)),0,1);
      float sum=aRock+aGrass;
 
      //blend textures
@@ -45,7 +45,7 @@ void main() {
      }
 
      //custom material diffuse parameter
-     vec3 kd = vec3(0.0);
+     vec3 kd = vec3(.3);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);

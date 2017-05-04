@@ -23,15 +23,13 @@ uniform vec3 light_pos;
 
 uniform sampler2D texNoise;      // pass the texture also in the vertex shader to compute the height
 
-
-
 void main() {
     uv = (position + vec2(1.0)) * 0.5;    // don't know why we're keeping that
     mat4 MV = view * model;
 
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
-    scaling_height_factor = 2.0; // is this still necessary?
+    scaling_height_factor = 1.0; // is this still necessary?
     height = float(texture(texNoise,uv).x) / scaling_height_factor;        // divide by a scaling factor
     vec3 pos_3d = vec3(position.x, height, position.y);        // or position instead of uv
 

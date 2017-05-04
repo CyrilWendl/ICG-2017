@@ -20,7 +20,7 @@ void main() {
      float _u = gl_FragCoord.x/window_width;
      float _v = gl_FragCoord.y/window_height;       // _u,_v give direction always normal to the camera
 
-     color = mix(texture(texWater,uv).rgb, vec3(0.13,0.25,0.5), 0.9);
+     color = mix(texture(texWater,uv ).rgb, vec3(0.13,0.25,0.5), 0.9);
 
      //custom material diffuse parameter
      vec3 kd = vec3(0.3);
