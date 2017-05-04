@@ -47,7 +47,7 @@ Quad quad;
 Water water;
 Skybox skybox;
 
-float H = 0.1;// we never use these two variables
+float H = 0.1;// we never use these two variables, can we delete them?
 float lacunarity = 0.1;
 
 int octaves = 5;
