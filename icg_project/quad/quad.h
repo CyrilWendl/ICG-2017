@@ -44,7 +44,7 @@ class Quad {
                 glVertexAttribPointer(vertex_point_id, 3, GL_FLOAT, DONT_NORMALIZE,
                                       ZERO_STRIDE, ZERO_BUFFER_OFFSET);
             }
-//test change
+
             // load texture
             {
                 int width;
