@@ -6,8 +6,6 @@
 #include "icg_helper.h"
 
 #include <glm/gtc/matrix_transform.hpp>
-#include <vector>
-#include <algorithm>    // std::min
 #include "grid/grid.h"
 #include "quad/quad.h"
 #include "water/water.h"
@@ -34,8 +32,8 @@ glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
-GLfloat lastX = window_width / 2.0;
-GLfloat lastY = window_height / 2.0;
+double lastX = window_width / 2.0;
+double lastY = window_height / 2.0;
 GLfloat fov = 45.0f;
 bool keys[1024];
 
@@ -55,13 +53,14 @@ Quad quad;
 Water water;
 Skybox skybox;
 
-float H = 0.1;// we never use these two variables, can we delete them?
+int *framebuffer_tex;
+
+float H = 0.1;//TODO Rémy, we never use these two variables, can we delete them?
 float lacunarity = 0.1;
 
 int octaves = 5;
 float amplitude = .7f;
 float frequency = 2.7f;
-
 
 mat4 PerspectiveProjection(float left , float right , float bottom ,
                            float top , float near , float far) {
@@ -103,29 +102,6 @@ void MouseButton(GLFWwindow *window , int button , int action , int mod) {
     }
 }
 
-void MousePos(GLFWwindow *window , double x , double y) {
-    if (glfwGetMouseButton(window , GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-        vec2 p = TransformScreenCoords(window , x , y);
-        trackball_matrix = old_trackball_matrix * trackball.Drag(p.x , p.y);
-        grid.light_pos = vec3(-p.x , -p.y , 2.0f);
-    }
-
-    // zoom
-    if (glfwGetMouseButton(window , GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
-        vec2 p = TransformScreenCoords(window , x , y);
-        float z_factor = 0.0f;
-        if (p.y > prev_y) {
-            z_factor = 0.1f;
-        } else if (p.y < prev_y) {
-            z_factor = -0.1f;
-        } else {
-            z_factor = 0.0f;
-        }
-
-        prev_y = p.y;
-        view_matrix = translate(view_matrix , vec3(0 , 0 , z_factor));
-    }
-}
 
 // Gets called when the windows/framebuffer is resized.
 void SetupProjection(GLFWwindow *window , int width , int height) {
@@ -181,6 +157,11 @@ void Display() {
         quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix , octaves , amplitude ,
                   frequency);
     }
+
+    framebuffer_tex=framebuffer.tex;
+    /*for(int i = 0;i<30;i++){
+            cout << framebuffer.tex[i] <<endl;
+         }*/
     framebuffer.Unbind();
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -239,7 +220,12 @@ void check_pitch(){
 void do_movement() {
     timeDiff = (glfwGetTime()-releaseTime);
 
+
     float intensity = (pressedTime - timeDiff)/pressedTime;
+
+    if (intensity<0){
+        lastkey='X';
+    }
 
     // Camera controls
     GLfloat cameraSpeed = 5.0f * deltaTime;
@@ -453,6 +439,9 @@ int main(int argc , char *argv[]) {
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
         Display();
+        /*for(int i = 0;i<sizeof(framebuffer_tex);i++){
+            cout << &framebuffer_tex[i]<<endl;
+        }*/
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

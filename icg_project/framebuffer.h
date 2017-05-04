@@ -11,10 +11,13 @@ class FrameBuffer {
         GLuint color_texture_id_;
 
     public:
+        int tex [800 * 600 * 4]; // window height * window width * floats per pixel
         // warning: overrides viewport!!
+
         void Bind() {
             glViewport(0, 0, width_, height_);
             glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_object_id_);
+            glReadPixels(0,0,800,600 ,GL_RGBA,GL_UNSIGNED_INT,tex);
             const GLenum buffers[] = { GL_COLOR_ATTACHMENT0 };
             glDrawBuffers(1 /*length of buffers[]*/, buffers);
         }
