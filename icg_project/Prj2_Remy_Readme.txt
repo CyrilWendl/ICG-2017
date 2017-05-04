@@ -22,3 +22,16 @@ contibution_tex=clamp((1 - PEAK * (z- MAX) * (z - MAX)),0,1);
 This yields a quadratic function with results in the interval {0,1}, having a highest contribution (1) at the MAX and peaking more strongly for higher PEAK values.
 
 In addition, I have implemented camera controls using the keyboard and mouse, mainly based on the following tutorial: https://learnopengl.com/#!Getting-started/Camera
+
+Skybox - Stephane
+To implement the skybox, we use a cubemap on which we display our sky textures, 6 in that case for each face of the cube. For that we define as usual 
+the vertices for our cube, and we correctly target each texture to the right face of the cube. We don't need to set texture coordinates for this, since 
+we're going to be using our vertices positions to sample the cubemap texture we defined. For that we pass the vertices coordinates to the texture coordinates 
+directly in the skybox vertex shader, and then sample the cube map texture using these texture coordinates in the fragment shader. We draw the skybox first in the background,
+and we also make sure to pass the view matrix without the translation component(by switching from mat4 to mat3 and then to mat4 again) so that the skybox would'nt move 
+with our camera.
+
+Reflection - Stephane (Implementation still ongoing)
+For the reflection over water, we have our view direction vector, and the normal vector to our water, which in our case is vec3(0.0, 1.0, 0.0) in local coordinates,
+we transform these vectors using model view matrices, and we calculate the reflection vector in the water fragment shader, using the opengl reflect function,
+using this vector to sample whichever this vector hits in our landscape thus reflecting it.
