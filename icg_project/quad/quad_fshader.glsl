@@ -8,11 +8,11 @@ in vec2 uv;
 out vec3 terrain;
 
 uniform sampler2D tex;
-uniform float HUni;
 uniform float lacunarityUni;
 uniform int octavesUni;
 uniform float frequencyUni;
 uniform float amplitudeUni;
+uniform float hUni;
 
 float rand(vec2 co){return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);}
 float rand (vec2 co, float l) {return rand(vec2(rand(co), l));}
@@ -26,8 +26,9 @@ float random (in vec2 st) {
 // p must be normalized!
 float perlin(vec2 p) {      // perlin noise function
 
-    float dim = 25.0;           // parameter to change frequency
+    float dim = 1.0;           // parameter to change frequency
     vec2 pos = floor(p * dim);
+    vec2 pos_diff = p-pos;
     vec2 posx = pos + vec2(1.0, 0.0);
     vec2 posy = pos + vec2(0.0, 1.0);
     vec2 posxy = pos + vec2(1.0);
@@ -72,7 +73,7 @@ float noise (in vec2 st) { // Perlin noise
 
 float fbmB (in vec2 st) {
     // Initial values
-    float value = 0.0;
+    float value = 00;
     float amplitude = amplitudeUni;
     float frequency = frequencyUni;
     int octaves = octavesUni;
@@ -86,7 +87,7 @@ float fbmB (in vec2 st) {
     return value;
 }
 
-float fbm(vec2 x) {         // fractional Brownian motion function
+float fbm(vec2 x) { // fractional Brownian motion
     float v = 0.5;      // parameters to vary
     float a = 0.25;     // parameters to vary
     vec2 shift = vec2(100);     // parameters to vary
@@ -100,24 +101,22 @@ float fbm(vec2 x) {         // fractional Brownian motion function
     return v;
 }
 
-/*float fbmClass(vec2 point)
+float fbmClass(vec2 x)
 {
-    float H = 0.9;
-    float lacunarity = 10;
-    int octaves=5;
     float value = 0.0;
-    // inner loop of fractal construction
-    for (int i = 0; i < octaves; i++) {
-        value += perlin(point) * pow(lacunarity, -H*i);
-        point *= lacunarity;
+
+     // inner loop of fractal construction
+    for (int i = 0; i < octavesUni; i++) {
+        value += perlin(x) * pow(lacunarityUni, -hUni*i);
+        x *= lacunarityUni;
     }
     return value;
-}*/
+}
 
 void main() {
    //terrain = vec3(fbmClass(uv),fbmClass(uv),fbmClass(uv));
    //terrain=vec3(uv.x+1.0)/2.0;
-   terrain = vec3(fbmB(uv));
+   terrain = vec3(fbmClass(uv));
 }
 
 

@@ -101,7 +101,7 @@ class Quad {
             glDeleteTextures(1, &texture_id_);
         }
 
-        void Draw(const glm::mat4& MVP, int octaves, float amplitude, float frequency) {
+        void Draw(const glm::mat4& MVP, int octaves, float amplitude, float frequency, float H, float lacunarity) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -117,6 +117,8 @@ class Quad {
             glUniform1i(glGetUniformLocation(program_id_, "octavesUni"), octaves);
             glUniform1f(glGetUniformLocation(program_id_, "amplitudeUni"), amplitude);
             glUniform1f(glGetUniformLocation(program_id_, "frequencyUni"), frequency);
+            glUniform1f(glGetUniformLocation(program_id_, "hUni"), H);
+            glUniform1f(glGetUniformLocation(program_id_, "lacunarityUni"), lacunarity);
 
             // draw
             glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

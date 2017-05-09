@@ -8,6 +8,7 @@ file(GLOB TEXTURES
     grid/ground.tga
     grid/rock.tga
     grid/grass.tga
+    grid/snow.tga
     water/water_texture.tga
     quad/quad_texture.tga
     skybox/cottoncandy_rt.tga

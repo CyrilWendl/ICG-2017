@@ -31,6 +31,7 @@ private:
     GLuint texture_id_;                     // texture ID
     GLuint texture_grass_;                  // grass texture
     GLuint texture_rock_;                   // rock texture
+    GLuint texture_snow_;                   // snow texture
     GLuint num_indices_;                    // number of vertices to render
     GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -119,18 +120,18 @@ public:
             glBindTexture(GL_TEXTURE_2D , 0);
         }
         // load textures
+        int width;
+        int height;
+        int nb_component;
         {
             //grass texture
-            int width;
-            int height;
-            int nb_component;
             string filename = "grass.tga";
             // set stb_image to have the same coordinates as OpenGL
             // stbi_set_flip_vertically_on_load(1);
-            unsigned char *image = stbi_load(filename.c_str() , &width ,
-                                             &height , &nb_component , 0);
+            unsigned char *im_grass = stbi_load(filename.c_str() , &width ,
+                                                &height , &nb_component , 0);
 
-            if (image == nullptr) {
+            if (im_grass == nullptr) {
                 throw (string("Failed to load texture"));
             }
 
@@ -141,51 +142,70 @@ public:
 
             if (nb_component == 3) {
                 glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
-                             GL_RGB , GL_UNSIGNED_BYTE , image);
+                             GL_RGB , GL_UNSIGNED_BYTE , im_grass);
             } else if (nb_component == 4) {
                 glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGBA , width , height , 0 ,
-                             GL_RGBA , GL_UNSIGNED_BYTE , image);
+                             GL_RGBA , GL_UNSIGNED_BYTE , im_grass);
             }
 
             // texture uniforms
             GLuint tex_id = glGetUniformLocation(program_id_ , "tex_grass");
-            glUniform1i(tex_id , 1 /*GL_TEXTURE1*/);
+            glUniform1i(tex_id , 1);//GL_TEXTURE1
 
             // cleanup
             glBindTexture(GL_TEXTURE_2D , 0);
-            stbi_image_free(image);
-
+            stbi_image_free(im_grass);
+        }
+        {
             // texture 2
-            string filename2= "rock.tga";
+            string file_rock= "rock.tga";
             // set stb_image to have the same coordinates as OpenGL
             // stbi_set_flip_vertically_on_load(1);
-            unsigned char *image2 = stbi_load(filename2.c_str() , &width ,
+            unsigned char *im_rock = stbi_load(file_rock.c_str() , &width ,
                                              &height , &nb_component , 0);
 
-            if (image2 == nullptr) {
-                throw (string("Failed to load texture"));
-            }
+            if (im_rock == nullptr) {throw (string("Failed to load texture"));}
 
             glGenTextures(1 , &texture_rock_);
             glBindTexture(GL_TEXTURE_2D , texture_rock_);
             glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MAG_FILTER , GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MIN_FILTER , GL_LINEAR);
 
-            if (nb_component == 3) {
-                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
-                             GL_RGB , GL_UNSIGNED_BYTE , image2);
-            } else if (nb_component == 4) {
-                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGBA , width , height , 0 ,
-                             GL_RGBA , GL_UNSIGNED_BYTE , image2);
-            }
+            glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
+                             GL_RGB , GL_UNSIGNED_BYTE , im_rock);
 
             // texture uniforms
             GLuint tex_rock_id = glGetUniformLocation(program_id_ , "tex_rock");
-            glUniform1i(tex_rock_id , 2 ); //GL_TEXTURE2
+            glUniform1i(tex_rock_id, 2); //GL_TEXTURE2
 
             // cleanup
             glBindTexture(GL_TEXTURE_2D , 0);
-            stbi_image_free(image2);
+            stbi_image_free(im_rock);
+        }
+        {// texture 3
+            string file_snow= "snow.tga";
+            // set stb_image to have the same coordinates as OpenGL
+            // stbi_set_flip_vertically_on_load(1);
+            unsigned char *im_snow = stbi_load(file_snow.c_str() , &width ,
+                                               &height , &nb_component , 0);
+
+            if (im_snow == nullptr) {throw (string("Failed to load texture"));}
+
+            glGenTextures(1 , &texture_snow_);
+            glBindTexture(GL_TEXTURE_2D , texture_snow_);
+            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MAG_FILTER , GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MIN_FILTER , GL_LINEAR);
+
+            glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
+                         GL_RGB , GL_UNSIGNED_BYTE , im_snow);
+
+            // texture uniforms
+            GLuint tex_snow_id = glGetUniformLocation(program_id_ , "tex_snow");
+            glUniform1i(tex_snow_id, 3); //GL_TEXTURE
+
+            // cleanup
+            glBindTexture(GL_TEXTURE_2D , 0);
+            stbi_image_free(im_snow);
         }
 
         // other uniforms
@@ -234,6 +254,9 @@ public:
 
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_2D, texture_rock_);
+
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, texture_snow_);
 
         // setup MVP
         glm::mat4 MVP = projection*view*model;

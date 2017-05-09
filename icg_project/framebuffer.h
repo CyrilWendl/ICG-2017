@@ -12,13 +12,11 @@ class FrameBuffer {
 
     public:
         // warning: overrides viewport!!
-
         void Bind() {
             glViewport(0, 0, width_, height_);
             glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_object_id_);
             const GLenum buffers[] = { GL_COLOR_ATTACHMENT0 };
             glDrawBuffers(1 /*length of buffers[]*/, buffers);
-
         }
 
         void Unbind() {
@@ -26,6 +24,7 @@ class FrameBuffer {
         }
 
         int Init(int image_width, int image_height, bool use_interpolation = false) {
+
             this->width_ = image_width;
             this->height_ = image_height;
 
