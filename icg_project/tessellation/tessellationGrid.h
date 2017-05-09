@@ -1,10 +1,27 @@
 #pragma once
 #include "icg_helper.h"
 #include <glm/gtc/type_ptr.hpp>
-#include "../grid/grid.h"
-#include "../tessellation/tessellationGrid.h"
 
-class Water : public Light{
+struct Light {
+        glm::vec3 Ld = glm::vec3(1.0f, 1.0f, 1.0f);
+
+        glm::vec3 light_pos = glm::vec3(0.0f, 0.0f, 2.0f);
+
+        // pass light properties to the shader
+        void Setup(GLuint program_id) {
+            glUseProgram(program_id);
+
+            // given in camera space
+            GLuint light_pos_id = glGetUniformLocation(program_id, "light_pos");
+
+            GLuint Ld_id = glGetUniformLocation(program_id, "Ld");
+
+            glUniform3fv(light_pos_id, ONE, glm::value_ptr(light_pos));
+            glUniform3fv(Ld_id, ONE, glm::value_ptr(Ld));
+        }
+};
+
+class Grid : public Light{
 
     private:
         GLuint vertex_array_id_;                // vertex array object
@@ -12,14 +29,24 @@ class Water : public Light{
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint texture_id_;                     // texture ID
+        GLuint texture_2_;
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // model, view, proj matrix ID
 
     public:
-        void Init(GLuint texWater = -1) {
+        void Init(GLuint tex_noise = -1) {
+            glPatchParameteri(GL_PATCH_VERTICES, 3);
             // compile the shaders.
-            program_id_ = icg_helper::LoadShaders("water_vshader.glsl",
-                                                  "water_fshader.glsl");
+
+            program_id_ = icg_helper::LoadShaders("tessel_vshader.glsl",
+                                                  "tessel_fshader.glsl",
+                                                  NULL,
+                                                  "tessel_cshader.glsl",
+                                                  "tessel_eshader.glsl");
+
+
+            glLinkProgram(program_id_);
+
             if(!program_id_) {
                 exit(EXIT_FAILURE);
             }
@@ -35,7 +62,7 @@ class Water : public Light{
                 std::vector<GLfloat> vertices;
                 std::vector<GLuint> indices;
                 // always two subsequent entries in 'vertices' form a 2D vertex position.
-                int grid_dim = 513;      // number of lateral vertices, make sure it's the same as the grid
+                int grid_dim = 513;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
 
                 // vertex position of the triangles.
                 for (float i = -(grid_dim/2) ; i <= (grid_dim/2) ; ++i)
@@ -81,16 +108,33 @@ class Water : public Light{
                 glVertexAttribPointer(loc_position, 2, GL_FLOAT, DONT_NORMALIZE,
                                       ZERO_STRIDE, ZERO_BUFFER_OFFSET);
 
+//                // texture shader
+//                GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_,
+//                                                                     "vtexcoord");
+//                glEnableVertexAttribArray(vertex_texture_coord_id);
+//                glVertexAttribPointer(vertex_texture_coord_id, 2, GL_FLOAT,
+//                                      DONT_NORMALIZE, ZERO_STRIDE,
+//                                      ZERO_BUFFER_OFFSET);
             }
 
             // load texture
             {
+                texture_id_ = tex_noise;
+                // texture uniforms
+                GLuint tex_id = glGetUniformLocation(program_id_, "texNoise");
+                glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+
+                // cleanup
+                glBindTexture(GL_TEXTURE_2D, 0);
+            }
+            // load texture 2
+            {
                 int width;
                 int height;
                 int nb_component;
-                string filename = "water_texture.tga";
+                string filename = "ground.tga";
                 // set stb_image to have the same coordinates as OpenGL
-                stbi_set_flip_vertically_on_load(1);
+                // stbi_set_flip_vertically_on_load(1);
                 unsigned char* image = stbi_load(filename.c_str(), &width,
                                                  &height, &nb_component, 0);
 
@@ -98,8 +142,8 @@ class Water : public Light{
                     throw(string("Failed to load texture"));
                 }
 
-                glGenTextures(1, &texture_id_);
-                glBindTexture(GL_TEXTURE_2D, texture_id_);
+                glGenTextures(1, &texture_2_);
+                glBindTexture(GL_TEXTURE_2D, texture_2_);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -112,8 +156,8 @@ class Water : public Light{
                 }
 
                 // texture uniforms
-                GLuint tex_id = glGetUniformLocation(program_id_, "texWater");
-                glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+                GLuint tex_id = glGetUniformLocation(program_id_, "tex2");
+                glUniform1i(tex_id, 1 /*GL_TEXTURE1*/);
 
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -121,7 +165,7 @@ class Water : public Light{
             }
 
             // other uniforms
-            MVP_id_ = glGetUniformLocation(program_id_, "MVP");
+            MVP_id_ = glGetUniformLocation(program_id_, "mvp");
 
             // to avoid the current object being polluted
             glBindVertexArray(0);
@@ -156,6 +200,9 @@ class Water : public Light{
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, texture_id_);
 
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, texture_2_);
+
             // setup MVP
             glm::mat4 MVP = projection*view*model;
             glUniformMatrix4fv(MVP_id_, ONE, DONT_TRANSPOSE, glm::value_ptr(MVP));
@@ -183,7 +230,7 @@ class Water : public Light{
             //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
             // Depending on how you set up your vertex index buffer, you
             // might have to change GL_TRIANGLE_STRIP to GL_TRIANGLES.
-            glDrawElements(GL_TRIANGLES, num_indices_, GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_PATCHES, num_indices_, GL_UNSIGNED_INT, 0);
 
             glBindVertexArray(0);
             glUseProgram(0);

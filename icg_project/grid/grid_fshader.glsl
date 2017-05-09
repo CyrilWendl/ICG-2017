@@ -14,6 +14,7 @@ uniform vec3 Ld;
 uniform sampler2D texNoise;
 uniform sampler2D tex2;
 
+
 void main() {
     float window_width = textureSize(texNoise,0).x;
     float window_height = textureSize(texNoise,0).y;
@@ -40,6 +41,7 @@ void main() {
          snow_z=pow((z-snow),exp)/pow((1-snow),exp); // exponential function
          color=vec3(0,0,1);
      }
+
      //custom material diffuse parameter
      vec3 kd = vec3(0.3);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));

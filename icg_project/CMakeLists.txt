@@ -15,7 +15,8 @@ copy_files_once(${TEXTURES})
 file(GLOB SHADERS
   grid/*.glsl
   water/*.glsl
-  quad/*.glsl)
+  quad/*.glsl
+  tessellation/*.glsl)
 deploy_shaders_to_build_dir(${SHADERS})
 
 add_executable(${EXERCISENAME} ${SOURCES} ${HEADERS} ${SHADERS})

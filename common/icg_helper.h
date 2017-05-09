@@ -219,10 +219,13 @@ inline GLuint CompileShaders(const char* vshader,
 // TODO: add support for tessellation shaders
 inline GLuint LoadShaders(const char * vertex_file_path,
                           const char * fragment_file_path,
-                          const char * geometry_file_path = NULL) {
+                          const char * geometry_file_path = NULL,
+                          const char * control_file_path = NULL,
+                          const char * evaluation_file_path = NULL
+                          ) {
     const int SHADER_LOAD_FAILED = 0;
 
-    string vertex_shader_code, fragment_shader_code, geometry_shader_code;
+    string vertex_shader_code, fragment_shader_code, geometry_shader_code, control_shader_code, evaluation_shader_code;
     {
         // read the Vertex Shader code from the file
         ifstream vertex_shader_stream(vertex_file_path, ios::in);
@@ -258,6 +261,32 @@ inline GLuint LoadShaders(const char * vertex_file_path,
                 return SHADER_LOAD_FAILED;
             }
         }
+
+        // read the Control Shader code from the file
+        if(control_file_path != NULL) {
+            ifstream control_shader_stream(control_file_path, ios::in);
+            if(control_shader_stream.is_open()) {
+                control_shader_code = string(istreambuf_iterator<char>(control_shader_stream),
+                                              istreambuf_iterator<char>());
+                control_shader_stream.close();
+            } else {
+                printf("Could not open file: %s\n", control_file_path);
+                return SHADER_LOAD_FAILED;
+            }
+        }
+
+        // read the Evaluation Shader code from the file
+        if(evaluation_file_path != NULL) {
+            ifstream evaluation_shader_stream(evaluation_file_path, ios::in);
+            if(evaluation_shader_stream.is_open()) {
+                evaluation_shader_code = string(istreambuf_iterator<char>(evaluation_shader_stream),
+                                              istreambuf_iterator<char>());
+                evaluation_shader_stream.close();
+            } else {
+                printf("Could not open file: %s\n", evaluation_file_path);
+                return SHADER_LOAD_FAILED;
+            }
+        }
     }
 
     // compile them
@@ -265,12 +294,16 @@ inline GLuint LoadShaders(const char * vertex_file_path,
     char const *fragment_source_pointer = fragment_shader_code.c_str();
     char const *geometry_source_pointer = NULL;
     if(geometry_file_path != NULL) geometry_source_pointer = geometry_shader_code.c_str();
+    char const *control_source_pointer = NULL;
+    if(control_file_path != NULL) control_source_pointer = control_shader_code.c_str();
+    char const *evaluation_source_pointer = NULL;
+    if(evaluation_file_path != NULL) evaluation_source_pointer = evaluation_shader_code.c_str();
 
     int status = CompileShaders(vertex_source_pointer, fragment_source_pointer,
-                                geometry_source_pointer);
+                                geometry_source_pointer, control_source_pointer, evaluation_source_pointer);
     if(status == SHADER_LOAD_FAILED)
         printf("Failed linking:\n  vshader: %s\n  fshader: %s\n  gshader: %s\n",
-               vertex_file_path, fragment_file_path, geometry_file_path);
+               vertex_file_path, fragment_file_path, geometry_file_path, control_file_path, evaluation_file_path);
     return status;
 }
 }

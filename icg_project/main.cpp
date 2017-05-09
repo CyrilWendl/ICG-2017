@@ -11,6 +11,7 @@
 #include "water/water.h"
 #include "trackball.h"
 #include "framebuffer.h"
+#include "tessellation/tessellationGrid.h"
 
 int window_width = 800;
 int window_height = 600;

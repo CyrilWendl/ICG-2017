@@ -2,7 +2,7 @@
 #include "icg_helper.h"
 #include <glm/gtc/type_ptr.hpp>
 
-struct Light {
+struct Light2 {
         glm::vec3 Ld = glm::vec3(1.0f, 1.0f, 1.0f);
 
         glm::vec3 light_pos = glm::vec3(0.0f, 0.0f, 2.0f);
@@ -21,7 +21,7 @@ struct Light {
         }
 };
 
-class Grid : public Light{
+class Grid2 : public Light2{
 
     private:
         GLuint vertex_array_id_;                // vertex array object
@@ -201,7 +201,7 @@ class Grid : public Light{
             // pass the current time stamp to the shader.
             glUniform1f(glGetUniformLocation(program_id_, "time"), time);
 
-            Light::Setup(program_id_);
+            Light2::Setup(program_id_);
 
             // setup matrix stack
             GLint model_id = glGetUniformLocation(program_id_,
