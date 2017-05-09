@@ -1,6 +1,8 @@
 // glew must be before glfw
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
+#include <fstream>
 
 // contains helper functions such as shader compiler
 #include "icg_helper.h"
@@ -12,6 +14,9 @@
 #include "trackball.h"
 #include "skybox/skybox.h"
 #include "framebuffer.h"
+
+#define CAM_DEFAULT 1
+#define CAM_FPS 1
 
 int window_width = 800;
 int window_height = 600;
@@ -28,7 +33,7 @@ Trackball trackball;
 
 // Camera
 glm::vec3 cameraPos = vec3(0.0f , 2.0f , 3.0f);
-glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
+glm::vec3 cameraFront = vec3(0.0f , 0.0f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
@@ -36,6 +41,7 @@ double lastX = window_width / 2.0;
 double lastY = window_height / 2.0;
 GLfloat fov = 45.0f;
 bool keys[1024];
+int camera_mode=CAM_DEFAULT;
 
 // Delta time
 float deltaTime = 0.0f;    // Time between current frame and last frame
@@ -53,12 +59,13 @@ Quad quad;
 Water water;
 Skybox skybox;
 
-int *framebuffer_tex;
+GLfloat tex [1024 * 1024 * 3]; // window height * window width * floats per pixel
+float oldHeight;
 
 float H = 0.1;//TODO Rémy, we never use these two variables, can we delete them?
 float lacunarity = 0.1;
 
-int octaves = 5;
+int octaves = 1;
 float amplitude = .7f;
 float frequency = 2.7f;
 
@@ -158,10 +165,19 @@ void Display() {
                   frequency);
     }
 
-    framebuffer_tex=framebuffer.tex;
-    /*for(int i = 0;i<30;i++){
-            cout << framebuffer.tex[i] <<endl;
-         }*/
+    //glGetTexLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
+    //cout << "Size: " << size << endl;
+
+    glReadPixels(0,0,1024,1024, GL_RGB, GL_FLOAT, tex);
+    //glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT, tex);
+    // Debugging: write texture to file to see if values are correct (visualize with MatLab)
+    /*ofstream myfile;
+    myfile.open ("./example.txt");
+    for (int i=0;i<1024*1024*4;i++){
+        myfile << tex[i];
+        myfile << ",";
+    }
+    myfile.close();*/
     framebuffer.Unbind();
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -183,7 +199,7 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
             keys[key] = true;
         } else if (action == GLFW_RELEASE) {
             releaseTime = glfwGetTime();
-            float speed=3.0; // inertia parameter
+            float speed=2.0; // inertia parameter
             pressedTime = (releaseTime-pressTime)*speed;
             keys[key] = false;
         }
@@ -220,7 +236,6 @@ void check_pitch(){
 void do_movement() {
     timeDiff = (glfwGetTime()-releaseTime);
 
-
     float intensity = (pressedTime - timeDiff)/pressedTime;
 
     if (intensity<0){
@@ -228,7 +243,7 @@ void do_movement() {
     }
 
     // Camera controls
-    GLfloat cameraSpeed = 5.0f * deltaTime;
+    GLfloat cameraSpeed = deltaTime;
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move along camera axis
         lastkey='W';
         if (timeDiff>0 and intensity>0)
@@ -300,6 +315,7 @@ void do_movement() {
         front.z = sin(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
         cameraFront = glm::normalize(front);
     }
+
     /*while (pressedTime>0 && keys[GLFW_KEY_D]==false){
         GLfloat time = glfwGetTime();
         pressedTime -= (time-releaseTime);
@@ -433,17 +449,29 @@ int main(int argc , char *argv[]) {
         view_matrix = glm::lookAt(cameraPos , cameraPos + cameraFront , cameraUp);
 
         // Projection
-        //glm::mat4 projection = glm::perspective(fov, (GLfloat)window_width/(GLfloat)window_height, 0.1f, 100.0f);
+        // glm::mat4 projection = glm::perspective(fov, (GLfloat)window_width/(GLfloat)window_height, 0.1f, 100.0f);
         // Get the uniform locations
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+        if(cameraPos.z>-1 and cameraPos.z<1 and cameraPos.x>-1 and cameraPos.x<1){
+            int index_x=(int)((cameraPos.x+1)/2*1024); //{0,1024}
+            int index_y=(int)((cameraPos.z+1)/2*1024); //{0,1024}
+
+            float texHeight=tex[(index_x+index_y*1024)*3+2];
+
+            if(texHeight!=oldHeight){
+                cout <<  "texture height:" << texHeight << endl;
+                oldHeight=texHeight;
+                cameraPos.y=texHeight+.3;
+            }
+
+        }
 
         Display();
-        /*for(int i = 0;i<sizeof(framebuffer_tex);i++){
-            cout << &framebuffer_tex[i]<<endl;
-        }*/
         glfwSwapBuffers(window);
         glfwPollEvents();
+
+
     }
     quad.Cleanup();
     grid.Cleanup();
