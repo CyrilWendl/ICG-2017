@@ -2,7 +2,6 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include <fstream>
 
 // contains helper functions such as shader compiler
 #include "icg_helper.h"
@@ -15,8 +14,11 @@
 #include "skybox/skybox.h"
 #include "framebuffer.h"
 
-#define CAM_DEFAULT 1
-#define CAM_FPS 1
+#define CAM_DEFAULT "Camera: Default"
+#define CAM_FPS "Camera: FPS"
+#define TEX_HEIGHT 1024
+#define TEX_WIDTH 1024
+#define TEX_BITS 1
 
 int window_width = 800;
 int window_height = 600;
@@ -41,7 +43,7 @@ double lastX = window_width / 2.0;
 double lastY = window_height / 2.0;
 GLfloat fov = 45.0f;
 bool keys[1024];
-int camera_mode=CAM_DEFAULT;
+string cameraMode=CAM_DEFAULT;
 
 // Delta time
 float deltaTime = 0.0f;    // Time between current frame and last frame
@@ -59,7 +61,7 @@ Quad quad;
 Water water;
 Skybox skybox;
 
-GLfloat tex [1024 * 1024 * 3]; // window height * window width * floats per pixel
+GLfloat tex [TEX_WIDTH  * TEX_HEIGHT * TEX_BITS]; // window height * window width * floats per pixel
 float oldHeight;
 
 float H = 0.1;//TODO Rémy, we never use these two variables, can we delete them?
@@ -164,20 +166,12 @@ void Display() {
         quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix , octaves , amplitude ,
                   frequency);
     }
+    /*GLfloat *size;
+    glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
+    cout << "Size: " << size << endl;*/
 
-    //glGetTexLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
-    //cout << "Size: " << size << endl;
-
-    glReadPixels(0,0,1024,1024, GL_RGB, GL_FLOAT, tex);
-    //glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT, tex);
-    // Debugging: write texture to file to see if values are correct (visualize with MatLab)
-    /*ofstream myfile;
-    myfile.open ("./example.txt");
-    for (int i=0;i<1024*1024*4;i++){
-        myfile << tex[i];
-        myfile << ",";
-    }
-    myfile.close();*/
+    glReadPixels(0,0,TEX_WIDTH,TEX_HEIGHT, GL_RED, GL_FLOAT, tex);
+    // glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT, tex);
     framebuffer.Unbind();
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -223,6 +217,14 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
         cout << "cameraFront: " << cameraFront.x << ", " << cameraFront.y << ", " << cameraFront.z << endl;
         cout << "cameraUp:    " << cameraUp.x << ", " << cameraUp.y << ", " << cameraUp.z << endl;
     }
+    if (keys[GLFW_KEY_F]){
+        if(cameraMode==CAM_DEFAULT){
+            cameraMode=CAM_FPS;
+        } else {
+            cameraMode=CAM_DEFAULT;
+        }
+        cout << cameraMode << endl;
+    }
 }
 
 void check_pitch(){
@@ -243,7 +245,7 @@ void do_movement() {
     }
 
     // Camera controls
-    GLfloat cameraSpeed = deltaTime;
+    GLfloat cameraSpeed = 1.0f * deltaTime;
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move along camera axis
         lastkey='W';
         if (timeDiff>0 and intensity>0)
@@ -453,18 +455,21 @@ int main(int argc , char *argv[]) {
         // Get the uniform locations
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-        if(cameraPos.z>-1 and cameraPos.z<1 and cameraPos.x>-1 and cameraPos.x<1){
-            int index_x=(int)((cameraPos.x+1)/2*1024); //{0,1024}
-            int index_y=(int)((cameraPos.z+1)/2*1024); //{0,1024}
+        if(cameraMode==CAM_FPS){
+            int index_x=(int)((cameraPos.x+1)/2*TEX_WIDTH); //{0,1024}
+            int index_y=(int)((cameraPos.z+1)/2*TEX_HEIGHT); //{0,1024}
 
-            float texHeight=tex[(index_x+index_y*1024)*3+2];
+            if(cameraPos.z>-1 and cameraPos.z<1 and cameraPos.x>-1 and cameraPos.x<1){
 
-            if(texHeight!=oldHeight){
-                cout <<  "texture height:" << texHeight << endl;
-                oldHeight=texHeight;
+                float texHeight=tex[(index_x+index_y*TEX_WIDTH)*TEX_BITS];
                 cameraPos.y=texHeight+.3;
+                /*if(texHeight!=oldHeight){ // DEBUG
+                    cout <<  "texture height:" << texHeight << endl;
+                    cout << cameraPos.x << endl;
+                    cout << cameraPos.z << endl;
+                    oldHeight=texHeight;
+                }*/
             }
-
         }
 
         Display();
