@@ -165,10 +165,14 @@ void Display() {
 
     const float time = glfwGetTime();
 
+    // view matrix after removing the translated component
+    glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
+
     //view matrix from inverted camera position
     mat4 view_mirr = lookAt(cam_pos_mirr, cameraFront, cameraUp);
     mat4 view_projection_mirr = projection_matrix * view_mirr ;
 
+    // mirrored view matrix after removing the translated component
     glm::mat4 sky_mirrview = glm::mat4(glm::mat3(view_mirr));
 
     framebuffer.Bind();
@@ -189,13 +193,12 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         skybox.Draw(projection_matrix * sky_mirrview * trackball_matrix * quad_model_matrix);
-        grid.Draw(time , trackball_matrix * quad_model_matrix , view_mirr , projection_matrix);
+        grid.Draw(time , trackball_matrix * quad_model_matrix , sky_mirrview , projection_matrix);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
     skybox.Draw(projection_matrix * view * trackball_matrix * quad_model_matrix);
     grid.Draw(time , trackball_matrix * quad_model_matrix , view_matrix , projection_matrix);
 
