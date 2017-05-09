@@ -11,6 +11,7 @@ class Water : public Light{
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint texture_id_;                     // texture ID
+        GLuint texture_mirror_id_;              // texture mirror ID
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -110,9 +111,15 @@ class Water : public Light{
                                  GL_RGBA, GL_UNSIGNED_BYTE, image);
                 }
 
+                texture_mirror_id_ = (texWater ==-1)? texture_id_ : texWater;
+
                 // texture uniforms
                 GLuint tex_id = glGetUniformLocation(program_id_, "texWater");
                 glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+
+                // reflection texture uniform
+                GLuint tex_mirror_id = glGetUniformLocation(program_id_, "tex_mirror");
+                glUniform1i(tex_mirror_id, 1 /*GL_TEXTURE1*/);
 
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -135,6 +142,7 @@ class Water : public Light{
             glDeleteVertexArrays(1, &vertex_array_id_);
             glDeleteProgram(program_id_);
             glDeleteTextures(1, &texture_id_);
+            glDeleteTextures(1, &texture_mirror_id_);
         }
 
         void Draw(float time, const glm::mat4 &model = IDENTITY_MATRIX,
@@ -145,7 +153,7 @@ class Water : public Light{
             float scale = 1.0;
             glm::mat4 M = model;
             M = glm::translate(M, glm::vec3(0.0f, 0.0f, 0.5f));
-            M = glm::rotate(M, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+            //M = glm::rotate(M, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
             M = glm::scale(M, glm::vec3(scale));
 
             glUseProgram(program_id_);
@@ -154,6 +162,10 @@ class Water : public Light{
             // bind textures
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, texture_id_);
+
+            // bind textures
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, texture_mirror_id_);
 
             // setup MVP
             glm::mat4 MVP = projection*view*model;
