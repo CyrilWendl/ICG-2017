@@ -35,7 +35,7 @@ Trackball trackball;
 
 // Camera
 glm::vec3 cameraPos = vec3(0.0f , 2.0f , 3.0f);
-glm::vec3 cameraFront = vec3(0.0f , 0.0f , -.7f);
+glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
@@ -64,12 +64,11 @@ Skybox skybox;
 GLfloat tex [TEX_WIDTH  * TEX_HEIGHT * TEX_BITS]; // window height * window width * floats per pixel
 float oldHeight;
 
-float H = 0.1;//TODO Rémy, we never use these two variables, can we delete them?
-float lacunarity = 0.1;
-
-int octaves = 1;
+int octaves = 7;
 float amplitude = .7f;
 float frequency = 2.7f;
+float H = 1;
+float lacunarity = 10;
 
 mat4 PerspectiveProjection(float left , float right , float bottom ,
                            float top , float near , float far) {
@@ -124,7 +123,7 @@ void SetupProjection(GLFWwindow *window , int width , int height) {
 
     GLfloat top = 0.2f;
     GLfloat right = (GLfloat) window_width / window_height * top;
-    projection_matrix = PerspectiveProjection(-right , right , -top , top , 0.5f , -0.5f);
+    projection_matrix = PerspectiveProjection(-right , right , -top , top , 0.25f , -0.25f);
 }
 
 void ErrorCallback(int error , const char *description) {
@@ -164,7 +163,7 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix , octaves , amplitude ,
-                  frequency);
+                  frequency,H,lacunarity);
     }
     /*GLfloat *size;
     glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
@@ -200,10 +199,30 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
     }
 
 // Terrain
-    if (keys[GLFW_KEY_P])
+    if (keys[GLFW_KEY_P]){
         octaves += 1;
-    if (keys[GLFW_KEY_O])
+        cout << "octaves: " << octaves << endl;
+    }
+    if (keys[GLFW_KEY_O]){
         octaves -= 1;
+        cout << "octaves: " << octaves << endl;
+    }
+    if (keys[GLFW_KEY_N]){
+        H += .1;
+        cout << "H: " << H << endl;
+    }
+    if (keys[GLFW_KEY_M]){
+        H -= .1;
+        cout << "H: " << H << endl;
+    }
+    if (keys[GLFW_KEY_B]) {
+        lacunarity += .5;
+        cout << "Lacunarity: " << lacunarity << endl;
+    }
+    if (keys[GLFW_KEY_V]){
+        lacunarity -= .5;
+        cout << "Lacunarity: " << lacunarity << endl;
+    }
     if (keys[GLFW_KEY_UP])
         amplitude += .1;
     if (keys[GLFW_KEY_DOWN])
@@ -451,18 +470,16 @@ int main(int argc , char *argv[]) {
         view_matrix = glm::lookAt(cameraPos , cameraPos + cameraFront , cameraUp);
 
         // Projection
-        // glm::mat4 projection = glm::perspective(fov, (GLfloat)window_width/(GLfloat)window_height, 0.1f, 100.0f);
+        // glm::mat4 projection = glm::r(fov, (GLfloat)window_width/(GLfloat)window_height, 0.1f, 100.0f);
         // Get the uniform locations
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
         if(cameraMode==CAM_FPS){
             int index_x=(int)((cameraPos.x+1)/2*TEX_WIDTH); //{0,1024}
             int index_y=(int)((cameraPos.z+1)/2*TEX_HEIGHT); //{0,1024}
-
             if(cameraPos.z>-1 and cameraPos.z<1 and cameraPos.x>-1 and cameraPos.x<1){
-
                 float texHeight=tex[(index_x+index_y*TEX_WIDTH)*TEX_BITS];
-                cameraPos.y=texHeight+.3;
+                cameraPos.y=texHeight+.5;
                 /*if(texHeight!=oldHeight){ // DEBUG
                     cout <<  "texture height:" << texHeight << endl;
                     cout << cameraPos.x << endl;
@@ -488,5 +505,3 @@ int main(int argc , char *argv[]) {
     glfwTerminate();
     return EXIT_SUCCESS;
 }
-
-
