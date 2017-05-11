@@ -9,6 +9,7 @@ file(GLOB TEXTURES
     grid/rock.tga
     grid/grass.tga
     water/water_texture.tga
+    water/clear_water.jpg
     quad/quad_texture.tga
     skybox/cottoncandy_rt.tga
     skybox/cottoncandy_lf.tga
@@ -33,7 +34,13 @@ file(GLOB TEXTURES
     skybox/top.jpg
     skybox/bottom.jpg
     skybox/back.jpg
-    skybox/front.jpg)
+    skybox/front.jpg
+    skybox/miramar_rt.tga
+    skybox/miramar_lf.tga
+    skybox/miramar_up.tga
+    skybox/miramar_dn.tga
+    skybox/miramar_bk.tga
+    skybox/miramar_ft.tga)
 copy_files_once(${TEXTURES})
 
 # list all the files you want to copy everytime

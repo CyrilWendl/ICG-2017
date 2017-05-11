@@ -34,7 +34,9 @@ float prev_y = 0.0f;
 Trackball trackball;
 
 // Camera
+
 glm::vec3 cameraPos = vec3(0.0f , .7f , 0.0f);
+glm::vec3 cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 glm::vec3 cameraFront = vec3(0.0f , -.5f , -.5f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
@@ -56,6 +58,7 @@ int mode=0;
 char lastkey = 'X';
 
 FrameBuffer framebuffer;
+FrameBuffer reflection_buffer;
 Grid grid;
 Quad quad;
 Water water;
@@ -126,6 +129,9 @@ void SetupProjection(GLFWwindow *window , int width , int height) {
     GLfloat top = 0.2f;
     GLfloat right = (GLfloat) window_width / window_height * top;
     projection_matrix = PerspectiveProjection(-right , right , -top , top , 0.25f , -0.25f);
+
+    reflection_buffer.Cleanup();
+    reflection_buffer.Init(window_width, window_height);
 }
 
 void ErrorCallback(int error , const char *description) {
@@ -146,10 +152,11 @@ void Init(GLFWwindow *window) {
     // initialize framebuffer
     glfwGetFramebufferSize(window , &window_width , &window_height);
     GLuint framebuffer_texture_id = framebuffer.Init(window_width , window_height);
+    GLuint reflection_buffer_texid = reflection_buffer.Init(window_width, window_height);
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
     skybox.Init();
-    water.Init();
+    water.Init(reflection_buffer_texid);
     quad.Init();
 
 }
@@ -160,6 +167,16 @@ void Display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     const float time = glfwGetTime();
+
+    // view matrix after removing the translated component
+    glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
+
+    //view matrix from inverted camera position
+    mat4 view_mirr = lookAt(cam_pos_mirr, cameraFront, cameraUp);
+    mat4 view_projection_mirr = projection_matrix * view_mirr ;
+
+    // mirrored view matrix after removing the translated component
+    glm::mat4 sky_mirrview = glm::mat4(glm::mat3(view_mirr));
 
     framebuffer.Bind();
     {
@@ -174,6 +191,15 @@ void Display() {
     glReadPixels(0,0,TEX_WIDTH,TEX_HEIGHT, GL_RED, GL_FLOAT, tex);
     // glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT, tex);
     framebuffer.Unbind();
+
+    reflection_buffer.Bind();
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        skybox.Draw(projection_matrix * sky_mirrview * trackball_matrix * quad_model_matrix);
+        grid.Draw(time , trackball_matrix * quad_model_matrix , sky_mirrview , projection_matrix);
+    }
+    reflection_buffer.Unbind();
+
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
@@ -270,14 +296,14 @@ void move_terrain() {
     GLfloat cameraSpeed = 1.0f * deltaTime;
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
         lastkey='W';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset += cameraSpeed * cameraFront;
         //cameraPos += cameraSpeed * cameraFront;
     }
     if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey=='S')){
         lastkey='S';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset -= cameraSpeed * cameraFront;
         //cameraPos -= cameraSpeed * cameraFront;
@@ -298,7 +324,7 @@ void move_terrain() {
         lastkey='A';
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
         GLfloat xoffset = cameraSpeed* 30;    // Change this value to your liking
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             xoffset *= intensity;
         yaw_cam -= xoffset;
         check_pitch();
@@ -312,7 +338,7 @@ void move_terrain() {
         lastkey='D';
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
         GLfloat xoffset = cameraSpeed* 30;    // Change this value to your liking
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             xoffset *= intensity;
         yaw_cam += xoffset;
         check_pitch();
@@ -327,7 +353,7 @@ void move_terrain() {
         lastkey='Q';
         //cameraPos += glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed;
         GLfloat yoffset = cameraSpeed * 30;
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             yoffset *= intensity;
         pitch_cam += yoffset;
         check_pitch();
@@ -342,7 +368,7 @@ void move_terrain() {
         lastkey='E';
         //cameraPos += glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed;
         GLfloat yoffset = cameraSpeed * 30;
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             yoffset *= intensity;
         pitch_cam -= yoffset;
         check_pitch();
@@ -474,6 +500,8 @@ int main(int argc , char *argv[]) {
         // Check and call events
         glfwPollEvents();
         move_terrain();
+        // update mirror camera postion
+        cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 
         // Camera/View transformation
         glm::mat4 view;
@@ -487,7 +515,7 @@ int main(int argc , char *argv[]) {
         if(cameraMode==CAM_FPS){
             int index_x=(int)((cameraPos.x+1)/2*TEX_WIDTH); //{0,1024}
             int index_y=(int)((cameraPos.z+1)/2*TEX_HEIGHT); //{0,1024}
-            if(cameraPos.z>-1 and cameraPos.z<1 and cameraPos.x>-1 and cameraPos.x<1){
+            if(cameraPos.z>-1 && cameraPos.z<1 && cameraPos.x>-1 && cameraPos.x<1){
                 float texHeight=tex[(index_x+index_y*TEX_WIDTH)*TEX_BITS];
                 cameraPos.y=texHeight+.5;
                 /*if(texHeight!=oldHeight){ // DEBUG
