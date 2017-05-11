@@ -1,7 +1,7 @@
 #version 330
 
 #define M_PI 3.14159265358979323846
-#define NUM_OCTAVES 6
+#define N_RAND 256
 
 in vec2 uv;
 
@@ -13,74 +13,117 @@ uniform int octavesUni;
 uniform float frequencyUni;
 uniform float amplitudeUni;
 uniform float hUni;
+uniform float Perm[N_RAND];
+uniform float offset_x;
+uniform float offset_y;
 
-float rand(vec2 co){return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);}
-float rand (vec2 co, float l) {return rand(vec2(rand(co), l));}
-float random (in vec2 st) {
-    return fract(sin(dot(st.xy,
-                         vec2(12.9898,78.233)))*
-        43758.5453123);
+int window_width = 800;
+int window_height = 600;
+
+float rand(vec2 co)
+{
+    return (fract(sin(dot(co.xy, vec2(12.9898,78.233))) * 43758.5453));
 }
 
+vec2 getRandomGradient(vec2 p)
+{
+    float r = 45 * rand(p);
+    return vec2(cos(r), sin(r));
+}
+
+float interpolate(float t)
+{
+    return (6 * t * t * t * t * t) - (15 * t * t * t * t) + (10 * t * t * t);
+}
+
+float mix(float x, float y, float alpha)
+{
+    return (1 - alpha) * x + alpha * y;
+}
+
+vec3 permute(vec3 x)
+{
+    return mod(((x*34.0)+1.0)*x, 289.0);
+}
 
 // p must be normalized!
-float perlin(vec2 p) {      // perlin noise function
+float perlin(vec2 pos)
+{
+    // Cell corner positions
+    vec2 bl = floor(pos);
+    vec2 br = bl + vec2(1, 0);
+    vec2 ul = bl + vec2(0, 1);
+    vec2 ur = bl + vec2(1, 1);
 
-    float dim = 1.0;           // parameter to change frequency
-    vec2 pos = floor(p * dim);
-    vec2 pos_diff = p-pos;
-    vec2 posx = pos + vec2(1.0, 0.0);
-    vec2 posy = pos + vec2(0.0, 1.0);
-    vec2 posxy = pos + vec2(1.0);
+    // Difference vectors
+    vec2 a = pos - bl;
+    vec2 b = pos - br;
+    vec2 c = pos - ul;
+    vec2 d = pos - ur;
 
-    // For exclusively black/white noise
-    float c = step(rand(pos, dim), 0.5);
-    float cx = step(rand(posx, dim), 0.5);
-    float cy = step(rand(posy, dim), 0.5);
-    float cxy = step(rand(posxy, dim), 0.5);
+    // Dot products
+    float s = dot(getRandomGradient(bl), a);
+    float t = dot(getRandomGradient(br), b);
+    float u = dot(getRandomGradient(ul), c);
+    float v = dot(getRandomGradient(ur), d);
 
-    /*float c = rand(pos, dim);
-    float cx = rand(posx, dim);
-    float cy = rand(posy, dim);
-    float cxy = rand(posxy, dim);*/
-
-    vec2 d = fract(p * dim);
-    d = -0.5 * cos(d * M_PI) + 0.5;
-
-    float ccx = mix(c, cx, d.x);
-    float cycxy = mix(cy, cxy, d.x);
-    float center = mix(ccx, cycxy, d.y);
-
-    return center * 2.0 - 1.0;
+    // Interpolation
+    float st = mix(s, t, interpolate(fract(pos.x)));
+    float uv_f = mix(u, v, interpolate(fract(pos.x)));
+    return mix(st, uv_f, interpolate(fract(pos.y)));
 }
+/*float RidgedMultifractal( vec2 point, float H, float offset, float gain )
+{
+    float result , signal, weight, noise;
+    int i;
+    float exponent_array[100];
 
-float noise (in vec2 st) { // Perlin noise
-    vec2 i = floor(st);
-    vec2 f = fract(st);
+    for (i=0; i<=octavesUni; i++) {
+        exponent_array[i] = pow( frequencyUni, -H );
+        frequencyUni *= persistance;
+    }
 
-    // Four corners in 2D of a tile
-    float a = random(i);
-    float b = random(i + vec2(1.0, 0.0));
-    float c = random(i + vec2(0.0, 1.0));
-    float d = random(i + vec2(1.0, 1.0));
+    signal = perlin(point);
+    if (signal < 0.0)
+        signal = -signal;
 
-    vec2 u = f * f * (3.0 - 2.0 * f);
+    signal = offset - signal;
+    signal *= signal;
+    result = signal;
+    weight = 1.0;
 
-    return mix(a, b, u.x) +
-            (c - a)* u.y * (1.0 - u.x) +
-            (d - b) * u.x * u.y;
-}
+    for(int i = 1; i < octaves; i++) {
+        point.x *= persistance;
+        point.y *= persistance;
 
+        weight = signal * gain;
+        if (weight > 1.0)
+            weight = 1.0;
+        if (weight < 0.0)
+            weight = 0.0;
+
+        signal = perlin(point);
+        if (signal < 0.0)
+            signal = -signal;
+
+        signal = offset - signal;
+        signal *= signal;
+        signal *= weight;
+
+        result += signal * exponent_array[i];
+    }
+    return result;
+}*/
 float fbmB (in vec2 st) {
     // Initial values
-    float value = 00;
+    float value = 0.0;
     float amplitude = amplitudeUni;
     float frequency = frequencyUni;
     int octaves = octavesUni;
 
     // Loop of octaves
     for (int i = 0; i < octaves; i++) {
-        value += amplitude * noise(st);
+        value += amplitude * perlin(st);
         st *= frequency;
         amplitude *= 0.5;       // change amplitude change here
     }
@@ -93,7 +136,7 @@ float fbm(vec2 x) { // fractional Brownian motion
     vec2 shift = vec2(100);     // parameters to vary
     // Rotate to reduce axial bias
     mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));      // parameters to vary
-    for (int i = 0; i < NUM_OCTAVES; ++i) {
+    for (int i = 0; i < octavesUni; ++i) {
             v += a * perlin(x);
             x = rot * x * 2.0 + shift;
             a *= 0.5;
@@ -115,8 +158,13 @@ float fbmClass(vec2 x)
 
 void main() {
    //terrain = vec3(fbmClass(uv),fbmClass(uv),fbmClass(uv));
-   //terrain=vec3(uv.x+1.0)/2.0;
-   terrain = vec3(fbmClass(uv));
+      //terrain=vec3(fbmClass((uv+1.0)/2.0));
+      //terrain=vec3(RidgedMultifractal(2 * uv + grid_position.xy, 1.0, 1.0, 2.0) - 0.35);
+      terrain = vec3(fbmClass(uv+vec2(offset_x,offset_y)));
+   // Converting (x,y,z) to range [0,1]
+   //float x = gl_FragCoord.x/window_width;
+   //float y = gl_FragCoord.y/window_height;
+   //terrain = vec3(fbmClass((vec2(x,y) * vec2(2.0f)) - vec2(1.0f)));
 }
 
 

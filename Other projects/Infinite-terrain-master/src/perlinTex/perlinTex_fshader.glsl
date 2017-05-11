@@ -69,6 +69,8 @@ float perlin(vec2 point) {
     return perl_mix(st, uv, smoothInt(tpoint_cell.y));
 }
 
+
+
 float noiseBFM(vec2 point, vec3 param) {
     float value = 0.0;
     float max = 0.0;
