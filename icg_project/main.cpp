@@ -71,7 +71,7 @@ int octaves = 7;
 float amplitude = .7f;
 float frequency = 2.7f;
 float H = 1;
-float lacunarity = 10;
+float lacunarity = 2.5f;
 
 vec3 offset = vec3(0.0f);
 
@@ -124,7 +124,7 @@ void SetupProjection(GLFWwindow *window , int width , int height) {
     cout << "Window has been resized to "
          << window_width << "x" << window_height << "." << endl;
 
-    glViewport(0 , 0 , window_width , window_height);
+    glViewport(0 , 0 , window_width/2 , window_height/2);
 
     GLfloat top = 0.2f;
     GLfloat right = (GLfloat) window_width / window_height * top;
@@ -182,7 +182,7 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix , octaves , amplitude ,
-                  frequency,H,lacunarity, offset.x, offset.y);
+                  frequency,H,lacunarity, offset.x, offset.z);
     }
     /*GLfloat *size;
     glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
@@ -202,10 +202,11 @@ void Display() {
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    skybox.Draw(projection_matrix * view * trackball_matrix * quad_model_matrix);
-    grid.Draw(time , trackball_matrix * quad_model_matrix , view_matrix , projection_matrix);
+    glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
+    skybox.Draw(projection_matrix * view * quad_model_matrix);
+    grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 
-    water.Draw(time , trackball_matrix * quad_model_matrix , view_matrix , projection_matrix);
+    water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 
 }
 
@@ -221,6 +222,8 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
             releaseTime = glfwGetTime();
             float speed=2.0; // inertia parameter
             pressedTime = (releaseTime-pressTime)*speed;
+            if(pressedTime>3.0f)
+                pressedTime=3.0f;
             keys[key] = false;
         }
     }
@@ -281,24 +284,22 @@ void check_pitch(){
         pitch_cam = -89.0f;
 }
 
-void do_movement() {
+void move_terrain() {
     timeDiff = (glfwGetTime()-releaseTime);
 
     float intensity = (pressedTime - timeDiff)/pressedTime;
 
-    if (intensity<0){
+    if (intensity<0)
         lastkey='X';
-    }
 
     // Camera controls
     GLfloat cameraSpeed = 1.0f * deltaTime;
-    if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move along camera axis
+    if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
         lastkey='W';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset += cameraSpeed * cameraFront;
         //cameraPos += cameraSpeed * cameraFront;
-
     }
     if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey=='S')){
         lastkey='S';
@@ -306,6 +307,18 @@ void do_movement() {
             cameraSpeed *= intensity;
         offset -= cameraSpeed * cameraFront;
         //cameraPos -= cameraSpeed * cameraFront;
+    }
+    if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
+        lastkey='R';
+        if (timeDiff>0 and intensity>0)
+            cameraSpeed *= intensity;
+        cameraPos.y -= (cameraSpeed * cameraFront).y;
+    }
+    if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey=='T')){
+        lastkey='T';
+        if (timeDiff>0 and intensity>0)
+            cameraSpeed *= intensity;
+        cameraPos.y += (cameraSpeed * cameraFront).y;;
     }
     if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey=='A')){
         lastkey='A';
@@ -365,12 +378,6 @@ void do_movement() {
         front.z = sin(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
         cameraFront = glm::normalize(front);
     }
-
-    /*while (pressedTime>0 && keys[GLFW_KEY_D]==false){
-        GLfloat time = glfwGetTime();
-        pressedTime -= (time-releaseTime);
-        //cout << "time: " << pressedTime << endl;
-    }*/
 }
 
 bool firstMouse = true;
@@ -492,7 +499,7 @@ int main(int argc , char *argv[]) {
 
         // Check and call events
         glfwPollEvents();
-        do_movement();
+        move_terrain();
         // update mirror camera postion
         cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 

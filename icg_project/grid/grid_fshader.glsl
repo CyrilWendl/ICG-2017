@@ -31,7 +31,7 @@ void main() {
      float snow_z;
      float exp=.6;
      float aRock=clamp((1 - 15 * (z- 0.75) * (z - 0.75)),0,1);
-     float aGrass=clamp((1 - 10 * (z- 0.4) * (z - 0.4)),0,1);
+     float aGrass=clamp((1 - 5 * (z- 0.4) * (z - 0.4)),0,1);
      float sum=aRock+aGrass;
 
      //blend textures

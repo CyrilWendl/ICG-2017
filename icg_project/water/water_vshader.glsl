@@ -19,7 +19,7 @@ uniform vec3 light_pos;
 
 
 void main() {
-    uv = position;
+    uv = position+32.0f/64.0f;
     mat4 MV = view * model;
 
     // convert the 2D position into 3D positions that all lay in a horizontal

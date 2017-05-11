@@ -54,13 +54,14 @@ public:
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
             // always two subsequent entries in 'vertices' form a 2D vertex position.
-            int grid_dim = 513;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
+            int grid_dim = 1024+1;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
 
             // vertex position of the triangles.
+            // TODO consider replacing with native function
             for (float i = -(grid_dim / 2); i <= (grid_dim / 2); ++i) {
                 for (float j = -(grid_dim / 2); j <= (grid_dim / 2); ++j) {
-                    vertices.push_back(float(i) / float(grid_dim / 2));
-                    vertices.push_back(float(j) / float(grid_dim / 2));
+                    vertices.push_back(float(i) / float(grid_dim / 16));
+                    vertices.push_back(float(j) / float(grid_dim / 16));
                 }
             }
 
@@ -98,7 +99,7 @@ public:
             glVertexAttribPointer(loc_position , 2 , GL_FLOAT , DONT_NORMALIZE ,
                                   ZERO_STRIDE , ZERO_BUFFER_OFFSET);
 
-            //TODO est-ce qu'on peut enlever ça
+            //TODO est-ce qu'on peut enlever ça?
 //                // texture shader
 //                GLuint vertex_texture_coord_id = glGetAttribLocation(program_id_,
 //                                                                     "vtexcoord");
