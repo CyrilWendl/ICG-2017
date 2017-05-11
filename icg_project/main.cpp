@@ -177,10 +177,10 @@ void Display() {
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
-    skybox.Draw(projection_matrix * view * trackball_matrix * quad_model_matrix);
-    grid.Draw(time , trackball_matrix * quad_model_matrix , view_matrix , projection_matrix);
+    skybox.Draw(projection_matrix * view * quad_model_matrix);
+    grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 
-    water.Draw(time , trackball_matrix * quad_model_matrix , view_matrix , projection_matrix);
+    water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 
 }
 
