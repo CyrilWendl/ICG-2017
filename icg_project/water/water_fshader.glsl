@@ -32,7 +32,7 @@ void main() {
     //color = texture(texWater,uv ).rgb;
 
      //custom material diffuse parameter
-     /*vec3 kd = vec3(0.1);
+     vec3 kd = vec3(0.2);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
@@ -40,7 +40,7 @@ void main() {
      if (cosDiffuse > 0.0)
      {
         color += kd*Ld*cosDiffuse;
-     }*/
+     }
 
 
      color=color;
