@@ -93,8 +93,8 @@ public:
             vector<const GLchar*> faces;
 //            faces.push_back("cottoncandy_rt.tga");
 //            faces.push_back("cottoncandy_lf.tga");
-//            faces.push_back("cottoncandy_dn.tga");
 //            faces.push_back("cottoncandy_up.tga");
+//            faces.push_back("cottoncandy_dn.tga");
 //            faces.push_back("cottoncandy_bk.tga");
 //            faces.push_back("cottoncandy_ft.tga");
             faces.push_back("right.jpg");
