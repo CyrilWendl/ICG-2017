@@ -3,10 +3,18 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="icg17" targetName="hw2p3_planets" />
+<<<<<<< Updated upstream
       <config projectName="icg17" targetName="icg_project" />
+=======
+>>>>>>> Stashed changes
       <config projectName="icg17" targetName="lab1_helloworld" />
       <config projectName="icg17" targetName="copy_shaders_icg_project" />
       <config projectName="icg17" targetName="hw4p1_fastsmooth" />
+<<<<<<< Updated upstream
+=======
+      <config projectName="icg17" targetName="icg_project" />
+      <config projectName="icg17" targetName="copy_shaders_icg_project" />
+>>>>>>> Stashed changes
       <config projectName="icg17" targetName="lab5_framebuffer" />
       <config projectName="icg17" targetName="hw2p1_spiral" />
       <config projectName="icg17" targetName="lab2_intro_to_glsl" />
@@ -20,6 +28,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="Improved infinite terrain navigation&#10;- Can now navigate in all directions&#10;- Keys R and T to move camera up and down">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/grid/grid.h" afterPath="$PROJECT_DIR$/icg_project/grid/grid.h" />
@@ -28,6 +37,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl" afterPath="$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/water/water.h" afterPath="$PROJECT_DIR$/icg_project/water/water.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/water/water_vshader.glsl" afterPath="$PROJECT_DIR$/icg_project/water/water_vshader.glsl" />
+=======
+    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/grid/grid.h" afterPath="$PROJECT_DIR$/icg_project/grid/grid.h" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -52,9 +65,17 @@
           <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
                 <state relative-caret-position="243">
                   <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="25" />
                   <folding />
+=======
+                <state relative-caret-position="123">
+                  <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="3099:3104" ph="{...}" />
+                  </folding>
+>>>>>>> Stashed changes
                 </state>
               </provider>
             </entry>
@@ -64,7 +85,15 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="356">
                   <caret line="56" column="16" lean-forward="false" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
+<<<<<<< Updated upstream
                   <folding />
+=======
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="258:1642" ph="{...}" />
+                    <marker date="1494507247000" expanded="true" signature="1211:1348" ph="{...}" />
+                    <marker date="1494507247000" expanded="true" signature="1565:1608" ph="{...}" />
+                  </folding>
+>>>>>>> Stashed changes
                 </state>
               </provider>
             </entry>
@@ -74,11 +103,39 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-318">
                   <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+<<<<<<< Updated upstream
+=======
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="81:5070" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quad_vshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="98:224" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="grid.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/icg_project/grid/grid.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="59" column="59" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+>>>>>>> Stashed changes
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
+<<<<<<< Updated upstream
           <file leaf-file-name="quad_vshader.glsl" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl">
               <provider selected="true" editor-type-id="text-editor">
@@ -94,11 +151,31 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="43">
                   <caret line="59" column="59" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+=======
+          <file leaf-file-name="grid_vshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="548">
+                  <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="466:1161" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="water_fshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/icg_project/water/water_fshader.glsl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-89">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> Stashed changes
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
+<<<<<<< Updated upstream
           <file leaf-file-name="grid_vshader.glsl" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl">
               <provider selected="true" editor-type-id="text-editor">
@@ -119,12 +196,21 @@
               </provider>
             </entry>
           </file>
+=======
+>>>>>>> Stashed changes
           <file leaf-file-name="water_vshader.glsl" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/icg_project/water/water_vshader.glsl">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="244">
+<<<<<<< Updated upstream
                   <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
                   <folding />
+=======
+                  <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="272:1384" ph="{...}" />
+                  </folding>
+>>>>>>> Stashed changes
                 </state>
               </provider>
             </entry>
@@ -133,8 +219,15 @@
             <entry file="file://$PROJECT_DIR$/icg_project/water/water.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="437">
+<<<<<<< Updated upstream
                   <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
                   <folding />
+=======
+                  <caret line="61" column="17" lean-forward="false" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+                  <folding>
+                    <marker date="1494507247000" expanded="true" signature="6955:8560" ph="{...}" />
+                  </folding>
+>>>>>>> Stashed changes
                 </state>
               </provider>
             </entry>
@@ -142,8 +235,13 @@
           <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
                 <state relative-caret-position="145">
                   <caret line="167" column="60" lean-forward="false" selection-start-line="167" selection-start-column="60" selection-end-line="167" selection-end-column="60" />
+=======
+                <state relative-caret-position="295">
+                  <caret line="177" column="42" lean-forward="false" selection-start-line="177" selection-start-column="42" selection-end-line="177" selection-end-column="42" />
+>>>>>>> Stashed changes
                   <folding>
                     <element signature="e#28#48#0" expanded="true" />
                     <element signature="e#147#170#0" expanded="true" />
@@ -159,8 +257,13 @@
           <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
                 <state relative-caret-position="107">
                   <caret line="179" column="10" lean-forward="true" selection-start-line="179" selection-start-column="10" selection-end-line="179" selection-end-column="10" />
+=======
+                <state relative-caret-position="392">
+                  <caret line="198" column="10" lean-forward="false" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+>>>>>>> Stashed changes
                   <folding>
                     <element signature="e#28#48#0" expanded="true" />
                     <element signature="e#147#170#0" expanded="true" />
@@ -214,6 +317,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="improve-terrain" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -246,15 +354,24 @@
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/screenquad/screenquad_fshader.glsl" />
         <option value="$PROJECT_DIR$/hw4p1_fastsmooth/quad/quad_fshader.glsl" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl" />
+=======
+        <option value="$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl" />
+        <option value="$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl" />
+        <option value="$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/icg_project/quad/quad.h" />
         <option value="$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/main.cpp" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/water/water_vshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/water/water.h" />
         <option value="$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl" />
+=======
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/icg_project/grid/grid.h" />
       </list>
     </option>
@@ -311,6 +428,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< Updated upstream
               <option name="myItemId" value="Other projects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -343,6 +461,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+=======
+>>>>>>> Stashed changes
               <option name="myItemId" value="icg_project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -799,7 +919,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="88383000" />
+=======
+    <option name="totallyTimeSpent" value="67614000" />
+>>>>>>> Stashed changes
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -812,13 +936,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="840" extended-state="6" />
+<<<<<<< Updated upstream
+=======
+    <editor active="true" />
+>>>>>>> Stashed changes
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33240998" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259362" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3601108" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3227147" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3601108" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3227147" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19957082" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825485" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1135,21 +1268,37 @@
     <entry file="file://$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl" />
     <entry file="file://$PROJECT_DIR$/external/glm/detail/type_vec2.inl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="151">
           <caret line="178" column="19" lean-forward="false" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="19" />
+=======
+        <state relative-caret-position="356">
+          <caret line="56" column="16" lean-forward="false" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
+          <folding>
+            <marker date="1494507247000" expanded="true" signature="258:1642" ph="{...}" />
+            <marker date="1494507247000" expanded="true" signature="1211:1348" ph="{...}" />
+            <marker date="1494507247000" expanded="true" signature="1565:1608" ph="{...}" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="153">
           <caret line="687" column="35" lean-forward="false" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
+=======
+        <state relative-caret-position="60">
+          <caret line="59" column="59" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/external/glm/detail/type_mat4x4.inl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="153">
           <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding />
@@ -1169,6 +1318,24 @@
         <state relative-caret-position="180">
           <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding />
+=======
+        <state relative-caret-position="548">
+          <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <marker date="1494507247000" expanded="true" signature="466:1161" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project (original)/grid/grid_vshader.glsl" />
+    <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1494507247000" expanded="true" signature="3099:3104" ph="{...}" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1176,14 +1343,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-318">
           <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <marker date="1494507247000" expanded="true" signature="81:5070" ph="{...}" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="145">
           <caret line="167" column="60" lean-forward="false" selection-start-line="167" selection-start-column="60" selection-end-line="167" selection-end-column="60" />
+=======
+        <state relative-caret-position="295">
+          <caret line="177" column="42" lean-forward="false" selection-start-line="177" selection-start-column="42" selection-end-line="177" selection-end-column="42" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#28#48#0" expanded="true" />
             <element signature="e#147#170#0" expanded="true" />

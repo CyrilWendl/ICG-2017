@@ -28,7 +28,7 @@ void main() {
 
      color = vec3(0.0);
      vec3 color_rock = texture(tex_rock,uv * 10).rgb;
-     vec3 color_grass = texture(tex_grass,(uv+0*(offset+ vec2(16.0)) / 32.0f) * 25).rgb;
+     vec3 color_grass = texture(tex_grass,(uv+(offset+ vec2(16.0)) / 32.0f) * 25).rgb;
 
      float z=scaling_height_factor*height; // current height taking into account scaling factor
      float snow = .8; // minimum height where snow begins
