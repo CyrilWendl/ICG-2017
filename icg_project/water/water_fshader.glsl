@@ -29,6 +29,8 @@ void main() {
     //color = mix(color, vec3(0.13,0.25,0.5), 0.5);
     color = mix(vec3(0.13,0.25,0.5), texture(tex_mirror,vec2(_u,_v)).rgb, 0.2);
 
+    //color = texture(texWater,uv ).rgb;
+
      //custom material diffuse parameter
      /*vec3 kd = vec3(0.1);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));

@@ -91,18 +91,24 @@ public:
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id_);
 
             vector<const GLchar*> faces;
+            faces.push_back("miramar_ft.tga");
+            faces.push_back("miramar_bk.tga");
+            faces.push_back("miramar_up.tga");
+            faces.push_back("miramar_dn.tga");
+            faces.push_back("miramar_rt.tga");
+            faces.push_back("miramar_lf.tga");
 //            faces.push_back("cottoncandy_rt.tga");
 //            faces.push_back("cottoncandy_lf.tga");
 //            faces.push_back("cottoncandy_up.tga");
 //            faces.push_back("cottoncandy_dn.tga");
 //            faces.push_back("cottoncandy_bk.tga");
 //            faces.push_back("cottoncandy_ft.tga");
-            faces.push_back("right.jpg");
-            faces.push_back("left.jpg");
-            faces.push_back("top.jpg");
-            faces.push_back("bottom.jpg");
-            faces.push_back("back.jpg");
-            faces.push_back("front.jpg");
+//            faces.push_back("right.jpg");
+//            faces.push_back("left.jpg");
+//            faces.push_back("top.jpg");
+//            faces.push_back("bottom.jpg");
+//            faces.push_back("back.jpg");
+//            faces.push_back("front.jpg");
 //            faces.push_back("violentdays_rt.tga");
 //            faces.push_back("violentdays_lf.tga");
 //            faces.push_back("violentdays_up.tga");
@@ -144,8 +150,8 @@ public:
 
 
 
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
             glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
