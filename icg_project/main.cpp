@@ -34,9 +34,9 @@ float prev_y = 0.0f;
 Trackball trackball;
 
 // Camera
-glm::vec3 cameraPos = vec3(0.0f , 2.0f , 3.0f);
-glm::vec3 cam_pos_mirr(0.0f, -2.0f, 3.0f);
-glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
+
+glm::vec3 cameraPos = vec3(0.0f , .7f , 0.0f);
+glm::vec3 cameraFront = vec3(0.0f , -.5f , -.5f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
@@ -71,6 +71,8 @@ float amplitude = .7f;
 float frequency = 2.7f;
 float H = 1;
 float lacunarity = 10;
+
+vec3 offset = vec3(0.0f);
 
 mat4 PerspectiveProjection(float left , float right , float bottom ,
                            float top , float near , float far) {
@@ -179,7 +181,7 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix , octaves , amplitude ,
-                  frequency,H,lacunarity);
+                  frequency,H,lacunarity, offset.x, offset.y);
     }
     /*GLfloat *size;
     glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
@@ -293,14 +295,16 @@ void do_movement() {
         lastkey='W';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
-        cameraPos += cameraSpeed * cameraFront;
+        offset += cameraSpeed * cameraFront;
+        //cameraPos += cameraSpeed * cameraFront;
 
     }
     if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey=='S')){
         lastkey='S';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
-        cameraPos -= cameraSpeed * cameraFront;
+        offset -= cameraSpeed * cameraFront;
+        //cameraPos -= cameraSpeed * cameraFront;
     }
     if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey=='A')){
         lastkey='A';

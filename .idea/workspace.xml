@@ -2,16 +2,16 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="icg17" targetName="lab5_framebuffer" />
-      <config projectName="icg17" targetName="lab2_intro_to_glsl" />
-      <config projectName="icg17" targetName="common_headers" />
       <config projectName="icg17" targetName="hw2p3_planets" />
-      <config projectName="icg17" targetName="hw3_shading" />
       <config projectName="icg17" targetName="icg_project" />
       <config projectName="icg17" targetName="lab1_helloworld" />
-      <config projectName="icg17" targetName="hw4p1_fastsmooth" />
-      <config projectName="icg17" targetName="hw2p1_spiral" />
       <config projectName="icg17" targetName="copy_shaders_icg_project" />
+      <config projectName="icg17" targetName="hw4p1_fastsmooth" />
+      <config projectName="icg17" targetName="lab5_framebuffer" />
+      <config projectName="icg17" targetName="hw2p1_spiral" />
+      <config projectName="icg17" targetName="lab2_intro_to_glsl" />
+      <config projectName="icg17" targetName="hw3_shading" />
+      <config projectName="icg17" targetName="common_headers" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -20,11 +20,643 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="Working on getting quad texture for FPS camera mode">
+    <list default="true" id="201a6a5f-3d91-4004-b531-333e3e9241d6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/images/biomes.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/images/infinite-terrain.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/images/tilt-shift.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/images/water.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/grass_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/rock_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/sand_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/snow_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/sky/sky_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/algae_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/cactus_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/desert_tree_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/reed_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/snowy_tree_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/tree_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/water/normal_texture_water.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/water/normal_texture_water2.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/water/water_texture.tga" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/.clang-format" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/CMakeLists.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/FindGLEW.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/FindGLFW3.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/FindGLM.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/check_error_gl.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/icg_helper.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/icg_settings.cmake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/stb_image.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/common/tiny_obj_loader.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glew/include/GL/glew.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glew/include/GL/glxew.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glew/include/GL/wglew.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glew/version.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glfw3/x32/include/GLFW/glfw3.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glfw3/x32/include/GLFW/glfw3native.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glfw3/x64/include/GLFW/glfw3.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glfw3/x64/include/GLFW/glfw3native.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/CMakeLists.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/common.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/_features.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/_fixes.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/_noise.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/_swizzle.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/_swizzle_func.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/_vectorize.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/dummy.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_common.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_common.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_exponential.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_exponential.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_geometric.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_geometric.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_integer.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_integer.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_matrix.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_matrix.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_packing.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_packing.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_trigonometric.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_trigonometric.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_vector_relational.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/func_vector_relational.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/glm.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_common.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_common.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_exponential.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_exponential.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_geometric.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_geometric.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_integer.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_integer.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_matrix.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_matrix.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_trigonometric.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_trigonometric.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_vector_relational.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/intrinsic_vector_relational.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/precision.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/setup.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_float.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_gentype.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_gentype.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_half.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_half.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_int.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat2x2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat2x2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat2x3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat2x3.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat2x4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat2x4.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat3x2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat3x2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat3x3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat3x3.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat3x4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat3x4.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat4x2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat4x2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat4x3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat4x3.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat4x4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_mat4x4.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec1.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec1.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec3.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec4.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec4_avx.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec4_avx2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/detail/type_vec4_sse2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/exponential.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/ext.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/fwd.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/geometric.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/glm.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/bitfield.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/bitfield.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/color_space.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/color_space.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/constants.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/constants.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/epsilon.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/epsilon.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/integer.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/integer.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_access.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_access.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_integer.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_inverse.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_inverse.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_transform.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/matrix_transform.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/noise.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/noise.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/packing.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/packing.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/quaternion.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/quaternion.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/random.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/random.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/reciprocal.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/reciprocal.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/round.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/round.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/type_precision.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/type_precision.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/type_ptr.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/type_ptr.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/ulp.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/ulp.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/vec1.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtc/vec1.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/associated_min_max.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/associated_min_max.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/bit.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/bit.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/closest_point.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/closest_point.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/color_space.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/color_space.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/color_space_YCoCg.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/color_space_YCoCg.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/common.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/common.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/compatibility.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/compatibility.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/component_wise.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/component_wise.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/dual_quaternion.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/dual_quaternion.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/euler_angles.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/euler_angles.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/extend.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/extend.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/extented_min_max.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/extented_min_max.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/fast_exponential.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/fast_exponential.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/fast_square_root.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/fast_square_root.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/fast_trigonometry.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/fast_trigonometry.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/gradient_paint.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/gradient_paint.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/handed_coordinate_space.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/handed_coordinate_space.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/hash.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/hash.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/integer.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/integer.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/intersect.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/intersect.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/io.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/io.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/log_base.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/log_base.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_cross_product.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_cross_product.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_decompose.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_decompose.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_interpolation.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_interpolation.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_major_storage.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_major_storage.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_operation.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_operation.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_query.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_query.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_transform_2d.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/matrix_transform_2d.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/mixed_product.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/mixed_product.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/norm.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/norm.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/normal.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/normal.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/normalize_dot.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/normalize_dot.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/number_precision.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/number_precision.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/optimum_pow.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/optimum_pow.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/orthonormalize.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/orthonormalize.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/perpendicular.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/perpendicular.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/polar_coordinates.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/polar_coordinates.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/projection.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/projection.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/quaternion.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/quaternion.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/range.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/raw_data.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/raw_data.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/rotate_normalized_axis.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/rotate_normalized_axis.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/rotate_vector.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/rotate_vector.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/scalar_multiplication.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/scalar_relational.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/scalar_relational.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/simd_mat4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/simd_mat4.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/simd_quat.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/simd_quat.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/simd_vec4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/simd_vec4.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/spline.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/spline.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/std_based_type.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/std_based_type.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/string_cast.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/string_cast.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/transform.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/transform.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/transform2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/transform2.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/type_aligned.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/type_aligned.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/vector_angle.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/vector_angle.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/vector_query.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/vector_query.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/wrap.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/gtx/wrap.inl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/integer.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat2x2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat2x3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat2x4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat3x2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat3x3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat3x4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat4x2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat4x3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/mat4x4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/matrix.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/packing.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/trigonometric.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/vec2.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/vec3.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/vec4.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/external/glm/vector_relational.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/Bezier.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/CMakeLists.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/Config.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/Simulation.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/framebuffer.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/grid.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/grid_fshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/grid/grid_vshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/main.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/perlinTex/perlinTex.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/perlinTex/perlinTex_vshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/sky/sky.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/sky/sky_fshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/sky/sky_vshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/tree.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/tree_fshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/tree/tree_vshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/water/water.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/water/water_fshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/src/water/water_vshader.glsl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/Infinite-terrain-master/style.bash" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Other projects/noise2d_fshader.glsl" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/.clang-format" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/CMakeLists.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/FindGLEW.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/FindGLFW3.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/FindGLM.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/check_error_gl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/icg_helper.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/icg_settings.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/stb_image.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/common/tiny_obj_loader.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glew/include/GL/glew.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glew/include/GL/glxew.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glew/include/GL/wglew.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glew/version.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glfw3/x32/include/GLFW/glfw3.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glfw3/x32/include/GLFW/glfw3native.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glfw3/x64/include/GLFW/glfw3.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glfw3/x64/include/GLFW/glfw3native.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/CMakeLists.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/common.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/_features.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/_fixes.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/_noise.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/_swizzle.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/_swizzle_func.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/_vectorize.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/dummy.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_common.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_common.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_exponential.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_exponential.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_geometric.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_geometric.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_integer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_integer.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_matrix.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_matrix.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_packing.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_packing.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_trigonometric.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_trigonometric.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_vector_relational.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/func_vector_relational.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/glm.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_common.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_common.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_exponential.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_exponential.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_geometric.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_geometric.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_integer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_integer.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_matrix.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_matrix.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_trigonometric.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_trigonometric.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_vector_relational.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/intrinsic_vector_relational.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/precision.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/setup.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_float.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_gentype.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_gentype.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_half.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_half.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_int.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat2x2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat2x2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat2x3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat2x3.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat2x4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat2x4.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat3x2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat3x2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat3x3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat3x3.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat3x4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat3x4.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat4x2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat4x2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat4x3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat4x3.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat4x4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_mat4x4.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec1.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec1.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec3.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec4.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec4_avx.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec4_avx2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/detail/type_vec4_sse2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/exponential.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/ext.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/fwd.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/geometric.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/glm.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/bitfield.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/bitfield.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/color_space.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/color_space.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/constants.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/constants.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/epsilon.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/epsilon.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/integer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/integer.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_access.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_access.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_integer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_inverse.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_inverse.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_transform.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/matrix_transform.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/noise.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/noise.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/packing.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/packing.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/quaternion.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/quaternion.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/random.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/random.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/reciprocal.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/reciprocal.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/round.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/round.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/type_precision.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/type_precision.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/type_ptr.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/type_ptr.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/ulp.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/ulp.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/vec1.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtc/vec1.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/associated_min_max.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/associated_min_max.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/bit.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/bit.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/closest_point.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/closest_point.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/color_space.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/color_space.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/color_space_YCoCg.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/color_space_YCoCg.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/common.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/common.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/compatibility.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/compatibility.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/component_wise.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/component_wise.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/dual_quaternion.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/dual_quaternion.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/euler_angles.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/euler_angles.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/extend.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/extend.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/extented_min_max.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/extented_min_max.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/fast_exponential.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/fast_exponential.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/fast_square_root.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/fast_square_root.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/fast_trigonometry.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/fast_trigonometry.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/gradient_paint.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/gradient_paint.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/handed_coordinate_space.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/handed_coordinate_space.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/hash.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/hash.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/integer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/integer.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/intersect.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/intersect.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/io.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/io.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/log_base.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/log_base.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_cross_product.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_cross_product.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_decompose.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_decompose.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_interpolation.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_interpolation.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_major_storage.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_major_storage.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_operation.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_operation.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_query.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_query.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_transform_2d.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/matrix_transform_2d.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/mixed_product.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/mixed_product.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/norm.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/norm.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/normal.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/normal.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/normalize_dot.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/normalize_dot.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/number_precision.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/number_precision.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/optimum_pow.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/optimum_pow.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/orthonormalize.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/orthonormalize.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/perpendicular.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/perpendicular.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/polar_coordinates.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/polar_coordinates.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/projection.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/projection.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/quaternion.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/quaternion.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/range.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/raw_data.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/raw_data.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/rotate_normalized_axis.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/rotate_normalized_axis.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/rotate_vector.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/rotate_vector.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/scalar_multiplication.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/scalar_relational.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/scalar_relational.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/simd_mat4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/simd_mat4.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/simd_quat.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/simd_quat.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/simd_vec4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/simd_vec4.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/spline.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/spline.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/std_based_type.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/std_based_type.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/string_cast.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/string_cast.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/transform.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/transform.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/transform2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/transform2.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/type_aligned.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/type_aligned.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/vector_angle.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/vector_angle.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/vector_query.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/vector_query.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/wrap.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/gtx/wrap.inl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/integer.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat2x2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat2x3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat2x4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat3x2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat3x3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat3x4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat4x2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat4x3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/mat4x4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/matrix.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/packing.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/trigonometric.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/vec2.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/vec3.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/vec4.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/external/glm/vector_relational.hpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/images/biomes.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/images/infinite-terrain.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/images/tilt-shift.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/images/water.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/Bezier.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/CMakeLists.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/Config.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/Simulation.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/framebuffer.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/grass_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/grid.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/grid_fshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/grid_vshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/rock_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/sand_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/grid/snow_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/main.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_vshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/sky/sky.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/sky/sky_fshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/sky/sky_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/sky/sky_vshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/algae_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/cactus_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/desert_tree_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/reed_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/snowy_tree_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/tree.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/tree_fshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/tree_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/tree/tree_vshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/water/normal_texture_water.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/water/normal_texture_water2.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/water/water.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/water/water_fshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/water/water_texture.tga" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/src/water/water_vshader.glsl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Infinite-terrain-master/style.bash" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/main.cpp" afterPath="$PROJECT_DIR$/icg_project/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/quad/quad.h" afterPath="$PROJECT_DIR$/icg_project/quad/quad.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl" afterPath="$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl" afterPath="$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -49,8 +681,8 @@
           <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2151">
-                  <caret line="207" column="23" lean-forward="false" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
+                <state relative-caret-position="298">
+                  <caret line="127" column="79" lean-forward="false" selection-start-line="127" selection-start-column="79" selection-end-line="127" selection-end-column="79" />
                   <folding>
                     <element signature="e#28#48#0" expanded="true" />
                     <element signature="e#147#170#0" expanded="true" />
@@ -59,21 +691,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="quad.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/icg_project/quad/quad.h">
+          <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="118" column="44" lean-forward="false" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
+                <state relative-caret-position="145">
+                  <caret line="60" column="10" lean-forward="false" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="quad_fshader.glsl" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
+          <file leaf-file-name="grid_fshader.glsl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+                <state relative-caret-position="390">
+                  <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -82,12 +714,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="perlinTex_fshader.glsl" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="quad.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/icg_project/quad/quad.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="101">
-                  <caret line="57" column="26" lean-forward="false" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+                <state relative-caret-position="151">
+                  <caret line="103" column="136" lean-forward="false" selection-start-line="103" selection-start-column="136" selection-end-line="103" selection-end-column="136" />
                   <folding />
                 </state>
               </provider>
@@ -99,14 +731,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>active</find>
-      <find>active_pro</find>
-      <find>glgetuni</find>
-      <find>resizecall</find>
-      <find>gluniform</find>
-      <find>keycallback</find>
       <find>glbindarray</find>
-      <find>uv</find>
       <find>variance</find>
       <find>calculate</find>
       <find>tex</find>
@@ -129,6 +754,13 @@
       <find>stdev</find>
       <find>std_</find>
       <find>void</find>
+      <find>uv</find>
+      <find>Perm</find>
+      <find>fade</find>
+      <find>draw</find>
+      <find>offset</find>
+      <find>lookat</find>
+      <find>projection</find>
     </findStrings>
     <replaceStrings>
       <replace>framebuffer[0]</replace>
@@ -173,6 +805,8 @@
         <option value="$PROJECT_DIR$/icg_project/grid/grid.h" />
         <option value="$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/grid/grid_vshader.glsl" />
+        <option value="$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl" />
+        <option value="$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl" />
         <option value="$PROJECT_DIR$/icg_project/quad/quad.h" />
         <option value="$PROJECT_DIR$/icg_project/main.cpp" />
@@ -187,9 +821,8 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="92" />
     <option name="y" value="22" />
-    <option name="width" value="1348" />
+    <option name="width" value="1440" />
     <option name="height" value="840" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -219,82 +852,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="icg17-private" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17-private" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Infinite-terrain-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17-private" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Infinite-terrain-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17-private" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Infinite-terrain-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="perlinTex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icg17-private" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Infinite-terrain-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -699,6 +1256,12 @@
       <workItem from="1490770655397" duration="1727000" />
       <workItem from="1491494499019" duration="1556000" />
       <workItem from="1492075855562" duration="4000" />
+      <workItem from="1494407967449" duration="1084000" />
+      <workItem from="1494450789989" duration="578000" />
+      <workItem from="1494455733961" duration="311000" />
+      <workItem from="1494456690441" duration="176000" />
+      <workItem from="1494486734737" duration="563000" />
+      <workItem from="1494494401603" duration="1478000" />
     </task>
     <task id="LOCAL-00001" summary="Trackball added, zoom not working">
       <created>1489532261676</created>
@@ -725,7 +1288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67603000" />
+    <option name="totallyTimeSpent" value="82446000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -737,39 +1300,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="92" y="22" width="1348" height="840" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="840" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20367534" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825485" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825485" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32409972" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31717452" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3601108" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22410148" sideWeight="0.5152838" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19670959" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33287102" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33240998" sideWeight="0.4947146" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259362" sideWeight="0.49753347" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5081043" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3231623" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36061028" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18240343" sideWeight="0.48471615" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3601108" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3227147" sideWeight="0.4918957" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22410148" sideWeight="0.5152838" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -817,10 +1368,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Trackball added, zoom not working" />
     <MESSAGE value="Zip file of week 2 added and readme containing only the part of week 2" />
     <MESSAGE value="Spot file added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spot file added" />
+    <MESSAGE value="Infinite terrain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Infinite terrain" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -829,41 +1382,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw2p1_spiral/triangle/triangle.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="72" column="12" lean-forward="true" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p1_spiral/triangle/triangle_vshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2p1_spiral/triangle/triangle_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/flat_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw3_shading/mesh/art_vshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -1133,19 +1651,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/icg_project/grid/grid.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2895">
           <caret line="193" column="51" lean-forward="false" selection-start-line="193" selection-start-column="51" selection-end-line="193" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,34 +1665,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icg_project (original)/grid/grid_vshader.glsl">
+    <entry file="file://$PROJECT_DIR$/icg_project (original)/grid/grid_vshader.glsl" />
+    <entry file="file://$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state relative-caret-position="1500">
+          <caret line="100" column="86" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Infinite-terrain-master/src/water/water.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_vshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/grid/grid_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
+    <entry file="file://$PROJECT_DIR$/Infinite-terrain-master/src/perlinTex/perlinTex_fshader.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        <state relative-caret-position="150">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/icg_project/quad/quad.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="118" column="44" lean-forward="false" selection-start-line="118" selection-start-column="44" selection-end-line="118" selection-end-column="44" />
+        <state relative-caret-position="151">
+          <caret line="103" column="136" lean-forward="false" selection-start-line="103" selection-start-column="136" selection-end-line="103" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/glm/detail/type_vec2.inl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="178" column="19" lean-forward="false" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icg_project/quad/quad_fshader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="60" column="10" lean-forward="false" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/icg_project/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2151">
-          <caret line="207" column="23" lean-forward="false" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
+        <state relative-caret-position="298">
+          <caret line="127" column="79" lean-forward="false" selection-start-line="127" selection-start-column="79" selection-end-line="127" selection-end-column="79" />
           <folding>
             <element signature="e#28#48#0" expanded="true" />
             <element signature="e#147#170#0" expanded="true" />
