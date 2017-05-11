@@ -1,7 +1,7 @@
 #version 330
 
 #define M_PI 3.14159265358979323846
-#define N_RAND 256
+#define N_RAND 512
 
 in vec2 uv;
 

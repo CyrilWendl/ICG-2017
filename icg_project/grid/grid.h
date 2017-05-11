@@ -54,13 +54,13 @@ public:
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
             // always two subsequent entries in 'vertices' form a 2D vertex position.
-            int grid_dim = 513;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
+            int grid_dim = 1025;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
 
             // vertex position of the triangles.
             for (float i = -(grid_dim / 2); i <= (grid_dim / 2); ++i) {
                 for (float j = -(grid_dim / 2); j <= (grid_dim / 2); ++j) {
-                    vertices.push_back(float(i) / float(grid_dim / 2));
-                    vertices.push_back(float(j) / float(grid_dim / 2));
+                    vertices.push_back(float(i) / float(grid_dim / 4));
+                    vertices.push_back(float(j) / float(grid_dim / 4));
                 }
             }
 
