@@ -172,7 +172,7 @@ void Display() {
     glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
 
     //view matrix from inverted camera position
-    mat4 view_mirr = lookAt(cam_pos_mirr, cameraFront, cameraUp);
+    mat4 view_mirr = lookAt(cam_pos_mirr, cam_pos_mirr + vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
     mat4 view_projection_mirr = projection_matrix * view_mirr ;
 
     // mirrored view matrix after removing the translated component
@@ -195,14 +195,13 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview * trackball_matrix * quad_model_matrix);
-        grid.Draw(time , trackball_matrix * quad_model_matrix , sky_mirrview , projection_matrix);
+        skybox.Draw(projection_matrix * sky_mirrview * quad_model_matrix);
+        grid.Draw(time , quad_model_matrix , view_mirr , projection_matrix);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
     skybox.Draw(projection_matrix * view * quad_model_matrix);
     grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 
@@ -310,13 +309,13 @@ void move_terrain() {
     }
     if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
         lastkey='R';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y -= (cameraSpeed * cameraFront).y;
     }
     if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey=='T')){
         lastkey='T';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y += (cameraSpeed * cameraFront).y;;
     }
