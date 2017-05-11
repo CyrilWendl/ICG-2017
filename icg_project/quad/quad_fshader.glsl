@@ -16,9 +16,14 @@ uniform float hUni;
 uniform float Perm[N_RAND];
 uniform float offset_x;
 uniform float offset_y;
+uniform float persistance;
 
 int window_width = 800;
 int window_height = 600;
+
+float gain = 2.0;
+
+vec2 offset = vec2(offset_x,offset_y);
 
 float rand(vec2 co)
 {
@@ -72,15 +77,16 @@ float perlin(vec2 pos)
     float uv_f = mix(u, v, interpolate(fract(pos.x)));
     return mix(st, uv_f, interpolate(fract(pos.y)));
 }
-/*float RidgedMultifractal( vec2 point, float H, float offset, float gain )
+float RidgedMultifractal( vec2 point, float H, float offset, float gain )
 {
     float result , signal, weight, noise;
     int i;
     float exponent_array[100];
+    float frequency = frequencyUni;
 
     for (i=0; i<=octavesUni; i++) {
-        exponent_array[i] = pow( frequencyUni, -H );
-        frequencyUni *= persistance;
+        exponent_array[i] = pow( frequency, -H );
+        frequency *= persistance;
     }
 
     signal = perlin(point);
@@ -92,7 +98,7 @@ float perlin(vec2 pos)
     result = signal;
     weight = 1.0;
 
-    for(int i = 1; i < octaves; i++) {
+    for(int i = 1; i < octavesUni; i++) {
         point.x *= persistance;
         point.y *= persistance;
 
@@ -113,7 +119,7 @@ float perlin(vec2 pos)
         result += signal * exponent_array[i];
     }
     return result;
-}*/
+}
 float fbmB (in vec2 st) {
     // Initial values
     float value = 0.0;
@@ -159,8 +165,8 @@ float fbmClass(vec2 x)
 void main() {
    //terrain = vec3(fbmClass(uv),fbmClass(uv),fbmClass(uv));
       //terrain=vec3(fbmClass((uv+1.0)/2.0));
-      //terrain=vec3(RidgedMultifractal(2 * uv + grid_position.xy, 1.0, 1.0, 2.0) - 0.35);
-      terrain = vec3(fbmClass(uv+vec2(offset_x,offset_y)));
+      terrain=vec3(RidgedMultifractal(2 * uv + offset, 1.0, 1.0, 2.0) - 0.8);
+      //terrain = vec3(fbmClass(uv+vec2(offset_x,offset_y)));
    // Converting (x,y,z) to range [0,1]
    //float x = gl_FragCoord.x/window_width;
    //float y = gl_FragCoord.y/window_height;

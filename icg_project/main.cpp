@@ -10,7 +10,6 @@
 #include "grid/grid.h"
 #include "quad/quad.h"
 #include "water/water.h"
-#include "trackball.h"
 #include "skybox/skybox.h"
 #include "framebuffer.h"
 
@@ -27,15 +26,10 @@ using namespace glm;
 
 mat4 projection_matrix;
 mat4 view_matrix;
-mat4 trackball_matrix;
-mat4 old_trackball_matrix;
 mat4 quad_model_matrix;
-float prev_y = 0.0f;
-Trackball trackball;
 
 // Camera
-
-glm::vec3 cameraPos = vec3(0.0f , .7f , 0.0f);
+glm::vec3 cameraPos = vec3(0.0f , 1.0f , 0.0f);
 glm::vec3 cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 glm::vec3 cameraFront = vec3(0.0f , -.5f , -.5f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
@@ -67,11 +61,12 @@ Skybox skybox;
 GLfloat tex [TEX_WIDTH  * TEX_HEIGHT * TEX_BITS]; // window height * window width * floats per pixel
 float oldHeight;
 
-int octaves = 7;
+int octaves = 4;
 float amplitude = .7f;
-float frequency = 2.7f;
+float frequency = 0.5f;
 float H = 1;
 float lacunarity = 2.5f;
+float persistance = 3.5f;
 
 vec3 offset = vec3(0.0f);
 
@@ -102,17 +97,6 @@ vec2 TransformScreenCoords(GLFWwindow *window , int x , int y) {
     glfwGetWindowSize(window , &width , &height);
     return vec2(2.0f * (float) x / width - 1.0f ,
                 1.0f - 2.0f * (float) y / height);
-}
-
-void MouseButton(GLFWwindow *window , int button , int action , int mod) {
-    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-        double x_i , y_i;
-        glfwGetCursorPos(window , &x_i , &y_i);
-        vec2 p = TransformScreenCoords(window , x_i , y_i);
-        trackball.BeingDrag(p.x , p.y);
-        old_trackball_matrix = trackball_matrix;
-        // Store the current state of the model matrix.
-    }
 }
 
 
@@ -151,7 +135,7 @@ void Init(GLFWwindow *window) {
 
     // initialize framebuffer
     glfwGetFramebufferSize(window , &window_width , &window_height);
-    GLuint framebuffer_texture_id = framebuffer.Init(window_width , window_height);
+    GLuint framebuffer_texture_id = framebuffer.Init(TEX_WIDTH , TEX_HEIGHT);
     GLuint reflection_buffer_texid = reflection_buffer.Init(window_width, window_height);
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
@@ -181,8 +165,8 @@ void Display() {
     framebuffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        quad.Draw(projection_matrix * view_matrix * trackball_matrix * quad_model_matrix , octaves , amplitude ,
-                  frequency,H,lacunarity, offset.x, offset.z);
+        quad.Draw(projection_matrix * view_matrix * quad_model_matrix , octaves , amplitude ,
+                  frequency,H,lacunarity, offset.x, offset.z,persistance);
     }
     /*GLfloat *size;
     glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
@@ -195,19 +179,16 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview * trackball_matrix * quad_model_matrix);
-        grid.Draw(time , trackball_matrix * quad_model_matrix , sky_mirrview , projection_matrix);
+        skybox.Draw(projection_matrix * sky_mirrview * quad_model_matrix);
+        grid.Draw(time , quad_model_matrix , sky_mirrview , projection_matrix, offset.x, offset.z);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
     skybox.Draw(projection_matrix * view * quad_model_matrix);
-    grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
-
+    grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
-
 }
 
 // Is called whenever a key is pressed/released via GLFW
@@ -229,38 +210,45 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
     }
 
 // Terrain
-    if (keys[GLFW_KEY_P]){
+    if (keys[GLFW_KEY_1]){
         octaves += 1;
         cout << "octaves: " << octaves << endl;
     }
-    if (keys[GLFW_KEY_O]){
+    if (keys[GLFW_KEY_2]){
         octaves -= 1;
         cout << "octaves: " << octaves << endl;
     }
-    if (keys[GLFW_KEY_N]){
+    if (keys[GLFW_KEY_3]){
         H += .1;
         cout << "H: " << H << endl;
     }
-    if (keys[GLFW_KEY_M]){
+    if (keys[GLFW_KEY_4]){
         H -= .1;
         cout << "H: " << H << endl;
     }
-    if (keys[GLFW_KEY_B]) {
+    if (keys[GLFW_KEY_5]) {
         lacunarity += .5;
         cout << "Lacunarity: " << lacunarity << endl;
     }
-    if (keys[GLFW_KEY_V]){
+    if (keys[GLFW_KEY_6]){
         lacunarity -= .5;
         cout << "Lacunarity: " << lacunarity << endl;
     }
-    if (keys[GLFW_KEY_UP])
+    if (keys[GLFW_KEY_7])
         amplitude += .1;
-    if (keys[GLFW_KEY_DOWN])
+    if (keys[GLFW_KEY_8])
         amplitude -= .1;
+    if (keys[GLFW_KEY_9])
+        persistance += .1;
+    if (keys[GLFW_KEY_0])
+        persistance -= .1;
     if (keys[GLFW_KEY_RIGHT])
         frequency += .1;
     if (keys[GLFW_KEY_LEFT])
         frequency -= .1;
+    if (keys[GLFW_KEY_H]){//help
+        cout << "parameters:\n1 - octave+=.1\n2 - octave-=.1\n3 - H+=.1\n4 - H-=.1\n5 - lacunarity-=.5\n6 - lacunarity+=.5\n7 - amplitude+=.1\n8 - amplitude-=.1\n9 - persistance +=.1\n0 - persistance-=.1\nright - frequency+=.1\nleft - frequency -=.1"<<endl;
+    }
     if (keys[GLFW_KEY_X]){// debug
         cout << "cameraPos:   " << cameraPos.x << ", " << cameraPos.y << ", " << cameraPos.z << endl;
         cout << "cameraFront: " << cameraFront.x << ", " << cameraFront.y << ", " << cameraFront.z << endl;
@@ -293,7 +281,7 @@ void move_terrain() {
         lastkey='X';
 
     // Camera controls
-    GLfloat cameraSpeed = 1.0f * deltaTime;
+    GLfloat cameraSpeed = .3f * deltaTime;
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
         lastkey='W';
         if (timeDiff>0 && intensity>0)
@@ -460,7 +448,6 @@ int main(int argc , char *argv[]) {
     glfwSetFramebufferSizeCallback(window , SetupProjection);
 
     // set the mouse press and position callback
-    glfwSetMouseButtonCallback(window , MouseButton);
     //glfwSetCursorPosCallback(window, MousePos);
     glfwSetScrollCallback(window , scroll_callback);
 
@@ -513,18 +500,18 @@ int main(int argc , char *argv[]) {
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
         if(cameraMode==CAM_FPS){
-            int index_x=(int)((cameraPos.x+1)/2*TEX_WIDTH); //{0,1024}
-            int index_y=(int)((cameraPos.z+1)/2*TEX_HEIGHT); //{0,1024}
-            if(cameraPos.z>-1 && cameraPos.z<1 && cameraPos.x>-1 && cameraPos.x<1){
-                float texHeight=tex[(index_x+index_y*TEX_WIDTH)*TEX_BITS];
-                cameraPos.y=texHeight+.5;
+            //int index_x=(int)((offset.x+16)/32*TEX_WIDTH); //{0,1024}
+            //int index_y=(int)((offset.z+16)/32*TEX_HEIGHT); //{0,1024}
+            //if(offset.z>-1 && offset.z<1 && offset.x>-1 && offset.x<1){
+                float texHeight=tex[TEX_WIDTH * TEX_HEIGHT/2 * TEX_BITS];
+                cameraPos.y=texHeight+.5    ;
                 /*if(texHeight!=oldHeight){ // DEBUG
                     cout <<  "texture height:" << texHeight << endl;
                     cout << cameraPos.x << endl;
                     cout << cameraPos.z << endl;
                     oldHeight=texHeight;
                 }*/
-            }
+            //}
         }
 
         Display();

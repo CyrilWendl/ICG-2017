@@ -24,7 +24,7 @@ uniform vec3 light_pos;
 uniform sampler2D texNoise;      // pass the texture also in the vertex shader to compute the height
 
 void main() {
-    uv = (position + vec2(8.0)) / 16.0f;    // don't know why we're keeping that
+    uv = (position + vec2(16.0)) / 32.0f;    // don't know why we're keeping that
     mat4 MV = view * model;
 
     // convert the 2D position into 3D positions that all lay in a horizontal

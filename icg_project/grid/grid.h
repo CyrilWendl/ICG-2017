@@ -60,8 +60,8 @@ public:
             // TODO consider replacing with native function
             for (float i = -(grid_dim / 2); i <= (grid_dim / 2); ++i) {
                 for (float j = -(grid_dim / 2); j <= (grid_dim / 2); ++j) {
-                    vertices.push_back(float(i) / float(grid_dim / 16));
-                    vertices.push_back(float(j) / float(grid_dim / 16));
+                    vertices.push_back(float(i) / float(grid_dim / 32));
+                    vertices.push_back(float(j) / float(grid_dim / 32));
                 }
             }
 
@@ -213,7 +213,7 @@ public:
 
     void Draw(float time, const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
-              const glm::mat4 &projection = IDENTITY_MATRIX) {
+              const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f) {
 
         //Setup model Matrix(for light position)
         float scale = 1.0;
@@ -242,6 +242,9 @@ public:
 
         // pass the current time stamp to the shader.
         glUniform1f(glGetUniformLocation(program_id_, "time"), time);
+
+        glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
+        glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
 
         Light::Setup(program_id_);
 

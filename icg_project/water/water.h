@@ -42,8 +42,8 @@ class Water : public Light{
                 {
                     for (float j = -(grid_dim/2) ; j <= (grid_dim/2) ; ++j)
                     {
-                        vertices.push_back(float(i)/float(grid_dim/64));
-                        vertices.push_back(float(j)/float(grid_dim/64));
+                        vertices.push_back(float(i)/float(grid_dim/32));
+                        vertices.push_back(float(j)/float(grid_dim/32));
                     }
                 }
 

@@ -14,17 +14,21 @@ uniform vec3 Ld;
 uniform sampler2D texNoise;
 uniform sampler2D tex_grass;
 uniform sampler2D tex_rock;
+uniform float offset_x;
+uniform float offset_y;
+
+vec2 offset=vec2(offset_x,offset_y);
 
 void main() {
-    float window_width = textureSize(texNoise,0).x;
-    float window_height = textureSize(texNoise,0).y;
+    //float window_width = textureSize(texNoise,0).x;
+    //float window_height = textureSize(texNoise,0).y;
      /// TODO: use gl_FragCoord to build a new [_u,_v] coordinate to query the framebuffer
-     float _u = gl_FragCoord.x/window_width;
-     float _v = gl_FragCoord.y/window_height;       // _u,_v give direction always normal to the camera
+     //float _u = gl_FragCoord.x/window_width+offset_x;
+     //float _v = gl_FragCoord.y/window_height+offset_y;       // _u,_v give direction always normal to the camera
 
      color = vec3(0.0);
-     vec3 color_rock = texture(tex_rock,uv * 5).rgb;
-     vec3 color_grass = texture(tex_grass,uv * 5).rgb;
+     vec3 color_rock = texture(tex_rock,uv * 10).rgb;
+     vec3 color_grass = texture(tex_grass,(uv+0*(offset+ vec2(16.0)) / 32.0f) * 25).rgb;
 
      float z=scaling_height_factor*height; // current height taking into account scaling factor
      float snow = .8; // minimum height where snow begins
