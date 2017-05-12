@@ -20,18 +20,21 @@ uniform mat4 projection;
 uniform mat4 model;
 uniform mat4 view;
 uniform vec3 light_pos;
-
+uniform float offset_x;
+uniform float offset_y;
 uniform sampler2D texNoise;      // pass the texture also in the vertex shader to compute the height
 
+vec2 offset=vec2(offset_x,offset_y);
+
+
 void main() {
-    uv = (position + vec2(16.0)) / 32.0f;    // don't know why we're keeping that
+    uv = (position + vec2(16.0)) / 32.0f ; //position between -16 and 16
     mat4 MV = view * model;
 
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
-    scaling_height_factor = 1.0; // is this still necessary?
-    height = float(texture(texNoise,uv).x) / scaling_height_factor;        // divide by a scaling factor
-    vec3 pos_3d = vec3(position.x, height, position.y);        // or position instead of uv
+    height = float(texture(texNoise,uv).x); // divide by a scaling factor
+    vec3 pos_3d = vec3(position.x, height, position.y); // or position instead of uv
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);

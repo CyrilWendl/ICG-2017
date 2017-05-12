@@ -31,7 +31,7 @@ mat4 quad_model_matrix;
 // Camera
 glm::vec3 cameraPos = vec3(0.0f , 1.0f , 0.0f);
 glm::vec3 cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
-glm::vec3 cameraFront = vec3(0.0f , -.5f , -.5f);
+glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
@@ -58,7 +58,7 @@ Quad quad;
 Water water;
 Skybox skybox;
 
-GLfloat tex [TEX_WIDTH  * TEX_HEIGHT * TEX_BITS]; // window height * window width * floats per pixel
+GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
 float oldHeight;
 
 int octaves = 4;
@@ -172,7 +172,7 @@ void Display() {
     glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
     cout << "Size: " << size << endl;*/
 
-    glReadPixels(0,0,TEX_WIDTH,TEX_HEIGHT, GL_RED, GL_FLOAT, tex);
+    glReadPixels(TEX_WIDTH/2,TEX_HEIGHT/2,1,1, GL_RED, GL_FLOAT, tex);
     // glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT, tex);
     framebuffer.Unbind();
 
@@ -281,32 +281,30 @@ void move_terrain() {
         lastkey='X';
 
     // Camera controls
-    GLfloat cameraSpeed = .3f * deltaTime;
+    GLfloat cameraSpeed = .2f * deltaTime;
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
         lastkey='W';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset += cameraSpeed * cameraFront;
-        //cameraPos += cameraSpeed * cameraFront;
     }
     if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey=='S')){
         lastkey='S';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset -= cameraSpeed * cameraFront;
-        //cameraPos -= cameraSpeed * cameraFront;
     }
     if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
         lastkey='R';
         if (timeDiff>0 and intensity>0)
             cameraSpeed *= intensity;
-        cameraPos.y -= (cameraSpeed * cameraFront).y;
+        cameraPos.y -= 10*cameraSpeed;
     }
     if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey=='T')){
         lastkey='T';
         if (timeDiff>0 and intensity>0)
             cameraSpeed *= intensity;
-        cameraPos.y += (cameraSpeed * cameraFront).y;;
+        cameraPos.y += 10*cameraSpeed;;
     }
     if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey=='A')){
         lastkey='A';
@@ -500,18 +498,9 @@ int main(int argc , char *argv[]) {
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
         if(cameraMode==CAM_FPS){
-            //int index_x=(int)((offset.x+16)/32*TEX_WIDTH); //{0,1024}
-            //int index_y=(int)((offset.z+16)/32*TEX_HEIGHT); //{0,1024}
-            //if(offset.z>-1 && offset.z<1 && offset.x>-1 && offset.x<1){
-                float texHeight=tex[TEX_WIDTH * TEX_HEIGHT/2 * TEX_BITS];
-                cameraPos.y=texHeight+.5    ;
-                /*if(texHeight!=oldHeight){ // DEBUG
-                    cout <<  "texture height:" << texHeight << endl;
-                    cout << cameraPos.x << endl;
-                    cout << cameraPos.z << endl;
-                    oldHeight=texHeight;
-                }*/
-            //}
+            if(tex[0]<.2)
+                tex[0]=.2;
+            cameraPos.y=tex[0]+.5;
         }
 
         Display();
