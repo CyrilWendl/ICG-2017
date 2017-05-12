@@ -31,7 +31,7 @@ mat4 quad_model_matrix;
 // Camera
 glm::vec3 cameraPos = vec3(0.0f , 1.0f , 0.0f);
 glm::vec3 cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
-glm::vec3 cameraFront = vec3(0.0f , -.5f , -.5f);
+glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
 GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
@@ -281,20 +281,18 @@ void move_terrain() {
         lastkey='X';
 
     // Camera controls
-    GLfloat cameraSpeed = .3f * deltaTime;
+    GLfloat cameraSpeed = .2f * deltaTime;
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
         lastkey='W';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset += cameraSpeed * cameraFront;
-        //cameraPos += cameraSpeed * cameraFront;
     }
     if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey=='S')){
         lastkey='S';
         if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         offset -= cameraSpeed * cameraFront;
-        //cameraPos -= cameraSpeed * cameraFront;
     }
     if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
         lastkey='R';
