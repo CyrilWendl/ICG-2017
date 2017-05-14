@@ -201,21 +201,54 @@ public:
         glDeleteTextures(1, &texture_night_id_);
     }
 
-    void Draw(const glm::mat4& MVP) {
+    void Draw(const glm::mat4& MVP, float time) {
         glDepthMask(GL_FALSE);
         glUseProgram(program_id_);
         glBindVertexArray(vertex_array_id_);
 
-        // bind textures
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+        //blend factor for day/night cycle
+        float blend = 0.0f;
 
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        //bind appropriate texture for current time
+        int time_inst = time * 1000;
+        time_inst = time_inst % 24000;
+        if(time_inst >= 0 && time_inst < 5000) {
+            blend = (time_inst - 0.0f) / (5000.0f - 0.0f);
+
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        } else if(time_inst >= 5000 && time_inst < 8000) {
+            blend = (time_inst - 5000.0f) / (8000.0f -5000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+        } else if(time_inst >= 8000 && time_inst < 21000) {
+            blend = (time_inst - 8000.0f) / (21000.0f -8000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+        } else {
+            blend = (time_inst - 21000.0f) / (24000.0f -21000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        }
 
         // setup MVP
         GLuint MVP_id = glGetUniformLocation(program_id_, "MVP");
         glUniformMatrix4fv(MVP_id, 1, GL_FALSE, value_ptr(MVP));
+
+        // pass texture blending factor to the shader.
+        glUniform1f(glGetUniformLocation(program_id_, "blend"), blend);
 
         // draw
         glDrawArrays(GL_TRIANGLES, 0, 36);

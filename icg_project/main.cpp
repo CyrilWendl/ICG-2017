@@ -155,12 +155,12 @@ void Display() {
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    const float time = glfwGetTime();
+    const float time = (float) glfwGetTime();
 
     // view matrix after removing the translated component
     glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
     //skybox rotation
-    view = glm::rotate(view, (float)glfwGetTime() * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
+    view = glm::rotate(view, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
 
     //view matrix from inverted camera position
     mat4 view_mirr = lookAt(cam_pos_mirr, cam_pos_mirr + vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
@@ -169,7 +169,7 @@ void Display() {
     // mirrored view matrix after removing the translated component
     glm::mat4 sky_mirrview = glm::mat4(glm::mat3(view_mirr));
     //reflected skybox rotation
-    sky_mirrview = glm::rotate(view, (float)glfwGetTime() * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
+    sky_mirrview = glm::rotate(view, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
 
     framebuffer.Bind();
     {
@@ -188,14 +188,14 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview * quad_model_matrix);
+        skybox.Draw(projection_matrix * sky_mirrview * quad_model_matrix, time);
         //grid.Draw(time , quad_model_matrix , sky_mirrview , projection_matrix, offset.x, offset.z);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    skybox.Draw(projection_matrix * view * quad_model_matrix);
+    skybox.Draw(projection_matrix * view * quad_model_matrix, time);
     grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 }
