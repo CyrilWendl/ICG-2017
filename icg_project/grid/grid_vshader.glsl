@@ -24,6 +24,8 @@ uniform vec3 light_pos;
 uniform sampler2D texNoise;      // pass the texture also in the vertex shader to compute the height
 
 void main() {
+    vec4 planeClip = vec4(0.0, 1.0, 0.0, 0.0);
+
     uv = (position + vec2(8.0)) / 16.0f;    // don't know why we're keeping that
     mat4 MV = view * model;
 
@@ -35,10 +37,12 @@ void main() {
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);
+    gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
 
     light_dir = light_pos - vpoint_mv.xyz;
     light_dir = normalize(light_dir);
 
     view_dir = -vpoint_mv.xyz;
     view_dir = normalize(view_dir);
+
 }

@@ -35,7 +35,7 @@ Trackball trackball;
 
 // Camera
 
-glm::vec3 cameraPos = vec3(0.0f , .7f , 0.0f);
+glm::vec3 cameraPos = vec3(0.0f , 5.0f , 0.0f);
 glm::vec3 cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 glm::vec3 cameraFront = vec3(0.0f , -.5f , -.5f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
@@ -146,6 +146,8 @@ void Init(GLFWwindow *window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
+    //enable plane clipping
+    glEnable(GL_CLIP_DISTANCE0);
     //glEnable(GL_BLEND); // for transparency
     //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
