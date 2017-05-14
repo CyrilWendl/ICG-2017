@@ -130,6 +130,8 @@ void Init(GLFWwindow *window) {
     // enable depth test.
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_MULTISAMPLE);
+    //enable plane clipping
+    glEnable(GL_CLIP_DISTANCE0);
     //glEnable(GL_BLEND); // for transparency
     //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -156,7 +158,7 @@ void Display() {
     glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
 
     //view matrix from inverted camera position
-    mat4 view_mirr = lookAt(cam_pos_mirr, cameraFront, cameraUp);
+    mat4 view_mirr = lookAt(cam_pos_mirr, cam_pos_mirr + vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
     mat4 view_projection_mirr = projection_matrix * view_mirr ;
 
     // mirrored view matrix after removing the translated component
@@ -296,13 +298,13 @@ void move_terrain() {
     }
     if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
         lastkey='R';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y -= 10*cameraSpeed;
     }
     if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey=='T')){
         lastkey='T';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y += 10*cameraSpeed;;
     }
