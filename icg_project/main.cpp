@@ -296,13 +296,13 @@ void move_terrain() {
     }
     if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
         lastkey='R';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y -= 10*cameraSpeed;
     }
     if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey=='T')){
         lastkey='T';
-        if (timeDiff>0 and intensity>0)
+        if (timeDiff>0 && intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y += 10*cameraSpeed;;
     }
