@@ -163,7 +163,7 @@ void Display() {
     view = glm::rotate(view, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
 
     //view matrix from inverted camera position
-    mat4 view_mirr = lookAt(cam_pos_mirr, cam_pos_mirr + vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
+    mat4 view_mirr = lookAt(cam_pos_mirr, vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
     mat4 view_projection_mirr = projection_matrix * view_mirr ;
 
     // mirrored view matrix after removing the translated component

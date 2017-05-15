@@ -40,7 +40,13 @@ file(GLOB TEXTURES
     skybox/miramar_up.tga
     skybox/miramar_dn.tga
     skybox/miramar_bk.tga
-    skybox/miramar_ft.tga)
+    skybox/miramar_ft.tga
+    skybox/grimmnightbk.tga
+    skybox/grimmnightft.tga
+    skybox/grimmnightup.tga
+    skybox/grimmnightdn.tga
+    skybox/grimmnightrt.tga
+    skybox/grimmnightlf.tga)
 copy_files_once(${TEXTURES})
 
 # list all the files you want to copy everytime

@@ -9,7 +9,8 @@ private:
     GLuint program_id_;             // GLSL shader program ID
     GLuint vertex_buffer_object_;   // memory buffer
     GLuint texture_day_id_;         // Day texture ID
-    GLuint texture_night_id_;        // Night texture ID
+    GLuint texture_sunset_id_;      // Sunset texture ID
+    GLuint texture_night_id_;       // Night texture ID
     GLuint MVP_id_;                 // Model, view, projection matrix ID
 
 public:
@@ -127,9 +128,9 @@ public:
             // cleanup
             glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
-            // load night texture
-            glGenTextures(1, &texture_night_id_);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+            // load sunset texture
+            glGenTextures(1, &texture_sunset_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
             vector<const GLchar*> faces2;
             faces2.push_back("violentdays_ft.tga");
@@ -141,8 +142,27 @@ public:
 
             loadCubemap(faces2);
 
-            GLuint tex_id2 = glGetUniformLocation(program_id_, "skybox_night");
+            GLuint tex_id2 = glGetUniformLocation(program_id_, "skybox_sunset");
             glUniform1i(tex_id2, 1 /*GL_TEXTURE1*/);
+
+            glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+            // load night texture
+            glGenTextures(1, &texture_night_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            vector<const GLchar*> faces3;
+            faces3.push_back("grimmnightft.tga");
+            faces3.push_back("grimmnightbk.tga");
+            faces3.push_back("grimmnightup.tga");
+            faces3.push_back("grimmnightdn.tga");
+            faces3.push_back("grimmnightrt.tga");
+            faces3.push_back("grimmnightlf.tga");
+
+            loadCubemap(faces3);
+
+            GLuint tex_id3 = glGetUniformLocation(program_id_, "skybox_night");
+            glUniform1i(tex_id3, 1 /*GL_TEXTURE2*/);
 
             glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
@@ -198,6 +218,7 @@ public:
         glDeleteProgram(program_id_);
         glDeleteVertexArrays(1, &vertex_array_id_);
         glDeleteTextures(1, &texture_day_id_);
+        glDeleteTextures(1, &texture_sunset_id_);
         glDeleteTextures(1, &texture_night_id_);
     }
 
@@ -211,36 +232,50 @@ public:
 
         //bind appropriate texture for current time
         int time_inst = time * 1000;
-        time_inst = time_inst % 24000;
+        time_inst = time_inst % 35000;
         if(time_inst >= 0 && time_inst < 5000) {
             blend = (time_inst - 0.0f) / (5000.0f - 0.0f);
 
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
 
             glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
         } else if(time_inst >= 5000 && time_inst < 8000) {
             blend = (time_inst - 5000.0f) / (8000.0f -5000.0f);
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
 
             glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
         } else if(time_inst >= 8000 && time_inst < 21000) {
             blend = (time_inst - 8000.0f) / (21000.0f -8000.0f);
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
             glActiveTexture(GL_TEXTURE1);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
-        } else {
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
+        } else if(time_inst >= 21000 && time_inst < 24000) {
             blend = (time_inst - 21000.0f) / (24000.0f -21000.0f);
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        } else if(time_inst >= 24000 && time_inst < 32000) {
+            blend = (time_inst - 24000.0f) / (32000.0f -24000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        } else {
+            blend = (time_inst - 32000.0f) / (35000.0f -32000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
         }
 
         // setup MVP

@@ -8,7 +8,7 @@ uniform float blend;
 
 void main()
 {
-    vec4 color_day = texture(skybox_day, TexCoords);
-    vec4 color_night = texture(skybox_night, TexCoords);
-    color = mix(color_day, color_night, blend);
+    vec4 color1 = texture(skybox_day, TexCoords);
+    vec4 color2 = texture(skybox_night, TexCoords);
+    color = mix(color1, color2, blend);
 }
