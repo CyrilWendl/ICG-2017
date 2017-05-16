@@ -2,7 +2,6 @@
 
 in vec2 uv;
 in float height;
-
 in vec4 vpoint_mv;
 in vec3 light_dir, view_dir;
 
@@ -13,43 +12,29 @@ uniform vec3 Ld;
 uniform sampler2D texNoise;
 uniform sampler2D tex_grass;
 uniform sampler2D tex_rock;
+uniform sampler2D tex_snow;
+
 uniform float offset_x;
 uniform float offset_y;
-
 vec2 offset=vec2(offset_x,offset_y);
 
 void main() {
-    //float window_width = textureSize(texNoise,0).x;
-    //float window_height = textureSize(texNoise,0).y;
-     /// TODO: use gl_FragCoord to build a new [_u,_v] coordinate to query the framebuffer
-     //float _u = gl_FragCoord.x/window_width+(1-mod(orffset_x,1)=;
-     //float _v = gl_FragCoord.y/window_height+offset_y;       // _u,_v give direction always normal to the camera
-
-     color = vec3(0.0);
      float tex_a=.25; // empirical coefficient to determine texture offset
-     vec3 color_rock = texture(tex_rock,(uv+tex_a*offset) * 10).rgb;
+     vec3 color_rock  = texture(tex_rock,(uv+tex_a*offset) * 10).rgb;
      vec3 color_grass = texture(tex_grass,(uv+tex_a*offset) * 25).rgb;
+     vec3 color_snow  = texture(tex_snow,(uv+tex_a*offset) * 25).rgb;
 
-
-     float snow = .8; // minimum height where snow begins
-     float snow_z;
-     float exp=.6;
-     float aRock=clamp((1 - 15 * (height- 0.75) * (height - 0.75)),0,1);
-     float aGrass=clamp((1 - 5 * (height- 0.4) * (height - 0.4)),0,1);
-     float sum=aRock+aGrass;
+     float aRock = clamp((1 - 15 * (height- 0.75) * (height - 0.75)),0,1);
+     float aGrass= clamp((1 - 5 * (height- 0.4) * (height - 0.4)),0,1);
+     float aSnow = clamp((1 - 5 * (height- 1.0f) * (height - 1.0f)),0,1);
+     float sum=aRock+aGrass+aSnow;
 
      //blend textures
-
-     vec3 color_blended = (aRock*color_rock+aGrass*color_grass)/sum;
-
-     // add snow
-     if(height>snow){
-        snow_z=pow((height-snow),exp)/pow((1-snow),exp); // exponential function
-        color_blended += vec3(snow_z,snow_z,snow_z);
-     }
+     vec3 color_blended = (aRock*color_rock+aGrass*color_grass+aSnow*color_snow)/sum;
 
      //custom material diffuse parameter
-     vec3 kd = vec3(.3);
+     color = vec3(0.0);
+     vec3 kd = vec3(0.3f);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
