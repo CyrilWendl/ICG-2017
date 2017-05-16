@@ -21,14 +21,15 @@ vec2 offset=vec2(offset_x,offset_y);
 void main() {
     //float window_width = textureSize(texNoise,0).x;
     //float window_height = textureSize(texNoise,0).y;
-    //textureOffset(tex_grass,uv,offset);
      /// TODO: use gl_FragCoord to build a new [_u,_v] coordinate to query the framebuffer
-     //float _u = gl_FragCoord.x/window_width+(1-mod(offset_x,1)=;
+     //float _u = gl_FragCoord.x/window_width+(1-mod(orffset_x,1)=;
      //float _v = gl_FragCoord.y/window_height+offset_y;       // _u,_v give direction always normal to the camera
 
      color = vec3(0.0);
-     vec3 color_rock = texture(tex_rock,uv * 10).rgb;
-     vec3 color_grass = texture(tex_grass,(uv+0*(offset+ vec2(16.0)) / 32.0f) * 25).rgb;
+     float tex_a=.25; // empirical coefficient to determine texture offset
+     vec3 color_rock = texture(tex_rock,(uv+tex_a*offset) * 10).rgb;
+     vec3 color_grass = texture(tex_grass,(uv+tex_a*offset) * 25).rgb;
+
 
      float snow = .8; // minimum height where snow begins
      float snow_z;
