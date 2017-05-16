@@ -15,6 +15,7 @@ uniform sampler2D tex_grass;
 uniform sampler2D tex_rock;
 uniform float offset_x;
 uniform float offset_y;
+uniform float diffuse_factor;
 
 vec2 offset=vec2(offset_x,offset_y);
 
@@ -48,7 +49,7 @@ void main() {
      }
 
      //custom material diffuse parameter
-     vec3 kd = vec3(.3);
+     vec3 kd = vec3(diffuse_factor);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
