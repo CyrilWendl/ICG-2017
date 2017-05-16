@@ -10,6 +10,7 @@ in vec3 light_dir, view_dir;
 out vec3 color;
 
 uniform vec3 Ld;
+uniform float diffuse_factor;
 
 uniform sampler2D texWater;
 uniform sampler2D tex_mirror;
@@ -32,7 +33,7 @@ void main() {
     //color = texture(texWater,uv ).rgb;
 
      //custom material diffuse parameter
-     vec3 kd = vec3(0.2);
+     vec3 kd = vec3(diffuse_factor);
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
