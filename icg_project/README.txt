@@ -13,3 +13,15 @@ should move with the mountains. To do so, we implemented also passed the offset 
 uv = offset+(position + vec2(16.0)) / 32.0f;
 
 
+-Water Reflection
+Camera position mirror
+Texture mirror in water header
+Render to framebuffer
+Query framebuffer texture
+
+-Skybox
+Rotation by rotate view matrix of skybox
+Multiple textures, only 2 sampler cubes for blending effect between cycles, and then pass the correct texture in active textures
+Modify diffuse for terrain and water depending on time of day
+
+
