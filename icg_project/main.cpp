@@ -12,6 +12,7 @@
 #include "water/water.h"
 #include "skybox/skybox.h"
 #include "framebuffer.h"
+#include "tree/tree.h"
 
 #define CAM_DEFAULT "Camera: Default"
 #define CAM_FPS "Camera: FPS"
@@ -57,6 +58,7 @@ Grid grid;
 Quad quad;
 Water water;
 Skybox skybox;
+Tree tree;
 
 GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
 float oldHeight;
@@ -142,6 +144,7 @@ void Init(GLFWwindow *window) {
     skybox.Init();
     water.Init(reflection_buffer_texid);
     quad.Init();
+    tree.Init(framebuffer_texture_id);
 
 }
 
@@ -189,6 +192,8 @@ void Display() {
     skybox.Draw(projection_matrix * view * quad_model_matrix);
     grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
+    tree.Draw(projection_matrix * view_matrix * quad_model_matrix, offset.x, offset.z,persistance);
+
 }
 
 // Is called whenever a key is pressed/released via GLFW
@@ -513,6 +518,7 @@ int main(int argc , char *argv[]) {
     grid.Cleanup();
     skybox.Cleanup();
     water.Cleanup();
+    tree.Cleanup();
 
     // close OpenGL window and terminate GLFW
     glfwDestroyWindow(window);

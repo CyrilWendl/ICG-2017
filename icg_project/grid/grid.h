@@ -109,7 +109,7 @@ public:
 //                                      ZERO_BUFFER_OFFSET);
         }
 
-        // load texture
+        // load terrain
         {
             texture_id_ = tex_noise;
             // texture uniforms
