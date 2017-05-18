@@ -28,8 +28,6 @@ vec2 offset=vec2(offset_x,offset_y);
 
 
 void main() {
-    //clipping planes for reflection (Not working)
-    //vec4 planeClip = vec4(0.0, 0.1, 0.0, 0.0);
     uv = (position + vec2(16.0)) / 32.0f ; //position between -16 and 16
     mat4 MV = view * model;
 
@@ -37,7 +35,10 @@ void main() {
     // plane.
     height = float(texture(texNoise,uv).x); // divide by a scaling factor
     vec3 pos_3d = vec3(position.x, height, position.y); // or position instead of uv
-    //gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
+
+    //clipping planes for reflection (Clipping all that's under the water)
+    vec4 planeClip = vec4(0.0, 1.0, 0.0, -0.19);
+    gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);
