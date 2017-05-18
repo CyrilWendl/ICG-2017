@@ -262,6 +262,8 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
         cout << "cameraPos:   " << cameraPos.x << ", " << cameraPos.y << ", " << cameraPos.z << endl;
         cout << "cameraFront: " << cameraFront.x << ", " << cameraFront.y << ", " << cameraFront.z << endl;
         cout << "cameraUp:    " << cameraUp.x << ", " << cameraUp.y << ", " << cameraUp.z << endl;
+        cout << "offset x:    " << offset.x << endl;
+        cout << "offset y:    " << offset.y << endl;
     }
     if (keys[GLFW_KEY_F]){
         if(cameraMode==CAM_DEFAULT){
