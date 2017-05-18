@@ -45,6 +45,6 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-     color=color+color_blended;
+     color=(color+color_blended)*diffuse_factor*2;
 
 }

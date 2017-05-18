@@ -44,7 +44,7 @@ void main() {
      }
 
 
-     color=color;
+     color=color*(diffuse_factor+.5);
 
 
 }
