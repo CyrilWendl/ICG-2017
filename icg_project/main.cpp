@@ -160,16 +160,16 @@ void Display() {
     // view matrix after removing the translated component
     glm::mat4 view = glm::mat4(glm::mat3(view_matrix));
     //skybox rotation
-    view = glm::rotate(view, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 view_rot = glm::rotate(view, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
 
     //view matrix from inverted camera position
-    mat4 view_mirr = lookAt(cam_pos_mirr, vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
+    mat4 view_mirr = lookAt(cam_pos_mirr, cam_pos_mirr + vec3(cameraFront.x, -cameraFront.y, cameraFront.z), cameraUp);
     mat4 view_projection_mirr = projection_matrix * view_mirr ;
 
     // mirrored view matrix after removing the translated component
     glm::mat4 sky_mirrview = glm::mat4(glm::mat3(view_mirr));
     //reflected skybox rotation
-    sky_mirrview = glm::rotate(view, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 sky_mirrview_rot = glm::rotate(sky_mirrview, time * sky_rspeed, glm::vec3(0.0f, 1.0f, 0.0f));
 
     framebuffer.Bind();
     {
@@ -188,14 +188,14 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview * quad_model_matrix, time);
-        //grid.Draw(time , quad_model_matrix , sky_mirrview , projection_matrix, offset.x, offset.z);
+        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time);
+        grid.Draw(time , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    skybox.Draw(projection_matrix * view * quad_model_matrix, time);
+    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time);
     grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
 }
@@ -500,7 +500,7 @@ int main(int argc , char *argv[]) {
         cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 
         // Camera/View transformation
-        glm::mat4 view;
+        //glm::mat4 view;
         view_matrix = glm::lookAt(cameraPos , cameraPos + cameraFront , cameraUp);
 
         // Projection
