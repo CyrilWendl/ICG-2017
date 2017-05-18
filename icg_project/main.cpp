@@ -12,6 +12,8 @@
 #include "water/water.h"
 #include "skybox/skybox.h"
 #include "framebuffer.h"
+#include "imgui-master/imgui.h"
+#include "imgui-master/imgui_impl_glfw_gl3.h"
 
 #define CAM_DEFAULT "Camera: Default"
 #define CAM_FPS "Camera: FPS"
@@ -40,6 +42,7 @@ double lastY = window_height / 2.0;
 GLfloat fov = 45.0f;
 bool keys[1024];
 string cameraMode=CAM_DEFAULT;
+float cameraSpeed_F=.25f;
 
 // Delta time
 float deltaTime = 0.0f;    // Time between current frame and last frame
@@ -62,7 +65,6 @@ Skybox skybox;
 float sky_rspeed = 0.02;
 
 GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
-float oldHeight;
 
 int octaves = 4;
 float amplitude = .7f;
@@ -217,47 +219,6 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
             keys[key] = false;
         }
     }
-
-// Terrain
-    if (keys[GLFW_KEY_1]){
-        octaves += 1;
-        cout << "octaves: " << octaves << endl;
-    }
-    if (keys[GLFW_KEY_2]){
-        octaves -= 1;
-        cout << "octaves: " << octaves << endl;
-    }
-    if (keys[GLFW_KEY_3]){
-        H += .1;
-        cout << "H: " << H << endl;
-    }
-    if (keys[GLFW_KEY_4]){
-        H -= .1;
-        cout << "H: " << H << endl;
-    }
-    if (keys[GLFW_KEY_5]) {
-        lacunarity += .5;
-        cout << "Lacunarity: " << lacunarity << endl;
-    }
-    if (keys[GLFW_KEY_6]){
-        lacunarity -= .5;
-        cout << "Lacunarity: " << lacunarity << endl;
-    }
-    if (keys[GLFW_KEY_7])
-        amplitude += .1;
-    if (keys[GLFW_KEY_8])
-        amplitude -= .1;
-    if (keys[GLFW_KEY_9])
-        persistance += .1;
-    if (keys[GLFW_KEY_0])
-        persistance -= .1;
-    if (keys[GLFW_KEY_RIGHT])
-        frequency += .1;
-    if (keys[GLFW_KEY_LEFT])
-        frequency -= .1;
-    if (keys[GLFW_KEY_H]){//help
-        cout << "parameters:\n1 - octave+=.1\n2 - octave-=.1\n3 - H+=.1\n4 - H-=.1\n5 - lacunarity-=.5\n6 - lacunarity+=.5\n7 - amplitude+=.1\n8 - amplitude-=.1\n9 - persistance +=.1\n0 - persistance-=.1\nright - frequency+=.1\nleft - frequency -=.1"<<endl;
-    }
     if (keys[GLFW_KEY_X]){// debug
         cout << "cameraPos:   " << cameraPos.x << ", " << cameraPos.y << ", " << cameraPos.z << endl;
         cout << "cameraFront: " << cameraFront.x << ", " << cameraFront.y << ", " << cameraFront.z << endl;
@@ -292,7 +253,10 @@ void move_terrain() {
         lastkey='X';
 
     // Camera controls
-    GLfloat cameraSpeed = .2f * deltaTime;
+    float cameraSpeed = cameraSpeed_F * deltaTime;
+    if(cameraMode==CAM_FPS)
+        cameraSpeed = cameraSpeed_F*.1*deltaTime;
+
     if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
         lastkey='W';
         if (timeDiff>0 && intensity>0)
@@ -320,7 +284,7 @@ void move_terrain() {
     if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey=='A')){
         lastkey='A';
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
-        GLfloat xoffset = cameraSpeed* 30;    // Change this value to your liking
+        GLfloat xoffset = cameraSpeed* 300;    // Change this value to your liking
         if (timeDiff>0 && intensity>0)
             xoffset *= intensity;
         yaw_cam -= xoffset;
@@ -334,7 +298,7 @@ void move_terrain() {
     if (keys[GLFW_KEY_D] || (timeDiff < pressedTime && lastkey=='D')){
         lastkey='D';
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
-        GLfloat xoffset = cameraSpeed* 30;    // Change this value to your liking
+        GLfloat xoffset = cameraSpeed* 300;    // Change this value to your liking
         if (timeDiff>0 && intensity>0)
             xoffset *= intensity;
         yaw_cam += xoffset;
@@ -349,7 +313,7 @@ void move_terrain() {
     if (keys[GLFW_KEY_Q] || (timeDiff < pressedTime && lastkey=='Q')){
         lastkey='Q';
         //cameraPos += glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed;
-        GLfloat yoffset = cameraSpeed * 30;
+        GLfloat yoffset = cameraSpeed * 300;
         if (timeDiff>0 && intensity>0)
             yoffset *= intensity;
         pitch_cam += yoffset;
@@ -364,7 +328,7 @@ void move_terrain() {
     if (keys[GLFW_KEY_E] || (timeDiff < pressedTime && lastkey=='E')){
         lastkey='E';
         //cameraPos += glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed;
-        GLfloat yoffset = cameraSpeed * 30;
+        GLfloat yoffset = cameraSpeed * 300;
         if (timeDiff>0 && intensity>0)
             yoffset *= intensity;
         pitch_cam -= yoffset;
@@ -446,6 +410,12 @@ int main(int argc , char *argv[]) {
         glfwTerminate();
         return EXIT_FAILURE;
     }
+    // Setup ImGui binding
+    ImGui_ImplGlfwGL3_Init(window, true);
+
+    bool show_camera_window = true;
+    bool default_window = true;
+    ImVec4 clear_color = ImColor(114, 144, 154);
 
     // makes the OpenGL context of window current on the calling thread
     glfwMakeContextCurrent(window);
@@ -514,11 +484,54 @@ int main(int argc , char *argv[]) {
             cameraPos.y=tex[0]+.5;
         }
 
+        ImGui_ImplGlfwGL3_NewFrame();
+
+        // 1. Show a simple window
+        // Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
+        if(default_window)
+        {
+            ImGui::Begin("GUI", &default_window);
+            ImGui::SetNextWindowSize(ImVec2(550,680), ImGuiSetCond_FirstUseEver);
+            if (ImGui::CollapsingHeader("Terrain Parameters", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderInt("Octaves", &octaves, 0, 20);
+                ImGui::SliderFloat("Frequency", &frequency, 0.0f, 5.0f);
+                ImGui::SliderFloat("Amplitude", &amplitude, 0.0f, 5.0f);
+                ImGui::SliderFloat("Lacunarity", &lacunarity, 0.0f, 5.0f);
+                ImGui::SliderFloat("Persistance", &persistance, 0.0f, 5.0f);
+                ImGui::SliderFloat("H", &H, 0.0f, 5.0f);
+            }
+            if (ImGui::CollapsingHeader("Camera Parameters", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderFloat("Camera Speed", &cameraSpeed_F, 0.0f, 5.0f);
+            }
+            if (ImGui::CollapsingHeader("Help"))
+            {
+                ImGui::TextWrapped("Navigation:\n");
+                ImGui::BulletText("Use the keys W and A to move back and forth");
+                ImGui::BulletText("Use the keys Q and E to look up and down");
+                ImGui::BulletText("Use the keys A and D to look right and left");
+                ImGui::TextWrapped("Camera:\n");
+                ImGui::BulletText("Use the key F to toggle FPS (first-person shooter) navigation mode");
+                ImGui::TextWrapped("GUI:\n");
+                ImGui::ShowUserGuide();
+            }
+            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+            ImGui::End();
+        }
+        // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
+        if (show_camera_window)
+        {
+            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+            ImGui::ShowTestWindow(&show_camera_window);
+        }
+        int display_w, display_h;
+        glfwGetFramebufferSize(window, &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+        glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+        glClear(GL_COLOR_BUFFER_BIT);
         Display();
+        ImGui::Render();
         glfwSwapBuffers(window);
         glfwPollEvents();
-
-
     }
     quad.Cleanup();
     grid.Cleanup();
