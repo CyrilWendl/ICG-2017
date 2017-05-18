@@ -20,8 +20,8 @@ uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
 
 void main() {
 
-    uv = (position + vec2(1.0)) * (1/tree_height) / 2.0;
+    uv = (position + vec2(1.0)) / 2.0;
     height = float(texture(texNoise,uv).x);
-    vec3 pos_3d = vec3(position.x + offset_x, height+.18, position.y + offset_y);
+    vec3 pos_3d = vec3(position.x , height+.4, position.y);
     gl_Position = MVP * vec4(pos_3d, 1.0);
 }

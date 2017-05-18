@@ -31,7 +31,7 @@ class Tree {
             glGenVertexArrays(1, &vertex_array_id_);
             glBindVertexArray(vertex_array_id_);
             float tree_pos = 0.05;
-            float tree_height = 15.0;
+            float tree_height = -30.0;
 
             // vertex coordinates
             {
