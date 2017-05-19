@@ -16,6 +16,8 @@ uniform sampler2D tex_snow;
 
 uniform float offset_x;
 uniform float offset_y;
+uniform float diffuse_factor;
+
 vec2 offset=vec2(offset_x,offset_y);
 
 void main() {
@@ -33,8 +35,8 @@ void main() {
      vec3 color_blended = (aRock*color_rock+aGrass*color_grass+aSnow*color_snow)/sum;
 
      //custom material diffuse parameter
-     color = vec3(0.0);
-     vec3 kd = vec3(0.3f);
+     vec3 kd = vec3(diffuse_factor);
+
      vec3 n = normalize(cross(dFdx(vpoint_mv.xyz),dFdy(vpoint_mv.xyz)));
 
      float cosDiffuse = dot(n,light_dir);
@@ -43,6 +45,6 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-     color=color+color_blended;
+     color=(color+color_blended)*diffuse_factor*2;
 
 }

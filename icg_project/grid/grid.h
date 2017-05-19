@@ -284,6 +284,43 @@ public:
 
         Light::Setup(program_id_);
 
+        float diffuse_factor = 0.0;
+        float diffuse_day = 0.5f;
+        float diffuse_sunset = 0.3f;
+        float diffuse_night = 0.1;
+
+        int time_inst = time * 1000;
+        time_inst = time_inst % 35000;
+        if(time_inst >= 0 && time_inst < 5000) {
+
+            diffuse_factor = diffuse_day;
+
+        } else if(time_inst >= 5000 && time_inst < 8000) {
+            //diffuse_factor transition from 0.4 to 0.3 (Day to sunset)
+            diffuse_factor = diffuse_day + ((diffuse_sunset - diffuse_day) / (8000.0 - 5000.0f)) * (time_inst - 5000.0f);
+
+        } else if(time_inst >= 8000 && time_inst < 21000) {
+
+            diffuse_factor = diffuse_sunset;
+
+        } else if(time_inst >= 21000 && time_inst < 24000) {
+
+            //diffuse_factor transition from 0.3 to 0.1 (Sunset to night)
+            diffuse_factor = diffuse_sunset + ((diffuse_night - diffuse_sunset) / (24000.0f - 21000.0f)) * (time_inst - 21000.0f);
+
+        } else if(time_inst >= 24000 && time_inst < 32000) {
+
+            diffuse_factor = diffuse_night;
+
+        } else {
+            //diffuse_factor transition from 0.1 to 0.4 (Night to Day)
+            diffuse_factor = diffuse_night + ((diffuse_day - diffuse_night) / (35000.f - 32000.f)) * (time_inst - 32000.f);
+
+        }
+
+        // Pass the diffuse parameter depending on the time of the day
+        glUniform1f(glGetUniformLocation(program_id_, "diffuse_factor"), diffuse_factor);
+
         // setup matrix stack
         GLint model_id = glGetUniformLocation(program_id_,
                                               "model");

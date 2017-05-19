@@ -8,7 +8,9 @@ private:
     GLuint vertex_array_id_;        // vertex array object
     GLuint program_id_;             // GLSL shader program ID
     GLuint vertex_buffer_object_;   // memory buffer
-    GLuint texture_id_;             // texture ID
+    GLuint texture_day_id_;         // Day texture ID
+    GLuint texture_sunset_id_;      // Sunset texture ID
+    GLuint texture_night_id_;       // Night texture ID
     GLuint MVP_id_;                 // Model, view, projection matrix ID
 
 public:
@@ -87,8 +89,9 @@ public:
 
         // load texture
         {
-            glGenTextures(1, &texture_id_);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id_);
+            //load day texture
+            glGenTextures(1, &texture_day_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
 
             vector<const GLchar*> faces;
             faces.push_back("miramar_ft.tga");
@@ -109,12 +112,6 @@ public:
 //            faces.push_back("bottom.jpg");
 //            faces.push_back("back.jpg");
 //            faces.push_back("front.jpg");
-//            faces.push_back("violentdays_rt.tga");
-//            faces.push_back("violentdays_lf.tga");
-//            faces.push_back("violentdays_up.tga");
-//            faces.push_back("violentdays_dn.tga");
-//            faces.push_back("violentdays_bk.tga");
-//            faces.push_back("violentdays_ft.tga");
 //            faces.push_back("cloudtop_rt.tga");
 //            faces.push_back("cloudtop_lf.tga");
 //            faces.push_back("cloudtop_up.tga");
@@ -122,47 +119,51 @@ public:
 //            faces.push_back("cloudtop_bk.tga");
 //            faces.push_back("cloudtop_ft.tga");
 
-            int width;
-            int height;
-            int nb_component;
-            string filename;
-            // set stb_image to have the same coordinates as OpenGL
-            //stbi_set_flip_vertically_on_load(1);
-            unsigned char* image;
-
-            for(GLuint i = 0; i < faces.size(); i++)
-            {
-                filename = (string) faces[i];
-                image = stbi_load(filename.c_str(), &width,
-                                  &height, &nb_component, 0);
-                if(image == nullptr) {
-                    throw(string("Failed to load texture"));
-                }
-                if(nb_component == 3) {
-                    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0,
-                                 GL_RGB, GL_UNSIGNED_BYTE, image);
-                } else if(nb_component == 4) {
-                    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0,
-                                 GL_RGBA, GL_UNSIGNED_BYTE, image);
-                }
-                stbi_image_free(image);
-            }
-
-
-
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-
-
+            loadCubemap(faces);
 
             // texture uniforms
-            GLuint tex_id = glGetUniformLocation(program_id_, "skybox");
+            GLuint tex_id = glGetUniformLocation(program_id_, "skybox_day");
             glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
 
             // cleanup
+            glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+            // load sunset texture
+            glGenTextures(1, &texture_sunset_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
+
+            vector<const GLchar*> faces2;
+            faces2.push_back("violentdays_ft.tga");
+            faces2.push_back("violentdays_bk.tga");
+            faces2.push_back("violentdays_up.tga");
+            faces2.push_back("violentdays_dn.tga");
+            faces2.push_back("violentdays_rt.tga");
+            faces2.push_back("violentdays_lf.tga");
+
+            loadCubemap(faces2);
+
+            GLuint tex_id2 = glGetUniformLocation(program_id_, "skybox_sunset");
+            glUniform1i(tex_id2, 1 /*GL_TEXTURE1*/);
+
+            glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+            // load night texture
+            glGenTextures(1, &texture_night_id_);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            vector<const GLchar*> faces3;
+            faces3.push_back("grimmnightft.tga");
+            faces3.push_back("grimmnightbk.tga");
+            faces3.push_back("grimmnightup.tga");
+            faces3.push_back("grimmnightdn.tga");
+            faces3.push_back("grimmnightrt.tga");
+            faces3.push_back("grimmnightlf.tga");
+
+            loadCubemap(faces3);
+
+            GLuint tex_id3 = glGetUniformLocation(program_id_, "skybox_night");
+            glUniform1i(tex_id3, 1 /*GL_TEXTURE2*/);
+
             glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
         }
@@ -177,27 +178,112 @@ public:
         glUseProgram(0);
     }
 
+    void loadCubemap(vector<const GLchar*> faces)
+    {
+        int width;
+        int height;
+        int nb_component;
+        string filename;
+        //stbi_set_flip_vertically_on_load(1);
+        unsigned char* image;
+        for(GLuint i = 0; i < faces.size(); i++)
+        {
+            filename = (string) faces[i];
+            image = stbi_load(filename.c_str(), &width,
+                              &height, &nb_component, 0);
+            if(image == nullptr) {
+                throw(string("Failed to load texture"));
+            }
+            if(nb_component == 3) {
+                glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0,
+                             GL_RGB, GL_UNSIGNED_BYTE, image);
+            } else if(nb_component == 4) {
+                glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0,
+                             GL_RGBA, GL_UNSIGNED_BYTE, image);
+            }
+            stbi_image_free(image);
+        }
+
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    }
+
     void Cleanup() {
         glBindVertexArray(0);
         glUseProgram(0);
         glDeleteBuffers(1, &vertex_buffer_object_);
         glDeleteProgram(program_id_);
         glDeleteVertexArrays(1, &vertex_array_id_);
-        glDeleteTextures(1, &texture_id_);
+        glDeleteTextures(1, &texture_day_id_);
+        glDeleteTextures(1, &texture_sunset_id_);
+        glDeleteTextures(1, &texture_night_id_);
     }
 
-    void Draw(const glm::mat4& MVP) {
+    void Draw(const glm::mat4& MVP, float time) {
         glDepthMask(GL_FALSE);
         glUseProgram(program_id_);
         glBindVertexArray(vertex_array_id_);
 
-        // bind textures
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id_);
+        //blend factor for day/night cycle
+        float blend = 0.0f;
+
+        //bind appropriate texture for current time
+        int time_inst = time * 1000;
+        time_inst = time_inst % 35000;
+        if(time_inst >= 0 && time_inst < 5000) {
+            blend = (time_inst - 0.0f) / (5000.0f - 0.0f);
+
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+        } else if(time_inst >= 5000 && time_inst < 8000) {
+            blend = (time_inst - 5000.0f) / (8000.0f -5000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
+        } else if(time_inst >= 8000 && time_inst < 21000) {
+            blend = (time_inst - 8000.0f) / (21000.0f -8000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
+        } else if(time_inst >= 21000 && time_inst < 24000) {
+            blend = (time_inst - 21000.0f) / (24000.0f -21000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        } else if(time_inst >= 24000 && time_inst < 32000) {
+            blend = (time_inst - 24000.0f) / (32000.0f -24000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+        } else {
+            blend = (time_inst - 32000.0f) / (35000.0f -32000.0f);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
+
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
+        }
 
         // setup MVP
         GLuint MVP_id = glGetUniformLocation(program_id_, "MVP");
         glUniformMatrix4fv(MVP_id, 1, GL_FALSE, value_ptr(MVP));
+
+        // pass texture blending factor to the shader.
+        glUniform1f(glGetUniformLocation(program_id_, "blend"), blend);
 
         // draw
         glDrawArrays(GL_TRIANGLES, 0, 36);
