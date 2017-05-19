@@ -20,9 +20,6 @@ uniform float persistance;
 
 int window_width = 800;
 int window_height = 600;
-
-float gain = 2.0;
-
 vec2 offset = vec2(offset_x,offset_y);
 
 float rand(vec2 co)

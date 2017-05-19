@@ -1,9 +1,6 @@
 #version 330
 
-in vec2 position;
-
-in vec3 vpoint;
-//in vec2 vtexcoord;
+in vec3 position;
 
 out vec2 uv;
 out float height;       // out the height to know if tree should be snowy for example
@@ -20,8 +17,11 @@ uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
 
 void main() {
 
-    uv = (position + vec2(1.0)) / 2.0;
+    vec3 pos = position;
+    pos +=8.*vec3(-offset_x,-offset_y,1.0/8.0);     // to keep the tree in place
+
+    uv = (position.xy + vec2(1.0)) / 2.0;
     height = float(texture(texNoise,uv).x);
-    vec3 pos_3d = vec3(position.x , height+.4, position.y);
+    vec3 pos_3d = vec3(pos.x+sin(pos.x)*sin(time) , position.z+height, pos.y);
     gl_Position = MVP * vec4(pos_3d, 1.0);
 }
