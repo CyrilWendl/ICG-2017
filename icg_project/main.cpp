@@ -61,6 +61,9 @@ Skybox skybox;
 //skybox rotation scale
 float sky_rspeed = 0.02;
 
+// Day night cycle pace
+float daynight_pace = 8000.0f;
+
 GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
 float oldHeight;
 
@@ -188,16 +191,16 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time);
-        grid.Draw(time , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z);
+        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_pace);
+        grid.Draw(time, daynight_pace , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time);
-    grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
-    water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
+    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
+    grid.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
+    water.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix);
 }
 
 // Is called whenever a key is pressed/released via GLFW

@@ -244,7 +244,7 @@ public:
         glDeleteTextures(1, &texture_rock_);
     }
 
-    void Draw(float time, const glm::mat4 &model = IDENTITY_MATRIX,
+    void Draw(float time, float daynight_pace, const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
               const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f) {
 
@@ -284,37 +284,50 @@ public:
 
         Light::Setup(program_id_);
 
+        // Diffuse intensity depending on time of day
         float diffuse_factor = 0.0;
         float diffuse_day = 0.5f;
         float diffuse_sunset = 0.3f;
         float diffuse_night = 0.1;
 
+        // Day/night cycle time frames
+        float pace = daynight_pace;   //uniform
+        float day_start = 0 * pace;
+        float day_end = 1 * pace;
+        float sunset_start = 1.5 * pace;
+        float sunset_end = 2.5 * pace;
+        float night_start = 3 * pace;
+        float night_end = 4 * pace;
+        int next_day = 4.5 * pace;
+
+        // bind appropriate texture for current time
         int time_inst = time * 1000;
-        time_inst = time_inst % 35000;
-        if(time_inst >= 0 && time_inst < 5000) {
+        float time_transition = 1.0f;
+        time_inst = (int)(time_inst * time_transition) % next_day;
+        if(time_inst >= day_start && time_inst < day_end) {
 
             diffuse_factor = diffuse_day;
 
-        } else if(time_inst >= 5000 && time_inst < 8000) {
+        } else if(time_inst >= day_end && time_inst < sunset_start) {
             //diffuse_factor transition from 0.4 to 0.3 (Day to sunset)
-            diffuse_factor = diffuse_day + ((diffuse_sunset - diffuse_day) / (8000.0 - 5000.0f)) * (time_inst - 5000.0f);
+            diffuse_factor = diffuse_day + ((diffuse_sunset - diffuse_day) / (sunset_start - day_end)) * (time_inst - day_end);
 
-        } else if(time_inst >= 8000 && time_inst < 21000) {
+        } else if(time_inst >= sunset_start && time_inst < sunset_end) {
 
             diffuse_factor = diffuse_sunset;
 
-        } else if(time_inst >= 21000 && time_inst < 24000) {
+        } else if(time_inst >= sunset_end && time_inst < night_start) {
 
             //diffuse_factor transition from 0.3 to 0.1 (Sunset to night)
-            diffuse_factor = diffuse_sunset + ((diffuse_night - diffuse_sunset) / (24000.0f - 21000.0f)) * (time_inst - 21000.0f);
+            diffuse_factor = diffuse_sunset + ((diffuse_night - diffuse_sunset) / (night_start - sunset_end)) * (time_inst - sunset_end);
 
-        } else if(time_inst >= 24000 && time_inst < 32000) {
+        } else if(time_inst >= night_start && time_inst < night_end) {
 
             diffuse_factor = diffuse_night;
 
         } else {
             //diffuse_factor transition from 0.1 to 0.4 (Night to Day)
-            diffuse_factor = diffuse_night + ((diffuse_day - diffuse_night) / (35000.f - 32000.f)) * (time_inst - 32000.f);
+            diffuse_factor = diffuse_night + ((diffuse_day - diffuse_night) / (next_day - night_end)) * (time_inst - night_end);
 
         }
 
