@@ -9,6 +9,7 @@ file(GLOB TEXTURES
     grid/rock.tga
     grid/grass.tga
     grid/snow.tga
+    grid/sand.tga
     water/water_texture.tga
     water/clear_water.jpg
     quad/quad_texture.tga

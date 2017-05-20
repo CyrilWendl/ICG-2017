@@ -13,6 +13,7 @@ uniform sampler2D texNoise;
 uniform sampler2D tex_grass;
 uniform sampler2D tex_rock;
 uniform sampler2D tex_snow;
+uniform sampler2D tex_sand;
 
 uniform float offset_x;
 uniform float offset_y;
@@ -25,14 +26,16 @@ void main() {
      vec3 color_rock  = texture(tex_rock,(uv+tex_a*offset) * 10).rgb;
      vec3 color_grass = texture(tex_grass,(uv+tex_a*offset) * 25).rgb;
      vec3 color_snow  = texture(tex_snow,(uv+tex_a*offset) * 25).rgb;
+     vec3 color_sand  = texture(tex_sand,(uv) * 25).rgb;
 
      float aRock = clamp((1 - 15 * (height- 0.75) * (height - 0.75)),0,1);
      float aGrass= clamp((1 - 5 * (height- 0.4) * (height - 0.4)),0,1);
      float aSnow = clamp((1 - 5 * (height- 1.0f) * (height - 1.0f)),0,1);
-     float sum=aRock+aGrass+aSnow;
+     float aSand = clamp((1 - 500 * (height- .18f) * (height - .18f)),0,1);
+     float sum=aRock+aGrass+aSnow+aSand;
 
      //blend textures
-     vec3 color_blended = (aRock*color_rock+aGrass*color_grass+aSnow*color_snow)/sum;
+     vec3 color_blended = (aRock*color_rock+aGrass*color_grass+aSnow*color_snow+aSand*color_sand)/sum;
 
      //custom material diffuse parameter
      vec3 kd = vec3(diffuse_factor);

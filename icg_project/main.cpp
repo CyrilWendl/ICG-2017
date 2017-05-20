@@ -31,7 +31,7 @@ mat4 view_matrix;
 mat4 quad_model_matrix;
 
 // Camera
-glm::vec3 cameraPos = vec3(0.0f , 1.0f , 0.0f);
+glm::vec3 cameraPos = vec3(0.0f , 1.5f , 0.0f);
 glm::vec3 cam_pos_mirr = vec3(cameraPos.x, -cameraPos.y, cameraPos.z);
 glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
@@ -525,7 +525,7 @@ int main(int argc , char *argv[]) {
         if (show_camera_window)
         {
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-            ImGui::ShowTestWindow(&show_camera_window);
+            //ImGui::ShowTestWindow(&show_camera_window);
         }
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
