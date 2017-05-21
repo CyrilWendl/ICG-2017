@@ -13,6 +13,8 @@ file(GLOB TEXTURES
     water/clear_water.jpg
     quad/quad_texture.tga
     tree/tree_texture.tga
+    tree/sapin_texture.tga
+    tree/pin_texture.tga
     skybox/cottoncandy_rt.tga
     skybox/cottoncandy_lf.tga
     skybox/cottoncandy_up.tga
