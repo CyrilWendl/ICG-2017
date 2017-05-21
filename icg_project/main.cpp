@@ -502,10 +502,12 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Lacunarity", &lacunarity, 0.0f, 5.0f);
                 ImGui::SliderFloat("Persistance", &persistance, 0.0f, 5.0f);
                 ImGui::SliderFloat("H", &H, 0.0f, 5.0f);
-                ImGui::SliderFloat("Day/Night P", &daynight_pace, 4000.0f, 12000.0f);
             }
             if (ImGui::CollapsingHeader("Camera Parameters", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderFloat("Camera Speed", &cameraSpeed_F, 0.0f, 5.0f);
+            }
+            if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderFloat("Duration (ms)", &daynight_pace, 4000.0f, 12000.0f);
             }
             if (ImGui::CollapsingHeader("Help"))
             {
