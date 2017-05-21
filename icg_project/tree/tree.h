@@ -2,6 +2,8 @@
 #include "icg_helper.h"
 #include <glm/gtc/type_ptr.hpp>
 
+#define BUFFER_OFFSET(i) ((char *)NULL + (i))
+
 class Tree {
 
     private:
@@ -10,14 +12,14 @@ class Tree {
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint vertex_buffer_object_;   // memory buffer
-        GLuint texture_id_;                     // texture ID
-        GLuint texture_grass_;                  // grass texture
-        GLuint texture_rock_;                   // rock texture
+        GLuint tex_id_;                     // texture ID terrain
+        GLuint texture_id_;                  // texture ID tree
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // Model, view, projection matrix ID
 
     public:
         void Init(GLuint tex_noise = -1) {
+
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("tree_vshader.glsl",
                                                   "tree_fshader.glsl");
@@ -30,69 +32,67 @@ class Tree {
             // vertex one vertex Array
             glGenVertexArrays(1, &vertex_array_id_);
             glBindVertexArray(vertex_array_id_);
-            float tree_size = 0.02;
+            float tree_size = .04f;
             float tree_height = .5f;
+            std::vector<GLfloat> vertices;
+            std::vector<GLuint> indices;
 
             // vertex coordinates
             {
-                std::vector<GLfloat> vertices;
-                std::vector<GLuint> indices;
                 // always two subsequent entries in 'vertices' form a 2D vertex position.
 
+                // 1st quad
 
-//                vertices.push_back(-tree_size);       // bottom left vertex
-//                vertices.push_back(-tree_size);
-//                vertices.push_back(0);
+                vertices.push_back(-tree_size);     // base left
+                vertices.push_back(0);
+                vertices.push_back(0);
 
-//                vertices.push_back(-tree_size);       // top left vertex
-//                vertices.push_back(tree_size);
-//                vertices.push_back(0);
+                vertices.push_back(tree_size);     // base right
+                vertices.push_back(0);
+                vertices.push_back(0);
 
-//                vertices.push_back(0);        // tree top vertex
-//                vertices.push_back(tree_size/float(2.0));
-//                vertices.push_back(tree_height);
+                vertices.push_back(tree_size);     // top right
+                vertices.push_back(0);
+                vertices.push_back(tree_height);
 
-//                vertices.push_back(tree_size);        // top right vertex
-//                vertices.push_back(tree_size);
-//                vertices.push_back(0);
+                vertices.push_back(-tree_size);     // top left
+                vertices.push_back(0);
+                vertices.push_back(tree_height);
 
-//                vertices.push_back(tree_size);        // bottom right vertex
-//                vertices.push_back(-tree_size);
-//                vertices.push_back(0);
+                // 2nd quad
 
-//                // left triangle
-//                indices.push_back(0);
-//                indices.push_back(2);
-//                indices.push_back(1);
-//                // top triangle
-//                indices.push_back(1);
-//                indices.push_back(2);
-//                indices.push_back(3);
-//                // right triangle
-//                indices.push_back(3);
-//                indices.push_back(2);
-//                indices.push_back(4);
-//                // bottom triangle
-//                indices.push_back(4);
-//                indices.push_back(2);
-//                indices.push_back(0);
-
+                vertices.push_back(0);     // base south
                 vertices.push_back(-tree_size);
+                vertices.push_back(0);
+
+                vertices.push_back(0);     // base north
+                vertices.push_back(tree_size);
+                vertices.push_back(0);
+
+                vertices.push_back(0);     // top north
+                vertices.push_back(tree_size);
+                vertices.push_back(tree_height);
+
+                vertices.push_back(0);     // top south
                 vertices.push_back(-tree_size);
+                vertices.push_back(tree_height);
 
-                vertices.push_back(-tree_size);
-                vertices.push_back(tree_size);
 
-                vertices.push_back(tree_size);
-                vertices.push_back(-tree_size);
-
-                vertices.push_back(tree_size);
-                vertices.push_back(tree_size);
-
+                // 1st quad
                 indices.push_back(0);
                 indices.push_back(1);
                 indices.push_back(2);
+                indices.push_back(0);
+                indices.push_back(2);
                 indices.push_back(3);
+
+                // 2nd quad
+                indices.push_back(4);
+                indices.push_back(5);
+                indices.push_back(6);
+                indices.push_back(4);
+                indices.push_back(6);
+                indices.push_back(7);
 
                 num_indices_ = indices.size();
 
@@ -108,16 +108,17 @@ class Tree {
                 glBufferData(GL_ELEMENT_ARRAY_BUFFER , indices.size() * sizeof(GLuint) ,
                              &indices[0] , GL_STATIC_DRAW);
 
+
                 // position shader attribute
                 GLuint loc_position = glGetAttribLocation(program_id_ , "position");
                 glEnableVertexAttribArray(loc_position);
-                glVertexAttribPointer(loc_position , 2/*3*/ , GL_FLOAT , DONT_NORMALIZE ,
+                glVertexAttribPointer(loc_position , 3 , GL_FLOAT , DONT_NORMALIZE ,
                                       ZERO_STRIDE , ZERO_BUFFER_OFFSET);
             }
 
             // load terrain
             {
-                texture_id_ = tex_noise;
+                tex_id_ = tex_noise;
                 // texture uniforms
                 GLuint tex_id = glGetUniformLocation(program_id_ , "texNoise");
                 glUniform1i(tex_id , 0 /*GL_TEXTURE0*/);
@@ -143,7 +144,6 @@ class Tree {
 
                 glGenTextures(1, &texture_id_);
                 glBindTexture(GL_TEXTURE_2D, texture_id_);
-                glGenerateMipmap(GL_TEXTURE_2D);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -182,10 +182,13 @@ class Tree {
             glDeleteBuffers(1, &vertex_buffer_object_);
             glDeleteProgram(program_id_);
             glDeleteVertexArrays(1, &vertex_array_id_);
+            glDeleteTextures(1, &tex_id_);
             glDeleteTextures(1, &texture_id_);
         }
 
-        void Draw(float time, const glm::mat4& MVP, float offset_x, float offset_y, float persistance=0.0f) {
+
+
+        void Draw(float time, const glm::mat4& MVP, float offset_x, float offset_y) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -203,11 +206,17 @@ class Tree {
             // pass parameters
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
-            glUniform1f(glGetUniformLocation(program_id_, "persistance"), persistance);
+            bool IsSecondQuad = false;
+            glUniform1f(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
+
 
             // draw
             //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glDrawElements(GL_TRIANGLE_STRIP, num_indices_, GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_INT,0);
+            IsSecondQuad = true;
+            glUniform1f(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
+            glDrawRangeElements(GL_TRIANGLE_STRIP, 6, 11, 6, GL_UNSIGNED_INT,BUFFER_OFFSET(6*sizeof(GLuint)));
+            //glDrawArrays(GL_TRIANGLE_STRIP, 4, 4);
 
             glBindVertexArray(0);
             glUseProgram(0);

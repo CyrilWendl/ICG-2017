@@ -13,7 +13,6 @@ uniform int octavesUni;
 uniform float frequencyUni;
 uniform float amplitudeUni;
 uniform float hUni;
-uniform float Perm[N_RAND];
 uniform float offset_x;
 uniform float offset_y;
 uniform float persistance;
