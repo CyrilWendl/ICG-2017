@@ -23,9 +23,24 @@ Situations:
 - On releasing the keys, the durion of the key that was pressed last is used to make a smooth-out transition.
 - If all keys are released, only the movement of the last key is executed smoothly until intensity is zero.
 
-* FPS implemented *
-
 * Infinite terrain implemented *
+The infinite terrain was done with a simple trick: instead of moving the camera, pass an offset to the grid shader and use this to calculate the Perlin noise. The offset corresponds to the former x- and y-coordinates of the camera eye and is passed to the terrain as follows:
+
+terrain=vec3(RidgedMultifractal(2 * uv + offset, 1.0, 1.0, 2.0) - 0.8);
+
+* Implemented rigged multifractal *
+
+
+* FPS implemented *
+The FPS camera was implement by retrieving the pixel in the middle of the terrain and binding the camera's height to it:
+glReadPixels(TEX_WIDTH/2,TEX_HEIGHT/2,1,1, GL_RED, GL_FLOAT, tex);
+if(cameraMode==CAM_FPS){
+     if(tex[0]<.2)
+         tex[0]=.2;
+     cameraPos.y=tex[0]+.5;
+ }
+ The if-condition assures the camera stays smoothly above the water.
+
 
 Get texture to work (shift with mountains):
 - By default, the grid is stationary between -16 and 16 and the mountains move, thus it looks as though the texture
@@ -33,6 +48,7 @@ should move with the mountains. To do so, we implemented also passed the offset 
 - If we pass it to the fshader as follows:
 uv = offset+(position + vec2(16.0)) / 32.0f;
 
+* Added GUI *
 
 -Water Reflection
 Camera position mirror
