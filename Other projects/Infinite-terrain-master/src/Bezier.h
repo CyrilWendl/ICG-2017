@@ -83,7 +83,7 @@ class Bezier {
     }
 
     static float bernsteinPolynom(double t, int n, int i) {
-        return (float)(Bezier::binomial(n, i) * pow(t, i) * pow(1 - t, n - i));
+        return (float)(Bezier::binomial(n, i) * pow(1 - t, n - i)) * pow(t, i);
     }
 
     static float binomial(int n, int k) { return fact(n) / (fact(n - k) * fact(k)); }
