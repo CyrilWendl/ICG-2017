@@ -61,6 +61,8 @@ int cameraMode = CAM_DEFAULT;
 float cameraSpeed_F = .25f;
 float cameraSpeed = cameraSpeed_F * deltaTime;
 float bezier_start = 0.0f;
+float bezier_duration;      // duration in which bezier is executed
+float bezier_speed = 1.0f;
 float dT = 0.0f;
 Bezier bez_pos;
 Bezier bez_angle;
@@ -532,7 +534,6 @@ int main(int argc , char *argv[]) {
         if (tex[0] < .2)
             tex[0] = .2;
         float time;
-        float bezier_duration; // the longer, the slower
         switch (cameraMode) {
             case CAM_DEFAULT: // limit minimum camera height to terrain height
                 if (cameraPos.y < tex[0] + .5)
@@ -542,13 +543,12 @@ int main(int argc , char *argv[]) {
                 cameraPos.y = tex[0] + .5;
                 break;
             case CAM_BEZIER:
-                bezier_duration = 10.0f;
                 if (cameraPos.y < tex[0] + .5)
                     cameraPos.y = tex[0] + .5;
                 time = glfwGetTime();
+                bezier_duration = 10.0f*bezier_speed;
                 dT = time - bezier_start;
                 if (dT < bezier_duration) {
-
                     // position
                     vec2 off_bez = bez_pos.bezier(dT / bezier_duration);
                     offset.x = off_bez.x;
@@ -598,6 +598,7 @@ int main(int argc , char *argv[]) {
             }
             if (ImGui::CollapsingHeader("Camera Parameters" , ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderFloat("Camera Speed" , &cameraSpeed_F , 0.0f , 5.0f);
+                ImGui::SliderFloat("Bezier speed" , &bezier_speed, 0.0f , 5.0f);
                 ImGui::InputFloat("Camera y position" , &offset.x , 0.01f , 1.0f);
                 ImGui::InputFloat("Camera x position" , &offset.z , 0.01f , 1.0f);
                 ImGui::SliderFloat("Front x" , &cameraFront.x , 0.01f , 1.0f);
@@ -611,6 +612,7 @@ int main(int argc , char *argv[]) {
                 ImGui::TextWrapped("Navigation:\n");
                 ImGui::BulletText("Use the keys W and A to move back and forth");
                 ImGui::BulletText("Use the keys Q and E to look up and down");
+                ImGui::BulletText("Use the keys A and D to look right and left");
                 ImGui::BulletText("Use the keys A and D to look right and left");
                 ImGui::TextWrapped("Camera:\n");
                 ImGui::BulletText("Use the keys F to toggle FPS (first-person shooter) navigation mode");
