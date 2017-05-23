@@ -2,7 +2,15 @@
 #include "icg_helper.h"
 #include <glm/gtc/type_ptr.hpp>
 
-class Particles {
+// Represents a single particle and its state
+struct Particle {
+    glm::vec2 position, velocity;
+    glm::vec4 color;
+    GLfloat size, angle, weight;
+    GLfloat life;
+};
+
+class Particles: public Particle{
 
     private:
         GLuint vertex_array_id_;        // vertex array object
