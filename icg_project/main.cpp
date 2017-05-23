@@ -47,13 +47,6 @@ bool keys[1024];
 int lastkey = GLFW_KEY_X;
 int nkeys = 0;
 
-int cameraMode=CAM_DEFAULT;
-float cameraSpeed_F=.25f;
-float bezier_start=0.0f;
-float dT=0.0f;
-Bezier bez_cam;
-Bezier bez_speed;
-
 // Delta time
 float deltaTime = 0.0f;    // Time between current frame and last frame
 float lastFrame = 0.0f;    // Time of last frame
@@ -62,6 +55,15 @@ float pressTime = 0.0f;
 float pressedTime = 0.0f;
 float timeDiff = 200.0f;
 int mode=0;
+
+int cameraMode=CAM_DEFAULT;
+float cameraSpeed_F=.25f;
+float cameraSpeed=cameraSpeed_F*deltaTime;
+float bezier_start=0.0f;
+float dT=0.0f;
+Bezier bez_pos;
+Bezier bez_angle;
+
 
 FrameBuffer framebuffer;
 FrameBuffer reflection_buffer;
@@ -257,25 +259,29 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
     }
     if (keys[GLFW_KEY_3]){
         cameraMode=CAM_BEZIER;
-        bez_cam.empty_points();
-        bez_speed.empty_points();
+        bez_pos.empty_points();
+        bez_angle.empty_points();
 
-        vec2 p1=vec2(1.0f,0.0f);
-        vec2 p2=vec2(1.0f,-1.0f);
-        vec2 p3=vec2(.6f,-.8f); // third waypoint
 
-        bez_cam.add_point(vec2(offset.x,offset.z));
-        bez_cam.add_point(p1);
-        bez_cam.add_point(p2);
-        bez_cam.add_point(p3);
+        vec2 p1=vec2(1.0f,0.0f); //|  1,1 |  1,-1 |
+        vec2 p2=vec2(1.0f,-1.0f);//| -1,1 | -1,-1 |
+        vec2 p3=vec2(1.0f,1.0f); // third waypoint
+        bez_pos.add_point(vec2(offset.x,offset.z));
+        bez_pos.add_point(p1);
+        bez_pos.add_point(p2);
+        bez_pos.add_point(p3);
 
-        bez_speed.add_point(vec2(offset.x,offset.z));
-        bez_speed.add_point(p1);
-        bez_speed.add_point(p2);
-        bez_speed.add_point(p3);
+        // angles
+        vec2 angle1=vec2(0.0f);// TODO change to 1D;
+        vec2 angle2=vec2(1.0f);
+        vec2 angle3=vec2(0.0f);
+
+        bez_angle.add_point(angle1);
+        bez_angle.add_point(angle2);
+        bez_angle.add_point(angle3);
 
         bezier_start=glfwGetTime();
-        cout << cameraMode << endl;
+
     }
 }
 
@@ -288,15 +294,14 @@ void check_pitch(){
 }
 
 void move_terrain() {
+    cameraSpeed=cameraSpeed_F*deltaTime;
+
     timeDiff = (glfwGetTime()-releaseTime);
 
     float intensity = std::fmax((pressedTime - timeDiff)/pressedTime,0);
 
     if (intensity==0)
         lastkey=GLFW_KEY_X;
-
-    // Camera controls
-    float cameraSpeed = cameraSpeed_F * deltaTime;
 
     if (keys[GLFW_KEY_W] || lastkey==GLFW_KEY_W){// move on terrain
         if(intensity>0)
@@ -317,7 +322,7 @@ void move_terrain() {
     if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey==GLFW_KEY_T)){
         if(intensity>0)
             cameraSpeed *= intensity;
-        cameraPos.y += 10*cameraSpeed;;
+        cameraPos.y += 10*cameraSpeed;
     }
     if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey==GLFW_KEY_A)){
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
@@ -511,29 +516,40 @@ int main(int argc , char *argv[]) {
         // Get the uniform locations
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-        switch(cameraMode){
+        switch(cameraMode) {
             case CAM_FPS:
-                if(tex[0]<.2)
-                    tex[0]=.2;
-                cameraPos.y=tex[0]+.5;
+                if (tex[0] < .2)
+                    tex[0] = .2;
+                cameraPos.y = tex[0] + .5;
                 break;
 
             case CAM_BEZIER:
-                float time=glfwGetTime();
-                dT= time-bezier_start;
-                if(dT!=0.0f && dT<10.0f){
-                    vec2 t=vec2(dT/10.0f);
-                    vec2 off = bez_cam.bezier_simple_2D(t);
-                    offset.x=off.x;
-                    offset.z=off.y;
-                    bez_cam.print_test(dT/10.0f);
-                }
+                float time = glfwGetTime();
+                dT = time - bezier_start;
+                float bezier_duration = 10.0f;
+                if (dT < bezier_duration) {
+                    // angle
+                    vec2 off_bez_angle = bez_angle.bezier(dT/bezier_duration);
+                    GLfloat xoffset = cameraSpeed * 200;
+                    xoffset *= off_bez_angle.x;
+                    yaw_cam -= xoffset;
+                    check_pitch();
+                    glm::vec3 front;
+                    front.x = cos(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
+                    front.y = sin(glm::radians(pitch_cam));
+                    front.z = sin(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
+                    cameraFront = glm::normalize(front);
 
+                    // position
+                    vec2 off_bez = bez_pos.bezier(dT / bezier_duration);
+                    offset.x = off_bez.x;
+                    offset.z = off_bez.y;
+
+
+                }
                 break;
         }
-
         ImGui_ImplGlfwGL3_NewFrame();
-
         // 1. Show a simple window
         // Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
         if(default_window)
@@ -552,6 +568,9 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Camera Speed", &cameraSpeed_F, 0.0f, 5.0f);
                 ImGui::InputFloat("Camera y position", &offset.x, 0.01f, 1.0f);
                 ImGui::InputFloat("Camera x position", &offset.z, 0.01f, 1.0f);
+                ImGui::SliderFloat("Front x", &cameraFront.x, 0.01f, 1.0f);
+                ImGui::SliderFloat("Front y", &cameraFront.y, 0.01f, 1.0f);
+                ImGui::SliderFloat("Front z", &cameraFront.z, 0.01f, 1.0f);
             }
             if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderFloat("Duration (ms)", &daynight_pace, 4000.0f, 12000.0f);
