@@ -51,7 +51,8 @@ int cameraMode=CAM_DEFAULT;
 float cameraSpeed_F=.25f;
 float bezier_start=0.0f;
 float dT=0.0f;
-Bezier bez;
+Bezier bez_cam;
+Bezier bez_speed;
 
 // Delta time
 float deltaTime = 0.0f;    // Time between current frame and last frame
@@ -256,6 +257,23 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
     }
     if (keys[GLFW_KEY_3]){
         cameraMode=CAM_BEZIER;
+        bez_cam.empty_points();
+        bez_speed.empty_points();
+
+        vec2 p1=vec2(1.0f,0.0f);
+        vec2 p2=vec2(1.0f,-1.0f);
+        vec2 p3=vec2(.6f,-.8f); // third waypoint
+
+        bez_cam.add_point(vec2(offset.x,offset.z));
+        bez_cam.add_point(p1);
+        bez_cam.add_point(p2);
+        bez_cam.add_point(p3);
+
+        bez_speed.add_point(vec2(offset.x,offset.z));
+        bez_speed.add_point(p1);
+        bez_speed.add_point(p2);
+        bez_speed.add_point(p3);
+
         bezier_start=glfwGetTime();
         cout << cameraMode << endl;
     }
@@ -279,8 +297,6 @@ void move_terrain() {
 
     // Camera controls
     float cameraSpeed = cameraSpeed_F * deltaTime;
-    if(cameraMode==CAM_FPS)
-        cameraSpeed = cameraSpeed_F*.1*deltaTime;
 
     if (keys[GLFW_KEY_W] || lastkey==GLFW_KEY_W){// move on terrain
         if(intensity>0)
@@ -505,22 +521,12 @@ int main(int argc , char *argv[]) {
             case CAM_BEZIER:
                 float time=glfwGetTime();
                 dT= time-bezier_start;
-                vec2 p1=vec2(-1.0f,0.0f);
-                vec2 p2=vec2(0.0f,-1.0f);
-                vec2 p3=vec2(-1.0f,1.0f); // third waypoint
-                float steps=100.0f;
-                float increment=1.0f/steps;
                 if(dT!=0.0f && dT<10.0f){
-
-                    bez.add_point(vec2(offset.x,offset.z));
-                    bez.add_point(p1);
-                    bez.add_point(p2);
-                    bez.add_point(p3);
                     vec2 t=vec2(dT/10.0f);
-                    vec2 off = bez.bezier_simple_2D(t);
+                    vec2 off = bez_cam.bezier_simple_2D(t);
                     offset.x=off.x;
                     offset.z=off.y;
-                    bez.print_test();
+                    bez_cam.print_test(dT/10.0f);
                 }
 
                 break;

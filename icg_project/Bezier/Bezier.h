@@ -12,6 +12,7 @@
 
 class Bezier {
 public:
+    // TODO replace by base Bezier function
     double bezier_simple(double A ,  // Start value
                          double B ,  // First control value
                          double C ,  // Second control value
@@ -45,7 +46,7 @@ public:
     }
     void add_point(glm::vec2 point){
         points.push_back(point);
-        n_points++;
+        n_points=points.size();
     }
 
     void empty_points(){
@@ -58,18 +59,27 @@ public:
             cout << endl << "point: " << vec.x << ", "<< vec.y << ", " << endl;
         }
     }
-    void print_test(){ // simply print first point
-        cout << endl << points.at(1).x << endl;
-        cout << endl << points.at(2).x << endl;
+    void print_test(float t){ // simply print first point
+        cout << bezier(t,n_points-1);
     }
 
 
 private:
     vector<glm::vec2> points;
-    int n_points = 1;
+    int n_points;
+
+    float bezier(float t, int n){
+        float sum;
+        for(int i=0;i<n;i++){
+            cout << "i : " << i << endl;
+            sum+=points.at(i).x*bernstein(t,n, i);
+        }
+        return sum;
+    }
 
     float bernstein(double t , int n , int i) {
-        return binomial(n , i) * pow(t , i) * pow(1 - t , n - i);
+        float bezier_nt=binomial(n , i)  * pow(1 - t , n - i) * pow(t , i);
+        return bezier_nt;
     }
 
     float binomial(int n , int k) {
