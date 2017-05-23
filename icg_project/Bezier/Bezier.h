@@ -1,6 +1,3 @@
-//
-// Created by Cyril Wendl on 23.05.17.
-//
 #pragma once
 
 #include <GL/glew.h>
@@ -36,7 +33,6 @@ public:
         }
         return bezier;
     }
-
 
 private:
     vector<glm::vec2> points;

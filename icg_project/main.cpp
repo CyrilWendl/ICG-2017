@@ -290,14 +290,15 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
         bezier_start = glfwGetTime();
     }
     if (keys[GLFW_KEY_J]) {//jumping
-        jump=true;
-        bez_jump.empty_points();
-        bez_angle.empty_points();
-        bez_jump.add_point(vec2(tex[0]+.5));
-        bez_jump.add_point(vec2(tex[0]+.7));
-        bez_jump.add_point(vec2(tex[0]+.5));
-
-        bezier_start = glfwGetTime();
+        if(!jump){
+            jump=true;
+            bez_jump.empty_points();
+            bez_angle.empty_points();
+            bez_jump.add_point(vec2(tex[0]+.5));
+            bez_jump.add_point(vec2(tex[0]+.9));
+            bez_jump.add_point(vec2(tex[0]+.5));
+            bezier_start = glfwGetTime();
+        }
     }
 }
 
