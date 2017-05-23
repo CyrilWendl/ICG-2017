@@ -40,7 +40,11 @@ GLfloat pitch_cam = -90.0f*(3.0f/10.0f);
 double lastX = window_width / 2.0;
 double lastY = window_height / 2.0;
 GLfloat fov = 45.0f;
+
 bool keys[1024];
+int lastkey = GLFW_KEY_X;
+int nkeys = 0;
+
 string cameraMode=CAM_DEFAULT;
 float cameraSpeed_F=.25f;
 
@@ -52,7 +56,6 @@ float pressTime = 0.0f;
 float pressedTime = 0.0f;
 float timeDiff = 200.0f;
 int mode=0;
-char lastkey = 'X';
 
 FrameBuffer framebuffer;
 FrameBuffer reflection_buffer;
@@ -211,15 +214,24 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
         glfwSetWindowShouldClose(window , GL_TRUE);
     if (key >= 0 && key < 1024) {
         if (action == GLFW_PRESS) {
-            pressTime = glfwGetTime(); // measure time between key is pressed and released for slow movement
+            if(nkeys==0){ // only for the first pressed key, measure the time
+                pressedTime=timeDiff;
+                pressTime = glfwGetTime(); // measure time between key is pressed and released for slow movement
+            }
             keys[key] = true;
+            nkeys++;
         } else if (action == GLFW_RELEASE) {
-            releaseTime = glfwGetTime();
             float speed=2.0; // inertia parameter
-            pressedTime = (releaseTime-pressTime)*speed;
-            if(pressedTime>3.0f)
-                pressedTime=3.0f;
+            if(nkeys==1) { // only for the first pressed key, measure the time
+                releaseTime = glfwGetTime();
+                pressedTime = (releaseTime - pressTime) * speed;
+                if(pressedTime>3.0f){
+                    pressedTime=3.0f;
+                }
+            }
             keys[key] = false;
+            lastkey = key;
+            nkeys--;
         }
     }
     if (keys[GLFW_KEY_X]){// debug
@@ -249,46 +261,43 @@ void check_pitch(){
 
 void move_terrain() {
     timeDiff = (glfwGetTime()-releaseTime);
+    cout << timeDiff << endl;
 
-    float intensity = (pressedTime - timeDiff)/pressedTime;
+    float intensity = std::fmax((pressedTime - timeDiff)/pressedTime,0);
 
-    if (intensity<0)
-        lastkey='X';
+    if (intensity==0)
+        lastkey=GLFW_KEY_X;
 
     // Camera controls
     float cameraSpeed = cameraSpeed_F * deltaTime;
     if(cameraMode==CAM_FPS)
         cameraSpeed = cameraSpeed_F*.1*deltaTime;
 
-    if (keys[GLFW_KEY_W] || (timeDiff < pressedTime && lastkey=='W')){// move on terrain
-        lastkey='W';
-        if (timeDiff>0 && intensity>0)
+    if ((keys[GLFW_KEY_W]&&intensity==0) || (lastkey==GLFW_KEY_W&&intensity>0)){// move on terrain
+        if(intensity>0)
+            //cout << intensity << endl;
             cameraSpeed *= intensity;
         offset += cameraSpeed * cameraFront;
     }
-    if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey=='S')){
-        lastkey='S';
-        if (timeDiff>0 && intensity>0)
+    if (keys[GLFW_KEY_S] || (timeDiff < pressedTime && lastkey==GLFW_KEY_S)){
+        if(intensity>0)
             cameraSpeed *= intensity;
         offset -= cameraSpeed * cameraFront;
     }
-    if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey=='R')){
-        lastkey='R';
-        if (timeDiff>0 && intensity>0)
+    if (keys[GLFW_KEY_R] || (timeDiff < pressedTime && lastkey==GLFW_KEY_R)){
+        if(intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y -= 10*cameraSpeed;
     }
-    if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey=='T')){
-        lastkey='T';
-        if (timeDiff>0 && intensity>0)
+    if (keys[GLFW_KEY_T] || (timeDiff < pressedTime && lastkey==GLFW_KEY_T)){
+        if(intensity>0)
             cameraSpeed *= intensity;
         cameraPos.y += 10*cameraSpeed;;
     }
-    if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey=='A')){
-        lastkey='A';
+    if (keys[GLFW_KEY_A] || (timeDiff < pressedTime && lastkey==GLFW_KEY_A)){
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
         GLfloat xoffset = cameraSpeed* 300;    // Change this value to your liking
-        if (timeDiff>0 && intensity>0)
+        if(intensity>0)
             xoffset *= intensity;
         yaw_cam -= xoffset;
         check_pitch();
@@ -298,11 +307,10 @@ void move_terrain() {
         front.z = sin(glm::radians(yaw_cam)) * cos(glm::radians(pitch_cam));
         cameraFront = glm::normalize(front);
     }
-    if (keys[GLFW_KEY_D] || (timeDiff < pressedTime && lastkey=='D')){
-        lastkey='D';
+    if (keys[GLFW_KEY_D] || (timeDiff < pressedTime && lastkey==GLFW_KEY_D)){
         //cameraPos -= glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed
         GLfloat xoffset = cameraSpeed* 300;    // Change this value to your liking
-        if (timeDiff>0 && intensity>0)
+        if(intensity>0)
             xoffset *= intensity;
         yaw_cam += xoffset;
         check_pitch();
@@ -313,11 +321,10 @@ void move_terrain() {
         cameraFront = glm::normalize(front);
     }
 
-    if (keys[GLFW_KEY_Q] || (timeDiff < pressedTime && lastkey=='Q')){
-        lastkey='Q';
+    if (keys[GLFW_KEY_Q] || (timeDiff < pressedTime && lastkey==GLFW_KEY_Q)){
         //cameraPos += glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed;
         GLfloat yoffset = cameraSpeed * 300;
-        if (timeDiff>0 && intensity>0)
+        if(intensity>0)
             yoffset *= intensity;
         pitch_cam += yoffset;
         check_pitch();
@@ -328,11 +335,10 @@ void move_terrain() {
         cameraFront = glm::normalize(front);
     }
 
-    if (keys[GLFW_KEY_E] || (timeDiff < pressedTime && lastkey=='E')){
-        lastkey='E';
+    if (keys[GLFW_KEY_E] || (timeDiff < pressedTime && lastkey==GLFW_KEY_E)){
         //cameraPos += glm::normalize(glm::cross(cameraFront , cameraUp)) * cameraSpeed;
         GLfloat yoffset = cameraSpeed * 300;
-        if (timeDiff>0 && intensity>0)
+        if(intensity>0)
             yoffset *= intensity;
         pitch_cam -= yoffset;
         check_pitch();
