@@ -57,7 +57,8 @@ file(GLOB SHADERS
   grid/*.glsl
   water/*.glsl
   quad/*.glsl
-  skybox/*.glsl)
+  skybox/*.glsl
+  particles/*.glsl)
 deploy_shaders_to_build_dir(${SHADERS})
 
 add_executable(${EXERCISENAME} ${SOURCES} ${HEADERS} ${SHADERS})
