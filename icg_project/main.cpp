@@ -11,12 +11,14 @@
 #include "quad/quad.h"
 #include "water/water.h"
 #include "skybox/skybox.h"
+#include "Bezier/Bezier.h"
 #include "framebuffer.h"
 #include "imgui-master/imgui.h"
 #include "imgui-master/imgui_impl_glfw_gl3.h"
 
-#define CAM_DEFAULT "Camera: Default"
-#define CAM_FPS "Camera: FPS"
+#define CAM_DEFAULT 1
+#define CAM_FPS 2
+#define CAM_BEZIER 3
 #define TEX_HEIGHT 1024
 #define TEX_WIDTH 1024
 #define TEX_BITS 1
@@ -45,8 +47,11 @@ bool keys[1024];
 int lastkey = GLFW_KEY_X;
 int nkeys = 0;
 
-string cameraMode=CAM_DEFAULT;
+int cameraMode=CAM_DEFAULT;
 float cameraSpeed_F=.25f;
+float bezier_start=0.0f;
+float dT=0.0f;
+Bezier bez;
 
 // Delta time
 float deltaTime = 0.0f;    // Time between current frame and last frame
@@ -241,12 +246,17 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
         cout << "offset x:    " << offset.x << endl;
         cout << "offset y:    " << offset.y << endl;
     }
-    if (keys[GLFW_KEY_F]){
-        if(cameraMode==CAM_DEFAULT){
-            cameraMode=CAM_FPS;
-        } else {
-            cameraMode=CAM_DEFAULT;
-        }
+    if (keys[GLFW_KEY_1]){
+        cameraMode=CAM_DEFAULT;
+        cout << cameraMode << endl;
+    }
+    if (keys[GLFW_KEY_2]){
+        cameraMode=CAM_FPS;
+        cout << cameraMode << endl;
+    }
+    if (keys[GLFW_KEY_3]){
+        cameraMode=CAM_BEZIER;
+        bezier_start=glfwGetTime();
         cout << cameraMode << endl;
     }
 }
@@ -261,7 +271,6 @@ void check_pitch(){
 
 void move_terrain() {
     timeDiff = (glfwGetTime()-releaseTime);
-    cout << timeDiff << endl;
 
     float intensity = std::fmax((pressedTime - timeDiff)/pressedTime,0);
 
@@ -273,7 +282,7 @@ void move_terrain() {
     if(cameraMode==CAM_FPS)
         cameraSpeed = cameraSpeed_F*.1*deltaTime;
 
-    if ((keys[GLFW_KEY_W]&&intensity==0) || (lastkey==GLFW_KEY_W&&intensity>0)){// move on terrain
+    if (keys[GLFW_KEY_W] || lastkey==GLFW_KEY_W){// move on terrain
         if(intensity>0)
             //cout << intensity << endl;
             cameraSpeed *= intensity;
@@ -393,7 +402,6 @@ void scroll_callback(GLFWwindow *window , double xoffset , double yoffset) {
         fov = 45.0f;
 }
 
-
 int main(int argc , char *argv[]) {
     // GLFW Initialization
     if (!glfwInit()) {
@@ -487,10 +495,35 @@ int main(int argc , char *argv[]) {
         // Get the uniform locations
         //GLint projLoc = glGetUniformLocation(grid., "projection");
         //glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-        if(cameraMode==CAM_FPS){
-            if(tex[0]<.2)
-                tex[0]=.2;
-            cameraPos.y=tex[0]+.5;
+        switch(cameraMode){
+            case CAM_FPS:
+                if(tex[0]<.2)
+                    tex[0]=.2;
+                cameraPos.y=tex[0]+.5;
+                break;
+
+            case CAM_BEZIER:
+                float time=glfwGetTime();
+                dT= time-bezier_start;
+                vec2 p1=vec2(-1.0f,0.0f);
+                vec2 p2=vec2(0.0f,-1.0f);
+                vec2 p3=vec2(-1.0f,1.0f); // third waypoint
+                float steps=100.0f;
+                float increment=1.0f/steps;
+                if(dT!=0.0f && dT<10.0f){
+
+                    bez.add_point(vec2(offset.x,offset.z));
+                    bez.add_point(p1);
+                    bez.add_point(p2);
+                    bez.add_point(p3);
+                    vec2 t=vec2(dT/10.0f);
+                    vec2 off = bez.bezier_simple_2D(t);
+                    offset.x=off.x;
+                    offset.z=off.y;
+                    bez.print_test();
+                }
+
+                break;
         }
 
         ImGui_ImplGlfwGL3_NewFrame();
@@ -511,6 +544,8 @@ int main(int argc , char *argv[]) {
             }
             if (ImGui::CollapsingHeader("Camera Parameters", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderFloat("Camera Speed", &cameraSpeed_F, 0.0f, 5.0f);
+                ImGui::InputFloat("Camera y position", &offset.x, 0.01f, 1.0f);
+                ImGui::InputFloat("Camera x position", &offset.z, 0.01f, 1.0f);
             }
             if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderFloat("Duration (ms)", &daynight_pace, 4000.0f, 12000.0f);
@@ -522,7 +557,7 @@ int main(int argc , char *argv[]) {
                 ImGui::BulletText("Use the keys Q and E to look up and down");
                 ImGui::BulletText("Use the keys A and D to look right and left");
                 ImGui::TextWrapped("Camera:\n");
-                ImGui::BulletText("Use the key F to toggle FPS (first-person shooter) navigation mode");
+                ImGui::BulletText("Use the keys F to toggle FPS (first-person shooter) navigation mode");
                 ImGui::TextWrapped("GUI:\n");
                 ImGui::ShowUserGuide();
             }
@@ -533,7 +568,7 @@ int main(int argc , char *argv[]) {
         if (show_camera_window)
         {
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-            //ImGui::ShowTestWindow(&show_camera_window);
+            ImGui::ShowTestWindow(&show_camera_window);
         }
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
