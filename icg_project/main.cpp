@@ -269,14 +269,13 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
 
 
         // waypoints
-        vec2 p1 = vec2(offset.x + 1.0f , 0.0f); //|  1,1 |  1,-1 |
-        vec2 p2 = vec2(1.0f , offset.z - 1.0f);//| -1,1 | -1,-1 |
-        vec2 p3 = vec2(offset.x + 1.0f , offset.z + 1.0f);
+        vec2 p1 = vec2(offset.x + 3.0f , 3.0f); //|  1,1 |  1,-1 |
+        vec2 p2 = vec2(3.0f , offset.z - 3.0f);//| -1,1 | -1,-1 |
+        vec2 p3 = vec2(offset.x + 3.0f , offset.z + 3.0f);
 
         bez_pos.add_point(vec2(offset.x , offset.z));
         bez_pos.add_point(p2);
         bez_pos.add_point(p1);
-        bez_pos.add_point(vec2(offset.x , offset.z));
 
         //bez_pos.add_point(p3);
 
@@ -546,7 +545,7 @@ int main(int argc , char *argv[]) {
                 if (cameraPos.y < tex[0] + .5)
                     cameraPos.y = tex[0] + .5;
                 time = glfwGetTime();
-                bezier_duration = 10.0f*bezier_speed;
+                bezier_duration = 30.0f*bezier_speed;
                 dT = time - bezier_start;
                 if (dT < bezier_duration) {
                     // position
@@ -614,8 +613,11 @@ int main(int argc , char *argv[]) {
                 ImGui::BulletText("Use the keys Q and E to look up and down");
                 ImGui::BulletText("Use the keys A and D to look right and left");
                 ImGui::BulletText("Use the keys A and D to look right and left");
-                ImGui::TextWrapped("Camera:\n");
-                ImGui::BulletText("Use the keys F to toggle FPS (first-person shooter) navigation mode");
+                ImGui::TextWrapped("Camera modes:\n");
+                ImGui::BulletText("1: Default (free navigation)");
+                ImGui::BulletText("2: FPS (first-person shooter)");
+                ImGui::BulletText("3: Bezier");
+                ImGui::TextWrapped("J: Jump\n");
                 ImGui::TextWrapped("GUI:\n");
                 ImGui::ShowUserGuide();
             }
