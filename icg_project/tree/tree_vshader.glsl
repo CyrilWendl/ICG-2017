@@ -12,7 +12,7 @@ uniform float time;
 uniform float tree_height;
 uniform float offset_x;
 uniform float offset_y;
-uniform bool IsSecondQuad;
+uniform int IsSecondQuad;
 uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
 
 
@@ -24,7 +24,7 @@ void main() {
     vec3 pos = position;
     pos +=8.*vec3(-offset_x,-offset_y,1.0/8.0);     // to keep the tree in place
 
-    if (IsSecondQuad)
+    if (IsSecondQuad == 1)
         uv = position.xz;//(position.xz + vec2(1.0)) / 2.0;
     else
          uv = position.yz;

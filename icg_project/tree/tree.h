@@ -206,16 +206,17 @@ class Tree {
             // pass parameters
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
-            bool IsSecondQuad = false;
+            int IsSecondQuad = 0;
             glUniform1f(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
 
 
             // draw
             //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_INT,0);
-            IsSecondQuad = true;
-            glUniform1f(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
-            glDrawRangeElements(GL_TRIANGLE_STRIP, 6, 11, 6, GL_UNSIGNED_INT,BUFFER_OFFSET(6*sizeof(GLuint)));
+            glUniform1i(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
+            glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_INT,0);        // first quad
+            IsSecondQuad = 1;
+            glUniform1i(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
+            glDrawRangeElements(GL_TRIANGLE_STRIP, 6, 11, 6, GL_UNSIGNED_INT,BUFFER_OFFSET(6*sizeof(GLuint)));  // second quad
             //glDrawArrays(GL_TRIANGLE_STRIP, 4, 4);
 
             glBindVertexArray(0);
