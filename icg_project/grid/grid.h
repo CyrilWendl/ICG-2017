@@ -249,7 +249,7 @@ public:
 
             // texture uniforms
             GLuint tex_sand_id = glGetUniformLocation(program_id_ , "tex_sand");
-            glUniform1i(tex_snow_id , 4 ); //GL_TEXTURE4
+            glUniform1i(tex_sand_id , 4 ); //GL_TEXTURE4
 
             // cleanup
             glBindTexture(GL_TEXTURE_2D , 0);
