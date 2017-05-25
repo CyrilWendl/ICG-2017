@@ -201,7 +201,7 @@ void Display() {
     skybox.Draw(projection_matrix * view * quad_model_matrix, time);
     grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
-    tree.Draw(time, projection_matrix * view_matrix * quad_model_matrix, offset.x, offset.z);
+    tree.Draw(time, projection_matrix * view_matrix * quad_model_matrix, 2.0f, offset.x, offset.z);
 
 }
 

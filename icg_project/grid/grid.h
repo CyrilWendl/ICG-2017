@@ -58,7 +58,6 @@ public:
             int grid_dim = 1024+1;      // number of lateral vertices                              CHANGE HERE DIMENSION OF GRID
 
             // vertex position of the triangles.
-            // TODO consider replacing with native function
             for (float i = -(grid_dim / 2); i <= (grid_dim / 2); ++i) {
                 for (float j = -(grid_dim / 2); j <= (grid_dim / 2); ++j) {
                     vertices.push_back(float(i) / float(grid_dim / 32));// grid going from -16 to +16

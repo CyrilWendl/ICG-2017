@@ -12,10 +12,11 @@ class Tree {
         GLuint vertex_buffer_object_index_;     // memory buffer for indices
         GLuint program_id_;                     // GLSL shader program ID
         GLuint vertex_buffer_object_;   // memory buffer
-        GLuint tex_id_;                     // texture ID terrain
+        GLuint tex_terrain_id_;                     // texture ID terrain
         GLuint texture_id_;                  // texture ID tree
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // Model, view, projection matrix ID
+        GLuint height_id_;
 
     public:
         void Init(GLuint tex_noise = -1) {
@@ -33,7 +34,7 @@ class Tree {
             glGenVertexArrays(1, &vertex_array_id_);
             glBindVertexArray(vertex_array_id_);
             float tree_size = .04f;
-            float tree_height = .5f;
+            float tree_height = .01f;
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
 
@@ -82,7 +83,7 @@ class Tree {
 
             // load terrain
             {
-                tex_id_ = tex_noise;
+                tex_terrain_id_ = tex_noise;
                 // texture uniforms
                 GLuint tex_id = glGetUniformLocation(program_id_ , "texNoise");
                 glUniform1i(tex_id , 0 /*GL_TEXTURE0*/);
@@ -108,6 +109,7 @@ class Tree {
 
                 glGenTextures(1, &texture_id_);
                 glBindTexture(GL_TEXTURE_2D, texture_id_);
+                glGenerateMipmap(GL_TEXTURE_2D);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -122,7 +124,7 @@ class Tree {
                 // texture uniforms
                 GLuint tex_id = glGetUniformLocation(program_id_, "tex");
                 glUseProgram(program_id_);
-                glUniform1i(tex_id, 0 /*GL_TEXTURE0*/);
+                glUniform1i(tex_id, 1 /*GL_TEXTURE1*/);
 
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -133,6 +135,7 @@ class Tree {
             {
                 MVP_id_ = glGetUniformLocation(program_id_, "MVP");
                 glUniform1f(glGetUniformLocation(program_id_, "tree_height"), tree_height);
+                height_id_ = glGetUniformLocation(program_id_, "height");
             }
 
             // to avoid the current object being polluted
@@ -146,42 +149,40 @@ class Tree {
             glDeleteBuffers(1, &vertex_buffer_object_);
             glDeleteProgram(program_id_);
             glDeleteVertexArrays(1, &vertex_array_id_);
-            glDeleteTextures(1, &tex_id_);
+            glDeleteTextures(1, &tex_terrain_id_);
             glDeleteTextures(1, &texture_id_);
         }
 
 
 
-        void Draw(float time, const glm::mat4& MVP, float offset_x, float offset_y) {
+        void Draw(float time, const glm::mat4& MVP, float height, float offset_x, float offset_y) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
             // bind textures
+            // terrain texture
             glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, tex_terrain_id_);
+
+            // tree texture
+            glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_2D, texture_id_);
 
             // pass the current time stamp to the shader.
             glUniform1f(glGetUniformLocation(program_id_, "time"), time);
 
             // setup MVP
-            GLuint MVP_id = glGetUniformLocation(program_id_, "MVP");
-            glUniformMatrix4fv(MVP_id, 1, GL_FALSE, value_ptr(MVP));
+            glUniformMatrix4fv(MVP_id_, 1, GL_FALSE, value_ptr(MVP));
 
             // pass parameters
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
-            int IsSecondQuad = 0;
-            glUniform1f(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
+            glUniform1f(height_id_, height);
 
 
             // draw
             //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glUniform1i(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
-            glDrawElements(GL_TRIANGLE_STRIP, 6, GL_UNSIGNED_INT,0);        // first quad
-            IsSecondQuad = 1;
-            glUniform1i(glGetUniformLocation(program_id_, "IsSecondQuad"), IsSecondQuad);
-            glDrawRangeElements(GL_TRIANGLE_STRIP, 6, 11, 6, GL_UNSIGNED_INT,BUFFER_OFFSET(6*sizeof(GLuint)));  // second quad
-            //glDrawArrays(GL_TRIANGLE_STRIP, 4, 4);
+            glDrawElements(GL_TRIANGLE_STRIP, num_indices_, GL_UNSIGNED_INT, 0);
 
             glBindVertexArray(0);
             glUseProgram(0);

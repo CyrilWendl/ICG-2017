@@ -34,7 +34,7 @@ void main() {
     // convert the 2D position into 3D positions that all lay in a horizontal
     // plane.
     height = float(texture(texNoise,uv).x); // divide by a scaling factor
-    vec3 pos_3d = vec3(position.x, height, position.y); // or position instead of uv
+    vec3 pos_3d = vec3(position.x, height, position.y);
 
     //clipping planes for reflection (Clipping all that's under the water)
     vec4 planeClip = vec4(0.0, 1.0, 0.0, -0.18);
