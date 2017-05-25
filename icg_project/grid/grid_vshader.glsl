@@ -16,8 +16,6 @@ out vec2 uv;
 uniform mat4 MVP;
 uniform float time;
 
-uniform float clipped;
-
 uniform mat4 projection;
 uniform mat4 model;
 uniform mat4 view;
@@ -39,10 +37,10 @@ void main() {
     vec3 pos_3d = vec3(position.x, height, position.y); // or position instead of uv
 
     //clipping planes for reflection (Clipping all that's under the water)
-    if(clipped == 1) {
+
         vec4 planeClip = vec4(0.0, 1.0, 0.0, -0.18);
         gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
-    }
+
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);
     gl_Position = MVP * vec4(pos_3d, 1.0);

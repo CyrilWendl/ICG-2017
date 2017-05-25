@@ -21,9 +21,6 @@
 #define TEX_WIDTH 1024
 #define TEX_BITS 1
 
-#define CLIPPED 1
-#define UNCLIPPED 0
-
 int window_width = 800;
 int window_height = 600;
 
@@ -200,14 +197,14 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_pace);
-        grid.Draw(time, daynight_pace , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, CLIPPED);
+        grid.Draw(time, daynight_pace , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
-    grid.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, UNCLIPPED);
+    grid.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix);
 }
 
