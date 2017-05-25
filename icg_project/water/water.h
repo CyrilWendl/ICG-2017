@@ -12,11 +12,12 @@ class Water : public Light{
         GLuint program_id_;                     // GLSL shader program ID
         GLuint texture_id_;                     // texture ID
         GLuint texture_mirror_id_;              // texture mirror ID
+        GLuint texture_refract_id_;             // texture refract ID
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // model, view, proj matrix ID
 
     public:
-        void Init(GLuint texWater = -1) {
+        void Init(GLuint tex_mirror = -1, GLuint tex_refract = -1) {
             // compile the shaders.
             program_id_ = icg_helper::LoadShaders("water_vshader.glsl",
                                                   "water_fshader.glsl");
@@ -112,7 +113,8 @@ class Water : public Light{
                                  GL_RGBA, GL_UNSIGNED_BYTE, image);
                 }
 
-                texture_mirror_id_ = (texWater ==-1)? texture_id_ : texWater;
+                texture_mirror_id_ = (tex_mirror ==-1)? texture_id_ : tex_mirror;
+                texture_refract_id_ = (tex_refract == -1)? texture_id_ : tex_refract;
 
                 // texture uniforms
                 GLuint tex_id = glGetUniformLocation(program_id_, "texWater");
@@ -121,6 +123,10 @@ class Water : public Light{
                 // reflection texture uniform
                 GLuint tex_mirror_id = glGetUniformLocation(program_id_, "tex_mirror");
                 glUniform1i(tex_mirror_id, 1 /*GL_TEXTURE1*/);
+
+                // refraction texture uniform
+                GLuint tex_refract_id = glGetUniformLocation(program_id_, "tex_refract");
+                glUniform1i(tex_refract_id, 2 /*GL_TEXTURE2*/);
 
                 // cleanup
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -144,6 +150,7 @@ class Water : public Light{
             glDeleteProgram(program_id_);
             glDeleteTextures(1, &texture_id_);
             glDeleteTextures(1, &texture_mirror_id_);
+            glDeleteTextures(1, &texture_refract_id_);
         }
 
         void Draw(float time, float daynight_pace, const glm::mat4 &model = IDENTITY_MATRIX,
@@ -167,6 +174,10 @@ class Water : public Light{
             // bind textures
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_2D, texture_mirror_id_);
+
+            // bind textures
+            glActiveTexture(GL_TEXTURE2);
+            glBindTexture(GL_TEXTURE_2D, texture_refract_id_);
 
             // setup MVP
             glm::mat4 MVP = projection*view*model;

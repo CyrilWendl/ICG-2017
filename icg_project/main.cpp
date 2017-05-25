@@ -21,8 +21,10 @@
 #define TEX_WIDTH 1024
 #define TEX_BITS 1
 
-#define CLIPPED 1
-#define UNCLIPPED 0
+#define REFLECT_CLIPPED 1
+#define REFLECT_UNCLIPPED 0
+#define REFRACT_CLIPPED 1
+#define REFRACT_UNCLIPPED 0
 
 int window_width = 800;
 int window_height = 600;
@@ -62,6 +64,7 @@ int mode=0;
 
 FrameBuffer framebuffer;
 FrameBuffer reflection_buffer;
+FrameBuffer refraction_buffer;
 Grid grid;
 Quad quad;
 Water water;
@@ -130,6 +133,9 @@ void SetupProjection(GLFWwindow *window , int width , int height) {
 
     reflection_buffer.Cleanup();
     reflection_buffer.Init(window_width, window_height);
+
+    refraction_buffer.Cleanup();
+    refraction_buffer.Init(window_width, window_height);
 }
 
 void ErrorCallback(int error , const char *description) {
@@ -153,10 +159,11 @@ void Init(GLFWwindow *window) {
     glfwGetFramebufferSize(window , &window_width , &window_height);
     GLuint framebuffer_texture_id = framebuffer.Init(TEX_WIDTH , TEX_HEIGHT);
     GLuint reflection_buffer_texid = reflection_buffer.Init(window_width, window_height);
+    GLuint refraction_buffer_texid = refraction_buffer.Init(window_width, window_height);
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
     skybox.Init();
-    water.Init(reflection_buffer_texid);
+    water.Init(reflection_buffer_texid, refraction_buffer_texid);
     quad.Init();
 
 }
@@ -200,14 +207,22 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_pace);
-        grid.Draw(time, daynight_pace , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, CLIPPED);
+        grid.Draw(time, daynight_pace , quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
     }
     reflection_buffer.Unbind();
+
+    refraction_buffer.Bind();
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
+        grid.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
+    }
+    refraction_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
-    grid.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, UNCLIPPED);
+    grid.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
     water.Draw(time, daynight_pace, quad_model_matrix , view_matrix , projection_matrix);
 }
 

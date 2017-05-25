@@ -276,7 +276,8 @@ public:
 
     void Draw(float time, float daynight_pace, const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
-              const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f, float clipped = 0) {
+              const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f,
+              float reflect_clipped = 0.0f, float refract_clipped = 0.0f) {
 
         //Setup model Matrix(for light position)
         float scale = 1.0;
@@ -367,8 +368,11 @@ public:
         // Pass the diffuse parameter depending on the time of the day
         glUniform1f(glGetUniformLocation(program_id_, "diffuse_factor"), diffuse_factor);
 
-        // Used for clipping the terrain (When drawing reflection for instance)
-        glUniform1f(glGetUniformLocation(program_id_, "clipped"), clipped);
+        // Used for clipping the terrain (When drawing reflection)
+        glUniform1f(glGetUniformLocation(program_id_, "reflect_clipped"), reflect_clipped);
+
+        // Used for clipping the terrain (When drawing refraction)
+        glUniform1f(glGetUniformLocation(program_id_, "refract_clipped"), refract_clipped);
 
         // setup matrix stack
         GLint model_id = glGetUniformLocation(program_id_,
