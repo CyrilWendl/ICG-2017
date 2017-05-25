@@ -24,8 +24,23 @@
 #define TEX_WIDTH 1024
 #define TEX_BITS 1
 
+#define REFLECT_CLIPPED 1
+#define REFLECT_UNCLIPPED 0
+#define REFRACT_CLIPPED 1
+#define REFRACT_UNCLIPPED 0
+
 int window_width = 800;
 int window_height = 600;
+
+//skybox rotation scale
+float sky_rspeed = 0.02;
+
+// Day night cycle pace
+float daynight_pace = 8000.0f;
+
+// Adjust water height
+float water_height = 0.18f;
+
 
 using namespace glm;
 
@@ -35,7 +50,7 @@ mat4 quad_model_matrix;
 
 // Camera
 glm::vec3 cameraPos = vec3(0.0f , 1.5f , 0.0f);
-glm::vec3 cam_pos_mirr = vec3(cameraPos.x , 0.36 - cameraPos.y , cameraPos.z);
+glm::vec3 cam_pos_mirr = vec3(cameraPos.x, 2 * water_height -cameraPos.y, cameraPos.z);
 glm::vec3 cameraFront = vec3(0.0f , -.3f , -.7f);
 glm::vec3 cameraUp = vec3(0.0f , 1.0f , 0.0f);
 GLfloat yaw_cam = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
@@ -71,16 +86,11 @@ bool jump = false;
 
 FrameBuffer framebuffer;
 FrameBuffer reflection_buffer;
+FrameBuffer refraction_buffer;
 Grid grid;
 Quad quad;
 Water water;
 Skybox skybox;
-
-//skybox rotation scale
-float sky_rspeed = 0.02;
-
-// Day night cycle pace
-float daynight_pace = 8000.0f;
 
 GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
 
@@ -138,7 +148,10 @@ void SetupProjection(GLFWwindow *window , int width , int height) {
     projection_matrix = PerspectiveProjection(-right , right , -top , top , 0.25f , -0.25f);
 
     reflection_buffer.Cleanup();
-    reflection_buffer.Init(window_width , window_height);
+    reflection_buffer.Init(window_width, window_height);
+
+    refraction_buffer.Cleanup();
+    refraction_buffer.Init(window_width, window_height);
 }
 
 void ErrorCallback(int error , const char *description) {
@@ -161,11 +174,14 @@ void Init(GLFWwindow *window) {
     // initialize framebuffer
     glfwGetFramebufferSize(window , &window_width , &window_height);
     GLuint framebuffer_texture_id = framebuffer.Init(TEX_WIDTH , TEX_HEIGHT);
-    GLuint reflection_buffer_texid = reflection_buffer.Init(window_width , window_height);
+
+    GLuint reflection_buffer_texid = reflection_buffer.Init(window_width, window_height);
+    GLuint refraction_buffer_texid = refraction_buffer.Init(window_width, window_height);
+
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
     skybox.Init();
-    water.Init(reflection_buffer_texid);
+    water.Init(reflection_buffer_texid, refraction_buffer_texid);
     quad.Init();
 
 }
@@ -209,16 +225,25 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix , time , daynight_pace);
-        grid.Draw(time , daynight_pace , quad_model_matrix , view_mirr , projection_matrix , offset.x , offset.z);
+        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_pace);
+        grid.Draw(time, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
     }
     reflection_buffer.Unbind();
 
+    refraction_buffer.Bind();
+    {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        //skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
+        grid.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
+    }
+    refraction_buffer.Unbind();
+
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    skybox.Draw(projection_matrix * view_rot * quad_model_matrix , time , daynight_pace);
-    grid.Draw(time , daynight_pace , quad_model_matrix , view_matrix , projection_matrix , offset.x , offset.z);
-    water.Draw(time , daynight_pace , quad_model_matrix , view_matrix , projection_matrix);
+
+    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
+    grid.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
+    water.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix);
 }
 
 // Is called whenever a key is pressed/released via GLFW
@@ -519,7 +544,7 @@ int main(int argc , char *argv[]) {
         glfwPollEvents();
         move_terrain();
         // update mirror camera postion
-        cam_pos_mirr = vec3(cameraPos.x , 0.36 - cameraPos.y , cameraPos.z);
+        cam_pos_mirr = vec3(cameraPos.x, 2 * water_height-cameraPos.y, cameraPos.z);
 
         // Camera/View transformation
         //glm::mat4 view;
@@ -604,8 +629,11 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Front y" , &cameraFront.y , 0.01f , 1.0f);
                 ImGui::SliderFloat("Front z" , &cameraFront.z , 0.01f , 1.0f);
             }
-            if (ImGui::CollapsingHeader("Day/Night Cycle" , ImGuiTreeNodeFlags_DefaultOpen)) {
-                ImGui::SliderFloat("Duration (ms)" , &daynight_pace , 4000.0f , 12000.0f);
+            if (ImGui::CollapsingHeader("Water Height", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderFloat("Height", &water_height, 0.0f, 0.4f);
+            }
+            if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderFloat("Duration (ms)", &daynight_pace, 4000.0f, 12000.0f);
             }
             if (ImGui::CollapsingHeader("Help")) {
                 ImGui::TextWrapped("Navigation:\n");

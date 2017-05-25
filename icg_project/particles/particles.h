@@ -36,20 +36,22 @@ class Particles: public Particle{
 
             // vertex coordinates
             {
-                const GLfloat vertex_point[] = { /*V1*/ -2.0f, -2.0f, 0.0f,
-                                                 /*V2*/ +2.0f, -2.0f, 0.0f,
-                                                 /*V3*/ -2.0f, +2.0f, 0.0f,
-                                                 /*V4*/ +2.0f, +2.0f, 0.0f};
+                const GLfloat particle_quad[] = {
+                    -0.5f, -0.5f, 0.0f,
+                     0.5f, -0.5f, 0.0f,
+                     -0.5f, 0.5f, 0.0f,
+                     0.5f, 0.5f, 0.0f,
+                    };
                 // buffer
                 glGenBuffers(1, &vertex_buffer_object_);
                 glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object_);
-                glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_point),
-                             vertex_point, GL_STATIC_DRAW);
+                glBufferData(GL_ARRAY_BUFFER, sizeof(particle_quad),
+                             particle_quad, GL_STATIC_DRAW);
 
                 // attribute
                 GLuint vertex_point_id = glGetAttribLocation(program_id_, "vpoint");
                 glEnableVertexAttribArray(vertex_point_id);
-                glVertexAttribPointer(vertex_point_id, 3, GL_FLOAT, DONT_NORMALIZE,
+                glVertexAttribPointer(vertex_point_id, 4, GL_FLOAT, DONT_NORMALIZE,
                                       ZERO_STRIDE, ZERO_BUFFER_OFFSET);
             }
 

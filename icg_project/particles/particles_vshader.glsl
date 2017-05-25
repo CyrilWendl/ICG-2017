@@ -1,10 +1,17 @@
-attribute highp vec4 qt_Vertex;
-attribute highp vec4 qt_MultiTexCoord0;
-uniform highp mat4 qt_ModelViewProjectionMatrix;
-varying highp vec4 qt_TexCoord0;
+#version 330 core
+layout (location = 0) in vec4 vertex; // <vec2 position, vec2 texCoords>
 
-void main(void)
+out vec2 TexCoords;
+out vec4 ParticleColor;
+
+uniform mat4 projection;
+uniform vec2 offset;
+uniform vec4 color;
+
+void main()
 {
-    gl_Position = qt_ModelViewProjectionMatrix * qt_Vertex;
-    qt_TexCoord0 = qt_MultiTexCoord0;
+    float scale = 10.0f;
+    TexCoords = vertex.zw;
+    ParticleColor = color;
+    gl_Position = projection * vec4((vertex.xy * scale) + offset, 0.0, 1.0);
 }
