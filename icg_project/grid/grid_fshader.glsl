@@ -14,6 +14,9 @@ uniform sampler2D tex_grass;
 uniform sampler2D tex_rock;
 uniform sampler2D tex_snow;
 uniform sampler2D tex_sand;
+uniform sampler2D tex_ocean;
+
+uniform float water_height;
 
 uniform float offset_x;
 uniform float offset_y;
@@ -27,11 +30,12 @@ void main() {
      vec3 color_grass = texture(tex_grass,(uv+tex_a*offset) * 25).rgb;
      vec3 color_snow  = texture(tex_snow,(uv+tex_a*offset) * 25).rgb;
      vec3 color_sand  = texture(tex_sand,(uv) * 25).rgb;
+     vec3 color_ocean = texture(tex_ocean,(uv+tex_a*offset) * 10).rgb;
 
      float aRock = clamp((1 - 15 * (height- 0.75) * (height - 0.75)),0,1);
      float aGrass= clamp((1 - 5 * (height- 0.4) * (height - 0.4)),0,1);
      float aSnow = clamp((1 - 5 * (height- 1.0f) * (height - 1.0f)),0,1);
-     float aSand = clamp((1 - 500 * (height- .18f) * (height - .18f)),0,1);
+     float aSand = clamp((1 - 500 * (height- water_height) * (height - water_height)),0,1);
      float sum=aRock+aGrass+aSnow+aSand;
 
      //blend textures
@@ -48,6 +52,12 @@ void main() {
      {
         color += kd*Ld*cosDiffuse;
      }
-     color=(color+color_blended)*diffuse_factor*2;
+
+     if(height > water_height)
+     {
+        color=(color+color_blended)*diffuse_factor*2;
+     }else {
+        color=(color+color_ocean)*diffuse_factor*2;
+     }
 
 }
