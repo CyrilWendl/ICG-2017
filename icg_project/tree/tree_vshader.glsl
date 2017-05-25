@@ -24,10 +24,8 @@ void main() {
     vec3 pos = position;
     pos +=8.*vec3(-offset_x,-offset_y,1.0/8.0);     // to keep the tree in place
 
-    if (IsSecondQuad == 1)
-        uv = position.xz;//(position.xz + vec2(1.0)) / 2.0;
-    else
-         uv = position.yz;
+    uv = position.xz;//(position.xz + vec2(1.0)) / 2.0;
+
     height = float(texture(texNoise,pos.xy).x);
     vec3 pos_3d = vec3(pos.x/**AWindx*sin((position.z)*time)*/ , position.z+floor(height)/*+0.7*/, pos.y/**AWindy*sin((position.z)*time)*/);
     //vec3 pos_3d = vec3(pos.x , position.z+height, pos.y);
