@@ -46,7 +46,7 @@ void main() {
 
      if (cosDiffuse > 0.0)
      {
-        color += kd*Ld*cosDiffuse;
+        color += vec4(kd, 1.0f) *vec4(Ld, 1.0f) *cosDiffuse;
      }
 
 
