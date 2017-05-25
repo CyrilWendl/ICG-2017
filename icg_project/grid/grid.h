@@ -32,7 +32,6 @@ private:
     GLuint texture_grass_;                  // grass texture
     GLuint texture_rock_;                   // rock texture
     GLuint texture_snow_;                   // snow texture
-    GLuint texture_sand_;                   // sand texture
     GLuint num_indices_;                    // number of vertices to render
     GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -157,7 +156,7 @@ public:
             glBindTexture(GL_TEXTURE_2D , 0);
             stbi_image_free(image);
 
-            // rock texture
+            // texture 2
             string filename2= "rock.tga";
             // set stb_image to have the same coordinates as OpenGL
             // stbi_set_flip_vertically_on_load(1);
@@ -220,38 +219,6 @@ public:
             // cleanup
             glBindTexture(GL_TEXTURE_2D , 0);
             stbi_image_free(image3);
-
-            // snow texture
-            string filename4= "sand.tga";
-            // set stb_image to have the same coordinates as OpenGL
-            // stbi_set_flip_vertically_on_load(1);
-            unsigned char *image4= stbi_load(filename4.c_str() , &width ,
-                                              &height , &nb_component , 0);
-
-            if (image4 == nullptr) {
-                throw (string("Failed to load texture"));
-            }
-
-            glGenTextures(1 , &texture_sand_);
-            glBindTexture(GL_TEXTURE_2D , texture_sand_);
-            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MAG_FILTER , GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MIN_FILTER , GL_LINEAR);
-
-            if (nb_component == 3) {
-                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
-                             GL_RGB , GL_UNSIGNED_BYTE , image4);
-            } else if (nb_component == 4) {
-                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGBA , width , height , 0 ,
-                             GL_RGBA , GL_UNSIGNED_BYTE , image4);
-            }
-
-            // texture uniforms
-            GLuint tex_sand_id = glGetUniformLocation(program_id_ , "tex_sand");
-            glUniform1i(tex_snow_id , 4 ); //GL_TEXTURE4
-
-            // cleanup
-            glBindTexture(GL_TEXTURE_2D , 0);
-            stbi_image_free(image4);
         }
 
         // other uniforms
@@ -261,6 +228,9 @@ public:
         glBindVertexArray(0);
         glUseProgram(0);
     }
+
+
+
 
     void Cleanup() {
         glBindVertexArray(0);
@@ -273,11 +243,9 @@ public:
         glDeleteTextures(1, &texture_rock_);
     }
 
-    void Draw(float time, float daynight_pace, float water_height,
-              const glm::mat4 &model = IDENTITY_MATRIX,
+    void Draw(float time, const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
-              const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f,
-              float reflect_clipped = 0.0f, float refract_clipped = 0.0f) {
+              const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f) {
 
         //Setup model Matrix(for light position)
         float scale = 1.0;
@@ -303,9 +271,6 @@ public:
         glActiveTexture(GL_TEXTURE3);
         glBindTexture(GL_TEXTURE_2D, texture_snow_);
 
-        glActiveTexture(GL_TEXTURE4);
-        glBindTexture(GL_TEXTURE_2D, texture_sand_);
-
         // setup MVP
         glm::mat4 MVP = projection*view*model;
         glUniformMatrix4fv(MVP_id_, ONE, DONT_TRANSPOSE, glm::value_ptr(MVP));
@@ -318,64 +283,42 @@ public:
 
         Light::Setup(program_id_);
 
-        // Diffuse intensity depending on time of day
         float diffuse_factor = 0.0;
         float diffuse_day = 0.5f;
         float diffuse_sunset = 0.3f;
         float diffuse_night = 0.1;
 
-        // Day/night cycle time frames
-        float pace = daynight_pace;   //uniform
-        float day_start = 0 * pace;
-        float day_end = 1 * pace;
-        float sunset_start = 1.5 * pace;
-        float sunset_end = 2.5 * pace;
-        float night_start = 3 * pace;
-        float night_end = 4 * pace;
-        int next_day = 4.5 * pace;
-
-        // bind appropriate texture for current time
         int time_inst = time * 1000;
-        float time_transition = 1.0f;
-        time_inst = (int)(time_inst * time_transition) % next_day;
-        if(time_inst >= day_start && time_inst < day_end) {
+        time_inst = time_inst % 35000;
+        if(time_inst >= 0 && time_inst < 5000) {
 
             diffuse_factor = diffuse_day;
 
-        } else if(time_inst >= day_end && time_inst < sunset_start) {
+        } else if(time_inst >= 5000 && time_inst < 8000) {
             //diffuse_factor transition from 0.4 to 0.3 (Day to sunset)
-            diffuse_factor = diffuse_day + ((diffuse_sunset - diffuse_day) / (sunset_start - day_end)) * (time_inst - day_end);
+            diffuse_factor = diffuse_day + ((diffuse_sunset - diffuse_day) / (8000.0 - 5000.0f)) * (time_inst - 5000.0f);
 
-        } else if(time_inst >= sunset_start && time_inst < sunset_end) {
+        } else if(time_inst >= 8000 && time_inst < 21000) {
 
             diffuse_factor = diffuse_sunset;
 
-        } else if(time_inst >= sunset_end && time_inst < night_start) {
+        } else if(time_inst >= 21000 && time_inst < 24000) {
 
             //diffuse_factor transition from 0.3 to 0.1 (Sunset to night)
-            diffuse_factor = diffuse_sunset + ((diffuse_night - diffuse_sunset) / (night_start - sunset_end)) * (time_inst - sunset_end);
+            diffuse_factor = diffuse_sunset + ((diffuse_night - diffuse_sunset) / (24000.0f - 21000.0f)) * (time_inst - 21000.0f);
 
-        } else if(time_inst >= night_start && time_inst < night_end) {
+        } else if(time_inst >= 24000 && time_inst < 32000) {
 
             diffuse_factor = diffuse_night;
 
         } else {
             //diffuse_factor transition from 0.1 to 0.4 (Night to Day)
-            diffuse_factor = diffuse_night + ((diffuse_day - diffuse_night) / (next_day - night_end)) * (time_inst - night_end);
+            diffuse_factor = diffuse_night + ((diffuse_day - diffuse_night) / (35000.f - 32000.f)) * (time_inst - 32000.f);
 
         }
 
-        // Pass the water height parameter as uniform
-        glUniform1f(glGetUniformLocation(program_id_, "water_height"), water_height);
-
         // Pass the diffuse parameter depending on the time of the day
         glUniform1f(glGetUniformLocation(program_id_, "diffuse_factor"), diffuse_factor);
-
-        // Used for clipping the terrain (When drawing reflection)
-        glUniform1f(glGetUniformLocation(program_id_, "reflect_clipped"), reflect_clipped);
-
-        // Used for clipping the terrain (When drawing refraction)
-        glUniform1f(glGetUniformLocation(program_id_, "refract_clipped"), refract_clipped);
 
         // setup matrix stack
         GLint model_id = glGetUniformLocation(program_id_,
