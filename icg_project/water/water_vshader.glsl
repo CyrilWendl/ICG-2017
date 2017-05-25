@@ -36,8 +36,9 @@ void main() {
     height += water_height;
     vec3 pos_3d = vec3(position.x, height, position.y);
 
+    gl_Position = MVP * vec4(pos_3d, 1.0);;
+
     vpoint_mv = MV * vec4(pos_3d, 1.0);
-    gl_Position = MVP * vec4(pos_3d, 1.0);
 
     light_dir = light_pos - vpoint_mv.xyz;
     light_dir = normalize(light_dir);

@@ -218,7 +218,7 @@ void Display() {
     refraction_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
+        //skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
         grid.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
     }
     refraction_buffer.Unbind();
