@@ -274,7 +274,8 @@ public:
         glDeleteTextures(1, &texture_rock_);
     }
 
-    void Draw(float time, float daynight_pace, const glm::mat4 &model = IDENTITY_MATRIX,
+    void Draw(float time, float daynight_pace, float water_height,
+              const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
               const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f,
               float reflect_clipped = 0.0f, float refract_clipped = 0.0f) {
@@ -364,6 +365,9 @@ public:
             diffuse_factor = diffuse_night + ((diffuse_day - diffuse_night) / (next_day - night_end)) * (time_inst - night_end);
 
         }
+
+        // Pass the water height parameter as uniform
+        glUniform1f(glGetUniformLocation(program_id_, "water_height"), water_height);
 
         // Pass the diffuse parameter depending on the time of the day
         glUniform1f(glGetUniformLocation(program_id_, "diffuse_factor"), diffuse_factor);

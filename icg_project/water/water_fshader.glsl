@@ -14,7 +14,6 @@ uniform float diffuse_factor;
 
 uniform sampler2D texWater;
 uniform sampler2D tex_mirror;
-uniform sampler2D tex_refract;
 
 void main() {
     /**float window_width = textureSize(texWater,0).x;

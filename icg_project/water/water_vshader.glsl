@@ -12,6 +12,8 @@ out vec2 uv;
 uniform mat4 MVP;
 uniform float time;
 
+uniform float water_height;
+
 uniform mat4 projection;
 uniform mat4 model;
 uniform mat4 view;
@@ -31,7 +33,7 @@ void main() {
     float AStat = 0.0025;        // amplitude for the stationnary waves
     float APert = 0.005;         // amplitude for the perturbative waves
     height = AStat * cos(kStat*position.x)*sin(kStat*position.x) * cos(kStat*position.y)*sin(kStat*position.y) * sin(fStat*time) + APert * sin(kPert*sqrt(position.x*position.x+position.y*position.y) - fPert*time);
-    height += 0.18;
+    height += water_height;
     vec3 pos_3d = vec3(position.x, height, position.y);
 
     vpoint_mv = MV * vec4(pos_3d, 1.0);

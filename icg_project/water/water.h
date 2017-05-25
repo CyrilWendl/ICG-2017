@@ -153,7 +153,8 @@ class Water : public Light{
             glDeleteTextures(1, &texture_refract_id_);
         }
 
-        void Draw(float time, float daynight_pace, const glm::mat4 &model = IDENTITY_MATRIX,
+        void Draw(float time, float daynight_pace, float water_height,
+                  const glm::mat4 &model = IDENTITY_MATRIX,
                   const glm::mat4 &view = IDENTITY_MATRIX,
                   const glm::mat4 &projection = IDENTITY_MATRIX) {
 
@@ -237,6 +238,9 @@ class Water : public Light{
 
             // Pass the diffuse parameter depending on the time of the day
             glUniform1f(glGetUniformLocation(program_id_, "diffuse_factor"), diffuse_factor);
+
+            // Pass the water height parameter as uniform
+            glUniform1f(glGetUniformLocation(program_id_, "water_height"), water_height);
 
             // setup matrix stack
             GLint model_id = glGetUniformLocation(program_id_,

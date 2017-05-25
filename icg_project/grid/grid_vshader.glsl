@@ -16,6 +16,8 @@ out vec2 uv;
 uniform mat4 MVP;
 uniform float time;
 
+uniform float water_height;
+
 uniform float reflect_clipped;
 uniform float refract_clipped;
 
@@ -41,12 +43,12 @@ void main() {
 
     //clipping planes for reflection (Clipping all that's under the water)
     if(reflect_clipped == 1) {
-        vec4 planeClip = vec4(0.0, 1.0, 0.0, -0.18);
+        vec4 planeClip = vec4(0.0, 1.0, 0.0, -water_height);
         gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
     }
 
     if(refract_clipped == 1) {
-        vec4 planeClip = vec4(0.0, -1.0, 0.0, 0.18);
+        vec4 planeClip = vec4(0.0, -1.0, 0.0, water_height);
         gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
     }
 
