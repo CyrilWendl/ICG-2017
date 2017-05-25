@@ -188,7 +188,7 @@ void Init(GLFWwindow *window) {
     skybox.Init();
     water.Init(reflection_buffer_texid, refraction_buffer_texid);
     quad.Init();
-    tree.Init(.1f,framebuffer_texture_id);     // make the tree height random from 0.1 to 0.5
+    tree.Init(framebuffer_texture_id);
 
 }
 
@@ -250,18 +250,7 @@ void Display() {
     skybox.Draw(projection_matrix * view * quad_model_matrix, time);
     grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
     water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
-    mat4 FacingTransfo = projection_matrix * view_matrix * quad_model_matrix;
-    FacingTransfo[0][0] = 1.0f;
-    FacingTransfo[1][1] = 1.0f;
-    FacingTransfo[2][2] = 1.0f;
-    FacingTransfo[0][1] = 0.0f;
-    FacingTransfo[0][2] = 0.0f;
-    FacingTransfo[1][0] = 0.0f;
-    FacingTransfo[1][2] = 0.0f;
-    FacingTransfo[2][0] = 0.0f;
-    FacingTransfo[2][1] = 0.0f;
-
-    tree.Draw(time, projection_matrix * view_matrix * quad_model_matrix, offset.x, offset.z);
+    tree.Draw(time, projection_matrix * view_matrix * quad_model_matrix, 2.0f, offset.x, offset.z);
 
 =======
 

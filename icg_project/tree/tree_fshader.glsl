@@ -4,7 +4,6 @@
 #define N_RAND 512
 
 in vec2 uv;
-in float dist;
 
 out vec4 color;
 
@@ -31,12 +30,6 @@ float rand(vec2 co)
 
 void main() {
     color = vec4(texture(tex, uv).rgba);
-    // get rid of the black background (blackground haha) part of the texture
-    vec4 fog = vec4(0.8, 0.8, 0.8, color.a);
-    color = mix(color, fog, clamp(dist * dist / (9 * 9), 0, 1));
-    if (color.a < 0.5) {
-        discard;
-    }
 }
 
 

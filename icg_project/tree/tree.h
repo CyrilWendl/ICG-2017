@@ -19,7 +19,7 @@ class Tree {
         GLuint height_id_;
 
     public:
-        void Init(float height, GLuint tex_noise = -1) {
+        void Init(GLuint tex_noise = -1) {
 
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("tree_vshader.glsl",
@@ -34,7 +34,7 @@ class Tree {
             glGenVertexArrays(1, &vertex_array_id_);
             glBindVertexArray(vertex_array_id_);
             float tree_size = .04f;
-            float tree_height = height;
+            float tree_height = .01f;
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
 
@@ -155,7 +155,7 @@ class Tree {
 
 
 
-        void Draw(float time, const glm::mat4& MVP, float offset_x, float offset_y) {
+        void Draw(float time, const glm::mat4& MVP, float height, float offset_x, float offset_y) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -177,6 +177,7 @@ class Tree {
             // pass parameters
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
+            glUniform1f(height_id_, height);
 
 
             // draw

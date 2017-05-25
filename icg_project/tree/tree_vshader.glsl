@@ -13,7 +13,6 @@ uniform float tree_height;
 uniform float offset_x;
 uniform float offset_y;
 uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
-out float dist;     // distance the tree (to compute fog)
 
 
 void main() {
@@ -32,8 +31,7 @@ void main() {
     vec2 posTerrain = (pos + vec2(16.0)) / 32.0f;
 
     height = float(texture(texNoise,posTerrain).x);
-    vec3 pos_3d = vec3(pos.x/**AWindx*sin((position.z)*time)*/ , /*put the tree straight*/ /*position.y+*/tree_height+height, pos.y/**AWindy*sin((position.z)*time)*/);
-
+    vec3 pos_3d = vec3(pos.x/**AWindx*sin((position.z)*time)*/ , /*put the tree straight*/ 10.*position.y+tree_height+height, pos.y/**AWindy*sin((position.z)*time)*/);
+    //vec3 pos_3d = vec3(pos.x , position.z+height, pos.y);
     gl_Position = MVP * vec4(pos_3d, 1.0);
-    dist = length(gl_Position.xyz);
 }
