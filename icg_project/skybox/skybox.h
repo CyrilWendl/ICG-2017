@@ -222,66 +222,55 @@ public:
         glDeleteTextures(1, &texture_night_id_);
     }
 
-    void Draw(const glm::mat4& MVP, float time, float daynight_pace) {
+    void Draw(const glm::mat4& MVP, float time) {
         glDepthMask(GL_FALSE);
         glUseProgram(program_id_);
         glBindVertexArray(vertex_array_id_);
 
-        // blend factor for day/night cycle
+        //blend factor for day/night cycle
         float blend = 0.0f;
 
-        // Day/night cycle time frames
-        float pace = daynight_pace;   //uniform
-        float day_start = 0 * pace;
-        float day_end = 1 * pace;
-        float sunset_start = 1.5 * pace;
-        float sunset_end = 2.5 * pace;
-        float night_start = 3 * pace;
-        float night_end = 4 * pace;
-        int next_day = 4.5 * pace;
-
-        // bind appropriate texture for current time
+        //bind appropriate texture for current time
         int time_inst = time * 1000;
-        float time_transition = 1.0f;
-        time_inst = (int)(time_inst * time_transition) % next_day;
-        if(time_inst >= day_start && time_inst < day_end) {
-            blend = (time_inst - day_start) / (day_end - day_start);
+        time_inst = time_inst % 35000;
+        if(time_inst >= 0 && time_inst < 5000) {
+            blend = (time_inst - 0.0f) / (5000.0f - 0.0f);
 
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
 
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
-        } else if(time_inst >= day_end && time_inst < sunset_start) {
-            blend = (time_inst - day_end) / (sunset_start -day_end);
+        } else if(time_inst >= 5000 && time_inst < 8000) {
+            blend = (time_inst - 5000.0f) / (8000.0f -5000.0f);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
 
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
-        } else if(time_inst >= sunset_start && time_inst < sunset_end) {
-            blend = (time_inst - sunset_start) / (sunset_end -sunset_start);
+        } else if(time_inst >= 8000 && time_inst < 21000) {
+            blend = (time_inst - 8000.0f) / (21000.0f -8000.0f);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
-        } else if(time_inst >= sunset_end && time_inst < night_start) {
-            blend = (time_inst - sunset_end) / (night_start -sunset_end);
+        } else if(time_inst >= 21000 && time_inst < 24000) {
+            blend = (time_inst - 21000.0f) / (24000.0f -21000.0f);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
-        } else if(time_inst >= night_start && time_inst < night_end) {
-            blend = (time_inst - night_start) / (night_end -night_start);
+        } else if(time_inst >= 24000 && time_inst < 32000) {
+            blend = (time_inst - 24000.0f) / (32000.0f -24000.0f);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
 
             glActiveTexture(GL_TEXTURE1);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
         } else {
-            blend = (time_inst - night_end) / (next_day -night_end);
+            blend = (time_inst - 32000.0f) / (35000.0f -32000.0f);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture_night_id_);
 

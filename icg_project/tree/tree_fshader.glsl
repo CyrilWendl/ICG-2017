@@ -1,0 +1,42 @@
+#version 330
+
+#define M_PI 3.14159265358979323846
+#define N_RAND 512
+
+in vec2 uv;
+in float dist;
+
+out vec4 color;
+
+uniform sampler2D tex;
+uniform float lacunarityUni;
+uniform int octavesUni;
+uniform float frequencyUni;
+uniform float amplitudeUni;
+uniform float hUni;
+uniform float offset_x;
+uniform float offset_y;
+uniform float persistance;
+
+int window_width = 800;
+int window_height = 600;
+vec2 offset = vec2(offset_x,offset_y);
+
+float rand(vec2 co)
+{
+    return (fract(sin(dot(co.xy, vec2(12.9898,78.233))) * 43758.5453));
+}
+
+
+
+void main() {
+    color = vec4(texture(tex, uv).rgba);
+    // get rid of the black background (blackground haha) part of the texture
+    vec4 fog = vec4(0.8, 0.8, 0.8, color.a);
+    color = mix(color, fog, clamp(dist * dist / (9 * 9), 0, 1));
+    if (color.a < 0.5) {
+        discard;
+    }
+}
+
+
