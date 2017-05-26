@@ -32,6 +32,8 @@ private:
     GLuint texture_grass_;                  // grass texture
     GLuint texture_rock_;                   // rock texture
     GLuint texture_snow_;                   // snow texture
+    GLuint texture_sand_;                   // sand texture
+    GLuint texture_ocean_;                  // ocean texture
     GLuint num_indices_;                    // number of vertices to render
     GLuint MVP_id_;                         // model, view, proj matrix ID
 
@@ -219,6 +221,70 @@ public:
             // cleanup
             glBindTexture(GL_TEXTURE_2D , 0);
             stbi_image_free(image3);
+
+            // sand texture
+            string filename4= "sand.tga";
+            // set stb_image to have the same coordinates as OpenGL
+            // stbi_set_flip_vertically_on_load(1);
+            unsigned char *image4= stbi_load(filename4.c_str() , &width ,
+                                              &height , &nb_component , 0);
+
+            if (image4 == nullptr) {
+                throw (string("Failed to load texture"));
+            }
+
+            glGenTextures(1 , &texture_sand_);
+            glBindTexture(GL_TEXTURE_2D , texture_sand_);
+            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MAG_FILTER , GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MIN_FILTER , GL_LINEAR);
+
+            if (nb_component == 3) {
+                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
+                             GL_RGB , GL_UNSIGNED_BYTE , image4);
+            } else if (nb_component == 4) {
+                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGBA , width , height , 0 ,
+                             GL_RGBA , GL_UNSIGNED_BYTE , image4);
+            }
+
+            // texture uniforms
+            GLuint tex_sand_id = glGetUniformLocation(program_id_ , "tex_sand");
+            glUniform1i(tex_sand_id , 4 ); //GL_TEXTURE4
+
+            // cleanup
+            glBindTexture(GL_TEXTURE_2D , 0);
+            stbi_image_free(image4);
+
+            // ocean texture
+            string filename5= "Oceanfloor.jpg";
+            // set stb_image to have the same coordinates as OpenGL
+            // stbi_set_flip_vertically_on_load(1);
+            unsigned char *image5= stbi_load(filename5.c_str() , &width ,
+                                              &height , &nb_component , 0);
+
+            if (image5 == nullptr) {
+                throw (string("Failed to load texture"));
+            }
+
+            glGenTextures(1 , &texture_ocean_);
+            glBindTexture(GL_TEXTURE_2D , texture_ocean_);
+            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MAG_FILTER , GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MIN_FILTER , GL_LINEAR);
+
+            if (nb_component == 3) {
+                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB , width , height , 0 ,
+                             GL_RGB , GL_UNSIGNED_BYTE , image5);
+            } else if (nb_component == 4) {
+                glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGBA , width , height , 0 ,
+                             GL_RGBA , GL_UNSIGNED_BYTE , image5);
+            }
+
+            // texture uniforms
+            GLuint tex_ocean_id = glGetUniformLocation(program_id_ , "tex_ocean");
+            glUniform1i(tex_ocean_id , 5 ); //GL_TEXTURE5
+
+            // cleanup
+            glBindTexture(GL_TEXTURE_2D , 0);
+            stbi_image_free(image5);
         }
 
         // other uniforms
@@ -241,6 +307,10 @@ public:
         glDeleteProgram(program_id_);
         glDeleteTextures(1, &texture_id_);
         glDeleteTextures(1, &texture_rock_);
+        glDeleteTextures(1, &texture_grass_);
+        glDeleteTextures(1, &texture_sand_);
+        glDeleteTextures(1, &texture_snow_);
+        glDeleteTextures(1, &texture_ocean_);
     }
 
     void Draw(float time, const glm::mat4 &model = IDENTITY_MATRIX,
@@ -270,6 +340,12 @@ public:
 
         glActiveTexture(GL_TEXTURE3);
         glBindTexture(GL_TEXTURE_2D, texture_snow_);
+
+        glActiveTexture(GL_TEXTURE4);
+        glBindTexture(GL_TEXTURE_2D, texture_sand_);
+
+        glActiveTexture(GL_TEXTURE5);
+        glBindTexture(GL_TEXTURE_2D, texture_ocean_);
 
         // setup MVP
         glm::mat4 MVP = projection*view*model;

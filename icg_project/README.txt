@@ -25,3 +25,8 @@ Multiple textures, only 2 sampler cubes for blending effect between cycles, and 
 Modify diffuse for terrain and water depending on time of day
 
 
+** Rémy **
+* Unsuccessful implementation of Level-Of-Detail and Tessellation *
+
+* Animated trees implemented *
+Trees placed randomly on the terrain, and animated with "wind" (sine perturbation around equilibrium position). Height and width of the trees vary also.
