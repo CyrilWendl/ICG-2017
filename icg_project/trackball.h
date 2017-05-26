@@ -26,7 +26,6 @@ public:
         ProjectOntoSurface(current_pos);
 
         mat4 rotation = IDENTITY_MATRIX;
-        // TODO 3: Calculate the rotation given the projections of the anocher
         // point and the current position. The rotation axis is given by the cross
         // product of the two projected points, and the angle between them can be
         // used as the magnitude of the rotation.
