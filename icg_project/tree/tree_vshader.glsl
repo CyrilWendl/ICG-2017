@@ -10,6 +10,7 @@ uniform mat4 MVP;
 
 uniform float time;
 uniform float tree_height;
+uniform float tree_size;
 uniform float offset_x;
 uniform float offset_y;
 uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
@@ -25,14 +26,16 @@ void main() {
     vec2 pos = position;
     pos +=8.*vec2(-offset_x,-offset_y);     // to keep the tree in place
 
-    uv = (position + vec2(1.0)) * (1 / tree_height) / 2.0;
-    uv.x += 0.5;
-    uv.y += 0.5;
+    // put the texture according to the tree size and height
+    uv.x = (position.x + tree_size) * (1/tree_size) / 2.0;
+    uv.y = (position.y + tree_height) * (1/tree_height) / 2.0;
 
     vec2 posTerrain = (pos + vec2(16.0)) / 32.0f;
 
     height = float(texture(texNoise,posTerrain).x);
-    vec3 pos_3d = vec3(pos.x/**AWindx*sin((position.z)*time)*/ , /*put the tree straight*/ /*position.y+*/tree_height+height, pos.y/**AWindy*sin((position.z)*time)*/);
+    vec3 pos_3d = vec3(pos.x/**AWindx*sin((position.z)*time)*/ ,
+                       /*put the tree straight*/ 40.*(position.y/*+abs(position.y)*/+tree_height)+height/*+15.*tree_height*/,
+                       pos.y/**AWindy*sin((position.z)*time)*/);
 
     gl_Position = MVP * vec4(pos_3d, 1.0);
     dist = length(gl_Position.xyz);

@@ -19,7 +19,7 @@ class Tree {
         GLuint height_id_;
 
     public:
-        void Init(float height, GLuint tex_noise = -1) {
+        void Init(float size, float height, GLuint tex_noise = -1) {
 
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("tree_vshader.glsl",
@@ -33,7 +33,7 @@ class Tree {
             // vertex one vertex Array
             glGenVertexArrays(1, &vertex_array_id_);
             glBindVertexArray(vertex_array_id_);
-            float tree_size = .04f;
+            float tree_size = size;
             float tree_height = height;
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
@@ -42,16 +42,16 @@ class Tree {
             {
                 // always two subsequent entries in 'vertices' form a 2D vertex position.
 
-                vertices.push_back(-tree_height);
-                vertices.push_back(-tree_height);
-
-                vertices.push_back(-tree_height);
-                vertices.push_back(tree_height);
-
-                vertices.push_back(tree_height);
+                vertices.push_back(-tree_size);
                 vertices.push_back(-tree_height);
 
+                vertices.push_back(-tree_size);
                 vertices.push_back(tree_height);
+
+                vertices.push_back(tree_size);
+                vertices.push_back(-tree_height);
+
+                vertices.push_back(tree_size);
                 vertices.push_back(tree_height);
 
                 indices.push_back(0);
@@ -135,6 +135,7 @@ class Tree {
             {
                 MVP_id_ = glGetUniformLocation(program_id_, "MVP");
                 glUniform1f(glGetUniformLocation(program_id_, "tree_height"), tree_height);
+                glUniform1f(glGetUniformLocation(program_id_, "tree_size"), tree_size);
                 height_id_ = glGetUniformLocation(program_id_, "height");
             }
 
