@@ -31,11 +31,18 @@
 #define REFRACT_CLIPPED 1
 #define REFRACT_UNCLIPPED 0
 
+#define DAY 1
+#define NIGHT 2
+#define CYCLE 0
+
 int window_width = 800;
 int window_height = 600;
 
 //skybox rotation scale
 float sky_rspeed = 0.02;
+
+// Day night cycle mode(varies from 0 to 2)
+int daynight_mode = CYCLE;
 
 // Day night cycle pace
 float daynight_pace = 8000.0f;
@@ -244,8 +251,8 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_pace);
-        grid.Draw(time, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
+        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_mode, daynight_pace);
+        grid.Draw(time, daynight_mode, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
     }
     reflection_buffer.Unbind();
 
@@ -253,16 +260,16 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         //skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
-        grid.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
+        grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
     }
     refraction_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
-    grid.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
-    water.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix);
+    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_mode, daynight_pace);
+    grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
+    water.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix);
 
     mat4 FacingTransfo(1.0f);
 //    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
@@ -668,6 +675,7 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Height", &water_height, 0.0f, 0.4f);
             }
             if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderInt("Cycle/Day/Night" , &daynight_mode , CYCLE, NIGHT);
                 ImGui::SliderFloat("Duration (ms)", &daynight_pace, 4000.0f, 12000.0f);
             }
             if (ImGui::CollapsingHeader("Help")) {
