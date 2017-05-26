@@ -14,6 +14,9 @@ file(GLOB TEXTURES
     water/water_texture.tga
     water/clear_water.jpg
     quad/quad_texture.tga
+    tree/tree_texture.tga
+    tree/sapin_texture.tga
+    tree/pin_texture.tga
     skybox/cottoncandy_rt.tga
     skybox/cottoncandy_lf.tga
     skybox/cottoncandy_up.tga
@@ -59,7 +62,7 @@ file(GLOB SHADERS
   water/*.glsl
   quad/*.glsl
   skybox/*.glsl
-  particles/*.glsl)
+  tree/*.glsl)
 deploy_shaders_to_build_dir(${SHADERS})
 
 add_executable(${EXERCISENAME} ${SOURCES} ${HEADERS} ${SHADERS})
