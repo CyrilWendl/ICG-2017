@@ -50,15 +50,31 @@ uv = offset+(position + vec2(16.0)) / 32.0f;
 
 * Added GUI *
 
--Water Reflection
-Camera position mirror
-Texture mirror in water header
-Render to framebuffer
-Query framebuffer texture
+* Water Reflection and Refraction
+- We use two framebuffers to which we render the Reflection and Refraction textures.
+- We draw the grid and sky for the reflection buffer, and only the grid for the refraction buffer
+- For the reflection, we invert the camera position and its pitch, and we create a view mirror matrix that we use to draw for the reflection buffer.
+- We query the framebuffers textures. For that, we calculate the NDC coordinates(using gl_frag coord) to sample the two textures from in the water fshader.
 
--Skybox
-Rotation by rotate view matrix of skybox
-Multiple textures, only 2 sampler cubes for blending effect between cycles, and then pass the correct texture in active textures
-Modify diffuse for terrain and water depending on time of day
+* Water height in GUI
+- We parametrize the water height in our code with all the required adjustments. We can control it with the GUI.
 
+* Clipping the grid
+- To get the correct the reflection and refraction, we have to clip the correct part of the terrain for that. For instance, for reflection we have to clip all that's under the water,
+and render all that's above it. We do the opposite for the refraction. For that we add clip flags as arguments to the grid draw function, so if we draw
+to the reflection framebuffer, we set reflectflag to 1; that clips all that's under the water(using glclipdistance0 in grid v shader). So if we draw the original
+terrain, we set both the reflect and refract clip flags to 0 so that we draw the whole grid (We don't clip anything).
+
+*Skybox UPDATES
+- Apply a Rotation to the view matrix of the skybox (To get the effect of clouds moving)
+- We implement a day and night cycle (3 cycles: Day, Sunset, Night). For that we use 3 different cubemap sky textures, one for each cycle.
+- For the transition between cycles, we use a blending uniform variable that we pass to the skybox shaders, so that we mix the two textures on hand for that
+time of day, taking that blending variable as a mixing factor. As time passes from day to sunset for instance, the blending increases from 0 to 1 depending
+on the passing time. When it's zero it's full day, and when it gets to 1 it's full sunset and in between is a smooth transition from day to sunset. (For 
+that we map [0, 1] to [day_end, sunset_start] for this example).
+- Since we only need two sampler cubemap in the skybox fshader (for the blending effect), now it's a matter of passing which textures to the shader,
+and for that we control the active textures depending on time in the skybox header.  
+- We can control the pacing of the cycles by declaring another uniform variable for that, and we add it to the GUI.
+- We also modify the lighting of the water and the grid using the diffuse lighting. For that we use a uniform diffuse_factor that
+changes depending on the time of day and we do a similar mapping technique as the blending effect for that.
 
