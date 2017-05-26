@@ -19,7 +19,7 @@ class Tree {
         GLuint height_id_;
 
     public:
-        void Init(float size, float height, GLuint tex_noise = -1) {
+        void Init(float size, float height, float treePos_x = 0, float treePos_y = 0, GLuint tex_noise = -1) {
 
             // compile the shaders
             program_id_ = icg_helper::LoadShaders("tree_vshader.glsl",
@@ -137,6 +137,8 @@ class Tree {
                 glUniform1f(glGetUniformLocation(program_id_, "tree_height"), tree_height);
                 glUniform1f(glGetUniformLocation(program_id_, "tree_size"), tree_size);
                 height_id_ = glGetUniformLocation(program_id_, "height");
+                glUniform1f(glGetUniformLocation(program_id_, "treePos_x"), treePos_x);
+                glUniform1f(glGetUniformLocation(program_id_, "treePos_y"), treePos_y);
             }
 
             // to avoid the current object being polluted

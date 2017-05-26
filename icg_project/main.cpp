@@ -149,7 +149,7 @@ void Init(GLFWwindow *window) {
     skybox.Init();
     water.Init(reflection_buffer_texid);
     quad.Init();
-    tree.Init(.2f,.01f,framebuffer_texture_id);     // make the tree height random from 0.1 to 0.5
+    tree.Init(.2f,.01f, .3f, .4f, framebuffer_texture_id);     // make the tree height random from 0.1 to 0.5
 
 }
 
