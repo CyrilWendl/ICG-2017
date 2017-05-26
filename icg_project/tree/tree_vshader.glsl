@@ -22,8 +22,10 @@ out float dist;     // distance the tree (to compute fog)
 void main() {
     vec2 offset=vec2(offset_x,offset_y);
 
-    float AWindx = 0.05;      // amplitude of the wind on x
-    float AWindy = 0.1;      // amplitude of the wind on y
+    float AWindx = 0.005;      // amplitude of the wind on x
+    float AWindy = 0.01;      // amplitude of the wind on y
+    float freqx = 0.2;      // frequency of the wind on x
+    float freqy = 0.3;      // frequency of the wind on y
 
     vec2 pos = position + vec2(treePos_x,treePos_y);
     pos +=8.*vec2(-offset_x,-offset_y);     // to keep the tree in place
@@ -35,9 +37,9 @@ void main() {
     vec2 posTerrain = (pos + vec2(16.0)) / 32.0f;       // gives the corresponding position on the terrain
 
     height = float(texture(texNoise,posTerrain).x);
-    vec3 pos_3d = vec3(pos.x/**AWindx*sin((position.z)*time)*/ ,
-                       /*put the tree straight*/ 40.*(position.y/*+abs(position.y)*/+tree_height)+height/*+15.*tree_height*/,
-                       pos.y/**AWindy*sin((position.z)*time)*/);
+    vec3 pos_3d = vec3(pos.x+AWindx*sin(freqx*time) ,
+                       40.*(position.y+tree_height)+height,     // put the tree straight
+                       pos.y+AWindy*sin(freqy*time));
 
     gl_Position = MVP * vec4(pos_3d, 1.0);
     dist = length(gl_Position.xyz);

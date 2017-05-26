@@ -16,21 +16,14 @@ uniform sampler2D texWater;
 uniform sampler2D tex_mirror;
 
 void main() {
-    /**float window_width = textureSize(texWater,0).x;
-    float window_height = textureSize(texWater,0).y;*/
     float window_width = textureSize(tex_mirror,0).x;
     float window_height = textureSize(tex_mirror,0).y;
      /// use gl_FragCoord to build a new [_u,_v] coordinate to query the framebuffer
     float _u = gl_FragCoord.x/window_width;
     float _v = 1.0 - gl_FragCoord.y/window_height;       // _u,_v give direction always normal to the camera
 
-     //color = mix(texture(texWater,uv ).rgb, vec3(0.13,0.25,0.5), 0.9);
-
-    //color = mix(texture(texWater,uv ).rgb, texture(tex_mirror,vec2(_u,_v)).rgb, 3.0);
-    //color = mix(color, vec3(0.13,0.25,0.5), 0.5);
     color = mix(vec3(0.13,0.25,0.5), texture(tex_mirror,vec2(_u,_v)).rgb, 0.2);
 
-    //color = texture(texWater,uv ).rgb;
 
      //custom material diffuse parameter
      vec3 kd = vec3(diffuse_factor);

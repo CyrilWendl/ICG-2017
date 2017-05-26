@@ -13,6 +13,7 @@
 #include "skybox/skybox.h"
 #include "framebuffer.h"
 #include "tree/tree.h"
+#include "vector"
 
 #define CAM_DEFAULT "Camera: Default"
 #define CAM_FPS "Camera: FPS"
@@ -27,7 +28,6 @@ using namespace glm;
 
 mat4 projection_matrix;
 mat4 view_matrix;
-mat4 quad_model_matrix;
 
 // Camera
 glm::vec3 cameraPos = vec3(0.0f , 1.0f , 0.0f);
@@ -58,7 +58,9 @@ Grid grid;
 Quad quad;
 Water water;
 Skybox skybox;
-Tree tree;
+vector<Tree> treez;
+unsigned nbTreez = 300;
+float treeScattering = 1.0f;         // the higher the value, the more the treez will tend to be scattered. To adjust with nbTreez
 
 //skybox rotation scale
 float sky_rspeed = 0.02;
@@ -149,7 +151,19 @@ void Init(GLFWwindow *window) {
     skybox.Init();
     water.Init(reflection_buffer_texid);
     quad.Init();
-    tree.Init(.2f,.01f, .3f, .4f, framebuffer_texture_id);     // make the tree height random from 0.1 to 0.5
+
+    for (unsigned i = 0 ; i < nbTreez ; ++i)
+    {
+        Tree tree;
+        float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
+
+        tree.Init(.2f*((double) rand()/RAND_MAX),                   // tree width
+                  .02f*((double) rand()/RAND_MAX),                  // tree height
+                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
+                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
+                  framebuffer_texture_id);
+        treez.push_back(tree);
+    }
 
 }
 
@@ -177,7 +191,7 @@ void Display() {
     framebuffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        quad.Draw(projection_matrix * view_matrix * quad_model_matrix , octaves , amplitude ,
+        quad.Draw(projection_matrix * view_matrix  , octaves , amplitude ,
                   frequency,H,lacunarity, offset.x, offset.z,persistance);
     }
     /*GLfloat *size;
@@ -191,28 +205,30 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview * quad_model_matrix, time);
-        //grid.Draw(time , quad_model_matrix , sky_mirrview , projection_matrix, offset.x, offset.z);
+        skybox.Draw(projection_matrix * sky_mirrview , time);
+        //grid.Draw(time , mat4(1.0f) , sky_mirrview , projection_matrix, offset.x, offset.z);
     }
     reflection_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    skybox.Draw(projection_matrix * view * quad_model_matrix, time);
-    grid.Draw(time , quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z);
-    water.Draw(time , quad_model_matrix , view_matrix , projection_matrix);
-    mat4 FacingTransfo = projection_matrix * view_matrix * quad_model_matrix;
-    FacingTransfo[0][0] = 1.0f;
-    FacingTransfo[1][1] = 1.0f;
-    FacingTransfo[2][2] = 1.0f;
-    FacingTransfo[0][1] = 0.0f;
-    FacingTransfo[0][2] = 0.0f;
-    FacingTransfo[1][0] = 0.0f;
-    FacingTransfo[1][2] = 0.0f;
-    FacingTransfo[2][0] = 0.0f;
-    FacingTransfo[2][1] = 0.0f;
+    skybox.Draw(projection_matrix * view , time);
+    grid.Draw(time , mat4(1.0f) , view_matrix , projection_matrix, offset.x, offset.z);
+    water.Draw(time , mat4(1.0f) , view_matrix , projection_matrix);
+    mat4 FacingTransfo(1.0f);
+//    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
+//    FacingTransfo[2][0] = sin(glm::radians(-yaw_cam));
+//    FacingTransfo[0][2] = -sin(glm::radians(-yaw_cam));
+//    FacingTransfo[2][2] = cos(glm::radians(-yaw_cam));
+//    FacingTransfo[0][1] = 0.0f;
+//    FacingTransfo[0][2] = 0.0f;
+//    FacingTransfo[1][0] = 0.0f;
+//    FacingTransfo[1][2] = 0.0f;
+//    FacingTransfo[2][0] = 0.0f;
+//    FacingTransfo[2][1] = 0.0f;
 
-    tree.Draw(time, projection_matrix * view_matrix * quad_model_matrix, offset.x, offset.z);
+    for (unsigned i = 0 ; i < treez.size() ; ++i)
+        treez.at(i).Draw(time,  projection_matrix *view_matrix * FacingTransfo  , offset.x, offset.z);
 
 }
 
@@ -540,7 +556,8 @@ int main(int argc , char *argv[]) {
     grid.Cleanup();
     skybox.Cleanup();
     water.Cleanup();
-    tree.Cleanup();
+    for (unsigned i = 0 ; i < treez.size() ; ++i)
+        treez.at(i).Cleanup();
 
     // close OpenGL window and terminate GLFW
     glfwDestroyWindow(window);
