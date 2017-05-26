@@ -15,6 +15,8 @@
 #include "framebuffer.h"
 #include "imgui-master/imgui.h"
 #include "imgui-master/imgui_impl_glfw_gl3.h"
+#include "tree/tree.h"
+#include "vector"
 
 #define CAM_DEFAULT 1
 #define CAM_FPS 2
@@ -91,6 +93,9 @@ Grid grid;
 Quad quad;
 Water water;
 Skybox skybox;
+vector<Tree> treez;
+unsigned nbTreez = 300;
+float treeScattering = 1.0f;         // the higher the value, the more the treez will tend to be scattered. To adjust with nbTreez
 
 GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
 
@@ -184,6 +189,20 @@ void Init(GLFWwindow *window) {
     water.Init(reflection_buffer_texid, refraction_buffer_texid);
     quad.Init();
 
+
+    for (unsigned i = 0 ; i < nbTreez ; ++i)
+    {
+        Tree tree;
+        float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
+
+        tree.Init(.2f*((double) rand()/RAND_MAX),                   // tree width
+                  .02f*((double) rand()/RAND_MAX),                  // tree height
+                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
+                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
+                  framebuffer_texture_id);
+        treez.push_back(tree);
+    }
+
 }
 
 // gets called for every frame.
@@ -244,6 +263,22 @@ void Display() {
     skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
     grid.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
     water.Draw(time, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix);
+
+    mat4 FacingTransfo(1.0f);
+//    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
+//    FacingTransfo[2][0] = sin(glm::radians(-yaw_cam));
+//    FacingTransfo[0][2] = -sin(glm::radians(-yaw_cam));
+//    FacingTransfo[2][2] = cos(glm::radians(-yaw_cam));
+//    FacingTransfo[0][1] = 0.0f;
+//    FacingTransfo[0][2] = 0.0f;
+//    FacingTransfo[1][0] = 0.0f;
+//    FacingTransfo[1][2] = 0.0f;
+//    FacingTransfo[2][0] = 0.0f;
+//    FacingTransfo[2][1] = 0.0f;
+
+    for (unsigned i = 0 ; i < treez.size() ; ++i)
+        treez.at(i).Draw(time,  projection_matrix *view_matrix * FacingTransfo  , offset.x, offset.z);
+
 }
 
 // Is called whenever a key is pressed/released via GLFW
@@ -672,6 +707,8 @@ int main(int argc , char *argv[]) {
     grid.Cleanup();
     skybox.Cleanup();
     water.Cleanup();
+    for (unsigned i = 0 ; i < treez.size() ; ++i)
+        treez.at(i).Cleanup();
 
     // close OpenGL window and terminate GLFW
     glfwDestroyWindow(window);
