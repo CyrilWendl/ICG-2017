@@ -20,7 +20,7 @@ uniform float treePos_y;
 uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
 out float dist;     // distance the tree (to compute fog)
 
-const float fog_density = 0.05f;
+uniform float fog_density;
 const float gradient = 1.5f;
 
 void main() {

@@ -159,7 +159,7 @@ class Tree {
 
 
         void Draw(float time, float offset_x, float offset_y,
-                  int fog_enable, glm::vec3 fog_color,
+                  int fog_enable, glm::vec3 fog_color, float fog_density,
                   const glm::mat4& MVP,
                   const glm::mat4 &view = IDENTITY_MATRIX) {
             glUseProgram(program_id_);
@@ -192,6 +192,7 @@ class Tree {
             // pass fog parameters
             glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
             glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
+            glUniform1f(glGetUniformLocation(program_id_, "fog_density"), fog_density);
 
             // draw
             //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

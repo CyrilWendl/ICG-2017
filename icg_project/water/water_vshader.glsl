@@ -21,7 +21,7 @@ uniform mat4 model;
 uniform mat4 view;
 uniform vec3 light_pos;
 
-const float fog_density = 0.05f;
+uniform float fog_density;
 const float gradient = 1.5f;
 
 void main() {

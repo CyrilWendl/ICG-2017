@@ -56,6 +56,7 @@ float water_height = 0.18f;
 // Fog color (cf. http://in2gpu.com/2014/07/22/create-fog-shader/)
 int fog_on = FOG;
 glm::vec3 fog_color = glm::vec3(226.0/255, 225.0/255, 223.0/255);
+float fog_density = 0.05f;
 
 using namespace glm;
 
@@ -258,7 +259,7 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_mode, daynight_pace, NOFOG, fog_color);
-        grid.Draw(time, daynight_mode, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, NOFOG, fog_color, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
+        grid.Draw(time, daynight_mode, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, NOFOG, fog_color, fog_density, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
     }
     reflection_buffer.Unbind();
 
@@ -266,7 +267,7 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         //skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
-        grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, NOFOG, fog_color, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
+        grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, NOFOG, fog_color, fog_density, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
     }
     refraction_buffer.Unbind();
 
@@ -274,8 +275,8 @@ void Display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_mode, daynight_pace, FOG, fog_color);
-    grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, fog_on, fog_color, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
-    water.Draw(time, daynight_mode, daynight_pace, water_height, fog_on, fog_color, quad_model_matrix , view_matrix , projection_matrix);
+    grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, fog_on, fog_color, fog_density, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
+    water.Draw(time, daynight_mode, daynight_pace, water_height, fog_on, fog_color, fog_density, quad_model_matrix , view_matrix , projection_matrix);
 
     mat4 FacingTransfo(1.0f);
 //    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
@@ -290,7 +291,7 @@ void Display() {
 //    FacingTransfo[2][1] = 0.0f;
 
     for (unsigned i = 0 ; i < treez.size() ; ++i)
-        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, projection_matrix *view_matrix * FacingTransfo, view_matrix);
+        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix * FacingTransfo, view_matrix);
 
 }
 
@@ -687,6 +688,7 @@ int main(int argc , char *argv[]) {
             }
             if (ImGui::CollapsingHeader("Fog Control", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Fog", &fog_on, NOFOG, FOG);
+                ImGui::SliderFloat("Fog Density", &fog_density, 0.005f, 0.1f);
             }
             if (ImGui::CollapsingHeader("Help")) {
                 ImGui::TextWrapped("Navigation:\n");

@@ -33,7 +33,7 @@ uniform sampler2D texNoise;      // pass the texture also in the vertex shader t
 
 vec2 offset=vec2(offset_x,offset_y);
 
-const float fog_density = 0.05f;
+uniform float fog_density;
 const float gradient = 1.5f;
 
 

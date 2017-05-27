@@ -10,7 +10,7 @@ uniform int fog_enable;
 uniform vec3 fog_color;
 
 const float fog_start = 0.0f;
-const float fog_end = 0.3f;
+const float fog_end = 0.27f;
 
 void main()
 {

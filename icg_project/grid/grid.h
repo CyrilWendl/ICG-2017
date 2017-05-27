@@ -315,7 +315,7 @@ public:
               const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
               const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f,
-              int fog_enable = 0, glm::vec3 fog_color = glm::vec3(0.0),
+              int fog_enable = 0, glm::vec3 fog_color = glm::vec3(0.0), float fog_density = 0.0f,
               float reflect_clipped = 0.0f, float refract_clipped = 0.0f) {
 
         //Setup model Matrix(for light position)
@@ -433,6 +433,7 @@ public:
         // pass fog parameters
         glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
         glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
+        glUniform1f(glGetUniformLocation(program_id_, "fog_density"), fog_density);
 
         // setup matrix stack
         GLint model_id = glGetUniformLocation(program_id_,
