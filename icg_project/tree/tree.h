@@ -158,7 +158,10 @@ class Tree {
 
 
 
-        void Draw(float time, const glm::mat4& MVP, float offset_x, float offset_y) {
+        void Draw(float time, float offset_x, float offset_y,
+                  int fog_enable, glm::vec3 fog_color,
+                  const glm::mat4& MVP,
+                  const glm::mat4 &view = IDENTITY_MATRIX) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -177,10 +180,18 @@ class Tree {
             // setup MVP
             glUniformMatrix4fv(MVP_id_, 1, GL_FALSE, value_ptr(MVP));
 
+            // pass View matrix
+            GLint view_id = glGetUniformLocation(program_id_,
+                                                 "view");
+            glUniformMatrix4fv(view_id, ONE, DONT_TRANSPOSE, glm::value_ptr(view));
+
             // pass parameters
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
 
+            // pass fog parameters
+            glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
+            glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
 
             // draw
             //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

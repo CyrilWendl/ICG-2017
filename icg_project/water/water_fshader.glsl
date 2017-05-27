@@ -7,7 +7,12 @@ in float scaling_height_factor;
 in vec4 vpoint_mv;
 in vec3 light_dir, view_dir;
 
+in float fog_factor;
+
 out vec4 color;
+
+uniform int fog_enable;
+uniform vec3 fog_color;
 
 uniform vec3 Ld;
 uniform float diffuse_factor;
@@ -52,5 +57,8 @@ void main() {
 
      color = color*(diffuse_factor+.5);
 
+     if(fog_enable == 1){
+         color = mix(vec4(fog_color, 1.0), color, fog_factor);
+     }
 
 }

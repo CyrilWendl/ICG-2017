@@ -315,6 +315,7 @@ public:
               const glm::mat4 &model = IDENTITY_MATRIX,
               const glm::mat4 &view = IDENTITY_MATRIX,
               const glm::mat4 &projection = IDENTITY_MATRIX, float offset_x=0.0f, float offset_y=0.0f,
+              int fog_enable = 0, glm::vec3 fog_color = glm::vec3(0.0),
               float reflect_clipped = 0.0f, float refract_clipped = 0.0f) {
 
         //Setup model Matrix(for light position)
@@ -361,7 +362,7 @@ public:
 
         // Diffuse intensity depending on time of day
         float diffuse_factor = 0.0;
-        float diffuse_day = 0.5f;
+        float diffuse_day = 0.4f;
         float diffuse_sunset = 0.3f;
         float diffuse_night = 0.1;
 
@@ -428,6 +429,10 @@ public:
 
         // Used for clipping the terrain (When drawing refraction)
         glUniform1f(glGetUniformLocation(program_id_, "refract_clipped"), refract_clipped);
+
+        // pass fog parameters
+        glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
+        glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
 
         // setup matrix stack
         GLint model_id = glGetUniformLocation(program_id_,

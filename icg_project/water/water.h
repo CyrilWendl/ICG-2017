@@ -154,6 +154,7 @@ class Water : public Light{
         }
 
         void Draw(float time, int daynight_mode, float daynight_pace, float water_height,
+                  int fog_enable, glm::vec3 fog_color,
                   const glm::mat4 &model = IDENTITY_MATRIX,
                   const glm::mat4 &view = IDENTITY_MATRIX,
                   const glm::mat4 &projection = IDENTITY_MATRIX) {
@@ -251,6 +252,10 @@ class Water : public Light{
 
             // Pass the water height parameter as uniform
             glUniform1f(glGetUniformLocation(program_id_, "water_height"), water_height);
+
+            // pass fog parameters
+            glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
+            glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
 
             // setup matrix stack
             GLint model_id = glGetUniformLocation(program_id_,

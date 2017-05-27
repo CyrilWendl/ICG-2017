@@ -11,6 +11,8 @@ out float height;
 out float scaling_height_factor;
 out vec2 uv;
 
+out float fog_factor;
+
 //in vec3 vpoint;
 //in vec2 vtexcoord;
 uniform mat4 MVP;
@@ -30,6 +32,9 @@ uniform float offset_y;
 uniform sampler2D texNoise;      // pass the texture also in the vertex shader to compute the height
 
 vec2 offset=vec2(offset_x,offset_y);
+
+const float fog_density = 0.05f;
+const float gradient = 1.5f;
 
 
 void main() {
@@ -60,4 +65,10 @@ void main() {
 
     view_dir = -vpoint_mv.xyz;
     view_dir = normalize(view_dir);
+
+    // Setting up fog
+    vec4 pos_to_cam = view * vec4(pos_3d, 1.0);
+    float range = length(pos_to_cam.xyz);
+    fog_factor = exp(-pow(range * fog_density, gradient));
+    fog_factor = clamp(fog_factor, 0.0, 1.0);
 }

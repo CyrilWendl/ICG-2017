@@ -9,6 +9,8 @@ out vec3 light_dir, view_dir;
 out float height;
 out vec2 uv;
 
+out float fog_factor;
+
 uniform mat4 MVP;
 uniform float time;
 
@@ -19,6 +21,8 @@ uniform mat4 model;
 uniform mat4 view;
 uniform vec3 light_pos;
 
+const float fog_density = 0.05f;
+const float gradient = 1.5f;
 
 void main() {
     uv = position+16.0f/32.0f;
@@ -45,4 +49,10 @@ void main() {
 
     view_dir = -vpoint_mv.xyz;
     view_dir = normalize(view_dir);
+
+    // Setting up fog
+    vec4 pos_to_cam = view * vec4(pos_3d, 1.0);
+    float range = length(pos_to_cam.xyz);
+    fog_factor = exp(-pow(range * fog_density, gradient));
+    fog_factor = clamp(fog_factor, 0.0, 1.0);
 }
