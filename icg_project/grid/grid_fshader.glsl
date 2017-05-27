@@ -5,6 +5,8 @@ in float height;
 in vec4 vpoint_mv;
 in vec3 light_dir, view_dir;
 
+in float fog_factor;
+
 out vec3 color;
 
 uniform vec3 Ld;
@@ -21,6 +23,9 @@ uniform float water_height;
 uniform float offset_x;
 uniform float offset_y;
 uniform float diffuse_factor;
+
+uniform int fog_enable;
+uniform vec3 fog_color;
 
 vec2 offset=vec2(offset_x,offset_y);
 
@@ -55,5 +60,9 @@ void main() {
      }
 
      color=(color+color_blended)*diffuse_factor*2;
+
+     if(fog_enable == 1){
+         color = mix(fog_color, color, fog_factor);
+     }
 
 }

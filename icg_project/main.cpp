@@ -35,6 +35,9 @@
 #define NIGHT 2
 #define CYCLE 0
 
+#define FOG 1
+#define NOFOG 0
+
 int window_width = 800;
 int window_height = 600;
 
@@ -50,6 +53,9 @@ float daynight_pace = 8000.0f;
 // Adjust water height
 float water_height = 0.18f;
 
+// Fog color (cf. http://in2gpu.com/2014/07/22/create-fog-shader/)
+int fog_on = FOG;
+glm::vec3 fog_color = glm::vec3(226.0/255, 225.0/255, 223.0/255);
 
 using namespace glm;
 
@@ -251,8 +257,8 @@ void Display() {
     reflection_buffer.Bind();
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_mode, daynight_pace);
-        grid.Draw(time, daynight_mode, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
+        skybox.Draw(projection_matrix * sky_mirrview_rot * quad_model_matrix, time, daynight_mode, daynight_pace, NOFOG, fog_color);
+        grid.Draw(time, daynight_mode, daynight_pace, water_height,quad_model_matrix , view_mirr , projection_matrix, offset.x, offset.z, NOFOG, fog_color, REFLECT_CLIPPED, REFRACT_UNCLIPPED);
     }
     reflection_buffer.Unbind();
 
@@ -260,16 +266,16 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         //skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_pace);
-        grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
+        grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, NOFOG, fog_color, REFLECT_UNCLIPPED, REFRACT_CLIPPED);
     }
     refraction_buffer.Unbind();
 
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_mode, daynight_pace);
-    grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
-    water.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix);
+    skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_mode, daynight_pace, FOG, fog_color);
+    grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, fog_on, fog_color, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
+    water.Draw(time, daynight_mode, daynight_pace, water_height, fog_on, fog_color, quad_model_matrix , view_matrix , projection_matrix);
 
     mat4 FacingTransfo(1.0f);
 //    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
@@ -284,7 +290,7 @@ void Display() {
 //    FacingTransfo[2][1] = 0.0f;
 
     for (unsigned i = 0 ; i < treez.size() ; ++i)
-        treez.at(i).Draw(time,  projection_matrix *view_matrix * FacingTransfo  , offset.x, offset.z);
+        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, projection_matrix *view_matrix * FacingTransfo, view_matrix);
 
 }
 
@@ -677,6 +683,10 @@ int main(int argc , char *argv[]) {
             if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Cycle/Day/Night" , &daynight_mode , CYCLE, NIGHT);
                 ImGui::SliderFloat("Duration (ms)", &daynight_pace, 4000.0f, 12000.0f);
+                ImGui::SliderFloat("Cloud Speed", &sky_rspeed, 0.01f, 0.03f);
+            }
+            if (ImGui::CollapsingHeader("Fog Control", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderInt("Fog", &fog_on, NOFOG, FOG);
             }
             if (ImGui::CollapsingHeader("Help")) {
                 ImGui::TextWrapped("Navigation:\n");

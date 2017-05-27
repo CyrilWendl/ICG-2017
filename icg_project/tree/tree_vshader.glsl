@@ -5,7 +5,9 @@ in vec2 position;
 out vec2 uv;
 out float height;       // out the height to know if tree should be snowy for example
 
+out float fog_factor;
 
+uniform mat4 view;
 uniform mat4 MVP;
 
 uniform float time;
@@ -18,6 +20,8 @@ uniform float treePos_y;
 uniform sampler2D texNoise;     // pass the terrain to compute base of the tree
 out float dist;     // distance the tree (to compute fog)
 
+const float fog_density = 0.05f;
+const float gradient = 1.5f;
 
 void main() {
     vec2 offset=vec2(offset_x,offset_y);
@@ -40,6 +44,12 @@ void main() {
     vec3 pos_3d = vec3(pos.x+AWindx*sin(freqx*time) ,
                        40.*(position.y+tree_height)+height,     // put the tree straight
                        pos.y+AWindy*sin(freqy*time));
+
+    // Setting up fog
+    vec4 pos_to_cam = view * vec4(pos_3d, 1.0);
+    float range = length(pos_to_cam.xyz);
+    fog_factor = exp(-pow(range * fog_density, gradient));
+    fog_factor = clamp(fog_factor, 0.0, 1.0);
 
     gl_Position = MVP * vec4(pos_3d, 1.0);
     dist = length(gl_Position.xyz);

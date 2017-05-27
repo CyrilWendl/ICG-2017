@@ -222,7 +222,7 @@ public:
         glDeleteTextures(1, &texture_night_id_);
     }
 
-    void Draw(const glm::mat4& MVP, float time, int daynight_mode, float daynight_pace) {
+    void Draw(const glm::mat4& MVP, float time, int daynight_mode, float daynight_pace, int fog_enable, glm::vec3 fog_color) {
         glDepthMask(GL_FALSE);
         glUseProgram(program_id_);
         glBindVertexArray(vertex_array_id_);
@@ -315,6 +315,10 @@ public:
 
         // pass texture blending factor to the shader.
         glUniform1f(glGetUniformLocation(program_id_, "blend"), blend);
+
+        // pass fog parameters
+        glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
+        glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
 
         // draw
         glDrawArrays(GL_TRIANGLES, 0, 36);
