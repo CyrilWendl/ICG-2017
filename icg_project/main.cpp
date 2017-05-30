@@ -197,6 +197,9 @@ void Init(GLFWwindow *window) {
     GLuint reflection_buffer_texid = reflection_buffer.Init(window_width, window_height);
     GLuint refraction_buffer_texid = refraction_buffer.Init(window_width, window_height);
 
+    cout << "refraction: " << reflection_buffer_texid << endl;
+    cout << "reflection: " << refraction_buffer_texid << endl;
+
     // initialize the quad with the framebuffer calculated perlin noise texture
     grid.Init(framebuffer_texture_id);
     skybox.Init();

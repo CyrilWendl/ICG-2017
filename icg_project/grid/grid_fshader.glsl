@@ -39,13 +39,13 @@ void main() {
 
      float aRock = clamp((1 - 15 * (height- 0.75) * (height - 0.75)),0,1);
      float aGrass= clamp((1 - 5 * (height- 0.4) * (height - 0.4)),0,1);
-     float aSnow = clamp((1 - 5 * (height- 1.0f) * (height - 1.0f)),0,1);
+     float aSnow = clamp((1 - 10 * (height- 1.0f) * (height - 1.0f)),0,1);
      float aSand = clamp((1 - 500 * (height- water_height) * (height - water_height)),0,1);
      float aOcean= clamp((1 - 15 * (height- 0.0) * (height - 0.0)),0,1);
      float sum=aRock+aGrass+aSnow+aSand+aOcean;
 
      //blend textures
-     vec3 color_blended = (aRock*color_rock+ aGrass*color_grass+ aSnow*color_snow+ aSand*color_sand+ aOcean*color_ocean)/sum;
+     vec3 color_blended = (aRock*color_rock+ aGrass*color_grass+ 2*aSnow*color_snow+ aSand*color_sand+ aOcean*color_ocean)/sum;
 
      //custom material diffuse parameter
      vec3 kd = vec3(diffuse_factor);
