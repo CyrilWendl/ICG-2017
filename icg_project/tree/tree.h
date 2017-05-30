@@ -185,7 +185,7 @@ class Tree {
             glUniform1f(glGetUniformLocation(program_id_, "time"), time);
 
             // setup matrix stack
-            // 3*3 part of model is transpose of the 3*3 part of the view matrix
+            // 3*3 part of model is transpose of the 3*3 part of the view matrix (But translation incorrect)
             //glm::vec2 pos = glm::vec2(pos_x - 8.0 * offset_x, pos_y - 8.0 * offset_y);
             //glm::mat4 M = translate(model, glm::vec3(pos, 1.0));
             glm::mat4 M = model;
