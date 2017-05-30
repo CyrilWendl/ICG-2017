@@ -17,6 +17,8 @@ class Tree {
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // Model, view, projection matrix ID
         GLuint height_id_;
+        GLfloat pos_x;                          // x position of tree
+        GLfloat pos_y;                          // y position of tree
 
     public:
         void Init(float size, float height, float treePos_x = 0, float treePos_y = 0, GLuint tex_noise = -1) {
@@ -35,6 +37,10 @@ class Tree {
             glBindVertexArray(vertex_array_id_);
             float tree_size = size;
             float tree_height = height;
+
+            pos_x = treePos_x;
+            pos_y = treePos_y;
+
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
 
@@ -160,8 +166,9 @@ class Tree {
 
         void Draw(float time, float offset_x, float offset_y,
                   int fog_enable, glm::vec3 fog_color, float fog_density,
-                  const glm::mat4& MVP,
-                  const glm::mat4 &view = IDENTITY_MATRIX) {
+                  const glm::mat4 &model = IDENTITY_MATRIX,
+                  const glm::mat4 &view = IDENTITY_MATRIX,
+                  const glm::mat4 &projection = IDENTITY_MATRIX) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -177,14 +184,31 @@ class Tree {
             // pass the current time stamp to the shader.
             glUniform1f(glGetUniformLocation(program_id_, "time"), time);
 
-            // setup MVP
-            glUniformMatrix4fv(MVP_id_, 1, GL_FALSE, value_ptr(MVP));
+            // setup matrix stack
+            // 3*3 part of model is transpose of the 3*3 part of the view matrix
+            //glm::vec2 pos = glm::vec2(pos_x - 8.0 * offset_x, pos_y - 8.0 * offset_y);
+            //glm::mat4 M = translate(model, glm::vec3(pos, 1.0));
+            glm::mat4 M = model;
+            M[0][0] = view[0][0];
+            M[0][1] = view[1][0];
+            M[0][2] = view[2][0];
+            M[1][0] = view[0][1];
+            M[1][1] = view[1][1];
+            M[1][2] = view[2][1];
+            M[2][0] = view[0][2];
+            M[2][1] = view[1][2];
+            M[2][2] = view[2][2];
 
-            // pass View matrix
+            GLint model_id = glGetUniformLocation(program_id_,
+                                                  "model");
+            glUniformMatrix4fv(model_id, ONE, DONT_TRANSPOSE, glm::value_ptr(M));
             GLint view_id = glGetUniformLocation(program_id_,
                                                  "view");
             glUniformMatrix4fv(view_id, ONE, DONT_TRANSPOSE, glm::value_ptr(view));
-
+            GLint projection_id = glGetUniformLocation(program_id_,
+                                                       "projection");
+            glUniformMatrix4fv(projection_id, ONE, DONT_TRANSPOSE,
+                               glm::value_ptr(projection));
             // pass parameters
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);

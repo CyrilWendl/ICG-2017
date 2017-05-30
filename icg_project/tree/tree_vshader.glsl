@@ -7,8 +7,9 @@ out float height;       // out the height to know if tree should be snowy for ex
 
 out float fog_factor;
 
+uniform mat4 model;
 uniform mat4 view;
-uniform mat4 MVP;
+uniform mat4 projection;
 
 uniform float time;
 uniform float tree_height;
@@ -50,6 +51,8 @@ void main() {
     float range = length(pos_to_cam.xyz);
     fog_factor = exp(-pow(range * fog_density, gradient));
     fog_factor = clamp(fog_factor, 0.0, 1.0);
+
+    mat4 MVP = projection * view * model;
 
     gl_Position = MVP * vec4(pos_3d, 1.0);
     dist = length(gl_Position.xyz);

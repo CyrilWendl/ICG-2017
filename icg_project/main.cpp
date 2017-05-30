@@ -312,7 +312,7 @@ void Display() {
 //    FacingTransfo[2][1] = 0.0f;
 
     for (unsigned i = 0 ; i < treez.size() ; ++i)
-        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix * FacingTransfo, view_matrix);
+        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, quad_model_matrix , view_matrix , projection_matrix);
 
 }
 
