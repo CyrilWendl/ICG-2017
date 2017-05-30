@@ -16,6 +16,7 @@
 #include "imgui-master/imgui.h"
 #include "imgui-master/imgui_impl_glfw_gl3.h"
 #include "tree/tree.h"
+#include "particles/particles.h"
 #include "vector"
 
 #define CAM_DEFAULT 1
@@ -108,6 +109,7 @@ Quad quad;
 Water water;
 Skybox skybox;
 vector<Tree> treez;
+Particles particles;
 unsigned nbTreez = 300;
 float treeScattering = 1.0f;         // the higher the value, the more the treez will tend to be scattered. To adjust with nbTreez
 
@@ -202,6 +204,7 @@ void Init(GLFWwindow *window) {
     skybox.Init();
     water.Init(reflection_buffer_texid, refraction_buffer_texid);
     quad.Init();
+    particles.Init();
 
 
     for (unsigned i = 0 ; i < nbTreez ; ++i)
@@ -277,6 +280,7 @@ void Display() {
     skybox.Draw(projection_matrix * view_rot * quad_model_matrix, time, daynight_mode, daynight_pace, FOG, fog_color);
     grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, fog_on, fog_color, fog_density, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
     water.Draw(time, daynight_mode, daynight_pace, water_height, fog_on, fog_color, fog_density, quad_model_matrix , view_matrix , projection_matrix);
+    particles.Draw(projection_matrix * view_matrix * quad_model_matrix, projection_matrix, offset.x, offset.z);
 
     mat4 FacingTransfo(1.0f);
 //    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
@@ -679,7 +683,7 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Front z" , &cameraFront.z , 0.01f , 1.0f);
             }
             if (ImGui::CollapsingHeader("Water Height", ImGuiTreeNodeFlags_DefaultOpen)) {
-                ImGui::SliderFloat("Height", &water_height, 0.0f, 0.4f);
+                ImGui::SliderFloat("Height", &water_height, 0.1f, 0.4f);
             }
             if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Cycle/Day/Night" , &daynight_mode , CYCLE, NIGHT);
@@ -727,6 +731,7 @@ int main(int argc , char *argv[]) {
     grid.Cleanup();
     skybox.Cleanup();
     water.Cleanup();
+    particles.Cleanup();
     for (unsigned i = 0 ; i < treez.size() ; ++i)
         treez.at(i).Cleanup();
 
