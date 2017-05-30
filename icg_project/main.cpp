@@ -108,8 +108,12 @@ Quad quad;
 Water water;
 Skybox skybox;
 vector<Tree> treez;
-unsigned nbTreez = 300;
-float treeScattering = 1.0f;         // the higher the value, the more the treez will tend to be scattered. To adjust with nbTreez
+int nbTreez = 300;
+float treeScattering = 1.0f; //the higher the value, the more the treez will tend to be scattered. To adjust with nbTreez
+float tree_width=.2f;
+float tree_height=.01f;
+
+GLuint framebuffer_texture_id;
 
 GLfloat tex[TEX_BITS]; // window height * window width * floats per pixel
 
@@ -119,6 +123,8 @@ float frequency = 0.5f;
 float H = 1;
 float lacunarity = 2.5f;
 float persistance = 3.5f;
+float gain=2.0f;
+int noise_mode=0;
 
 vec3 offset = vec3(0.0f);
 
@@ -192,7 +198,7 @@ void Init(GLFWwindow *window) {
 
     // initialize framebuffer
     glfwGetFramebufferSize(window , &window_width , &window_height);
-    GLuint framebuffer_texture_id = framebuffer.Init(TEX_WIDTH , TEX_HEIGHT);
+    framebuffer_texture_id = framebuffer.Init(TEX_WIDTH , TEX_HEIGHT);
 
     GLuint reflection_buffer_texid = reflection_buffer.Init(window_width, window_height);
     GLuint refraction_buffer_texid = refraction_buffer.Init(window_width, window_height);
@@ -206,24 +212,36 @@ void Init(GLFWwindow *window) {
     water.Init(reflection_buffer_texid, refraction_buffer_texid);
     quad.Init();
 
-
+    // TREES
     for (unsigned i = 0 ; i < nbTreez ; ++i)
     {
         Tree tree;
         float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
 
-        tree.Init(.2f*((double) rand()/RAND_MAX),                   // tree width
-                  .02f*((double) rand()/RAND_MAX),                  // tree height
+        tree.Init(tree_width*((double) rand()/RAND_MAX),                   // tree width
+                  tree_height*((double) rand()/RAND_MAX),                  // tree height
                   float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
                   float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
                   framebuffer_texture_id);
         treez.push_back(tree);
     }
-
 }
 
 // gets called for every frame.
 void Display() {
+    // TREES
+    for (unsigned i = 0 ; i < nbTreez-300 ; ++i)
+    {
+        Tree tree;
+        float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
+
+        tree.Init(tree_width*((double) rand()/RAND_MAX),                   // tree width
+                  tree_height*((double) rand()/RAND_MAX),                  // tree height
+                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
+                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
+                  framebuffer_texture_id);
+        treez.push_back(tree);
+    }
     glViewport(0 , 0 , window_width , window_height);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -248,7 +266,7 @@ void Display() {
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         quad.Draw(projection_matrix * view_matrix * quad_model_matrix , octaves , amplitude ,
-                  frequency , H , lacunarity , offset.x , offset.z , persistance);
+                  frequency , H , lacunarity , offset.x , offset.z , persistance,gain);
     }
     /*GLfloat *size;
     glGetTextureLevelParameterfv(GL_TEXTURE_2D,0,GL_TEXTURE_HEIGHT,size);
@@ -670,6 +688,7 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Amplitude" , &amplitude , 0.0f , 5.0f);
                 ImGui::SliderFloat("Lacunarity" , &lacunarity , 0.0f , 5.0f);
                 ImGui::SliderFloat("Persistance" , &persistance , 0.0f , 5.0f);
+                ImGui::SliderFloat("Gain" , &gain, 1.0f , 3.0f);
                 ImGui::SliderFloat("H" , &H , 0.0f , 5.0f);
             }
             if (ImGui::CollapsingHeader("Camera Parameters" , ImGuiTreeNodeFlags_DefaultOpen)) {
@@ -693,6 +712,9 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderInt("Fog", &fog_on, NOFOG, FOG);
                 ImGui::SliderFloat("Fog Density", &fog_density, 0.005f, 0.1f);
             }
+            /*wif (ImGui::CollapsingHeader("Vegetation", ImGuiTreeNodeFlags_DefaultOpen)) {
+                ImGui::SliderInt("Trees", &nbTreez, 300, 320);
+            }*/
             if (ImGui::CollapsingHeader("Help")) {
                 ImGui::TextWrapped("Navigation:\n");
                 ImGui::BulletText("Use the keys W and A to move back and forth");

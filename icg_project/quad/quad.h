@@ -101,7 +101,7 @@ class Quad {
             glDeleteTextures(1, &texture_id_);
         }
 
-        void Draw(const glm::mat4& MVP, int octaves, float amplitude, float frequency, float H, float lacunarity, float offset_x, float offset_y, float persistance=0.0f) {
+        void Draw(const glm::mat4& MVP, int octaves, float amplitude, float frequency, float H, float lacunarity, float offset_x, float offset_y, float persistance=0.0f, float gain=2.0f) {
             glUseProgram(program_id_);
             glBindVertexArray(vertex_array_id_);
 
@@ -122,6 +122,7 @@ class Quad {
             glUniform1f(glGetUniformLocation(program_id_, "offset_x"), offset_x);
             glUniform1f(glGetUniformLocation(program_id_, "offset_y"), offset_y);
             glUniform1f(glGetUniformLocation(program_id_, "persistance"), persistance);
+        glUniform1f(glGetUniformLocation(program_id_, "gainUni"), gain);
 
             //TODO make random
             int Perm[256] = { 151,160,137,91,90,15,
