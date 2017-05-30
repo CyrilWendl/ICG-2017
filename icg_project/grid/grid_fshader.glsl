@@ -45,7 +45,7 @@ void main() {
      float sum=aRock+aGrass+aSnow+aSand+aOcean;
 
      //blend textures
-     vec3 color_blended = (aRock*color_rock+ aGrass*color_grass+ 2*aSnow*color_snow+ aSand*color_sand+ aOcean*color_ocean)/sum;
+     vec3 color_blended = (aRock*color_rock+ aGrass*color_grass+ 2*aSnow*color_snow+ 2*aSand*color_sand+ aOcean*color_ocean)/sum;
 
      //custom material diffuse parameter
      vec3 kd = vec3(diffuse_factor);
