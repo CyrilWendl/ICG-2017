@@ -682,7 +682,7 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Front z" , &cameraFront.z , 0.01f , 1.0f);
             }
             if (ImGui::CollapsingHeader("Water Height", ImGuiTreeNodeFlags_DefaultOpen)) {
-                ImGui::SliderFloat("Height", &water_height, 0.0f, 0.4f);
+                ImGui::SliderFloat("Height", &water_height, 0.1f, 0.4f);
             }
             if (ImGui::CollapsingHeader("Day/Night Cycle", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Cycle/Day/Night" , &daynight_mode , CYCLE, NIGHT);
