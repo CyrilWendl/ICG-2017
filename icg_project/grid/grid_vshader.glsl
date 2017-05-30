@@ -47,12 +47,12 @@ void main() {
     vec3 pos_3d = vec3(position.x, height, position.y); // or position instead of uv
 
     //clipping planes for reflection (Clipping all that's under the water)
-    if(reflect_clipped == 2) {
+    if(reflect_clipped == 1) {
         vec4 planeClip = vec4(0.0, 1.0, 0.0, -water_height);
         gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
     }
 
-    if(refract_clipped == 3) {
+    if(refract_clipped == 1) {
         vec4 planeClip = vec4(0.0, -1.0, 0.0, water_height);
         gl_ClipDistance[0] = dot(vec4(pos_3d, 1.0), planeClip);
     }
