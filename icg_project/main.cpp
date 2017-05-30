@@ -59,7 +59,7 @@ glm::vec3 fog_color = glm::vec3(226.0/255, 225.0/255, 223.0/255);
 float fog_density = 0.05f;
 
 using namespace glm;
-
+int add_trees=0;
 mat4 projection_matrix;
 mat4 view_matrix;
 mat4 quad_model_matrix;
@@ -229,6 +229,21 @@ void Init(GLFWwindow *window) {
 
 // gets called for every frame.
 void Display() {
+    // TREES
+    if(add_trees>0){
+        for (unsigned i = 0 ; i < 300 ; i+=100/add_trees)
+        {
+            Tree tree;
+            float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
+
+            tree.Init(tree_width*((double) rand()/RAND_MAX),                   // tree width
+                      tree_height*((double) rand()/RAND_MAX),                  // tree height
+                      float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
+                      float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
+                      framebuffer_texture_id);
+            treez.push_back(tree);
+        }
+    }
     // TREES
     for (unsigned i = 0 ; i < nbTreez-300 ; ++i)
     {
@@ -685,8 +700,6 @@ int main(int argc , char *argv[]) {
             if (ImGui::CollapsingHeader("Terrain Parameters" , ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Octaves" , &octaves , 0 , 20);
                 ImGui::SliderFloat("Frequency" , &frequency , 0.0f , 5.0f);
-                ImGui::SliderFloat("Amplitude" , &amplitude , 0.0f , 5.0f);
-                ImGui::SliderFloat("Lacunarity" , &lacunarity , 0.0f , 5.0f);
                 ImGui::SliderFloat("Persistance" , &persistance , 0.0f , 5.0f);
                 ImGui::SliderFloat("Gain" , &gain, 1.0f , 3.0f);
                 ImGui::SliderFloat("H" , &H , 0.0f , 5.0f);
@@ -711,6 +724,7 @@ int main(int argc , char *argv[]) {
             if (ImGui::CollapsingHeader("Fog Control", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Fog", &fog_on, NOFOG, FOG);
                 ImGui::SliderFloat("Fog Density", &fog_density, 0.005f, 0.1f);
+                ImGui::SliderInt("Add trees" , &add_trees, 0, 10);
             }
             /*wif (ImGui::CollapsingHeader("Vegetation", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderInt("Trees", &nbTreez, 300, 320);
