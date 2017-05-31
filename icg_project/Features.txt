@@ -14,3 +14,16 @@ Customizable in GUI, such as duration of phases. (Took inspiration from Thin Mat
 * Added fog. (Exponential fog except for the skybox where we use a linear fog, so that the more we look down from the sky to the horizon, the foggier it is. (http://in2gpu.com/2014/07/22/create-fog-shader/)
 
 * Floating glowing colorful junebugs particle system (Incomplete implementation).
+
+** Cyril **
+
+* Infinite terrain based on the illusion of camera movement which is done by changing an offset value when navigation keys are pressed. This offset value is used to create the quad shader.
+
+* Implementation of rigged multifractal terrain which can be changed via the GUI.
+
+* Implementation of the mixed textures according to a special texture mixing function.
+
+* Different Bezier paths were implemented using a new Class. Different types of transitions on speed, angular translation and height displacement have been implemented. A nice-looking jumping effect (key J) is made possible thanks to the Bezier curve.
+
+* Adding ImGUI overlay and integration with existing code.
+
