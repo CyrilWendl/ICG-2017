@@ -78,3 +78,8 @@ and for that we control the active textures depending on time in the skybox head
 - We also modify the lighting of the water and the grid using the diffuse lighting. For that we use a uniform diffuse_factor that
 changes depending on the time of day and we do a similar mapping technique as the blending effect for that.
 
+** Rémy **
+* Unsuccessful implementation of Level-Of-Detail and Tessellation *
+
+* Animated trees implemented *
+Trees placed randomly on the terrain, and animated with "wind" (sine perturbation around equilibrium position). Height and width of the trees vary also.
