@@ -51,7 +51,8 @@ file(GLOB TEXTURES
     skybox/grimmnightup.tga
     skybox/grimmnightdn.tga
     skybox/grimmnightrt.tga
-    skybox/grimmnightlf.tga)
+    skybox/grimmnightlf.tga
+    particles/particle.png)
 copy_files_once(${TEXTURES})
 
 # list all the files you want to copy everytime

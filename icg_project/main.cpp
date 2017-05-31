@@ -12,6 +12,7 @@
 #include "water/water.h"
 #include "skybox/skybox.h"
 #include "Bezier/Bezier.h"
+#include "particles/particles.h"
 #include "framebuffer.h"
 #include "imgui-master/imgui.h"
 #include "imgui-master/imgui_impl_glfw_gl3.h"
