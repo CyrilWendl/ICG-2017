@@ -1,0 +1,16 @@
+** Stephane **
+
+* Day/Night Cycle With three phases: Day/Sunset/Night depending on time of day with smooth transition from one phase to another.
+Customizable in GUI, such as duration of phases.
+
+* Adjust the lighting of the scenery depending on the time of day.
+
+* Clouds Moving (Just the skybox rotating). Cloud speed customizable in GUI.
+
+* Added Reflection(of the sky and the terrain) and Refraction(only of the terrain underwater) to water (+ Underwater texture)
+
+* Water height customizable in GUI.
+
+* Added fog. (Exponential fog except for the skybox where we use a linear fog, so that the more we look down from the sky to the horizon, the foggier it is.
+
+* Floating glowing colorful junebugs particle system (Incomplete implementation).
