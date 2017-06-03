@@ -327,9 +327,11 @@ void Display() {
 //    FacingTransfo[2][0] = 0.0f;
 //    FacingTransfo[2][1] = 0.0f;
 
-    for (unsigned i = 0 ; i < treez.size() ; ++i)
-        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix * FacingTransfo, view_matrix);
-
+    for (unsigned i = 0 ; i < treez.size() ; ++i) {
+        if(length(view_matrix * treez.at(i).Position()) < 12.0) {
+            treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix * FacingTransfo, view_matrix);
+        }
+    }
 }
 
 // Is called whenever a key is pressed/released via GLFW

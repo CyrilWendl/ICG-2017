@@ -17,6 +17,8 @@ class Tree {
         GLuint num_indices_;                    // number of vertices to render
         GLuint MVP_id_;                         // Model, view, projection matrix ID
         GLuint height_id_;
+        GLfloat position_x;                     // x position of tree
+        GLfloat position_y;                     // y position of tree
 
     public:
         void Init(float size, float height, float treePos_x = 0, float treePos_y = 0, GLuint tex_noise = -1) {
@@ -37,6 +39,9 @@ class Tree {
             float tree_height = height;
             std::vector<GLfloat> vertices;
             std::vector<GLuint> indices;
+
+            position_x = treePos_x;
+            position_y = treePos_y;
 
             // vertex coordinates
             {
@@ -144,6 +149,10 @@ class Tree {
             // to avoid the current object being polluted
             glBindVertexArray(0);
             glUseProgram(0);
+        }
+
+        glm::vec4 Position(){
+            return glm::vec4(position_x, position_y, 0.0, 1.0);
         }
 
         void Cleanup() {
