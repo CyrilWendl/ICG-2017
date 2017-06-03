@@ -230,6 +230,9 @@ public:
         // blend factor for day/night cycle
         float blend = 0.0f;
 
+        // fog blend factor (e.g fog disappears into the sunset)
+        float fog_blend = 1.0f;
+
         // Day/night cycle time frames
         float pace = daynight_pace;   //uniform
         float day_start = 0 * pace;
@@ -256,6 +259,8 @@ public:
                 glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
             } else if(time_inst >= day_end && time_inst < sunset_start) {
                 blend = (time_inst - day_end) / (sunset_start -day_end);
+                fog_blend = 1.0 - (time_inst - day_end) / (sunset_start - day_end);
+
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_CUBE_MAP, texture_day_id_);
 
@@ -263,6 +268,8 @@ public:
                 glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
             } else if(time_inst >= sunset_start && time_inst < sunset_end) {
                 blend = (time_inst - sunset_start) / (sunset_end -sunset_start);
+                fog_blend = 0.0;
+
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
@@ -270,6 +277,8 @@ public:
                 glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
             } else if(time_inst >= sunset_end && time_inst < night_start) {
                 blend = (time_inst - sunset_end) / (night_start -sunset_end);
+                fog_blend = (time_inst - sunset_end) / (night_start -sunset_end);
+
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_CUBE_MAP, texture_sunset_id_);
 
@@ -319,6 +328,8 @@ public:
         // pass fog parameters
         glUniform1i(glGetUniformLocation(program_id_, "fog_enable"), fog_enable);
         glUniform3fv(glGetUniformLocation(program_id_, "fog_color"), ONE, glm::value_ptr(fog_color));
+        //pass fog blending factor to the shader
+        glUniform1f(glGetUniformLocation(program_id_, "fog_blend"), fog_blend);
 
         // draw
         glDrawArrays(GL_TRIANGLES, 0, 36);

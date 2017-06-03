@@ -13,6 +13,7 @@ out vec4 color;
 
 uniform int fog_enable;
 uniform vec3 fog_color;
+uniform float fog_blend;
 
 uniform vec3 Ld;
 uniform float diffuse_factor;
@@ -37,7 +38,7 @@ void main() {
     vec4 color_water = vec4(64.0f/255.0f, 164.0f/255.0f, 223.0f/255.0f, 0.2f);
     vec4 color_water2 = vec4(0.13,0.25,0.5, 0.5);
     color = mix(color_refract, color_reflect, 0.5);
-    color = mix(color, color_water2, 0.5);
+    //color = mix(color, color_water2, 0.5);
 
     //color = mix(texture(texWater,uv ).rgb, texture(tex_mirror,vec2(_u,_v)).rgb, 3.0);
     //color = mix(color, vec3(0.13,0.25,0.5), 0.5);
@@ -58,7 +59,8 @@ void main() {
      color = color*(diffuse_factor+.5);
 
      if(fog_enable == 1){
-         color = mix(vec4(fog_color, 1.0), color, fog_factor);
+         vec4 color_fog = mix(vec4(fog_color, 1.0), color, fog_factor);
+         color = mix(color, color_fog, fog_blend);
      }
 
 }
