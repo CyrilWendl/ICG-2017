@@ -9,7 +9,6 @@ in vec3 normal_mv;
 
 out vec3 color;
 
-
 const float spot_cos_cutoff = 0.1; // cos 50 degrees
 const float spot_exp = 1500;
 
