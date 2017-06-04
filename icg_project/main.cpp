@@ -328,6 +328,7 @@ void Display() {
     //glm::mat4 T = glm::mat4(1.0f);
     float yaw_cam_rad=(cameraFront.x+1)*N_PI;
 
+
     mat4 FacingTransfo(1.0f);
 
     // view matrix after removing the translated component
@@ -340,7 +341,8 @@ void Display() {
     FacingTransfo[3][3] = 1.0f;*/
     glm::mat4 T;
     glm::mat4 T2;
-    for (unsigned i = 0 ; i < treez.size() ; ++i){
+    for (unsigned i = 0 ; i < treez.size() ; ++i) {
+        if(length(view_matrix * treez.at(i).Position()) < 12.0) {
         T = glm::mat4(1.0f);
         T2 = glm::mat4(1.0f);
         //T = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x+offset.x,0.0f,treePos.at(i).y+offset.z));

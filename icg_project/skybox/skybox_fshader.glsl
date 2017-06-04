@@ -5,6 +5,7 @@ out vec4 color;
 uniform samplerCube skybox_day;
 uniform samplerCube skybox_night;
 uniform float blend;
+uniform float fog_blend;
 
 uniform int fog_enable;
 uniform vec3 fog_color;
@@ -22,6 +23,7 @@ void main()
     {
        float fog_factor = (TexCoords.y - fog_start) / (fog_end - fog_start);
        fog_factor = clamp(fog_factor, 0.0, 1.0);
-       color = mix(vec4(fog_color, 1.0), color, fog_factor);
+       vec4 color_fog = mix(vec4(fog_color, 1.0), color, fog_factor);
+       color = mix(color, color_fog, fog_blend);
     }
 }

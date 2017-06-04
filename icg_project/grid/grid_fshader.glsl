@@ -26,6 +26,7 @@ uniform float diffuse_factor;
 
 uniform int fog_enable;
 uniform vec3 fog_color;
+uniform float fog_blend;
 
 vec2 offset=vec2(offset_x,offset_y);
 
@@ -62,7 +63,8 @@ void main() {
      color=(color+color_blended)*diffuse_factor*2;
 
      if(fog_enable == 1){
-         color = mix(fog_color, color, fog_factor);
+         vec3 color_fog = mix(fog_color, color, fog_factor);
+         color = mix(color, color_fog, fog_blend);
      }
 
 }

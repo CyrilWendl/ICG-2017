@@ -27,3 +27,10 @@ Customizable in GUI, such as duration of phases. (Took inspiration from Thin Mat
 
 * Adding ImGUI overlay and integration with existing code.
 
+** Remy **
+
+* Unsuccessful implementation of Level-Of-Detail and Tessellation. Tried to implement the tessellation on our triangle grid, using tessellation evaluation and control shaders. But no concluding result could show.
+
+* Animated trees implemented *
+Trees placed randomly on the terrain, and animated with "wind" (sine perturbation around equilibrium position). Height and width of the trees vary also.
+
