@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(icg17)
+#project(icg17)
 
 # load the common ICG configuration
 include(common/icg_settings.cmake)
@@ -18,13 +18,13 @@ include(common/icg_settings.cmake)
 #add_subdirectory(hw2_trackball)
 
 # week 4
-#add_subdirectory(hw4_shading)
+add_subdirectory(hw3_shading)
 
 # week 5
 #add_subdirectory(hw4p1_fastsmooth)
 #add_subdirectory(hw4p2_mirrorfloor)
 #add_subdirectory(hw4p3_motionblur)
 #add_subdirectory(lab5_framebuffer)
-add_subdirectory(icg_project)
+#add_subdirectory(icg_project)
 #add_subdirectory(Infinite-terrain-master)
 

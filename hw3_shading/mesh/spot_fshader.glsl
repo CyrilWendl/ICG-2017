@@ -9,25 +9,12 @@ in vec3 normal_mv;
 
 out vec3 color;
 
+const float spot_cos_cutoff = 0.1; // cos 50 degrees
+const float spot_exp = 1500;
 
-const float spot_cos_cutoff = 0.985; // cos 10 degrees
-const float spot_exp = 150;
+void main() {
+    color = vec3(0.0,0.0,0.0);
 
-void main() {    
-     color = vec3(0.0,0.0,0.0);
-
-        /**const vec3 COLORS[6] = vec3[](
-            vec3(1.0,0.0,0.0),
-            vec3(0.0,1.0,0.0),
-            vec3(0.0,0.0,1.0),
-            vec3(1.0,1.0,0.0),
-            vec3(0.0,1.0,1.0),
-            vec3(1.0,0.0,1.0));
-        int index = int( mod(gl_PrimitiveID,6) );
-        color = COLORS[index];*/
-
-    //>>>>>>>>>> TODO >>>>>>>>>>>
-    // TODO 5: Spot light.
     vec3 ambient = La * ka;
     vec3 n = normalize(normal_mv);
     vec3 l = normalize(light_dir);
@@ -41,8 +28,8 @@ void main() {
         vec3 r = reflect(-l,n);
         specular = Ls*ks*pow(max(dot(r,v), 0.0), alpha);
         spotEffect=pow(dot(v,l),spot_exp);
-        color += spotEffect*(ambient + diffuse + specular);
+        if(spotEffect>spot_cos_cutoff){
+            color += spotEffect*(ambient + diffuse + specular);
+        }
     }
-    // Complete the shader to obtain spot light effect
-    //<<<<<<<<<< TODO <<<<<<<<<<<
 }

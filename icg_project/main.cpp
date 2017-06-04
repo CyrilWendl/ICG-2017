@@ -2,6 +2,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <vector>
 
 // contains helper functions such as shader compiler
 #include "icg_helper.h"
@@ -22,6 +23,7 @@
 #define CAM_DEFAULT 1
 #define CAM_FPS 2
 #define CAM_BEZIER 3
+#define N_PI 3.1415926536
 
 #define TEX_HEIGHT 1024
 #define TEX_WIDTH 1024
@@ -113,6 +115,7 @@ int nbTreez = 300;
 float treeScattering = 1.0f; //the higher the value, the more the treez will tend to be scattered. To adjust with nbTreez
 float tree_width=.2f;
 float tree_height=.01f;
+vector<glm::vec2> treePos;
 
 GLuint framebuffer_texture_id;
 
@@ -127,7 +130,7 @@ float persistance = 3.5f;
 float gain=2.0f;
 int noise_mode=0;
 
-vec3 offset = vec3(0.0f);
+glm::vec3 offset = glm::vec3(0.0f);
 
 mat4 PerspectiveProjection(float left , float right , float bottom ,
                            float top , float near , float far) {
@@ -214,15 +217,19 @@ void Init(GLFWwindow *window) {
     quad.Init();
 
     // TREES
+    treePos.clear();
     for (unsigned i = 0 ; i < nbTreez ; ++i)
     {
         Tree tree;
         float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
+        float posx=float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)); // x position
+        float posy=float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)); // y position
+        treePos.push_back(vec2(posx,posy));
 
         tree.Init(tree_width*((double) rand()/RAND_MAX),                   // tree width
                   tree_height*((double) rand()/RAND_MAX),                  // tree height
-                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
-                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
+                  posx,
+                  posy,
                   framebuffer_texture_id);
         treez.push_back(tree);
     }
@@ -250,11 +257,14 @@ void Display() {
     {
         Tree tree;
         float randSign = ((double)rand()/RAND_MAX <= 0.5f ? -1.0f : 1.0f);      // generate a random sign for the position
+        float posx=float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)); // x position
+        float posy=float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)); // y position
+        treePos.push_back(vec2(posx,posy));
 
         tree.Init(tree_width*((double) rand()/RAND_MAX),                   // tree width
                   tree_height*((double) rand()/RAND_MAX),                  // tree height
-                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // x position
-                  float(randSign*(treeScattering*i)*((double) rand()/RAND_MAX)),     // y position
+                  posx,
+                  posy,
                   framebuffer_texture_id);
         treez.push_back(tree);
     }
@@ -315,22 +325,30 @@ void Display() {
     grid.Draw(time, daynight_mode, daynight_pace, water_height, quad_model_matrix , view_matrix , projection_matrix, offset.x, offset.z, fog_on, fog_color, fog_density, REFLECT_UNCLIPPED, REFRACT_UNCLIPPED);
     water.Draw(time, daynight_mode, daynight_pace, water_height, fog_on, fog_color, fog_density, quad_model_matrix , view_matrix , projection_matrix);
 
-    mat4 FacingTransfo(1.0f);
-//    FacingTransfo[0][0] = cos(glm::radians(-yaw_cam));
-//    FacingTransfo[2][0] = sin(glm::radians(-yaw_cam));
-//    FacingTransfo[0][2] = -sin(glm::radians(-yaw_cam));
-//    FacingTransfo[2][2] = cos(glm::radians(-yaw_cam));
-//    FacingTransfo[0][1] = 0.0f;
-//    FacingTransfo[0][2] = 0.0f;
-//    FacingTransfo[1][0] = 0.0f;
-//    FacingTransfo[1][2] = 0.0f;
-//    FacingTransfo[2][0] = 0.0f;
-//    FacingTransfo[2][1] = 0.0f;
+    //glm::mat4 T = glm::mat4(1.0f);
+    float yaw_cam_rad=(cameraFront.x+1)*N_PI;
 
+
+    mat4 FacingTransfo(1.0f);
+
+    // view matrix after removing the translated component
+    /*mat4 FacingTransfo=mat4(0.0f);
+    FacingTransfo[0][0] = cos(yaw_cam_rad);
+    FacingTransfo[0][1] = sin(yaw_cam_rad);
+    FacingTransfo[0][0] = -sin(yaw_cam_rad);
+    FacingTransfo[1][1] = cos(yaw_cam_rad);
+    FacingTransfo[2][2] = 1.0f;
+    FacingTransfo[3][3] = 1.0f;*/
+    glm::mat4 T;
+    glm::mat4 T2;
     for (unsigned i = 0 ; i < treez.size() ; ++i) {
         if(length(view_matrix * treez.at(i).Position()) < 12.0) {
-            treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix * FacingTransfo, view_matrix);
-        }
+        T = glm::mat4(1.0f);
+        T2 = glm::mat4(1.0f);
+        //T = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x+offset.x,0.0f,treePos.at(i).y+offset.z));
+        //T2 = glm::translate(glm::mat4(1.0f), glm::vec3(-treePos.at(i).x-offset.x,0.0f,-treePos.at(i).y-offset.z));
+        //glm::mat4 T2 = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x,0.0f,treePos.at(i).y));
+        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix*T*FacingTransfo*T2 , view_matrix);
     }
 }
 
@@ -359,13 +377,6 @@ void key_callback(GLFWwindow *window , int key , int scancode , int action , int
             lastkey = key;
             nkeys--;
         }
-    }
-    if (keys[GLFW_KEY_X]) {// debug
-        cout << "cameraPos:   " << cameraPos.x << ", " << cameraPos.y << ", " << cameraPos.z << endl;
-        cout << "cameraFront: " << cameraFront.x << ", " << cameraFront.y << ", " << cameraFront.z << endl;
-        cout << "cameraUp:    " << cameraUp.x << ", " << cameraUp.y << ", " << cameraUp.z << endl;
-        cout << "offset x:    " << offset.x << endl;
-        cout << "offset y:    " << offset.y << endl;
     }
     if (keys[GLFW_KEY_1]) {
         cameraMode = CAM_DEFAULT;
@@ -715,6 +726,7 @@ int main(int argc , char *argv[]) {
                 ImGui::SliderFloat("Front x" , &cameraFront.x , 0.01f , 1.0f);
                 ImGui::SliderFloat("Front y" , &cameraFront.y , 0.01f , 1.0f);
                 ImGui::SliderFloat("Front z" , &cameraFront.z , 0.01f , 1.0f);
+                ImGui::SliderFloat("Camera yaw" , &yaw_cam , -90.0f , 90.0f);
             }
             if (ImGui::CollapsingHeader("Water Height", ImGuiTreeNodeFlags_DefaultOpen)) {
                 ImGui::SliderFloat("Height", &water_height, 0.1f, 0.4f);

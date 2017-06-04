@@ -228,7 +228,7 @@ public:
             // set stb_image to have the same coordinates as OpenGL
             // stbi_set_flip_vertically_on_load(1);
             unsigned char *image4= stbi_load(filename4.c_str() , &width ,
-                                              &height , &nb_component , 0);
+                                             &height , &nb_component , 0);
 
             if (image4 == nullptr) {
                 throw (string("Failed to load texture"));
@@ -260,7 +260,7 @@ public:
             // set stb_image to have the same coordinates as OpenGL
             // stbi_set_flip_vertically_on_load(1);
             unsigned char *image5= stbi_load(filename5.c_str() , &width ,
-                                              &height , &nb_component , 0);
+                                             &height , &nb_component , 0);
 
             if (image5 == nullptr) {
                 throw (string("Failed to load texture"));
