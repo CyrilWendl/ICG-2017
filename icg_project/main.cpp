@@ -342,15 +342,15 @@ void Display() {
     glm::mat4 T;
     glm::mat4 T2;
     for (unsigned i = 0 ; i < treez.size() ; ++i) {
-        if(length(view_matrix * treez.at(i).Position()) < 12.0) {
-        T = glm::mat4(1.0f);
-        T2 = glm::mat4(1.0f);
-        //T = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x+offset.x,0.0f,treePos.at(i).y+offset.z));
-        //T2 = glm::translate(glm::mat4(1.0f), glm::vec3(-treePos.at(i).x-offset.x,0.0f,-treePos.at(i).y-offset.z));
-        //glm::mat4 T2 = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x,0.0f,treePos.at(i).y));
-        treez.at(i).Draw(time, offset.x, offset.z, FOG, fog_color, fog_density, projection_matrix *view_matrix*T*FacingTransfo*T2 , view_matrix);
+            T = glm::mat4(1.0f);
+            T2 = glm::mat4(1.0f);
+            //T = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x+offset.x,0.0f,treePos.at(i).y+offset.z));
+            //T2 = glm::translate(glm::mat4(1.0f), glm::vec3(-treePos.at(i).x-offset.x,0.0f,-treePos.at(i).y-offset.z));
+            //glm::mat4 T2 = glm::translate(glm::mat4(1.0f), glm::vec3(treePos.at(i).x,0.0f,treePos.at(i).y));
+            treez.at(i).Draw(time , offset.x , offset.z , FOG , fog_color , fog_density ,
+                             projection_matrix * view_matrix * T * FacingTransfo * T2 , view_matrix);
+        }
     }
-}
 
 // Is called whenever a key is pressed/released via GLFW
 void key_callback(GLFWwindow *window , int key , int scancode , int action , int mode) {
