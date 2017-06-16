@@ -1,0 +1,24 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Parametric Curves}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}De Casteljau's algorithm}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}B\IeC {\'e}zier curves - properties}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Bezier and Bernstein polynomials}{2}{subsection.1.3}
+\contentsline {section}{\numberline {2}Projections and Transformations}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Rotation matrices}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Perspective Projection}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Concatenating Affine Transformations}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Rasterizing Planar Reflections}{5}{subsection.2.4}
+\contentsline {section}{\numberline {3}Textures, Rasterization and Visibility}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Rasterization}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Texturing}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Mip Mapping}{7}{subsection.3.3}
+\contentsline {section}{\numberline {4}Coding, Lighting, Shading and Rendering Pipeline}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Rendering Pipeline}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}OpenGL syntax}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Phong Lighting}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Phong Shading}{8}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Phong Lighting Shader}{8}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Shadow Maps}{8}{subsection.4.6}
+\contentsline {section}{\numberline {5}Procedural Modeling and Fractals}{8}{section.5}
+\contentsline {subsection}{\numberline {5.1}Measuring the dimensions of fractals}{8}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Noise Functions}{9}{subsection.5.2}
