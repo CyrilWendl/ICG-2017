@@ -63,13 +63,7 @@ bottom color=bottomcol,top color=white,shading angle=45]
 \usepackage{enumitem}
 \usepackage{tocloft}
 \setlength{\cftfignumwidth}{2.65em}
-\usepackage[total={6in, 8in}]{geometry}
-\geometry{
-	left=1.5cm,
-	right=1.5cm,
-	top=2cm,
-	bottom=2cm,
-}
+\usepackage[margin=.75in]{geometry}
 
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
@@ -83,6 +77,14 @@ bottom color=bottomcol,top color=white,shading angle=45]
 \setlist[itemize]{itemsep=0mm}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+	\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 \usepackage{array}
 
 \PassOptionsToPackage{hyphens}{url}\usepackage[
@@ -410,7 +412,6 @@ angle. Complete the following pseudo code for rasterizing one triangle.}\\
 		if (a in [0,1] and b in [0,1] and c in [0,1]
 			set_pixel (x,y)
 \end{lstlisting}
-%TODO 
 
 \textit{\textbf{(3 points)} We have a triangle with vertices A,B,C. A point on the triangle’s plane can be represented with barycentric coordinates as $P = \alpha A + \beta B + \gamma C$. Sketch the three following regions:}
 \begin{figure}[H]
@@ -419,7 +420,23 @@ angle. Complete the following pseudo code for rasterizing one triangle.}\\
 \end{figure}
 \subsection{Texturing}
 \textit{\textbf{(3 points)} Your program renders a quad whose texture coordinates ``\lstinline|in vec2 uv|'' are $\in [0, 1]$. Write a fragment shader (GLSL code) that generates a 8 $\times$ 8 checkerboard texture in blue and red.}\\
-%TODO
+\begin{lstlisting}[language=C]
+in vec2 uv;
+out vec3 color;
+		void main() {
+		float grid_size = 8.0f;// remapping [0,1] to [0,8]
+		float tex_x=uv.x*grid_size;
+		float tex_y=uv.y*grid_size;
+		tex_x=mod(tex_x,2.0f)/2.0f;
+		tex_y=mod(tex_y,2.0f)/2.0f;
+		if((tex_y<0.5 && tex_x<0.5) || (tex_y>0.5&&tex_x>0.5)){
+			color=vec3(1,0,0);
+		}else{
+			color=vec3(0,0,1);
+		}
+	}
+}
+\end{lstlisting}
 
 \textit{\textbf{(2 points)} What are light maps and what is the underlying assumption? When and why are they useful?}\\
 
@@ -434,15 +451,22 @@ mapping and which one with bump mapping?}
 \textit{\textbf{(1points) }Is the bump mapped or the displacement mapped sphere more expensive to render? Why?}\\
 
 Displacement mapping is more expensive since it requires an adaptive tesselation
-of the surface to get enough micro-polygons to match the size of a screen pixel.
+of the surface to get enough micro-polygons to match the size of a screen pixel.\\
+
 \url{https://en.wikipedia.org/wiki/Displacement_mapping}\\
 
 \textit{\textbf{(1 points)} Using the following figure, show and explain that with perspective projection, barycentric interpolation in screen-space and worldspace differ.
 }\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{3-2-perspective}
+\end{figure}
 
-- In screen space: affine math: scaling, tearing and rotating but not perspective (has to be in object space)
+In screen space: affine math: scaling, tearing and rotating but not perspective (has to be in object space)\\
 
-\textit{\textbf{(1 point)} What type of interpolation  does OpenGL employ y default?}\\
+%TODO explain more clearly
+
+\textit{\textbf{(1 point)} What type of interpolation  does OpenGL employ by default?}\\
 
 %TODO
 
@@ -452,9 +476,10 @@ of the surface to get enough micro-polygons to match the size of a screen pixel.
 
 \textit{\textbf{(3 points)} Why is the correct answer to the previous question not true for interpolating the depth-related information used in the depth test?}\\
 
-Because attributes of the form I/z can be linearly interpolated. the depth buffer stores stuff in form const + 1/z. the const doesn’t matter.
-
 %TODO
+
+Because attributes of the form I/z can be linearly interpolated. the depth buffer stores stuff in form const. + 1/z. the const doesn't matter.
+
 \subsection{Mip Mapping}
 \textit{\textbf{(2 point)} Which problem does mip mapping address? Why does this problem occur?}\\
 
@@ -466,18 +491,19 @@ by not rendering remote objects in full resolution\\
 
 \textit{\textbf{(2 points)} How do you compute the mip map texture $T_{n+1}$ from the finer level $T_n$?}\\
 
-\[T_{n+1}(x,y)=mean(T_n(x,y)+T_n(x+1,y)+T_n(x,y+1)+T_n(x+1,y+1))\]
+construct the texture at a $T_{n+1}$, you filter the $T_n$ with a smoothing kernel and then down- sample it to one forth of the total area.
+
 \textit{\textbf{(3 points)} Show that the increase of storage space required of all mip-map levels is at most one-third of the original texture.}
 
 Every level uses a fourth of the pixels. E.g.,:
-$l(1)=64^2,l(2)=32^2…$, therefore the storage requirement of each level is a fourth of its preceding one storage requirement for mipmapping: 
+$l(1)=64^2,l(2)=32^2...$, therefore the storage requirement of each level is a fourth of its preceding one storage requirement for mipmapping: 
 
 \[\sum_{i=1}^{k\rightarrow\infty}\frac{1}{4^i}=\frac{1}{4^1}+\frac{1}{4^2}+...+\frac{1}{4^\infty}
 \]
 \[
 \begin{aligned}
-s&=1/4+1/16+1/64…\\
-4*s&=1+1/4…\\
+s&=1/4+1/16+1/64...\\
+4*s&=1+1/4...\\
 4s&=1+s\\
 3s&=1\\
 s&=1/3\\
@@ -499,19 +525,52 @@ s&=\frac{1/4}{1-1/4}=\frac{1/4}{3/4}=\frac{1}{3}
 \end{itemize}
 \section{Coding, Lighting, Shading and Rendering Pipeline}
 \subsection{Rendering Pipeline}
-%TODO
+\textit{\textbf{(7 points)} Mark all the correct statements for OpenGL 3.1. 1 point for marking true statement, -1 point for marking false statement.}
+\begin{todolist}
+	\item[\done] Depth comparison for shadow mapping is done in fragment shader.
+	\item Texture mapping of a triangle is done in geometry shader. Texture mapping of a triangle is done in fragment shader.\\
+	\textit{Texture mapping of a triangle is done in fragment shader.}
+	\item[\done] \texttt{gl\_VertexID} is a built-in output variable of vertex shader.
+	\item \texttt{gl\_CameraMatrix} is a built-in input variable of vertex shader. There is no built-in variable gl CameraMatrix.\\
+	\textit{There is no built-in variable \texttt{gl\_CameraMatrix.}}
+	\item[\done] \texttt{glGenBuffers} is called to find an unused handle for a vertex buffer object.
+	\item \texttt{glBufferData} allocates sufficient memory on the CPU for the data. \\
+	\textit{\texttt{glBufferData} allocates sufficient memory on the GPU for the data.}
+	\item[\done] Rasterizer is NOT programmable by application program.
+	\item \texttt{gl\_PrimitiveID} is a built-in input variable of vertex shader. \\
+	\textit{\texttt{gl\_PrimitiveID} is a built-in 	input variable of tessellation, geometry and fragment shader.}
+	\item[\done] Geometry shader is called after tessellation shader within the same rendering pass. 
+	\item[\done] Different stages of the rendering pipeline can run on GPU simultaneously.
+	\item[\done] Clipping is done on a primitive-by-primitive basis rather than on a vertex by-vertex basis.
+	\item[\done] In OpenGL clipping is done before perspective division.
+	\item In OpenGL clipping is done after perspective division.
+\end{todolist}
+
 
 \subsection{OpenGL syntax}
 correct order: 
 7, 2, 8, 5, 6, 4, 1, 3\\
 see \texttt{ex. 2, triangle.h}
 \subsection{Phong Lighting}
-%TODO 
- 
+\textit{The Phong Lighting Model is defined as:}
+\[I=I_ak_a+I_dk_d(N\cdot L)+I_sk_s(R\cdot V)^n\]
+\textit{where  $N$  is  the  surface  normal,  $L$  the  direction  towards  the  light,  $R$  the  reflection  of  $L$  about  $N$,  and  $V$  is  the  direction  towards  the  camera. $P$ in the sketch is the 3D position of the pixel to be shaded.}\\
+
+\textit{\textbf{(2 points)} Explain the meaning of the following constants:}
+\begin{itemize}
+	\item $k_a$: ambient color of the material
+	\item $I_d$: diffuse intensity of the light
+	\item $I_s$: specular intensity of the light
+	\item $n$: shininess of the material
+\end{itemize}
+ \textit{\textbf{(2 points)} Modify the Phong Lighting Model to consider shadows.  Assume you 
+have a boolean function \texttt{isInShadow(P)}.}
+\[I = I_ak_a + isInShadow(P)(I_d k_d (N \cdot L) + I_sk_s(R \cdot V )n)\]
+
 \subsection{Phong Shading}
 \textit{\textbf{(2 points)} Explain the difference between Gouraud and Phong shading. Which one is computationally more expensive. Why?}\\
 
-%TODO 
+Shading per vertex vs per pixel.  Phong is more expensive.  Cost:  shade per vertex + interp. a color per pixel vs.  interp. normal (and maybe light dir.) per pixel, renormalize normals,  shade per pixel.
 \subsection{Phong Lighting Shader}
 \textit{\textbf{(6 points)} Implement the fragment shader of a GLSL program that uses the Phong Lighting Model to render a mesh. You are \underline{not} allowed to define any new uniform or in variables. \textbf{Hint}: Remember to consider back-facing geometry.}\\
 
@@ -524,7 +583,22 @@ uniform vec3 Ia, Id, Is, ka, kd, ks;
 uniform float n;
 void main() {
 	color = vec3(0.0) ;
+	vec3 ambient = Ia * ka;
+	vec3 n = normalize(normal);
+	vec3 l = normalize(light_pos);
+	float lambert = dot(n,l);
+	vec3 diffuse = vec3(0.0, 0.0, 0.0);
+	vec3 specular = vec3(0.0, 0.0, 0.0);
+	if(lambert > 0.0) {
+		diffuse = Id*kd*lambert;
+		vec3 v = normalize(pos);
+		vec3 r = reflect(-l,n);
+		specular = Is*ks*pow(max(dot(r,v), 0.0), alpha);
+	}
+	color += ambient + diffuse + specular;
+}
 \end{lstlisting}
+
 \subsection{Shadow Maps}
 \textit{\textbf{(1 point)} What kind of projection do you use to generate the shadow map for a point light source? }\\
 
@@ -536,15 +610,14 @@ Tightly around the view frustum and so that points outside the view frustum that
 
 \textit{\textbf{(3 points)} For large outdoor scenes, explain what you can do to avoid shadow mapping artifacts similar to the ones in the image above. Assume that your GPU does not support textures larger than 2048 $\times$ 2048.}\\
 
-Cascade shadow maps
-%TODO explain
+Cascade shadow maps: high shadow resolution near the camera, low resolution farther away.
 \section{Procedural Modeling and Fractals}
 \subsection{Measuring the dimensions of fractals}
 \textit{\textbf{(2 points)} What is the Hausdorff dimension for fractals, how is it defined?}
 \[\begin{aligned}
 N&=r^D\\
 D&=\log(N)/\log(r)\\
-D&=\text{fractal dimension}
+D&=\text{fractal dimension}\\
 r&=\text{fractal increment}\\
 N&=\text{\# self-similar objects at smaller scale}
 \end{aligned}\]
@@ -563,14 +636,16 @@ r=4,N=(12+10*2)=32\\
 }\\
 
 \[\log(9)/\log(3)=2\]
-\textit{(2 points) Give formulas for the \underline{volume} and \underline{surface} of the above fractal as a function of the recursion level $k$. What do they converge to for $\lim k\rightarrow\infty$}
-\\
+
+\textit{\textbf{(2 points)} Give formulas for the \underline{volume} and \underline{surface} of the above fractal as a function of the recursion level $k$. What do they converge to for $\lim k\rightarrow\infty$}\\
+
 \textbf{Volume:}
 \[\begin{aligned}
 v_1&=\Big(\frac{1}{3}\Big)^{1*3}*9^1,v_2=\Big(\frac{1}{3}\Big)^{2*3}*9^2...\\
 v_i&=\Big(\frac{1}{3}\Big)^{i*3}*9^i=\Big(\frac{1}{3}\Big)^{i}
 \end{aligned}\]
-Converges to 0.
+Converges to 0.\\
+
 \textbf{Surface:}
 \[
 \begin{aligned}
@@ -581,8 +656,7 @@ s_i&=\Big(\frac{1}{3}\Big)^{i*2}*6*9^i=\Big(\frac{1}{3}\Big)^{i}=6
 \subsection{Noise Functions}
 \textit{\textbf{(1 points)} When calculating Perlin Noise, the domain is divided into a grid. What are the noise values on the corners of the grid cells?}\\
 
-0\\
-% TODO why?
+0 (look at 1d figure)\\
 
 \textit{\textbf{(1 point)} What is the advantage of Perlin Noise over value noise?}\\
 
