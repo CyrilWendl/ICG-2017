@@ -181,7 +181,7 @@ B_{3,3}&=\frac{3!}{3!(3-3)!}t^3(1-t)^{0}=t^{3}\\
 \[\begin{aligned} 
 \frac{d}{dt}b^n(t)&=\sum_{i=0}^nb_i\frac{d}{dt}B_i^n(t)\\
 \frac{d}{dt}B_i^n(t)&=n(B_{i-1}^{n-1}(t) - B_{i}^{n-1}(t))\\
-\frac{d}{dt}b^n(t)&=n\sum_{i=0}^{n-1} (b_{i+1}-b_i)B_i^{n-1}(t)\\
+\frac{d}{dt}b^n(t)&=n\sum_{i=0}^{n-1} \underbrace{(b_{i+1}-b_i)}_{\Delta b_i}B_i^{n-1}(t)\\
 \frac{d}{dt}b^3(t)&=3\sum_{i=0}^{2} (b_{i+1}-b_i)B_i^{2}(t)\\
 &=3(\Delta b_0(1-t)^2+ 2\Delta b_1 t (1-t) +\Delta b_2t^2)\\
 & \Rightarrow \text{second order}
@@ -189,7 +189,7 @@ B_{3,3}&=\frac{3!}{3!(3-3)!}t^3(1-t)^{0}=t^{3}\\
 \textit{\textbf{(3 points)} Prove the partition of unit property $\sum_{i=0}^nB_i^n(t)=1$ for $n=2$.}
 \[\begin{aligned} 
 \sum_{i=0}^2B_i^2(t)&=t^2+2t(1-t)+(1-t)^2\\
-&=t^2+2t-2t^2+1-2t+t^2\\
+&=\cancel{t^2}+\cancel{2t}-\cancel{2t^2}+1-\cancel{2t}+\cancel{t^2}\\
 &=1
 \end{aligned}\]
 
