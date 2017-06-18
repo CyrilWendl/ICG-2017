@@ -410,12 +410,12 @@ The area is preserved if the transformation matrix has a determinant of 1.
 
 \section{Textures, Rasterization and Visibility}
 \subsection{Rasterization}
-\textit{In two sentences, quickly describe the painter's algorithm}\\
+\textit{\textbf{(2 points)} In two sentences, quickly describe the painter's algorithm}\\
 
 Sort polygons from back to front, and paint in that order. that leads to overwriting some of the already
 filled parts.\\
 
-\textit{ Complete the pseudo code to implement the z-buffer algorithm.}\\
+\textit{\textbf{(2 points)} Complete the pseudo code to implement the z-buffer algorithm.}\\
 
 \begin{lstlisting}[language=C]
 // zbuffer[.,.]: R/Waccess
@@ -481,13 +481,13 @@ out vec3 color;
 
 Storing the expensive lighting calculation in textures in a preprocess. Lights are static and don’t move. because texturing is fast and much cheaper and dynamic lighting. you can even precompute global illumination.\\
 
-\textit{\textbf{(1 points)} Which of the following three spheres was rendered with displacement
+\textit{\textbf{(1 point)} Which of the following three spheres was rendered with displacement
 mapping and which one with bump mapping?}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{3-2-bump}
 \end{figure}
-\textit{\textbf{(1points) }Is the bump mapped or the displacement mapped sphere more expensive to render? Why?}\\
+\textit{\textbf{(1 point)} Is the bump mapped or the displacement mapped sphere more expensive to render? Why?}\\
 
 Displacement mapping is more expensive since it requires an adaptive tesselation
 of the surface to get enough micro-polygons to match the size of a screen pixel.\\
@@ -582,8 +582,9 @@ s&=\frac{1/4}{1-1/4}=\frac{1/4}{3/4}=\frac{1}{3}
 	\item[\done] Geometry shader is called after tessellation shader within the same rendering pass. 
 	\item[\done] Different stages of the rendering pipeline can run on GPU simultaneously.
 	\item[\done] Clipping is done on a primitive-by-primitive basis rather than on a vertex by-vertex basis.
-	\item[\done] In OpenGL clipping is done before perspective division.
-	\item In OpenGL clipping is done after perspective division.
+	\item In OpenGL clipping is done before perspective division.\\
+	\textit{After, see slide 18 in visibility}
+	\item[\done] In OpenGL clipping is done after perspective division.
 \end{todolist}
 
 \subsection{OpenGL syntax}
@@ -594,6 +595,10 @@ see \texttt{ex. 2, triangle.h}
 \textit{The Phong Lighting Model is defined as:}
 \[I=I_ak_a+I_dk_d(N\cdot L)+I_sk_s(R\cdot V)^n\]
 \textit{where  $N$  is  the  surface  normal,  $L$  the  direction  towards  the  light,  $R$  the  reflection  of  $L$  about  $N$,  and  $V$  is  the  direction  towards  the  camera. $P$ in the sketch is the 3D position of the pixel to be shaded.}\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.3\textwidth]{4-3-phong}
+\end{figure}
 
 \textit{\textbf{(2 points)} Explain the meaning of the following constants:}
 \begin{itemize}
@@ -604,7 +609,7 @@ see \texttt{ex. 2, triangle.h}
 \end{itemize}
  \textit{\textbf{(2 points)} Modify the Phong Lighting Model to consider shadows.  Assume you 
 have a boolean function \texttt{isInShadow(P)}.}
-\[I = I_ak_a + isInShadow(P)(I_d k_d (N \cdot L) + I_sk_s(R \cdot V )n)\]
+\[I = I_ak_a + isInShadow(P)(I_d k_d (N \cdot L) + I_sk_s(R \cdot V )^n)\]
 
 \subsection{Phong Shading}
 \textit{\textbf{(2 points)} Explain the difference between Gouraud and Phong shading. Which one is computationally more expensive. Why?}\\
@@ -708,7 +713,7 @@ only differ a little. \\
 
  \begin{itemize}
  	\item Spectral synthesis of noise function
- 	\item Progressively smaller frequency
+ 	\item Progressively higher frequency
  	\item Progressively smaller amplitude
  	\item Each term in the summation is called an octave
  \end{itemize}
@@ -718,7 +723,7 @@ float fbm (in vec2 st) {
 	// Initial values
 	float value = 0.0;
 	float amplitude = .5;
-	float frequency = 0.;
+	float frequency = 0.0;
 	//
 	// Loop of octaves
 	for (int i = 0; i < OCTAVES; i++) {

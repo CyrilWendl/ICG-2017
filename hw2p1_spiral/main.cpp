@@ -25,7 +25,7 @@ void Display() {
     glm::mat4 R;
     glm::mat4 S;
 
-    bool fermat=true;
+    bool fermat=false;
     if (!fermat){
         const int N_TRIANGLES = 50;
         const int N_CIRCLES = 3;
